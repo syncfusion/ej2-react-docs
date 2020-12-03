@@ -12,7 +12,7 @@ property. Now you can override the style using custom CSS classes added to the T
 
 > You can add the custom class into Tab component using [`cssClass`](../../api/toolbar/item#cssclass) property which is used to customize the Tab component.
 
-{% tab template="tab/custom-styles", isDefaultActive=true, compileJsx=true %}
+{% tab template="tab/custom-styles", sourceFiles="app/**/*.tsx,index.css", isDefaultActive=true, compileJsx=true %}
 
 ```typescript
 

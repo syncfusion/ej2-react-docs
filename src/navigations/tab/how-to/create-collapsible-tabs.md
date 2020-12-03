@@ -11,7 +11,7 @@ You can achieve collapse and expand functionality in Tab by adding/removing a cu
 * Bind the [`selected`](../../api/tab#selected) event for Tab to collapse the initially selected Tab item and bind custom click handler for the Tab headers.
 * In the event handler, add and remove 'collapse' class to hide and show the corresponding Tab content.
 
-{% tab template="tab/collapse", isDefaultActive=true, compileJsx=true %}
+{% tab template="tab/collapse", sourceFiles="app/**/*.tsx,index.css", isDefaultActive=true, compileJsx=true %}
 
 ```typescript
 import * as React from 'react';
