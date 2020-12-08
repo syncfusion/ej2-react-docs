@@ -11,6 +11,10 @@ It supports two kinds of data binding method:
 * Local data
 * Remote data
 
+To get start quickly with Data Binding, you can check on this video:
+
+`youtube:6XtJbCG8wAU`
+
 ## Local Data
 
 In Local Data binding, data source for rendering the TreeGrid control is retrieved from the same application locally.

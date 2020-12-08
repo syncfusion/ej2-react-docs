@@ -8,6 +8,10 @@ description: "Learn how to create a TreeGrid and to enable the features like pag
 
 This section explains the steps required to create a simple Essential JS 2 TreeGrid and demonstrates the basic usage of the TreeGrid control in a React application.
 
+To get start quickly with React Tree Grid, you can check on this video:
+
+`youtube:dQcIAoSgARc`
+
 ## Setup for Local Development
 
 You can use [`create-react-app`](https://github.com/facebookincubator/create-react-app) to setup the applications.
