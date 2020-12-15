@@ -74,7 +74,7 @@ npm install
 All the available Essential JS 2 packages are published in [`npmjs.com`](https://www.npmjs.com/~syncfusionorg/) public registry.
 You can choose the component that you want to install.
 
-To install Documenteditor component, use the following command
+To install Document editor component, use the following command
 
 ```sh
 npm install @syncfusion/ej2-react-documenteditor --save
@@ -132,7 +132,7 @@ export default class App extends React.Component {
 >
 > * Paste with formatting
 > * Restrict editing
-> * Spellcheck
+> * Spell check
 >
 > Refer to this [link](https://github.com/SyncfusionExamples/EJ2-DocumentEditor-WebServices) to configure the web service and set the [serviceUrl](../api/document-editor#serviceurl).
 
@@ -145,7 +145,7 @@ run the application in browser. Use the following command to run the application
 npm start
 ```
 
-Documenteditor output will be displayed as follows.
+Document editor output will be displayed as follows.
 
 {% tab template="document-editor/base" compileJsx=true %}
 
@@ -215,7 +215,7 @@ export default class App extends React.Component {
 > * Opening word documents
 > * Paste with formatting
 > * Restrict editing
-> * Spellcheck
+> * Spell check
 >
 > Refer to this [link](https://github.com/SyncfusionExamples/EJ2-DocumentEditor-WebServices) to configure the web service and set the [serviceUrl](../api/document-editor-container#serviceurl).
 

@@ -36,7 +36,7 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 ## Features
 
 * Supports context menu suggestions.
-* Provides build-in options to Ignore, Ignore All, Change, Change All for error words in spell checker        dialog.
+* Provides built-in options to Ignore, Ignore All, Change, Change All for error words in spell checker dialog.
 
 ## Spell check settings
 
