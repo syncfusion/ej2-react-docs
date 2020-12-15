@@ -367,6 +367,8 @@ class App extends React.Component<{}, {}>{
 ReactDOM.render(<App />, document.getElementById('schedule'));
 ```
 
+> Schedule Height is mandatory to set in pixels for Agenda view alone.
+
 {% endtab %}
 
 ### Month Agenda view
