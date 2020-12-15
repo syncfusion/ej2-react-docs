@@ -142,7 +142,7 @@ The height and width of swimlane header can be customized with [`width`](../api/
 
 >Note: By default the swimlane orientation has Horizontal.
 
-The following code example illustrates how to customise the swimlane header.
+The following code example illustrates how to customize the swimlane header.
 
 {% tab template= "diagram/swimlane/es5HeaderCustomize", sourceFiles="app/**/*.tsx" %}
 

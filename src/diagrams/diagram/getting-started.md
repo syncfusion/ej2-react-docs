@@ -45,7 +45,7 @@ cd quickstart
 
 ### Adding Syncfusion packages
 
-All the available Essential JS 2 packages are published in [`npmjs.com`](https://www.npmjs.com/~syncfusionorg) public registry.
+All the available Essential JS 2 packages are published in [`Node Package Manager`](https://www.npmjs.com/~syncfusionorg) public registry.
 You can choose the component that you want to install. For this application, we are going to use `Diagram` component.
 
 To install Diagram component, use the following command
@@ -64,7 +64,7 @@ Add Diagram component's styles as given below in `App.css`.
 
 ### Adding Diagram component to the Application
 
-* To include the Diagram component in application import the `DiagramComponent` from `ej2-react-diagrams` package in `App.tsx`.
+* To include the Diagram component in application import the `DiagramComponent` from `ej2-react-diagrams` package.
 
 * Then add the Diagram component as shown in below code example.
 
@@ -213,7 +213,7 @@ ReactDOM.render(
 
 ### Connect two Nodes with a Connector
 
-Add two node to the diagram as shown in the previous example. Connect these nodes by adding a connector using the `connector` property and refer the source and target end by using the `sourceNode` and `tagetNode` properties.
+Add two node to the diagram as shown in the previous example. Connect these nodes by adding a connector using the `connector` property and refer the source and target end by using the `sourceNode` and `targetNode` properties.
 
 {% tab template="diagram/getting-started/connectnode", sourceFiles="app/**/*.tsx",  isDefaultActive=true %}
 
