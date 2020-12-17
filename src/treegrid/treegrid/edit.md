@@ -10,6 +10,9 @@ The TreeGrid component has options to dynamically insert, delete and update reco
 Editing feature is enabled by using [`editSettings`](../api/treegrid/#editsettings) property and it requires a primary key column for CRUD operations.
 To define the primary key, set [`columns.isPrimaryKey`](../api/treegrid/column/#isprimarykey) to **true** in particular column.
 
+To get start quickly with CRUD functionalities, you can check on this video:
+`youtube:JX8Ay-tH-WI`
+
 To use CRUD, inject the [`Edit`](../api/treegrid/#editmodule) module in treegrid.
 
 {% tab template="treegrid/editing", sourceFiles="app/App.tsx", compileJsx=true %}
