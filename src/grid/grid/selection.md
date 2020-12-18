@@ -6,17 +6,17 @@ description: "Learn how to select rows and cells, use range selection, and use c
 
 # Selection
 
-Selection provides an option to highlight a row or cell.
+Selection provides an option to highlight a row or cell or column.
 Selection can be done through simple Mouse down or Arrow keys.
 To disable selection in the Grid, set the [`allowSelection`](../api/grid/#allowselection) to false.
 
 The grid supports two types of selection that can be set by using the
 [`selectionSettings.type`](../api/grid/selectionSettings/#type). They are:
 
-* **Single** - The **Single** is set by default. Allows you to select only a single row or cell.
-* **Multiple** - It allows you to select multiple rows or cells.
-To perform the multi-selection, press and hold CTRL key and click the desired rows or cells.
-To select range of rows or cells, press and hold the SHIFT key and click the rows or cells.
+* **Single** - The **Single** is set by default. Allows you to select only a single row or cell or column.
+* **Multiple** - It allows you to select multiple rows or cells or columns.
+To perform the multi-selection, press and hold CTRL key and click the desired rows or cells or columns.
+To select range of rows or cells or columns, press and hold the SHIFT key and click the rows or cells or columns.
 
 {% tab template="grid/selection", sourceFiles="app/App.tsx,app/datasource.tsx" %}
 
@@ -120,6 +120,40 @@ export default class App extends React.Component<{}, {}>{
 > Cell Selection requires the [`selectionSettings.mode`](../api/grid/selectionSettings/#mode) to be **Cell** or  **Both** and
 [`type`](../api/grid/selectionSettings/#type) should be **Multiple**.
 
+## Column selection
+
+Column selection can be done through simple mouse down or arrow keys.
+
+You can enable column selection by setting the [`selectionSettings.allowColumnSelection`](../api/grid/selectionSettings/#allowcolumnselection) property as true.
+
+{% tab template="grid/selection", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent, SelectionSettingsModel } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  public data: object[] = data;
+  public settings: SelectionSettingsModel = {
+    allowColumnSelection: true,
+    type: 'Multiple'
+  };
+  public render() {
+      return <GridComponent dataSource={this.data} selectionSettings={this.settings} height={315}>
+              <ColumnsDirective>
+               <ColumnDirective field='OrderID' width='120' textAlign="Right"/>
+               <ColumnDirective field='CustomerID' width='150'/>
+               <ColumnDirective field='ShipCity' width='100'/>
+               <ColumnDirective field='ShipName' width='150'/>
+              </ColumnsDirective>
+             </GridComponent>
+  }
+};
+```
+
+{% endtab %}
+
 ## Checkbox selection
 
 Checkbox selection provides an option to select multiple grid records with help of checkbox in each row.
@@ -194,7 +228,7 @@ export default class App extends React.Component<{}, {}>{
 
 ## Toggle selection
 
-The Toggle selection allows to perform selection and unselection of the particular row or cell. To enable toggle selection, set [`enableToggle`](../api/grid/selectionSettings/#enabletoggle) property of the **selectionSettings** as **true**. If you click on the selected row or cell then it will be unselected and vice versa.
+The Toggle selection allows to perform selection and unselection of the particular row or cell or column. To enable toggle selection, set [`enableToggle`](../api/grid/selectionSettings/#enabletoggle) property of the **selectionSettings** as **true**. If you click on the selected row or cell or column then it will be unselected and vice versa.
 
 {% tab template="grid/selection", sourceFiles="app/App.tsx,app/datasource.tsx" %}
 
