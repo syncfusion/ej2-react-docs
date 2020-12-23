@@ -379,3 +379,203 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 {% endtab %}
+
+## Customize rows
+
+You can customize the appearance of a row in grid side, by using the [`rowDataBound`](../api/gantt/#rowdatabound) event and in chart side by using [`queryTaskbarInfo`](../api/gantt/#querytaskbarinfo) event
+
+{% tab template="gantt/rows", compileJsx=true %}
+
+```typescript
+
+let data = [
+    {
+        TaskID: 1,
+        TaskName: 'Project Initiation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 2, TaskName: 'Identify Site location', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 50 },
+            { TaskID: 3, TaskName: 'Perform Soil test', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 70 },
+            { TaskID: 4, TaskName: 'Soil test approval', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 80 },
+        ]
+    },
+    {
+        TaskID: 5,
+        TaskName: 'Project Estimation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 6, TaskName: 'Develop floor plan for estimation', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 7, TaskName: 'List materials', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 8, TaskName: 'Estimation approval', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 70 }
+        ]
+    },
+];
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { GanttComponent } from '@syncfusion/ej2-react-gantt';
+class App extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.taskFields = {
+            id: 'TaskID',
+            name: 'TaskName',
+            startDate: 'StartDate',
+            duration: 'Duration',
+            progress: 'Progress',
+            child: 'subtasks'
+        };
+    }
+    queryTaskbarInfo(args) {
+         if (args.data['TaskID'] == 4) {
+         args.rowElement.style.background = 'cyan';
+  }
+    }
+    rowDataBound(args) {
+        if (args.data['TaskID'] == 4) {
+        args.row.style.background = 'cyan';
+  }
+    }
+    render() {
+        return <GanttComponent dataSource={data} taskFields={this.taskFields} queryTaskbarInfo={this.queryTaskbarInfo.bind(this)} rowDataBound={this.rowDataBound.bind(this)} height='450px'>
+        </GanttComponent>;
+    }
+}
+;
+ReactDOM.render(<App />, document.getElementById('root'));
+
+```
+
+{% endtab %}
+
+## Styling alternate rows
+
+ You can change the background colour of alternative rows in Gantt chart, by overriding the class as shown below.
+
+```css
+.e-altrow, tr.e-chart-row:nth-child(even)  {
+    background-color: #f2f2f2;
+}
+```
+
+{% tab template="gantt/rowSpanning", compileJsx=true %}
+
+```typescript
+
+let data = [
+    {
+        TaskID: 1,
+        TaskName: 'Project Initiation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 2, TaskName: 'Identify Site location', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 50 },
+            { TaskID: 3, TaskName: 'Perform Soil test', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 70 },
+            { TaskID: 4, TaskName: 'Soil test approval', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 80 },
+        ]
+    },
+    {
+        TaskID: 5,
+        TaskName: 'Project Estimation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 6, TaskName: 'Develop floor plan for estimation', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 7, TaskName: 'List materials', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 8, TaskName: 'Estimation approval', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 70 }
+        ]
+    },
+];
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { GanttComponent } from '@syncfusion/ej2-react-gantt';
+class App extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.taskFields = {
+            id: 'TaskID',
+            name: 'TaskName',
+            startDate: 'StartDate',
+            duration: 'Duration',
+            progress: 'Progress',
+            child: 'subtasks'
+        };
+    }
+    render() {
+        return <GanttComponent dataSource={data} taskFields={this.taskFields} height='450px'>
+        </GanttComponent>;
+    }
+}
+;
+ReactDOM.render(<App />, document.getElementById('root'));
+
+```
+
+{% endtab %}
+
+## Row spanning
+
+Gantt chart has an option to span row cells. You can achieve this using [`rowSpan`](../api/gantt/queryCellInfoEventArgs/#rowspan) attribute to span cells in the [`QueryCellInfo`](../api/gantt/queryCellInfoEventArgs) event.
+
+In the following demo, **Soil test approval** cell is spanned to two rows in the **TaskName** column.
+
+{% tab template="gantt/rows", compileJsx=true %}
+
+```typescript
+
+let data = [
+    {
+        TaskID: 1,
+        TaskName: 'Project Initiation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 2, TaskName: 'Identify Site location', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 50 },
+            { TaskID: 3, TaskName: 'Perform Soil test', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 70 },
+            { TaskID: 4, TaskName: 'Soil test approval', StartDate: new Date('04/02/2019'), Duration: 4, Progress: 80 },
+        ]
+    },
+    {
+        TaskID: 5,
+        TaskName: 'Project Estimation',
+        StartDate: new Date('04/02/2019'),
+        EndDate: new Date('04/21/2019'),
+        subtasks: [
+            { TaskID: 6, TaskName: 'Develop floor plan for estimation', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 7, TaskName: 'List materials', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 50 },
+            { TaskID: 8, TaskName: 'Estimation approval', StartDate: new Date('04/04/2019'), Duration: 3, Progress: 70 }
+        ]
+    },
+];
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { GanttComponent } from '@syncfusion/ej2-react-gantt';
+class App extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.taskFields = {
+            id: 'TaskID',
+            name: 'TaskName',
+            startDate: 'StartDate',
+            duration: 'Duration',
+            progress: 'Progress',
+            child: 'subtasks'
+        };
+    }
+    queryCellInfo(args) {
+         if (args.data['TaskID'] == 4 && args.column.field === 'TaskName') {
+        args.rowSpan = 2;
+    }
+    }
+    render() {
+        return <GanttComponent dataSource={data} taskFields={this.taskFields} queryCellInfo={this.queryCellInfo.bind(this)} height='450px'>
+        </GanttComponent>;
+    }
+}
+;
+ReactDOM.render(<App />, document.getElementById('root'));
+
+```
+
+{% endtab %}

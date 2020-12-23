@@ -523,3 +523,96 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 {% endtab %}
+
+## Get selected row indexes and records
+
+You can get the selected row indexes by using the [`getSelectedRowIndexes`](../api/gantt/#getselectedrowindexes) method. And by using [`getSelectedRecords`](../api/gantt/#getSelectedRecords) method, you can get the selected record details.
+
+{% tab template="gantt/selection", compileJsx=true%}
+
+```typescript
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { GanttComponent, Inject, Selection, SelectionSettingsModel } from '@syncfusion/ej2-react-gantt';
+import { data } from './datasource';
+class App extends React.Component<{}, {}>{
+    public taskFields: any = {
+    id: 'TaskID',
+    name: 'TaskName',
+    startDate: 'StartDate',
+    duration: 'Duration',
+    progress: 'Progress',
+    child: 'subtasks'
+  };
+  public settings: SelectionSettingsModel = {
+        mode: 'Row',
+        type: 'Multiple'
+  };
+  rowSelected(args) {
+    let selectedrowindex: number[] = this.ganttInstance.selectionModule.getSelectedRowIndexes();  // get the selected row indexes.
+    alert(selectedrowindex); // to alert the selected row indexes.
+    let selectedrecords: Object[] = this.ganttInstance.selectionModule.getSelectedRecords();  // get the selected records.
+    console.log(selectedrecords); // to print the selected records in console window.
+}
+    render() {
+        return <GanttComponent dataSource={data} allowSelection={true} taskFields={this.taskFields}
+        selectionSettings={this.settings} rowSelected={this.rowSelected.bind(this)} height = '450px' ref={gantt => this.ganttInstance = gantt>
+        <Inject services={[Selection]} />
+        </GanttComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
+## Multiple Selection based on condition
+
+You can select multiple rows based on condition by using the [`selectRows`](../api/grid/#selectrows) method.
+
+In the following code, the rows which contains `TaskId` value as 3 and 4 are selected at initial rendering.
+
+{% tab template="gantt/selection", compileJsx=true%}
+
+```typescript
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { GanttComponent, Inject, Selection, SelectionSettingsModel } from '@syncfusion/ej2-react-gantt';
+import { data } from './datasource';
+class App extends React.Component<{}, {}>{
+    public taskFields: any = {
+    id: 'TaskID',
+    name: 'TaskName',
+    startDate: 'StartDate',
+    duration: 'Duration',
+    progress: 'Progress',
+    child: 'subtasks'
+  };
+  public settings: SelectionSettingsModel = {
+        mode: 'Row',
+        type: 'Multiple'
+  };
+    dataBound(args) {
+         var rowIndexes =[];
+        this.ganttInstance.treeGrid.grid.dataSource.forEach((data,index)=>{
+            if (data.TaskID === 3 || data.TaskID === 4){
+               rowIndexes.push(index);
+           }
+           });
+    this.ganttInstance.selectRows(rowIndexes);
+    }
+    render() {
+        return <GanttComponent dataSource={data} allowSelection={true} taskFields={this.taskFields}
+        selectionSettings={this.settings} dataBound={this.dataBound.bind(this)} height = '450px' ref={gantt => this.ganttInstance = gantt}>
+        <Inject services={[Selection]} />
+        </GanttComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
+## See Also
+
+* [Touch interaction](./touch-interaction/#selection)
