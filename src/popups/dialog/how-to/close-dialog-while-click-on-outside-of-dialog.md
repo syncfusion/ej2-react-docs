@@ -38,7 +38,7 @@ class App extends React.Component<{}, {}> {
   
   public componentDidMount() {
       document.onclick = (args: any) : void => {
-          if(args.target.tagName === 'DIV') {
+          if(args.target.id === 'dialog-target') {
               this.dialogInstance.hide();
           }
       }
