@@ -19,7 +19,7 @@ The crucial step on creating a Scheduler with required views, is to import and i
 
 The required modules should be injected into the Scheduler using the `Inject` method of Schedule within the `app.ts` file as shown below. On doing so, only the injected module functionalities will be loaded and can be worked with Scheduler.
 
-`[src/app/app.tsx]`
+`[src/app.tsx]`
 
 ```tsx
 
