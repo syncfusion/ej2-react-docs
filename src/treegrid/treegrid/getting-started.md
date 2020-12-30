@@ -54,7 +54,7 @@ npm install @syncfusion/ej2-react-treegrid --save
 @import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-grids/styles/material.css";
 @import "../node_modules/@syncfusion/ej2-react-treegrid/styles/material.css";
 ```
 
