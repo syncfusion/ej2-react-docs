@@ -602,4 +602,5 @@ export default class App extends React.Component<{}, {}>{
 
 ## See also
 
-[Customizing Filter Dialog by using an additional parameter](./how-to/add-params-for-filtering)
+* [Customizing Filter Dialog by using an additional parameter](./how-to/add-params-for-filtering)
+* [Hide sorting options on Excel filter Dialog](./how-to/hide-sorting-in-excel-filter)

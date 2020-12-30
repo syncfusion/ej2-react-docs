@@ -65,3 +65,4 @@
 * [Get specific row and cell index in Grid](grid/how-to/get-row-cell-index.md)
 * [Display null date values at the bottom of the grid](grid/how-to/display-null-values-at-bottom.md)
 * [Enable editing in single click](grid/how-to/enable-editing-in-single-click.md)
+* [Hide sorting options on Excel filter Dialog](grid/how-to/hide-sorting-in-excel-filter.md)
