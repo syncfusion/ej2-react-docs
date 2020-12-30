@@ -198,6 +198,7 @@ This method is used to calculate the difference between passed UTC date and time
 Returns `number`
 
 ```tsx
+    // Assume your local timezone as IST/UTC+05:30
     let timezone: Timezone = new Timezone();
     let date: Date = new Date(2018,11,5,15,25,11);
     let timeZoneOffset: number = timezone.offset(date,"Europe/Paris");
@@ -217,6 +218,7 @@ This method is used to convert the passed date from one timezone to another time
 Returns `Date`
 
 ```tsx
+    // Assume your local timezone as IST/UTC+05:30
     let timezone: Timezone = new Timezone();
     let date: Date = new Date(2018,11,5,15,25,11);
     let convertedDate: Date = timezone.convert(date, "Europe/Paris", "Asia/Tokya");
@@ -237,6 +239,7 @@ This method is used to add the time difference between passed UTC date and timez
 Returns `Date`
 
 ```tsx
+    // Assume your local timezone as IST/UTC+05:30
     let timezone: Timezone = new Timezone();
     let date: Date = new Date(2018,11,5,15,25,11);
     let convertedDate: Date = timezone.add(date, "Europe/Paris");
@@ -255,6 +258,7 @@ This method is used to remove the time difference between passed UTC date and ti
 Returns `Date`
 
 ```tsx
+    // Assume your local timezone as IST/UTC+05:30
     let timezone: Timezone = new Timezone();
     let date: Date = new Date(2018,11,5,15,25,11);
     let convertedDate: Date = timezone.remove(date, "Europe/Paris");
@@ -272,6 +276,7 @@ This method is used to remove the local offset time from the date passed.
 Returns `Date`
 
 ```tsx
+    // Assume your local timezone as IST/UTC+05:30
     let timezone: Timezone = new Timezone();
     let date: Date = new Date(2018,11,5,15,25,11);
     let convertedDate: Date = timezone.removeLocalOffset(date);
