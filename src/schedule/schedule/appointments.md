@@ -203,6 +203,7 @@ In this example, a recurring instance that displays on the date 30th Jan 2018 an
 
  ```tsx
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import {
   ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, EventSettingsModel, Inject
 } from '@syncfusion/ej2-react-schedule';
@@ -231,6 +232,7 @@ export class App extends React.Component<{}, {}>{
     </ScheduleComponent>
   }
 };
+ReactDOM.render(<App />, document.getElementById('schedule'));
 ```
 
 {% endtab %}
@@ -956,6 +958,7 @@ import {
   ViewsDirective, ViewDirective
 } from '@syncfusion/ej2-react-schedule';
 import { scheduleData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
 
 class App extends React.Component<{}, {}> {
   private data: Object[] = extend([], scheduleData, null, true) as Object[];
