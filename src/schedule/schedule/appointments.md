@@ -509,7 +509,7 @@ Learn the advanced options of Drag and Resize actions for React Scheduler from t
 
 `youtube:DYM3kyJy7sw`
 
-> By default, drag and drop action is applicable on all Scheduler views, except Agenda and Month-Agenda view.
+> By default, drag and drop action is applicable on all Scheduler views, except Agenda, Month-Agenda and Year view.
 
 {% tab template="schedule/events", iframeHeight="588px", compileJsx=true %}
 
