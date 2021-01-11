@@ -612,7 +612,7 @@ class App extends React.Component<{}, {}>{
         return <ScheduleComponent width='100%' height='550px' selectedDate= {new Date(2018, 3, 1)} eventSettings={ { dataSource: this.data } } >
             <ViewsDirective>
                 <ViewDirective option='TimelineYear' displayName='Horizontal Timeline Year' isSelected={true}/>
-                <ViewDirective option='TimelineYear' displayName='Vertical Timeline Year' orientation= 'Vertical'/>
+                <ViewDirective option='TimelineYear' displayName='Vertical Timeline Year' orientation= 'Vertical' group={{ resources: ['Owners'] }}/>
             </ViewsDirective>
             <ResourcesDirective>
                 <ResourceDirective field='OwnerId' title='Owner' name='Owners' allowMultiple={true}
@@ -637,10 +637,8 @@ Timeline Year view supports Auto row height. When the feature `rowAutoHeight` is
 ```tsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  ScheduleComponent, Day, Week, WorkWeek, Agenda, Month, Inject,
-  ViewsDirective, ViewDirective
-} from '@syncfusion/ej2-react-schedule';
+import { ScheduleComponent, TimelineYear, Inject, ViewsDirective, ViewDirective } from '@syncfusion/ej2-react-schedule';
+import { extend } from '@syncfusion/ej2-base';
 import { scheduleData } from './datasource';
 
 class App extends React.Component<{}, {}> {
@@ -652,7 +650,7 @@ class App extends React.Component<{}, {}> {
       <ViewDirective option='TimelineYear' displayName='Horizontal Timeline Year' isSelected={true}/>
       <ViewDirective option='TimelineYear' displayName='Vertical Timeline Year' orientation= 'Vertical'/>
       </ViewsDirective>
-    <Inject services={[Day, Week, WorkWeek, Agenda, Month]} />
+    <Inject services={[TimelineYear]} />
     </ScheduleComponent>
   }
 };
