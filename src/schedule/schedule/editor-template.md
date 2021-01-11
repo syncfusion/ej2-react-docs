@@ -422,7 +422,7 @@ class App extends React.Component<{}, {}>{
         <input id="Summary" className="e-field e-input" type="text" name="Subject" style={{ width: '100%' }} />
       </td></tr>
       <tr><td className="e-textlabel">Owner</td><td colSpan={4}>
-        <MultiSelectComponent className="e-field" placeholder='Choose owner' data-name="OwnerId" dataSource={this.ownerData} fields={this.fields} value={this.checkStatus(props)} />
+        <MultiSelectComponent className="e-field" placeholder='Choose owner' data-name="OwnerId" dataSource={this.ownerData} fields={this.fields} value={props.OwnerId} />
       </td></tr>
       <tr><td className="e-textlabel">From</td><td colSpan={4}>
         <DateTimePickerComponent format='dd/MM/yy hh:mm a' id="StartTime" data-name="StartTime" value={new Date((props as any).startTime || (props as any).StartTime)} className="e-field"></DateTimePickerComponent>
@@ -434,15 +434,6 @@ class App extends React.Component<{}, {}>{
         <textarea id="Description" className="e-field e-input" name="Description" rows={3} cols={50}
           style={{ width: '100%', height: '60px !important', resize: 'vertical' }}></textarea>
       </td></tr></tbody></table> : <div></div>);
-  }
-  public checkStatus(value: any) {
-    if (!isNullOrUndefined(value.Id)) {
-      let ownerText: number[] = [0];
-      ownerText[0] = value.OwnerId;
-      return ownerText;
-    } else {
-      return [this.scheduleObj.getResourcesByIndex(value.groupIndex).resourceData.OwnerText];
-    }
   }
   render() {
     return <ScheduleComponent width='100%' height='550px' selectedDate={new Date(2018, 1, 15)} ref={schedule => this.scheduleObj = schedule}
