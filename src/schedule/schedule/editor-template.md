@@ -1028,7 +1028,7 @@ The following code example shows you how to customize the `moreEventsClick` prop
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-  ScheduleComponent, ViewsDirective, ViewDirective, Month, MoreEventsClickArgs, Inject
+  ScheduleComponent, ViewsDirective, ViewDirective, Day, Month, MoreEventsClickArgs, Inject
 } from '@syncfusion/ej2-react-schedule';
 import { extend } from '@syncfusion/ej2-base';
 import { scheduleData } from './datasource';
@@ -1044,9 +1044,10 @@ class App extends React.Component<{}, {}>{
     ref={schedule => this.scheduleObj = schedule} currentView= 'Month'
     eventSettings={ { dataSource: this.data } } moreEventsClick={this.onMoreEventsClick.bind(this)} >
               <ViewsDirective>
+                <ViewDirective option='Day' />
                 <ViewDirective option='Month' />
               </ViewsDirective>
-              <Inject services={[Month]} />
+              <Inject services={[Day, Month]} />
             </ScheduleComponent>
     }
 };

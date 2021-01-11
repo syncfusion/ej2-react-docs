@@ -164,13 +164,15 @@ import { extend } from '@syncfusion/ej2-base';
 
 class App extends React.Component<{}, {}>{
     private data: Object[] = extend([], scheduleData, null, true) as Object[];
-    private rendereComplete(): void {
-        let eventsData: { [key: string]: Object }[] = [
+    private timeZones: { [key: string]: Object }[] = [
         { Value: 'America/New_York', Text: '(UTC-05:00) Eastern Time' },
         { Value: 'UTC', Text: 'UTC' },
         { Value: 'Asia/Kolkata', Text: '(UTC+05:30) India Standard Time'}
     ];
-    eventsData.forEach((data)=> timezoneData.splice(0, timezoneData.length, data));
+
+    constructor() {
+        super(...arguments);
+        timezoneData.splice(0, timezoneData.length, ...this.timeZones);
     }
 
     render() {
