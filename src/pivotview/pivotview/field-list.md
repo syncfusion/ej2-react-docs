@@ -106,14 +106,14 @@ class App extends React.Component<{}, {}>{
   }
 
   afterPopulate(): void {
-    if (this.fieldlistObj && this.pivotObj) {
-        this.fieldlistObj.updateView(this.pivotObj);
-    }
+    this.pivotObj = document.getElementById('PivotViewFieldList').ej2_instances[0];
+    this.fieldlistObj = document.getElementById('PivotFieldList').ej2_instances[0];
+    this.fieldlistObj.updateView(this.pivotObj);
   }
   afterPivotPopulate(): void {
-      if (this.fieldlistObj && this.pivotObj) {
-          this.fieldlistObj.update(this.pivotObj);
-      }
+    this.pivotObj = document.getElementById('PivotViewFieldList').ej2_instances[0];
+    this.fieldlistObj = document.getElementById('PivotFieldList').ej2_instances[0];
+    this.fieldlistObj.update(this.pivotObj);
   }
   rendereComplete(): void {
       this.fieldlistObj.updateView(this.pivotObj);

@@ -247,23 +247,23 @@ class App extends React.Component<{}, {}>{
   }
 
   afterPopulate(): void {
-    if (this.fieldListObj && this.pivotObj) {
-        this.fieldListObj.updateView(this.pivotObj);
-    }
+    this.pivotObj = document.getElementById('PivotView').ej2_instances[0];
+    this.fieldListObj = document.getElementById('PivotFieldList').ej2_instances[0];
+    this.fieldListObj.updateView(this.pivotObj);
   }
   afterPivotPopulate(): void {
-      if (this.fieldListObj && this.pivotObj) {
-          this.fieldListObj.update(this.pivotObj);
-      }
+    this.pivotObj = document.getElementById('PivotView').ej2_instances[0];
+    this.fieldListObj = document.getElementById('PivotFieldList').ej2_instances[0];
+    this.fieldListObj.update(this.pivotObj);
   }
   rendereComplete(): void {
-      this.fieldListObj.updateView(this.pivotObj);
-      this.fieldListObj.update(this.pivotObj);
+    this.fieldListObj.updateView(this.pivotObj);
+    this.fieldListObj.update(this.pivotObj);
   }
   onLoad(): void {
     //Getting component instance.
-    this.pivotObj = document.getElementById('PivotView');
-    this.fieldListObj = document.getElementById('PivotFieldList');
+    this.pivotObj = document.getElementById('PivotView').ej2_instances[0];
+    this.fieldListObj = document.getElementById('PivotFieldList').ej2_instances[0];
     this.pivotGridModule = this.pivotObj;
     //Assigning report to pivot table component.
     this.pivotObj.dataSourceSettings = this.fieldListObj.dataSourceSettings;
