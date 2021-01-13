@@ -60,7 +60,7 @@ ReactDOM.render(<App />, document.getElementById('element'));
 
 {% endtab %}
 
-# Passing props
+## Passing props
 
 The following code example demonstrates how to use `props` when rendering other components in tab component.
 
