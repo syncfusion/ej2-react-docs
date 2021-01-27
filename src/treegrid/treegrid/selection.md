@@ -10,6 +10,10 @@ Selection provides an option to highlight a row or cell.
 Selection can be done through simple Mouse down or Arrow keys.
 To disable selection in the TreeGrid, set the [`allowSelection`](../api/treegrid/#allowselection) to **false**.
 
+To get start quickly with Selection, you can check on this video:
+
+`youtube:2pAN-4v7E4E`
+
 The treegrid supports two types of selection that can be set by using the
 [`selectionSettings.type`](../api/treegrid/selectionSettings/#type).They are:
 
