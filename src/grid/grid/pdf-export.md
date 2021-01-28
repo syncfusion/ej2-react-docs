@@ -1133,3 +1133,5 @@ export default class App extends React.Component<{}, {}> {
 }
 
 ```
+
+> **Note:** Refer to the GitHub sample for quick implementation and testing from [here](https://github.com/SyncfusionExamples/React-EJ2-Grid-server-side-exporting).
