@@ -46,18 +46,18 @@ export default class ReactApp extends React.Component<{}, {}> {
     return (
       <ToolbarComponent >
         <ItemsDirective>
-          <ItemDirective text="Cut" prefixIcon="e-cut-icon" />
-          <ItemDirective text="Copy" prefixIcon="e-copy-icon" />
+          <ItemDirective text="Cut" prefixIcon="e-cut-icon tb-icons" />
+          <ItemDirective text="Copy" prefixIcon="e-copy-icon tb-icons" />
           <ItemDirective text="Paste" prefixIcon="e-paste-icon" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="Bold" prefixIcon="e-bold-icon" />
-          <ItemDirective text="Underline" prefixIcon="e-underline-icon" />
-          <ItemDirective text="Italic" prefixIcon="e-italic-icon" />
-          <ItemDirective text="Color-Picker" prefixIcon="e-color-icon" />
+          <ItemDirective text="Bold" prefixIcon="e-bold-icon tb-icons" />
+          <ItemDirective text="Underline" prefixIcon="e-underline-icon tb-icons" />
+          <ItemDirective text="Italic" prefixIcon="e-italic-icon tb-icons" />
+          <ItemDirective text="Color-Picker" prefixIcon="e-color-icon tb-icons" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon" />
-          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon" />
-          <ItemDirective text="Clear" prefixIcon="e-clear-icon" />
+          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon tb-icons" />
+          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon tb-icons" />
+          <ItemDirective text="Clear" prefixIcon="e-clear-icon tb-icons" />
         </ItemsDirective>
       </ToolbarComponent>
     );
@@ -112,17 +112,17 @@ export default class ReactApp extends React.Component<{}, {}> {
     return (
       <ToolbarComponent width="380" overflowMode="Popup">
         <ItemsDirective>
-          <ItemDirective text="Cut" prefixIcon="e-cut-icon" overflow="Show" />
-          <ItemDirective text="Copy" prefixIcon="e-copy-icon" overflow="Show" />
+          <ItemDirective text="Cut" prefixIcon="e-cut-icon tb-icons" overflow="Show" />
+          <ItemDirective text="Copy" prefixIcon="e-copy-icon tb-icons" overflow="Show" />
           <ItemDirective text="Paste" prefixIcon="e-paste-icon" overflow="Show" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="Bold" prefixIcon="e-bold-icon" />
-          <ItemDirective text="Underline" prefixIcon="e-underline-icon" />
-          <ItemDirective text="Italic" prefixIcon="e-italic-icon" />
+          <ItemDirective text="Bold" prefixIcon="e-bold-icon tb-icons" />
+          <ItemDirective text="Underline" prefixIcon="e-underline-icon tb-icons" />
+          <ItemDirective text="Italic" prefixIcon="e-italic-icon tb-icons" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon" overflow="Show" />
-          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon" overflow="Show" />
-          <ItemDirective text="Clear" prefixIcon="e-clear-icon" />
+          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon tb-icons" overflow="Show" />
+          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon tb-icons" overflow="Show" />
+          <ItemDirective text="Clear" prefixIcon="e-clear-icon tb-icons" />
         </ItemsDirective>
       </ToolbarComponent>
     );
@@ -164,18 +164,18 @@ export default class ReactApp extends React.Component<{}, {}> {
     return (
       <ToolbarComponent width="330" overflowMode="Popup">
         <ItemsDirective>
-          <ItemDirective text="Cut" prefixIcon="e-cut-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Copy" prefixIcon="e-copy-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Paste" prefixIcon="e-paste-icon" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Cut" prefixIcon="e-cut-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Copy" prefixIcon="e-copy-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Paste" prefixIcon="e-paste-icon tb-icons" showTextOn="Overflow" overflow="Show" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="Bold" prefixIcon="e-bold-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Underline" prefixIcon="e-underline-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Italic" prefixIcon="e-italic-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Color-Picker" prefixIcon="e-color-icon" showTextOn="Overflow" overflow="Hide" />
+          <ItemDirective text="Bold" prefixIcon="e-bold-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Underline" prefixIcon="e-underline-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Italic" prefixIcon="e-italic-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Color-Picker" prefixIcon="e-color-icon tb-icons" showTextOn="Overflow" overflow="Hide" />
           <ItemDirective type="Separator" />
-          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon" showTextOn="Overflow" overflow="Show" />
-          <ItemDirective text="Clear" prefixIcon="e-clear-icon" showTextOn="Overflow" overflow="Hide" />
+          <ItemDirective text="A-Z Sort" prefixIcon="e-ascending-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Z-A Sort" prefixIcon="e-descending-icon tb-icons" showTextOn="Overflow" overflow="Show" />
+          <ItemDirective text="Clear" prefixIcon="e-clear-icon tb-icons" showTextOn="Overflow" overflow="Hide" />
         </ItemsDirective>
       </ToolbarComponent>
     );
