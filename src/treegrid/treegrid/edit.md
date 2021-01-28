@@ -418,6 +418,9 @@ The dialog template editing provides an option to customize the default behavior
 
 In some cases, you need to add the new field editors in the dialog which are not present in the column model. In that situation, the dialog template will help you to customize the default edit dialog.
 
+For quick details with dialog template, you can check on this video:
+`youtube:dOi4iNIf5M8`
+
 In the following sample, treegrid enabled with dialog template editing.
 
 {% tab template="treegrid/dialogtemplate", sourceFiles="app/App.tsx,app/template.tsx,app/orderModel.tsx", compileJsx=true %}
