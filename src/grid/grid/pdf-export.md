@@ -1043,3 +1043,93 @@ export default class App extends React.Component<{}, {}> {
 ```
 
 {% endtab %}
+
+## Exporting Grid in server
+
+The Grid have an option to export the data to PDF in server side using Grid server export library.
+
+### Server Dependencies
+
+The Server side export functionality is shipped in the Syncfusion.EJ2.GridExport package, which is available in Essential Studio and [nuget.org](https://www.nuget.org/).The following list of dependencies is required for Grid server side PDF exporting action.
+
+* Syncfusion.EJ2
+* Syncfusion.EJ2.GridExport
+
+### Server Configuration
+
+The following code snippet shows server configuration using ASP.NET Core Controller Action.
+
+To Export the Grid in server side, You need to call the
+ [`serverPdfExport`](../api/grid/#serverpdfexport) method for passing the Grid properties to server exporting action.
+
+```typescript
+
+        public ActionResult PdfExport([FromForm] string gridModel)
+        {
+            GridPdfExport exp = new GridPdfExport();
+            Grid gridProperty = ConvertGridObject(gridModel);
+            return exp.PdfExport<OrdersDetails>(gridProperty, OrdersDetails.GetAllRecords());
+        }
+
+        private Grid ConvertGridObject(string gridProperty)
+        {
+           Grid GridModel = (Grid)Newtonsoft.Json.JsonConvert.DeserializeObject(gridProperty, typeof(Grid));
+           GridColumnModel cols = (GridColumnModel)Newtonsoft.Json.JsonConvert.DeserializeObject(gridProperty, typeof(GridColumnModel));
+           GridModel.Columns = cols.columns;
+           return GridModel;
+        }
+
+        public class GridColumnModel
+        {
+            public List<GridColumn> columns { get; set; }
+        }
+        public IActionResult UrlDatasource([FromBody]DataManagerRequest dm)
+        {
+            IEnumerable DataSource = OrdersDetails.GetAllRecords();
+            DataOperations operation = new DataOperations();
+            int count = DataSource.Cast<OrdersDetails>().Count();
+            return dm.RequiresCounts ? Json(new { result = DataSource, count = count }) : Json(DataSource);
+        }
+
+
+```
+
+```typescript
+import { ClickEventArgs } from '@syncfusion/ej2-navigations';
+import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
+import { ColumnDirective, ColumnsDirective, GridComponent, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import { Grid, Inject, Toolbar } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+
+export default class App extends React.Component<{}, {}> {
+  public grid: Grid | null;
+  public dataManager: DataManager = new DataManager({
+    adaptor: new UrlAdaptor(),
+    url: "Home/UrlDatasource"
+  });
+  public toolbar: ToolbarItems[] = ['PdfExport'];
+  public toolbarClick = (args: ClickEventArgs) => {
+    if (this.grid && args.item.id === 'grid_pdfexport') {
+        this.grid.serverPdfExport('Home/PdfExport');
+    }
+  }
+  public render() {
+    this.toolbarClick = this.toolbarClick.bind(this);
+    return (
+      <div>
+        <GridComponent id='grid' dataSource={this.dataManager} height={270} toolbar={this.toolbar} toolbarClick={this.toolbarClick} ref={g=> this.grid = g}>
+        <ColumnsDirective>
+            <ColumnDirective field='OrderID' headerText='Order ID' width='120' textAlign='Right'/>
+            <ColumnDirective field='CustomerID' headerText='Customer ID' width='150' />
+            <ColumnDirective field='Freight' format="C2" width='100' textAlign='Right'/>
+            <ColumnDirective field='ShipCity' headerText='Ship City' width='150'/>
+            <ColumnDirective field='ShipName' headerText='Ship Name' width='150' />
+        </ColumnsDirective>
+        <Inject services={[Toolbar]}/>
+      </GridComponent>
+    </div>
+    );
+  }
+}
+
+```
