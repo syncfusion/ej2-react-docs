@@ -25,6 +25,8 @@ In Kanban, total count and min or max count text alone will be localized based o
 | cancel | Cancel |
 | yes | Yes |
 | no | No |
+| close | Close |
+| noCard | No cards to display |
 
 ## Loading translations
 
@@ -56,7 +58,9 @@ L10n.load({
             'delete': 'Löschen',
             'cancel': 'Stornieren',
             'yes': 'Ja',
-            'no': 'Nein'
+            'no': 'Nein',
+            'close': 'Schließen',
+            'noCard': 'Keine Karten zum Anzeigen'
         }
     }
 });
@@ -110,7 +114,9 @@ L10n.load({
             'delete': 'حذف',
             'cancel': 'إلغاء',
             'yes': 'نعم',
-            'no': 'لا'
+            'no': 'لا',
+            'close': 'قريب',
+            'noCard': 'لا توجد بطاقات لعرضها'
         }
     }
 });
