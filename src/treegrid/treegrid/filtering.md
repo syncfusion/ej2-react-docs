@@ -10,6 +10,9 @@ Filtering allows you to view specific or related records based on filter criteri
 
 To use filter, inject the **Filter** module in the treegrid.
 
+To get start quickly with filtering functionalities, you can check on this video:
+`youtube:_kxndJOgtuw`
+
 {% tab template="treegrid/filtering", sourceFiles="app/App.tsx", compileJsx=true %}
 
 ```typescript
