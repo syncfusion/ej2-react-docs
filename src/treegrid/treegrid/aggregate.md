@@ -12,6 +12,9 @@ To use the aggregate feature, you have to inject the **Aggregate** module.
 
 By default, the aggregate value can be displayed in the treegrid footer, and footer of child rows. To show the aggregate value in one of the cells, use the [`footerTemplate`](../api/treegrid/aggregateColumnModel/#footertemplate).
 
+To get start quickly with aggregates functionalities, you can check on this video:
+`youtube:4Fs8mKL3DCg`
+
 ## Built-in aggregate types
 
 The aggregate type should be specified in the [`type`](../api/treegrid/aggregateColumnModel/#type) property to configure an aggregate column.
