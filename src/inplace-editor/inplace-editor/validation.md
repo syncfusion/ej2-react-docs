@@ -50,7 +50,7 @@ class App extends React.Component {
     this.validationRules = { Number: { maxLength: 5 } };
   }
   
-  render() {
+  public render() {
     return (
       <div id="container">
         <table className="table-section">
