@@ -23,7 +23,7 @@
 * [Hyperlink](pivotview/hyper-link.md)
 * [Toolbar](pivotview/tool-bar.md)
 * [Tooltip](pivotview/tool-tip.md)
-* [CSS Customization](pivotview/css-customization.md)
+* [Style and Appearance](pivotview/css-customization.md)
 * [Globalization](pivotview/globalization-and-localization.md)
 * [Excel Exporting](pivotview/excel-export.md)
 * [PDF Exporting](pivotview/pdf-export.md)
