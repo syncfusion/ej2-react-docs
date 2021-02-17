@@ -11,6 +11,9 @@ The excel export allows exporting TreeGrid data to Excel document. You need to u
 
 To use excel export, You need to inject the **ExcelExport** module in treegrid.
 
+To get start quickly with exporting functionalities, you can check on this video:
+`youtube:Rz24Nk4eSEY`
+
 {% tab template="treegrid/excel-export", sourceFiles="app/App.tsx", compileJsx=true %}
 
 ```typescript

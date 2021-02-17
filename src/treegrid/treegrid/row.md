@@ -8,6 +8,9 @@ description: "Documentation for row customizations in TreeGrid."
 
 The row represents record details fetched from data source.
 
+To get start quickly with features in Row, you can check on this video:
+`youtube:mHo_WLeNtWI`
+
 ## Customize Rows
 
 You can customize the appearance of a row by using the [`rowDataBound`](../api/treegrid/#rowdatabound) event.

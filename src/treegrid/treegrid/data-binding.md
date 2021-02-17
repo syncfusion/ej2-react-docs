@@ -170,6 +170,118 @@ export default class App extends React.Component<{}, {}>{
 > Based on the RESTful web services, set the corresponding adaptor to DataManager. Refer [`here`](https://ej2.syncfusion.com/documentation/data/adaptors/?no-cache=1) for more details.
 > Filtering and searching server-side data operations are not supported in load on demand
 
+### LoadChildOnDemand
+
+While binding remote data to Tree Grid component, by default Tree Grid renders parent rows in collapsed state. Tree Grid provides option to load the child records also during the initial rendering itself for remote data binding by setting [`loadChildOnDemand`](https://ej2.syncfusion.com/react/documentation/api/treegrid/#loadchildondemand) as true.
+
+When [`loadChildOnDemand`](https://ej2.syncfusion.com/react/documentation/api/treegrid/#loadchildondemand) is enabled parent records are rendered in expanded state.
+
+The following code example describes the behavior of the loadChildOnDemand feature of Tree Grid.
+
+```typescript
+
+import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
+import { ColumnDirective, ColumnsDirective, Inject, TreeGridComponent } from '@syncfusion/ej2-react-treegrid';
+import * as React from 'react';
+import './App.css';
+
+export default class App extends React.Component<{}, {}>{
+
+    public dataManager: DataManager = new DataManager({
+        adaptor: new UrlAdaptor,
+        insertUrl: "Home/Insert",
+        removeUrl: "Home/Delete",
+        updateUrl: "Home/Update",
+        batchUrl: "Home/Remove",
+        url: "Home/DataSource",
+    });
+
+    public render() {
+        return <TreeGridComponent dataSource={this.dataManager} treeColumnIndex={1} idMapping= 'TaskID'
+        parentIdMapping='parentID' loadChildOnDemand='true' height='270' allowPaging='true'>
+            <ColumnsDirective>
+              <ColumnDirective field='TaskID' headerText='Task ID' width='90' textAlign='Right'/>
+              <ColumnDirective field='TaskName' headerText='Task Name' width='180'/>
+              <ColumnDirective field='StartDate' headerText='Start Date' width='90' textAlign='Right' format='yMd' type='date' />
+              <ColumnDirective field='EndDate' headerText='End Date' width='90' format='yMd' textAlign='Right' />
+              <ColumnDirective field='Priority' headerText='Priority' width='110'/>
+            </ColumnsDirective>
+        </TreeGridComponent>
+    }
+}
+
+```
+
+>Also while using **loadChildOnDemand** we need to handle the child records on server end and it is applicable to CRUD operations also.
+
+The following code example describes handling of child records at server end.
+
+```typescript
+
+public ActionResult UrlDatasource(DataManagerRequest dm)
+{
+    if (TreeData.tree.Count == 0)
+          TreeData.GetTree();
+    IEnumerable DataSource = TreeData.tree;
+
+    DataOperations operation = new DataOperations();
+    if (dm.Where != null && dm.Where.Count > 0)
+    {
+        DataSource = operation.PerformFiltering(DataSource, dm.Where, "and");    //perform filtering
+    }
+    if (dm.Sorted != null && dm.Sorted.Count > 0)
+    {
+        DataSource = operation.PerformSorting(DataSource, dm.Sorted);  //perform sorting
+    }
+    var count = DataSource.ToList<TreeData>().Count();
+    if (dm.Skip != 0)
+    {
+        DataSource = operation.PerformSkip(DataSource, dm.Skip);   //Paging
+    }
+    if (dm.Take != 0)
+    {
+        DataSource = operation.PerformTake(DataSource, dm.Take);
+    }
+    if (dm.Where != null)
+    {
+        DataSource = CollectChildRecords(DataSource, dm);  // method to collect child records
+    }
+
+    return dm.RequiresCounts ? Json(new { result = DataSource, count = count }) : Json(DataSource);
+}
+
+ public IEnumerable CollectChildRecords(IEnumerable datasource, DataManagerRequest dm)
+ {
+     DataOperations operation = new DataOperations();
+     IEnumerable DataSource = TreeData.tree;   // use the total DataSource here
+     string IdMapping = "TaskID";     // define your IdMapping field name here
+     int[] TaskIds = new int[0];
+     foreach (var rec in datasource)
+     {
+        int taskid = (int)rec.GetType().GetProperty(IdMapping).GetValue(rec);
+        TaskIds = TaskIds.Concat(new int[] { taskid }).ToArray();  //get the Parentrecord Ids based on IdMapping Field
+     }
+    IEnumerable ChildRecords = null;
+     foreach (int id in TaskIds)
+     {
+        dm.Where[0].value = id;
+        IEnumerable records = operation.PerformFiltering(DataSource, dm.Where, dm.Where[0].Operator);   //perform filtering to collect the childrecords based on Ids
+        ChildRecords = ChildRecords == null || (ChildRecords.AsQueryable().Count() == 0) ? records : ((IEnumerable<object>)ChildRecords).Concat((IEnumerable<object>)records);  //concate the childrecords with dataSource
+     }
+     if (ChildRecords != null)
+     {
+        ChildRecords = CollectChildRecords(ChildRecords, dm);  // repeat the operation for inner level child
+        if (dm.Sorted != null && dm.Sorted.Count > 0) // perform Sorting
+        {
+            ChildRecords = operation.PerformSorting(ChildRecords, dm.Sorted);
+        }
+        datasource = ((IEnumerable<object>)datasource).Concat((IEnumerable<object>)ChildRecords);  //concate the childrecords with dataSource
+     }
+    return datasource;
+ }
+
+```
+
 ### Offline Mode
 
 On remote data binding, all treegrid actions such as paging, loading child on-demand, will be processed on server-side. To avoid postback, set the treegrid to load all data on initialization and make the actions process in client-side. To enable this behavior, use the **offline** property of **DataManager**.

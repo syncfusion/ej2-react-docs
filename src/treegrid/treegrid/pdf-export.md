@@ -6,8 +6,10 @@ description: "Documentation on exporting TreeGrid content to PDF format and cust
 
 # PDF Export
 
-PDF export allows exporting TreeGrid data to PDF document. You need to use the
- [`pdfExport`](../api/treegrid/#pdfexport) method for exporting. To enable PDF export in the treegrid, set the [`allowPdfExport`](../api/treegrid/#allowpdfexport) as **true**.
+PDF export allows exporting TreeGrid data to PDF document. You need to use the [`pdfExport`](../api/treegrid/#pdfexport) method for exporting. To enable PDF export in the treegrid, set the [`allowPdfExport`](../api/treegrid/#allowpdfexport) as **true**.
+
+To get start quickly with exporting functionalities, you can check on this video:
+`youtube:Rz24Nk4eSEY`
 
 {% tab template="treegrid/pdfexport", sourceFiles="app/App.tsx", compileJsx=true %}
 
