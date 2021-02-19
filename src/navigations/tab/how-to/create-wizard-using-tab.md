@@ -153,7 +153,9 @@ export class App extends React.Component<{}, {}> {
             this.filterTrains(e);
             this.tab.select(1);
             (document.getElementById("err1") as HTMLElement).innerText = "";
-            (document.getElementById("err2") as HTMLElement).innerText = "";
+            if (document.getElementById("err2")) {
+              (document.getElementById("err2") as HTMLElement).innerText = "";
+            }
           }
         } else {
           (document.getElementById("err1") as HTMLElement).innerText =
@@ -282,13 +284,13 @@ export class App extends React.Component<{}, {}> {
         }
       }
       const displayAmt: any = document.getElementById("amount");
-      if (this.ticketType.value === "Economy Class") {
+      if (this.ticketType.value === "Economy Class" && displayAmt) {
         displayAmt.innerText =
           "Total payable amount: $" + passCount * (300 + calcFare);
-      } else if (this.ticketType.value === "Business Class") {
+      } else if (this.ticketType.value === "Business Class" && displayAmt) {
         displayAmt.innerText =
           "Total payable amount: $" + passCount * (500 + calcFare);
-      } else if (this.ticketType.value === "Common Class") {
+      } else if (this.ticketType.value === "Common Class" && displayAmt) {
         displayAmt.innerText =
           "Total payable amount: $" + passCount * (150 + calcFare);
       }
