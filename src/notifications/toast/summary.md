@@ -4,7 +4,7 @@
 * [Action Buttons](toast/action-buttons.md)
 * [TimeOut](toast/timeout.md)
 * [Template](toast/template.md)
-* [CSS Structure](toast/style.md)
+* [Style and appearance](toast/style.md)
 * [Animation](toast/animation.md)
 * [Accessibility](toast/accessibility.md)
 * [Prevent displaying duplicate Toast](toast/how-to/prevent-duplicate-toast-display.md)
