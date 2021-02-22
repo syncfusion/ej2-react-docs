@@ -5,7 +5,7 @@
 * [Localization](dialog/localization.md)
 * [Accessibility](dialog/accessibility.md)
 * [Dialog utility](dialog/render-a-dialog-using-utility-functions.md)
-* [CSS Structure](dialog/style.md)
+* [Style and appearance](dialog/style.md)
 * [Create nested Dialog](dialog/how-to/create-nested-dialog.md)
 * [Position the Dialog in center of the page on scrolling](dialog/how-to/position-the-dialog-on-center-of-the-page-on-scrolling.md)
 * [Load Dialog content using AJAX](dialog/how-to/load-dialog-content-using-ajax.md)
