@@ -593,7 +593,7 @@ import { extend } from '@syncfusion/ej2-base';
 
 class App extends React.Component<{}, {}>{
     private onDragStart(args: DragEventArgs): void {
-      args.excludeSelectors = 'e-header-cells';
+      args.excludeSelectors = 'e-header-cells,e-header-day,e-header-date,e-all-day-cells';
     }
     private data: Object[] = extend([], scheduleData, null, true) as Object[];
     private eventSettings: EventSettingsModel = { dataSource: this.data };
@@ -840,7 +840,7 @@ export class App extends React.Component<{}, {}>{
             IsAllDay: cellData.isAllDay,
             Description: filteredData[0].Description
           };
-          this.scheduleObj.openEditor(eventData, 'Add', true);
+          this.scheduleObj.addEvent(eventData);
           this.isTreeItemDropped = true;
           this.draggedItemId = event.draggedNodeData.id as string;
         }
