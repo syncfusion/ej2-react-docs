@@ -448,6 +448,9 @@ The following screenshot represents the column resizing in touch device.
 
 The column [`template`](../api/treegrid/column/#template) has options to display custom element instead of a field value in the column.
 
+You can check this video to learn about how to use templates for column(based on conditions) and headers in Tree Grid.
+`youtube:o0rX1nkTINo`
+
 {% tab template="treegrid/column", sourceFiles="app/App.tsx", compileJsx=true %}
 
 ```typescript
