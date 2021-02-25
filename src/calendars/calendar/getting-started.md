@@ -8,6 +8,10 @@ description: "This getting started section briefly explains how to create a cale
 
 This section explains you the steps required to create a simple Calendar and demonstrate the basic usage of the Calendar component.
 
+To get start quickly with React Calendars, you can check on this video:
+
+`youtube:v=wgqX295fGkY`
+
 ## Dependencies
 
 The below list of dependencies are required to use the `Calendar` component in your application.
