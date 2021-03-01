@@ -15,7 +15,6 @@ The resizable dialog can be created by setting the [enableResize](../api/dialog/
 ```javascript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {  
   public buttons: any = [{

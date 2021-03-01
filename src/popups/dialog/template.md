@@ -30,7 +30,6 @@ The below example demonstrates the usage of header and footer template in the Di
 
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public dialogInstance: DialogComponent;

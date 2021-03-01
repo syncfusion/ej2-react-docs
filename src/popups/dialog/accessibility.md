@@ -66,7 +66,6 @@ to last focusable element</td></tr>
 ```javascript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public dialogInstance: DialogComponent;

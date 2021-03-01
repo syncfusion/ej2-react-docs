@@ -35,7 +35,6 @@ An alert dialog box is used to display warning like messages to the users. Use t
 ```typescript
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public buttonClick(): void {
@@ -59,7 +58,6 @@ export default App;
 ```typescript
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public buttonClick(): void {
@@ -95,7 +93,6 @@ A confirm dialog displays a specified message along with ‘OK’ and ‘Cancel�
 ```typescript
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public buttonClick(): void {
@@ -120,7 +117,6 @@ export default App;
 ```typescript
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public buttonClick(): void {
@@ -170,7 +166,6 @@ Below sample demonstrates the different ways of hiding the utility dialog.
 ```typescript
 import { DialogUtility } from '@syncfusion/ej2-popups';
 import * as React from "react";
-import './App.css';
 
 const DialogObj;
 

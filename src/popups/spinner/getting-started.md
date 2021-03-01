@@ -28,7 +28,7 @@ import { showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
 
 The Spinner can be render globally in a page using public exported functions of the `ej2-popups` package.
 
-{% tab template="spinner/intro",  compileJsx=true, isDefaultActive=true %}
+{% tab template="spinner/intro", sourceFiles="app/App.tsx",  compileJsx=true, isDefaultActive=true %}
 
 ```typescript
 

@@ -24,7 +24,7 @@ setSpinner({ type: 'Bootstrap'});
 
 > After Essential JS 2 component creation only, you can change the Essential JS 2 component spinner type.
 
-{% tab template="spinner/default-sample",  compileJsx=true, isDefaultActive=true %}
+{% tab template="spinner/default-sample", sourceFiles="app/App.tsx",  compileJsx=true, isDefaultActive=true %}
 
 ```typescript
 

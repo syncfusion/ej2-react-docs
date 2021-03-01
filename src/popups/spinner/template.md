@@ -32,7 +32,7 @@ setSpinner({ template: '<div style="width:100%;height:100%" class="custom-rollin
 > In the below sample, we have rendered the Grid component with custom Spinner using `setSpinner` method.
 > You have to define the styles for the template in `index.html`.
 
-{% tab template="spinner/set-spinner",  compileJsx=true, isDefaultActive=true %}
+{% tab template="spinner/set-spinner", sourceFiles="app/App.tsx",  compileJsx=true, isDefaultActive=true %}
 
 ```typescript
 

@@ -79,7 +79,6 @@ file using following code.
 ```typescript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {
 constructor(props: {}) {
@@ -137,7 +136,6 @@ The below example shows the Dialog.
 ```javascript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {
   public dialogInstance: DialogComponent;
@@ -199,7 +197,6 @@ will be enabled again once close the Dialog.
 
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {
   public dialogInstance: DialogComponent;
@@ -249,7 +246,6 @@ The Dialog header can be enabled by adding the header content as text or HTML co
 ```javascript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public render() {
@@ -283,7 +279,6 @@ The below sample render with button and its click event.
 
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {  
   public buttons: any = [{
@@ -350,7 +345,6 @@ From `16.2.x` version, enabled draggable support for modal dialog also.
 ```javascript
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {  
   public buttons: any = [{
@@ -422,7 +416,6 @@ The below sample demonstrates the different Dialog positions.
 import { RadioButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {hideDialog: boolean;}> {  
   public defaultDialogInstance: DialogComponent;
