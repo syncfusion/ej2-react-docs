@@ -14,7 +14,6 @@ You can include action Buttons into toast by adding [`buttons`](../../api/toast#
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance: ToastComponent;

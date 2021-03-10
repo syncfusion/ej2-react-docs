@@ -24,7 +24,6 @@ The [`extendedTimeOut`](../../api/toast#extendedtimeout) property is used to dec
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance: ToastComponent;
@@ -76,7 +75,6 @@ You can prevent auto-hiding of toast by set timeOut value of timeOut property as
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance: ToastComponent;

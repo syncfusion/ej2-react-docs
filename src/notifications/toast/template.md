@@ -29,7 +29,6 @@ import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 // import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {position: any, target: any, width: any}> {
   public toastInstance: ToastComponent;

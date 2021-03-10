@@ -82,12 +82,11 @@ The Toast message can be rendered by defining an `title` or `content`.
 
 * Import the Toast component to your `src/App.tsx` file using following code.
 
-{% compileJsx=true %}
+{% tab compileJsx=true %}
 
 ```typescript
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance:ToastComponent;
@@ -122,7 +121,6 @@ Output will be as follows:
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
 import * as ReactDOM from 'react-dom';
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance:ToastComponent;
@@ -152,7 +150,6 @@ By default toast can be rendered in document body, we can change the target posi
 ```typescript
 import { ToastComponent  } from '@syncfusion/ej2-react-notifications';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component<{}, {}> {
   public toastInstance: ToastComponent;
