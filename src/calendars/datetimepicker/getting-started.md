@@ -10,7 +10,7 @@ This section explains you the steps required to create a simple DateTimePicker a
 
 To get start quickly with React DateTime Picker, you can check on this video:
 
-`youtube:v=osAIu-1ag-Q`
+`youtube:osAIu-1ag-Q`
 
 ## Dependencies
 
