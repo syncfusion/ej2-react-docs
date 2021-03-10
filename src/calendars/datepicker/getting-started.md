@@ -8,6 +8,10 @@ description: "This getting started section briefly explains how to create a date
 
 This section explains you the steps required to create a simple DatePicker and demonstrate the basic usage of the DatePicker component.
 
+To get start quickly with React Date Picker, you can check on this video:
+
+`youtube:B7LvXEwgTyw`
+
 ## Dependencies
 
 The below list of dependencies are required to use the `DatePicker` component in your application.
