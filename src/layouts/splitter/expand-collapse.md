@@ -17,7 +17,6 @@ The following code shows how to enable collapsible behavior.
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public firstPaneContent(): JSX.Element {
@@ -67,7 +66,6 @@ The Splitter provides an option to control the expand and collapse behavior prog
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public splitterInstance: SplitterComponent;
@@ -107,7 +105,6 @@ You can render specific panes with collapsed state on page load. Specify a Boole
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public firstPaneContent(): JSX.Element {

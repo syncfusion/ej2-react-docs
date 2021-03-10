@@ -17,7 +17,6 @@ By default, splitter will render in horizontal orientation. Splitter container w
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {
@@ -76,7 +75,6 @@ By setting [orientation](../api/splitter/#orientation) property as `Vertical`, s
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {
@@ -135,7 +133,6 @@ You can render the multiple panes with both `Horizontal` and `Vertical` orientat
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public pane1Content(): JSX.Element {
@@ -208,7 +205,6 @@ By default, pane separator will be render with `1px` width/height. You can custo
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {
@@ -269,7 +265,6 @@ Splitter provides support to render the nested pane to achieve the complex layou
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   private innerSplitterInstance: any;
@@ -370,7 +365,6 @@ You can add the panes dynamically in the splitter by passing
 ```typescript
 import { PaneDirective, PanePropertiesModel, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public splitterInstance: SplitterComponent;
@@ -429,7 +423,6 @@ You can remove the split panes dynamically by passing the pane index to [removeP
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public splitterInstance: SplitterComponent;

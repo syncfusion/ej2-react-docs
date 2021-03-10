@@ -18,7 +18,6 @@ Create the element with two child to render the outer splitter and create the in
 import { Splitter } from '@syncfusion/ej2-layouts';
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public splitterInstance: Splitter;
@@ -109,7 +108,6 @@ import { ListViewComponent } from '@syncfusion/ej2-react-lists';
 import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar, } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component <{}, {}, any> {
   public splitterInstance: SplitterComponent;

@@ -18,7 +18,6 @@ using [content](../api/splitter/panePropertiesModel/#content) template property.
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public firstPaneContent(): JSX.Element {
@@ -74,7 +73,6 @@ You can add the plain text as a pane contents using either inner HTML or [conten
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {
@@ -104,7 +102,6 @@ Splitter is a layout based container control. You can render the pane contents f
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {
@@ -135,7 +132,6 @@ The following code demonstrates how to fetch an element from the document and lo
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {

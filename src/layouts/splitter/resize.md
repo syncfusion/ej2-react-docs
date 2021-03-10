@@ -22,7 +22,6 @@ Splitter allows you to set the minimum and maximum sizes for each pane. Resizing
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {
@@ -83,7 +82,6 @@ the [resizable](../api/splitter/panePropertiesModel/#resizable) property within 
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {
@@ -147,7 +145,6 @@ You can customize the resize gripper icon and cursor in CSS level.
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(): JSX.Element {

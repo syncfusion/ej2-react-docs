@@ -15,7 +15,6 @@ Splitter allows you to provide pane sizes either in pixel or percentage formats.
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {
@@ -42,7 +41,6 @@ export default App;
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {
@@ -71,7 +69,6 @@ You can render the split panes without providing the size values. It will split 
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public leftContent(data: any): JSX.Element {

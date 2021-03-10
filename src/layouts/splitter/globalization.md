@@ -17,7 +17,6 @@ The following code shows how to enable RTL behavior.
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public render() {

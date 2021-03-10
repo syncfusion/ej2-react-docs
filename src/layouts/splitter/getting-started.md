@@ -82,7 +82,6 @@ Please refer the below code snippet,
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public render() {
@@ -120,7 +119,6 @@ Output will be as follows:
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public render() {
@@ -152,7 +150,6 @@ Splitter supports both `Horizontal` and `Vertical` orientation for the panes. By
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
   public render() {
@@ -185,7 +182,6 @@ For detailed information, refer to the [Pane Content](./pane-content/) section
 ```typescript
 import { PaneDirective, PanesDirective, SplitterComponent } from '@syncfusion/ej2-react-layouts';
 import * as React from "react";
-import './App.css';
 
 class App extends React.Component {
 public firstPane() {
