@@ -117,6 +117,45 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
+### Different options in showing week numbers
+
+By default, week numbers are shown in the Scheduler based on the first day of the year. However, the week numbers can be determined based on the following criteria.
+
+`FirstDay` – The first week of the year is calculated based on the first day of the year.
+
+`FirstFourDayWeek` – The first week of the year begins from the first week with four or more days.
+
+`FirstFullWeek` – The first week of the year begins when meeting the first day of the week (firstDayOfWeek) and the first day of the year.
+
+For more details refer to [this link](https://docs.microsoft.com/en-us/dotnet/api/system.globalization.calendarweekrule?view=net-5.0#remarks)
+
+{% tab template="schedule/local-data", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {
+  ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject,
+  } from '@syncfusion/ej2-react-schedule';
+import { scheduleData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+    private data: Object[] = extend([], scheduleData, null, true) as Object[];
+    render() {
+        return <ScheduleComponent  width= '100%' height='550px' selectedDate= {new Date(2020, 1, 15)} eventSettings= { { dataSource: this.data } } showWeekNumber= { true }
+        workDays= {[1, 3, 4, 5]} weekRule = 'FirstFourDayWeek'>
+    <Inject services={[Day, Week, Month]} />
+    </ScheduleComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
+
+**Note**: Enable the `showWeekNumber` property to configure the `weekRule` property. Also, the weekRule property depends on the value of the `firstDayOfWeek` property
+
 ## Set working hours
 
 Working hours indicates the work hour limit within the Scheduler, which is visually highlighted with an active color on work cells. The working hours can be set on Scheduler using the `workHours` property which is of object type and includes the following sub-options,
