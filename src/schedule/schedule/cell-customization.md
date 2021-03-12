@@ -66,7 +66,7 @@ class App extends React.Component<{}, {}>{
     let eventField: EventFieldsMapping = this.scheduleObj.eventFields;
     let startDate: Date = eventData[eventField.startTime] as Date;
     let endDate: Date = eventData[eventField.endTime] as Date;
-    args.cancel = !scheduleObj.isSlotAvailable(startDate, endDate);
+    args.cancel = !this.scheduleObj.isSlotAvailable(startDate, endDate);
     }
   }
   render() {
@@ -231,6 +231,7 @@ import {
   ScheduleComponent, Day, Week, WorkWeek, Agenda, Month, Inject,
   ViewsDirective, ViewDirective
 } from '@syncfusion/ej2-react-schedule';
+import { extend } from '@syncfusion/ej2-base';
 import { scheduleData } from './datasource';
 
 class App extends React.Component<{}, {}> {
