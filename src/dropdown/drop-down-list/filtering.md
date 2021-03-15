@@ -238,7 +238,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 export default class App extends React.Component<{}, {}> {
-    private countriesData: string[] = [
+    private diacriticsData: string[] = [
     'Aeróbics',
     'Aeróbics en Agua',
     'Aerografía',
