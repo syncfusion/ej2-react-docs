@@ -49,8 +49,10 @@ The file manager can be localized to any culture by defining the texts and messa
 |Modified|Modified|
 |Location|Location|
 |Type|Type|
+|Permission|Permission|
 |Ascending|Ascending|
 |Descending|Descending|
+|None|None|
 |View-LargeIcons|Large icons|
 |View-Details|Details|
 |Search|Search|
@@ -70,6 +72,8 @@ The file manager can be localized to any culture by defining the texts and messa
 |Content-Delete|Are you sure you want to delete this file?|
 |Header-Multiple-Delete|Delete Multiple Files|
 |Content-Multiple-Delete|Are you sure you want to delete these {0} files?|
+|Header-Folder-Delete|Delete Folder|
+|Content-Folder-Delete|Are you sure you want to delete this folder?|
 |Header-Duplicate|File exists|
 |Content-Duplicate| already exists. Are you sure you want to replace it?|
 |Header-Upload|Upload Files|
@@ -82,6 +86,8 @@ The file manager can be localized to any culture by defining the texts and messa
 |File-Upload|Drag files here to upload|
 |Search-Empty|No results found|
 |Search-Key|Try with different keywords|
+|Filter-Empty|No results found|
+|Filter-Key|Try with different filter|
 |Sub-Folder-Error|The destination folder is the subfolder of the source folder|
 |Access-Denied|Access Denied|
 |Access-Details|You don't have permission to access this folder|
@@ -91,6 +97,10 @@ The file manager can be localized to any culture by defining the texts and messa
 |Button-Replace|Replace|
 |Button-Skip|Skip|
 |ApplyAll-Label|Do this for all current items|
+|KB|KB|
+|Access-Message|{0} is not accessible. You need permission to perform the {1} action.|
+|Network-Error|Network Error: Failed to send on XMLHTTPRequest: Failed to load|
+|Server-Error|Server Error: Invalid response from|
 
 The below example shows adding the German culture locale(`de-DE`)
 
