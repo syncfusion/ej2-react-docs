@@ -221,6 +221,30 @@ ReactDOM.render(
 
 {% endtab %}
 
+## Orientation
+
+By default, the linear gauge is rendered vertically. To change its orientation, [`orientation`](../api/linear-gauge/linearGaugeModel/#orientation) property must be set to **"Horizontal"**
+
+% tab template="linear-gauge/axis", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { LinearGaugeComponent, AxesDirective, AxisDirective } from '@syncfusion/ej2-react-lineargauge';
+
+ReactDOM.render(
+    <LinearGaugeComponent id='gauge' orientation='Horizontal'>
+        <AxesDirective>
+            <AxisDirective minimum={20} maximum={140}>
+            </AxisDirective>
+        </AxesDirective>
+    </LinearGaugeComponent>,document.getElementById('gauge'));
+
+```
+
+{% endtab %}
+
 ## Inverted Axes
 
 [`isInversed`](../api/linear-gauge/axis/#isinversed-boolean) property is used to choose the rendering of axis either bottom to top or top to bottom direction.
