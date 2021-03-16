@@ -353,6 +353,55 @@ export default class App extends React.Component<{}, {}> {
 
 {% endtab %}
 
+### Export with filter options
+
+The excel export provides an option to export with filter option in excel by defining `enableFilter` as **true** . It requires the
+[`allowFiltering`](../api/grid/#allowfiltering) to be true.
+
+{% tab template="grid/excel-export", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ClickEventArgs } from '@syncfusion/ej2-navigations';
+import { ColumnDirective, ColumnsDirective, GridComponent, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import { ExcelExport, ExcelExportProperties, Grid, Inject, Toolbar, Filter } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}> {
+  public grid: Grid | null;
+  public toolbar: ToolbarItems[] = ['ExcelExport'];
+  public toolbarClick = (args: ClickEventArgs) => {
+    if (this.grid && args.item.id === 'grid_excelexport') {
+      const excelExportProperties: ExcelExportProperties = {
+        enableFilter: true
+      };
+      this.grid.excelExport(excelExportProperties);
+    }
+  }
+  public render() {
+    this.toolbarClick = this.toolbarClick.bind(this);
+    return (
+      <div>
+        <GridComponent id='grid' dataSource={data} allowFiltering={true}
+        height={270} toolbar={this.toolbar}
+        allowExcelExport={true} toolbarClick={this.toolbarClick} ref={g=> this.grid = g}>
+        <ColumnsDirective>
+            <ColumnDirective field='OrderID' headerText='Order ID' width='120' textAlign='Right'/>
+            <ColumnDirective field='CustomerID' headerText='Customer ID' width='150' />
+            <ColumnDirective field='Freight' width='100' textAlign='Right'/>
+            <ColumnDirective field='ShipCity' headerText='Ship City' width='150' visible={false}/>
+            <ColumnDirective field='ShipName' headerText='Ship Name' width='150' />
+        </ColumnsDirective>
+        <Inject services={[Toolbar, ExcelExport, Filter]}/>
+      </GridComponent>
+    </div>
+    );
+  }
+}
+```
+
+{% endtab %}
+
 ### Conditional Cell Formatting
 
 Grid cells in the exported Excel can be customized or formatted using [`excelQueryCellInfo`](../api/grid/#excelquerycellinfo) event. In this event, we can format the grid cells of exported PDF document based on the column cell value.
