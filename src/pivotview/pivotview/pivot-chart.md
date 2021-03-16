@@ -702,9 +702,9 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
-## Multi axis
+## Multiple axis
 
-User can draw the pivot chart with multiple value fields by setting the property [`enableMultiAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultiaxis) in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings) as **true**. In the below code sample, the pivot chart will be drawn with both value fields "Sold" and "Amount" available in the [`dataSourceSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#datasourcesettings).
+User can draw the pivot chart with multiple value fields by setting the property [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultiaxis) in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings) as **true**. In the below code sample, the pivot chart will be drawn with both value fields "Sold" and "Amount" available in the [`dataSourceSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#datasourcesettings).
 
 > The multi axis support is not applicable for the accumulation chart types like pie, doughnut, pyramid, and funnel.
 
@@ -724,7 +724,7 @@ class App extends React.Component<{}, {}>{
   } as DisplayOption;
 
   public chartSettings: ChartSettings = {
-    enableMultiAxis: true, chartSeries: { type: 'Column' }
+    enableMultipleAxis: true, chartSeries: { type: 'Column' }
   } as ChartSettings;
 
   public dataSourceSettings: IDataOptions = {
@@ -766,7 +766,7 @@ class App extends React.Component<{}, {}>{
   } as DisplayOption;
 
   public chartSettings: ChartSettings = {
-    enableScrollOnMultiAxis:true,enableMultiAxis: true, chartSeries: { type: 'Column' }
+    enableScrollOnMultiAxis:true,enableMultipleAxis: true, chartSeries: { type: 'Column' }
   } as ChartSettings;
 
   public dataSourceSettings: IDataOptions = {
@@ -777,6 +777,50 @@ class App extends React.Component<{}, {}>{
     formatSettings: [{ name: 'Amount', format: 'C0' }],
     rows: [{ name: 'Country' }],
     values: [{ name: 'Sold', caption: 'Units Sold' }, { name: 'Amount', caption: 'Sold Amount' }, {name: 'Products', type: 'Count'}]
+  }
+  public pivotObj: PivotViewComponent;
+  render() {
+    return <PivotViewComponent height={350} ref={d => this.pivotObj = d!} id='PivotView' chartSettings={this.chartSettings} displayOption={this.displayOption} dataSourceSettings={this.dataSourceSettings} ><Inject services={[PivotChart]}/></PivotViewComponent>
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('pivotview'));
+
+```
+
+{% endtab %}
+
+Meanwhile, there is another way to display multiple values in a chart. In this approach, the series drawn from multiple values are grouped and displayed in a single chart. And, based on the values, multiple Y axis scales will be framed with different ranges. This can be achieved by setting the properties [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultiaxis) as **true** and `multipleAxisMode` as `Single` in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettings/).
+
+In the following code sample, the pivot chart can be seen as a single chart with multiple value fields such as **Sold** and **Amount** that are drawn as multiple Y axis.
+
+{% tab template="pivot-table/default", sourceFiles="app/**/index.tsx", compileJsx=true %}
+
+```typescript
+import { IDataOptions, IDataSet, PivotViewComponent, Inject, DisplayOption, PivotChart } from '@syncfusion/ej2-react-pivotview';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { pivotData } from './datasource';
+import { ChartSettings } from '@syncfusion/ej2-pivotview/src/pivotview/model/chartSettings';
+
+class App extends React.Component<{}, {}>{
+
+  public displayOption: DisplayOption = {
+    view: 'Chart'
+  } as DisplayOption;
+
+  public chartSettings: ChartSettings = {
+    enableMultipleAxis: true, multipleAxisMode : 'Single', chartSeries: { type: 'Column' }
+  } as ChartSettings;
+
+  public dataSourceSettings: IDataOptions = {
+    columns: [{ name: 'Year', caption: 'Production Year' }, { name: 'Quarter' }],
+    dataSource: pivotData as IDataSet[],
+    expandAll: false,
+    filters: [],
+    formatSettings: [{ name: 'Amount', format: 'C0' }],
+    rows: [{ name: 'Country' }, { name: 'Products' }],
+    values: [{ name: 'Sold', caption: 'Units Sold' }, { name: 'Amount', caption: 'Sold Amount' }]
   }
   public pivotObj: PivotViewComponent;
   render() {
