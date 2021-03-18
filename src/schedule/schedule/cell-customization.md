@@ -187,7 +187,8 @@ class App extends React.Component<{}, {}>{
     }
   }
   render() {
-    return <ScheduleComponent height='550px' currentView='Month' selectedDate={new Date(2018, 1, 15)} eventSettings={ { dataSource: this.data } } renderCell={this.onRenderCell.bind(this)}>
+    return <ScheduleComponent height='550px' currentView='Month' selectedDate={new Date(2018, 1, 15)} eventSettings={ { dataSource: this.data } } renderCell={this.onRenderCell.bind(this)}
+    cssClass= 'schedule-cell-template'>
         <ViewsDirective>
           <ViewDirective option='Week' />
           <ViewDirective option='WorkWeek' />
