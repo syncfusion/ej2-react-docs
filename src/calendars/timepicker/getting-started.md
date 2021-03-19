@@ -8,6 +8,10 @@ description: "This getting started section briefly explains how to create a time
 
 This section explains you the steps required to create a simple TimePicker and demonstrate the basic usage of the TimePicker component.
 
+To get start quickly with React TimePicker, you can check on this video:
+
+`youtube:YYu_33pJz9E`
+
 ## Dependencies
 
 The below list of dependencies are required to use the `TimePicker` component in your application.
