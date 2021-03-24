@@ -12,6 +12,7 @@
 * [Selection](treegrid/selection.md)
 * [Scrolling](treegrid/scrolling.md)
 * [Virtualization](treegrid/virtual.md)
+* [Infinite Scrolling](treegrid/infinite-scroll.md)
 * [Aggregates](treegrid/aggregate.md)
 * [Print](treegrid/print.md)
 * [State Persistence](treegrid/state-persistence.md)
