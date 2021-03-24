@@ -10,7 +10,7 @@ The **SymbolPalette** displays a collection of palettes. The palette shows a s
 
 ## Create symbol palette
 
-The [`width`](../api/diagram/palette#width-number) and [`height`](../api/diagram/palette#height-number) properties of the symbol palette allows to define the size of the symbol palette.
+The [`width`](../api/symbol-palette#width ) and [`height`](../api/symbol-palette#height) properties of the symbol palette allows to define the size of the symbol palette.
 
 ```typescript
 import {
@@ -35,9 +35,9 @@ ReactDOM.render( < SymbolPaletteComponent id = "diagram"
 ## Add palettes to SymbolPalette
 
 A palette allows to display a group of related symbols and it textually annotates the group with its header.
-A [`Palettes`](../api/diagram/palette#palettes-PaletteModel[]) can be added as a collection of symbol groups.
+A [`Palettes`](../api/symbol-palette#palettes) can be added as a collection of symbol groups.
 
-The collection of predefined symbols can be added in palettes using the [`symbols`](../api/diagram/palette#symbols-[]) property.
+The collection of predefined symbols can be added in palettes using the [`symbols`](../api/symbol-palette#symbolinfo) property.
 
 To initialize a palette, define a JSON object with the property [`ID`](../api/diagram/palette#id-string) that is unique ID is set to the palettes.
 
@@ -292,15 +292,15 @@ ReactDOM.render( < SymbolPaletteComponent id = "diagram1"
 
 Palettes can be annotated with its header texts.
 
-The [`title`](../api/diagram/palette#title-string) displayed as the header text of palette.
+The `title` displayed as the header text of palette.
 
-The [`expanded`](../api/diagram/palette#expanded-boolean) property of palette allows to expand/collapse its palette items.
+The `expanded` property of palette allows to expand/collapse its palette items.
 
-The [`height`](../api/diagram/palette#height-number) property of palette sets the height of the symbol group.
+The `height` property of palette sets the height of the symbol group.
 
-The [`iconCss`](../api/diagram/palette#iconCss-string) property sets the content of the symbol group.
+The `iconCss` property sets the content of the symbol group.
 
-The [`description`](../api/diagram/symbolDescription#description) defines the text to be displayed and how that is to be handled in `getSymbolInfo`.
+The `description` defines the text to be displayed and how that is to be handled in `getSymbolInfo`.
 
 Also, any HTML element into a palette header can be embedded by defining the getSymbolInfo property.
 The following code example illustrates how to customize palette headers.
@@ -617,13 +617,13 @@ ReactDOM.render( < SymbolPaletteComponent id = "diagram"
 
 ## Add/Remove symbols to palette at runtime
 
-* Symbols can be added to palette at runtime by using public method, [`addPaletteItem`](../api/diagram/palette#addPaletteItem-number).
+* Symbols can be added to palette at runtime by using public method, [`addPaletteItem`](../api/symbol-palette#addpaletteitem).
 
-* Symbols can be removed from palette at runtime by using public method, [`removePaletteItem`](../api/diagram/palette#removePaletteItem-number).
+* Symbols can be removed from palette at runtime by using public method, [`removePaletteItem`](../api/symbol-palette#addpaletteitem).
 
 ## Customize the size of symbols
 
-The size of the individual symbol can be customized. The [`symbolWidth`](../api/diagram/symbolPaletteModel/#symbolwidth) and  [`symbolHeight`](../api/diagram/symbolPaletteModel/#symbolheight) properties of node enables you to define the size of the symbols. The following code example illustrates how to change the size of a symbol.
+The size of the individual symbol can be customized. The [`symbolWidth`](../api/symbol-palette#symbolwidth) and  [`symbolHeight`](../api/symbol-palette#symbolheight) properties of node enables you to define the size of the symbols. The following code example illustrates how to change the size of a symbol.
 
 {% tab template= "diagram/symbol-palette/es5size", sourceFiles="app/**/*.tsx" %}
 
@@ -704,13 +704,13 @@ ReactDOM.render( < SymbolPaletteComponent id = "diagram"
 
 {% endtab %}
 
-The [`symbolMargin`](../api/diagram/symbolPaletteModel/#symbolmargin) property is used to create the space around
+The [`symbolMargin`](../api/symbol-palette#symbolmargin) property is used to create the space around
 elements, outside of any defined borders.
 
 ## Symbol preview
 
-The symbol preview size of the palette items can be customized using [`symbolPreview`](../api/diagram/symbolPreview).
-The [`width`](../api/diagram/symbolPreview#width-number) and [`height`](../api/diagram/symbolPreview#height-number) properties of SymbolPalette enables you to define the preview size to all the symbol palette items.
+The symbol preview size of the palette items can be customized using [`symbolPreview`](../api/symbol-palette#symbolpreview).
+The [`width`](../api/symbol-palette#width) and [`height`](../api/symbol-palette#height) properties of SymbolPalette enables you to define the preview size to all the symbol palette items.
 The [`offset`](../api/diagram/symbolPreview#offset-PointModel) of the dragging helper relative to the mouse cursor.
 
 The following code example illustrates how to change the preview size of a palette item.
@@ -810,7 +810,7 @@ ReactDOM.render( < SymbolPaletteComponent id = "diagram"
 
 ## Default settings
 
-While adding more number of symbols such as nodes and connectors to the palette, define the default settings for those objects through the [`getNodeDefaults`](../api/diagram/symbolPaletteModel/#getnodedefaults) and the [`getConnectorDefaults`](../api/diagram/symbolPaletteModel/#getconnectordefaults) properties of diagram allows to define the default settings for nodes and connectors.
+While adding more number of symbols such as nodes and connectors to the palette, define the default settings for those objects through the [`getNodeDefaults`](../api/symbol-palette#getnodedefaults) and the [`getConnectorDefaults`](../api/symbol-palette#getconnectordefaults) properties of diagram allows to define the default settings for nodes and connectors.
 
 {% tab template= "diagram/symbol-palette/es5defaultsettings", sourceFiles="app/**/*.tsx" %}
 
