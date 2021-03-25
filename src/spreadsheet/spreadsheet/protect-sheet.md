@@ -97,6 +97,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
+## Limitation
+
+* Password protection is not supported in Protect sheet feature.
+
 ## Unprotect Sheet
 
 Unprotect sheet is used to enable all the functionalities that are already disabled in a protected spreadsheet.
