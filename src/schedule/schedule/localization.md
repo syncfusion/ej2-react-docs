@@ -311,11 +311,13 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
-## Time mode
+## Setting the time format
 
-The time mode of the Scheduler can be either 12 or 24 hours format which is completely based on the `locale` set to the Scheduler. Since the default `locale` value of the Scheduler is en-US, the time mode will be set to 12 hours format automatically.
+Time formats is a way of representing the time value in different string formats in the Scheduler. By default, the time mode of the Scheduler can be either 12 or 24 hours format which is completely based on the system’s local culture. You can also customize the format by using the `timeFormat` property. To know more about the time format standards, refer to the [Date and Time Format](https://ej2.syncfusion.com/react/documentation/common/internationalization/#custom-formats) section.
 
-{% tab template="schedule/localization", iframeHeight="588px", compileJsx=true %}
+The following example demonstrates the Scheduler component in 24 hours format.
+
+{% tab template="schedule/local-data", iframeHeight="588px", compileJsx=true %}
 
 ```tsx
 import * as React from 'react';
@@ -325,18 +327,11 @@ import {
   ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule';
 import { scheduleData } from './datasource';
 import { extend } from '@syncfusion/ej2-base';
-import { loadCldr } from '@syncfusion/ej2-base';
-import * as numberingSystems from '../numberingSystems.json';
-import * as gregorian from '../ca-gregorian.json';
-import * as numbers from '../numbers.json';
-import * as detimeZoneNames from '../timeZoneNames.json';
-
-loadCldr(numberingSystems, gregorian, numbers, detimeZoneNames);
 
 class App extends React.Component<{}, {}>{
     private data: Object[] = extend([], scheduleData, null, true) as Object[];
     render() {
-    return <ScheduleComponent  height='550px' selectedDate= {new Date(2018, 1, 15)} locale= 'fr-CH' eventSettings= { { dataSource: this.data } }>
+    return <ScheduleComponent  height='550px' selectedDate= {new Date(2018, 1, 15)} timeFormat= "HH:mm" eventSettings= { { dataSource: this.data } }>
         <ViewsDirective>
             <ViewDirective option='Day' />
             <ViewDirective option='Week' />
@@ -351,6 +346,8 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 ```
 
 {% endtab %}
+
+> Note: `timeFormat` property only accepts the valid time format's.
 
 ## First day of the week
 
