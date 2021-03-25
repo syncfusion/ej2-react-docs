@@ -60,6 +60,10 @@ By default [`showCloseButton`](../../api/toast#showclosebutton) will not enabled
 
 By default [`showProgressBar`](../../api/toast#showprogressbar) will not enabled. If we enabled it can visually indicate how long time to get toast expires. Based on the `timeOut` property Progress bar will appear.
 
+### Progress bar direction
+
+By default, the [progressDirection](../../api/toast/#progressDirection) is set to "Rtl" and it will appear from right to left direction. You can change the progressDirection to "Ltr" to make it appear from left to right direction.
+
 ## Newest on top
 
 In default, newly created toasts will append next with existing toast. We can change the Sequence like inserting before the toast, by enabling the [`newestOnTop`](../../api/toast#newestontop).
@@ -93,7 +97,7 @@ class App extends React.Component<{}, {}> {
     return (
       <div>
         <ButtonComponent cssClass="e-primary" onClick={this.toastShow = this.toastShow.bind(this)}> Show Toast </ButtonComponent>
-        <ToastComponent ref={toast => this.toastInstance = toast!} title="File Downloading" content="<div class='progress'><span style='width: 80%'></span></div>" position={this.position} showCloseButton='true' target="#toast_target" newestOnTop='true' showProgressBar='true' created={this.toastCreated = this.toastCreated.bind(this)} />
+        <ToastComponent ref={toast => this.toastInstance = toast!} title="File Downloading" content="<div class='progress'><span style='width: 80%'></span></div>" position={this.position} showCloseButton='true' target="#toast_target" newestOnTop='true' showProgressBar='true' progressDirection='Ltr' created={this.toastCreated = this.toastCreated.bind(this)} />
       </div>
     );
   }
