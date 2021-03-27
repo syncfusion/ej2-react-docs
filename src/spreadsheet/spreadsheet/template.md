@@ -32,12 +32,10 @@ export default class App extends React.Component<{}, {}> {
     textDecoration: 'underline'
 };
     public changeEvent(evt: ChangeEventArgs): void {
-        if (args.cell) {
-            args.cell.value = evt.value;
-        } else {
-            let range: number[] = getRangeIndexes(evt.address);
-            spreadsheet.sheets[spreadsheet.activeSheetIndex].rows[range[0]].cells[range[1]] = { value: evt.value.toString() };
-        }
+        let tdElem = evt.element.parentElement;
+        let colIndex = tdElem.getAttribute("aria-colindex");
+        let rowIndex = tdElem.parentElement.getAttribute("aria-rowindex");
+        this.spreadsheetObj.sheets[this.spreadsheetObj.activeSheetIndex].rows[rowIndex].cells[colIndex] = { value: evt.value };
     }
 
     public nameTextbox(): JSX.Element {
