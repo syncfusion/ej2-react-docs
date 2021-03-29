@@ -1,5 +1,6 @@
 * [Getting Started](treegrid/getting-started.md)
 * [Data Binding](treegrid/data-binding.md)
+* [Immutable Mode](treegrid/immutable-mode.md)
 * [Feature Modules](treegrid/module.md)
 * [Columns](treegrid/columns.md)
 * [Row](treegrid/row.md)
