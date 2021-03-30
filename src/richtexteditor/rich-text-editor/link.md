@@ -34,7 +34,6 @@ Point the cursor anywhere within the editor where you would like to insert the l
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar  } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -123,7 +122,6 @@ The quick toolbar for the link has the following options.
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar  } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {

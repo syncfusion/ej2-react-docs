@@ -66,7 +66,6 @@ import { Image, Link, MarkdownEditor, RichTextEditor, Toolbar } from '@syncfusio
 RichTextEditor.Inject(Image, Link, MarkdownEditor, Toolbar);
 
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public mdSource: any;
@@ -244,7 +243,6 @@ import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-base';
 import { Image, Link, MarkdownEditor, RichTextEditor, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 RichTextEditor.Inject(Image, Link, MarkdownEditor, Toolbar);
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public mdSource: HTMLElement;
@@ -417,7 +415,6 @@ import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-base';
 import { Image, Link, MarkdownEditor, RichTextEditor, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 RichTextEditor.Inject(Image, Link, MarkdownEditor, Toolbar);
 import * as React from 'react';
-import './App.css';
 
 L10n.load({
   'en-US': {
@@ -600,7 +597,6 @@ For example, apply `+` to Unordered list, apply `1., 2., 3.` to Ordered list, fo
 import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-base';
 import { Image, Inject, Link, MarkdownEditor, MarkdownFormatter, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public rteObj: RichTextEditorComponent;

@@ -34,7 +34,7 @@ The following table list the default font size and width of the fontsize dropdow
 
 The following sample demonstrates the option to add the font name and font size tools to the toolbar as well as modify the default width of the tools.
 
-{% tab template="rich-text-editor/basic", isDefaultActive = "true", tab compileJsx=true %}
+{% tab template="rich-text-editor/basic", sourceFiles="app/App.tsx", isDefaultActive = "true", tab compileJsx=true %}
 
 ```typescript
 
@@ -43,7 +43,6 @@ The following sample demonstrates the option to add the font name and font size 
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -113,7 +112,7 @@ Rich Text Editor supports to provide custom font and size with existing list.
 
 If you want to add additional font names and font sizes to font drop-down, pass the font information as JSON data to the items field of the [`fontSize`](/rich-text-editor/api-fontSize.html) and the [`fontFamily`](/rich-text-editor/api-fontFamily.html) property.
 
-{% tab template="rich-text-editor/basic", isDefaultActive = "true", tab compileJsx=true %}
+{% tab template="rich-text-editor/basic", sourceFiles="app/App.tsx", isDefaultActive = "true", tab compileJsx=true %}
 
 ```typescript
 
@@ -122,7 +121,6 @@ If you want to add additional font names and font sizes to font drop-down, pass 
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -209,7 +207,7 @@ Rich Text Editor supports to provide customs font color and background color wit
 
 The FontColor and the BackgroundColor property has two [mode](/rich-text-editor/api-backgroundColor.html#mode) Picker and Palette. Palette mode has predefined set of colorCode and in the picker mode, more colors has been provided. Through [modeSwitcher](/rich-text-editor/api-backgroundColor.html#modeswitcher), you can able to switch between these two options.
 
-{% tab template="rich-text-editor/basic", isDefaultActive = "true", tab compileJsx=true %}
+{% tab template="rich-text-editor/basic", sourceFiles="app/App.tsx", isDefaultActive = "true", tab compileJsx=true %}
 
 ```typescript
 
@@ -218,7 +216,6 @@ The FontColor and the BackgroundColor property has two [mode](/rich-text-editor/
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {

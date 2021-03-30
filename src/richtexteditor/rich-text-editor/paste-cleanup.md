@@ -87,7 +87,6 @@ In the following example, the paste cleanup related settings are explained with 
  */
 import { HtmlEditor, Image, Inject, Link, PasteCleanup, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {

@@ -28,7 +28,6 @@ The HTML editing mode is the default mode in Rich Text Editor to format the cont
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public render() {
@@ -101,7 +100,6 @@ import { createElement, KeyboardEventArgs } from '@syncfusion/ej2-base';
 import { Image, Inject, Link, MarkdownEditor, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as Marked from 'marked';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public rteObj: RichTextEditorComponent;

@@ -17,7 +17,6 @@ When the iframeSettings option is enabled, the Rich Text Editor creates the ifra
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private iframeSettings: object = {
@@ -86,7 +85,6 @@ The editor allows you to pass an additional attribute to body tag of a `<iframe>
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private iframeSettings: object = {
@@ -161,7 +159,6 @@ Likewise, add the external script file to the `<iframe>` element using the [scri
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private iframeSettings: object = {

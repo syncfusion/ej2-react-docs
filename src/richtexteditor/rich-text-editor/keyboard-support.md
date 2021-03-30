@@ -52,7 +52,6 @@ You can use the following key shortcuts when the Rich Text Editor renders with H
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private rteObj: RichTextEditorComponent;
@@ -163,7 +162,6 @@ You can use the following key shortcuts when the Rich Text Editor renders with M
  */
 import { Image, Inject, Link, MarkdownEditor, RichTextEditorComponent, Toolbar  } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private rteObj: RichTextEditorComponent;
@@ -227,7 +225,6 @@ In the following sample, customize the cut, copy, paste toolbar action with ctrl
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar  } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private rteObj: RichTextEditorComponent;

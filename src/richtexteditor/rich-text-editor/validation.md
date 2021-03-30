@@ -35,7 +35,6 @@ import { FormValidator, FormValidatorModel } from '@syncfusion/ej2-inputs';
 import { HtmlEditor, Image, Count, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public formObject: FormValidator;
@@ -101,7 +100,6 @@ import { FormValidator, FormValidatorModel } from '@syncfusion/ej2-inputs';
 import { HtmlEditor, Image, Inject, Count , Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public formObject: FormValidator;

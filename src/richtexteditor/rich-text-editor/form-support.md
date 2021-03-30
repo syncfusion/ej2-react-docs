@@ -36,7 +36,6 @@ import { FormValidator, FormValidatorModel } from '@syncfusion/ej2-inputs';
 import { Count, HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 // import * as Marked from 'marked';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public formObject: FormValidatorModel;

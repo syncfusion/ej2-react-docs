@@ -27,7 +27,6 @@ Through the `e-rte-placeholder` class to define our custom font family, font col
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditor,RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public render() {
@@ -68,7 +67,6 @@ The character count color will be modified based on the characters in the Rich T
  */
 import { Count, HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public value(): JSX.Element {
@@ -143,7 +141,6 @@ import 'codemirror/mode/css/css.js';
 import 'codemirror/mode/htmlmixed/htmlmixed.js';
 import 'codemirror/mode/javascript/javascript';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public myCodeMirror: any;
@@ -310,7 +307,6 @@ Customize the undo/redo step count using the [undoRedoSteps](../api/rich-text-ed
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -381,7 +377,6 @@ In the following sample, removed `script` tag and `onmouseover` attribute from c
 
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
  public template: string = `<div onmouseover='javascript:alert(1)'>Prevention of Cross Sit Scripting (XSS) </div> <script>alert('hi')</script>`;
@@ -416,7 +411,6 @@ The following sample demonstrate how to filter `script` tag from value.
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar, BeforeSanitizeHtmlArgs } from '@syncfusion/ej2-react-richtexteditor';
 import { detach } from '@syncfusion/ej2-base';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
  public template: string = `<div onmouseover='javascript:alert(1)'>Prevention of Cross Sit Scripting (XSS) </div> <script>alert('hi')</script>`;
@@ -464,7 +458,6 @@ To render the Rich Text Editor in the resizable mode, set the `enableResize` pro
  */
 import { HtmlEditor, Image, Inject, Link, Resize, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
 
@@ -498,7 +491,6 @@ To have a restricted resizable area for the RichTextEditor, you need to specify 
  */
 import { HtmlEditor, Image, Inject, Link, Resize, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
 

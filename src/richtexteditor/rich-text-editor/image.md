@@ -42,7 +42,6 @@ In the following sample, the image has been loaded from the local machine and it
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -123,7 +122,6 @@ The following sample explains, how to configure `removeUrl` to remove a saved im
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -245,7 +243,6 @@ In the following sample, you can see feature demo.
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public insertImageSettings: object = {

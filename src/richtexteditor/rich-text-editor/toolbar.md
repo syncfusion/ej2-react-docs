@@ -28,7 +28,6 @@ The default mode of [toolbarSettings.type](/rich-text-editor/api-toolbarSettings
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public toolbarSettings: object = {
@@ -106,7 +105,6 @@ Set the [`toolbarSettings.type`](/rich-text-editor/api-toolbarSettings.html#type
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -188,7 +186,6 @@ import { ChangeEventArgs } from '@syncfusion/ej2-buttons';
 import { CheckBoxComponent } from '@syncfusion/ej2-react-buttons';
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public checkboxObj: CheckBoxComponent;
@@ -326,7 +323,6 @@ In the following sample, once Rich Text Editor control is [created](../api/rich-
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 import { HtmlEditor, Image, Inject, Link, NodeSelection, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public rteObj: RichTextEditorComponent;
@@ -504,7 +500,6 @@ The following sample demonstrates the option to insert the image to the Rich Tex
  */
 import { HtmlEditor, Image, Inject, Link, NodeSelection, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public rteObj: RichTextEditorComponent;

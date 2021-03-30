@@ -94,7 +94,6 @@ Place the following Rich Text Editor code in the `App.tsx`.
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public render() {
@@ -161,7 +160,6 @@ Place the following Rich Text Editor code in the `app.tsx`.
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private iframeSetting: object = {
@@ -232,7 +230,6 @@ Now, add an HTML textarea element to act as the Rich Text Editor element using t
 import { Count, HtmlEditor, Image, Link, RichTextEditor, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 RichTextEditor.Inject(HtmlEditor, Image, Link, Toolbar, Count);
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public rteObj: RichTextEditor;
@@ -299,7 +296,6 @@ Configure the toolbar with the tools using items field of the toolbarSettings pr
  */
 import { HtmlEditor, Inject, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -399,7 +395,6 @@ Specifies the items to be rendered in the quick toolbar based on the target elem
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {
@@ -485,7 +480,6 @@ Output will be displayed as follows
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   private toolbarSettings: object = {

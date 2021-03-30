@@ -160,7 +160,6 @@ To localize the editor’s strings with your own localization, copy the default 
 import { L10n } from '@syncfusion/ej2-base';
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 L10n.load({
   'de-DE': {
@@ -307,7 +306,6 @@ Specifies the direction of the Rich Text Editor component using the [enableRtl](
  */
 import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
 import * as React from 'react';
-import './App.css';
 
 class App extends React.Component<{},{}> {
   public render() {
