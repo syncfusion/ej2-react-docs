@@ -10,6 +10,10 @@ The Gantt component uses `DataManager` for binding the data source, which suppor
 * Local data
 * Remote data
 
+The following video explains about the types of data binding and how to use it on the Gantt Chart component:
+
+`youtube:MlKuX7TeMtw`
+
 ## Local data
 
 To bind local data to Gantt, you can assign a JavaScript object array to the [`dataSource`](../api/gantt/#datasource) property. The local data source can also be provided as an instance of the `DataManager`.

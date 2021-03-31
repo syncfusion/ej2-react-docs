@@ -161,6 +161,10 @@ The following editing options are available to update the tasks in the Gantt cha
 * Taskbar
 * Dependency links
 
+The following video explains how to perform cell, dialog, taskbar, and dependency editing in Gantt Chart:
+
+`youtube:JXTtlAdcXJ4`
+
 ### Cell editing
 
 By setting the edit mode to auto using the [`editSettings.mode`](../api/gantt/editSettings/#mode) property, the tasks can be edited by double-clicking the TreeGrid cells.
