@@ -704,9 +704,9 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 ## Multiple axis
 
-User can draw the pivot chart with multiple value fields by setting the property [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultiaxis) in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings) as **true**. In the below code sample, the pivot chart will be drawn with both value fields "Sold" and "Amount" available in the [`dataSourceSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#datasourcesettings).
+User can draw the pivot chart with multiple value fields by setting the property [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultipleaxis) in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings) as **true**. In the below code sample, the pivot chart will be drawn with both value fields "Sold" and "Amount" available in the [`dataSourceSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#datasourcesettings).
 
-> The multi axis support is not applicable for the accumulation chart types like pie, doughnut, pyramid, and funnel.
+> The multiple axis support is not applicable for the accumulation chart types like pie, doughnut, pyramid, and funnel.
 
 {% tab template="pivot-table/default", sourceFiles="app/**/index.tsx", compileJsx=true %}
 
@@ -790,7 +790,7 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
-Meanwhile, there is another way to display multiple values in a chart. In this approach, the series drawn from multiple values are grouped and displayed in a single chart. And, based on the values, multiple Y axis scales will be framed with different ranges. This can be achieved by setting the properties [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultiaxis) as **true** and `multipleAxisMode` as `Single` in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettings/).
+Meanwhile, there is another way to display multiple values in a chart. In this approach, the series drawn from multiple values are grouped and displayed in a single chart. And, based on the values, multiple Y axis scales will be framed with different ranges. This can be achieved by setting the properties [`enableMultipleAxis`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#enablemultipleaxis) as **true** and [`multipleAxisMode`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#multipleaxismode) as `Single` in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettings/).
 
 In the following code sample, the pivot chart can be seen as a single chart with multiple value fields such as **Sold** and **Amount** that are drawn as multiple Y axis.
 
