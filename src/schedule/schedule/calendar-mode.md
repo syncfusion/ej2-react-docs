@@ -37,21 +37,16 @@ import {
   ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule';
 import { scheduleData } from './datasource';
 import { extend } from '@syncfusion/ej2-base';
-import { Ajax, L10n, loadCldr } from '@syncfusion/ej2-base';
+import { L10n, loadCldr } from '@syncfusion/ej2-base';
+import * as localeObj from "../locale.json";
 import * as numberingSystems from '../numberingSystems.json';
 import * as gregorian from '../ca-gregorian.json';
 import * as numbers from '../numbers.json';
 import * as timeZoneNames from '../timeZoneNames.json';
 import * as islamic from '../ca-islamic.json';
-loadCldr(numberingSystems, gregorian, numbers, timeZoneNames, islamic);
 
-let localeTexts: string;
-let ajax: Ajax = new Ajax('../locale.json', 'GET', false);
-ajax.onSuccess = (value: string) => {
-    localeTexts = value;
-};
-ajax.send();
-L10n.load(JSON.parse(localeTexts));
+loadCldr(numberingSystems, gregorian, numbers, timeZoneNames, islamic);
+L10n.load(localeObj);
 
 class App extends React.Component<{}, {}>{
     private data: Object[] = extend([], scheduleData, null, true) as Object[];
