@@ -96,7 +96,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Wrap text
+### Limitations of Wrap text
 
 The following features have some limitations in wrap text:
 
@@ -249,7 +249,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Merge
+### Limitations of Merge
 
 The following features have some limitations in Merge:
 
@@ -413,7 +413,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Data validation
+### Limitations of Data validation
 
 The following features have some limitations in Data Validation:
 

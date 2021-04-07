@@ -82,6 +82,68 @@ ReactDOM.render(<App />, document.getElementById('root'));
 > * Use `Ctrl + S` keyboard shortcut to save the Spreadsheet data as Excel file.
 > * The default value of [allowSave](../api/spreadsheet/#allowsave) property is `true`. For demonstration purpose, we have showcased the [allowSave](../api/spreadsheet/#allowsave) property in previous code snippet.
 
+### Methods
+
+To save the Spreadsheet document as an `xlsx, xls, csv, or pdf` file, by using [save](../api/spreadsheet/#save) method should be called with the `url`, `fileName` and `saveType` as parameters. The following code example shows to save the spreadsheet file as an `xlsx, xls, csv, or pdf` in the button click event.
+
+{% tab template="spreadsheet/undo-redo", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
+import { CellStyleModel, getRangeIndexes } from '@syncfusion/ej2-react-spreadsheet';
+import { defaultData } from './datasource';
+import { addClass, removeClass } from '@syncfusion/ej2-base';
+
+export default class App extends React.Component<{}, {}> {
+    public spreadsheet: SpreadsheetComponent;
+    public boldRight: CellStyleModel = { fontWeight: 'bold', textAlign: 'right' };
+    public bold: CellStyleModel = { fontWeight: 'bold' };
+    xlsx() {
+        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xlsx"});
+    }
+    xls() {
+        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xls"});
+    }
+    csv() {
+        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Csv"});
+    }
+    pdf() {
+        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Pdf"});
+    }
+     render() {
+        return  ( <div>
+        <button className='e-btn' onClick={ this.xlsx.bind(this) }>Save As xlsx</button>
+        <button className='e-btn' onClick={ this.xls.bind(this) }>Save As xls</button>
+        <button className='e-btn' onClick={ this.csv.bind(this) }>Save As csv</button>
+        <button className='e-btn' onClick={ this.pdf.bind(this) }>Save As pdf</button>
+             <SpreadsheetComponent
+                        ref={(ssObj) => { this.spreadsheet = ssObj }} >
+                        <SheetsDirective>
+                            <SheetDirective>
+                                <RangesDirective>
+                                    <RangeDirective dataSource={defaultData}></RangeDirective>
+                                </RangesDirective>
+                                <ColumnsDirective>
+                                    <ColumnDirective width={180}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                </ColumnsDirective>
+                            </SheetDirective>
+                        </SheetsDirective>
+                    </SpreadsheetComponent> </div>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
+```
+
+{% endtab %}
+
 ## Server Configuration
 
 In Spreadsheet control, Excel import and export support processed in `server-side`, to use importing and exporting in your projects, it is required to create a server with any of the following web services.

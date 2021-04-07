@@ -106,7 +106,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-## Limitation
+## Limitations
 
 * Text overflow in cells is not supported in Editing.
 

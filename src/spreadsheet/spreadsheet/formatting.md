@@ -103,7 +103,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Number Formatting
+### Limitations of Number Formatting
 
 * Custom number formatting is not supported.
 
@@ -240,7 +240,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Formatting
+### Limitations of Formatting
 
 The following features are not supported in Formatting:
 
@@ -374,7 +374,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Conditional formatting
+### Limitations of Conditional formatting
 
 The following features have some limitations in Conditional Formatting:
 

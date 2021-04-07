@@ -212,7 +212,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Image
+### Limitations of Image
 
 The following features have some limitations in Image:
 
@@ -334,7 +334,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-### Limitation of Chart
+### Limitations of Chart
 
 The following features have some limitations in the Chart:
 

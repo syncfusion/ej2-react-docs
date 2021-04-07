@@ -220,7 +220,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
-## Limitation
+## Limitations
 
 The following features have some limitations in Insert/Delete:
 

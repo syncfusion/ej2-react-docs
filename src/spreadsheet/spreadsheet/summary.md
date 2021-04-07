@@ -17,6 +17,7 @@
 * [Undo and Redo](spreadsheet/undo-redo.md)
 * [Keyboard Shortcuts](spreadsheet/keyboard-shortcuts.md)
 * [Ribbon](spreadsheet/ribbon.md)
+* [Globalization](spreadsheet/global-local.md)
 * [Freeze Panes](spreadsheet/freeze-pane.md)
 * [Templates](spreadsheet/template.md)
 * [Collaborative Editing](spreadsheet/use-cases/collaborative-editing.md)
