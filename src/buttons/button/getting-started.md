@@ -8,6 +8,10 @@ description: "This section helps to learn how to create the button in React appl
 
 This section explains how to create a simple Button and to configure the Button component.
 
+To get start quickly with Button Component using React, you can check on this video:
+
+`youtube:93oXeCB13A0`
+
 ## Dependencies
 
 The list of dependencies required to use the Button component in your application is given below:
