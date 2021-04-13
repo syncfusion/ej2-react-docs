@@ -86,7 +86,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 To save the Spreadsheet document as an `xlsx, xls, csv, or pdf` file, by using [save](../api/spreadsheet/#save) method should be called with the `url`, `fileName` and `saveType` as parameters. The following code example shows to save the spreadsheet file as an `xlsx, xls, csv, or pdf` in the button click event.
 
-{% tab template="spreadsheet/undo-redo", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
+{% tab template="spreadsheet/save", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
 
 ```tsx
 import * as React from 'react';
@@ -114,11 +114,11 @@ export default class App extends React.Component<{}, {}> {
         this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Pdf"});
     }
      render() {
-        return  ( <div>
+        return  ( <div> <div className='customClass'>
         <button className='e-btn' onClick={ this.xlsx.bind(this) }>Save As xlsx</button>
-        <button className='e-btn' onClick={ this.xls.bind(this) }>Save As xls</button>
-        <button className='e-btn' onClick={ this.csv.bind(this) }>Save As csv</button>
-        <button className='e-btn' onClick={ this.pdf.bind(this) }>Save As pdf</button>
+        <span className='btn'><button className='e-btn' onClick={ this.xls.bind(this) }>Save As xls</button></span>
+        <span className='btn'><button className='e-btn' onClick={ this.csv.bind(this) }>Save As csv</button></span>
+        <span className='btn'><button className='e-btn' onClick={ this.pdf.bind(this) }>Save As pdf</button></span></div>
              <SpreadsheetComponent
                         ref={(ssObj) => { this.spreadsheet = ssObj }} >
                         <SheetsDirective>

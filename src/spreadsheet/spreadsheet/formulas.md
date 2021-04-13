@@ -142,17 +142,19 @@ import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective, RowsDirective, RowDirective, CellDirective, CellsDirective, getFormatFromType, DefinedNamesDirective, DefinedNameDirective } from '@syncfusion/ej2-react-spreadsheet';
 import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
 import { CellStyleModel, getRangeIndexes } from '@syncfusion/ej2-react-spreadsheet';
+import { getComponent } from '@syncfusion/ej2-base';
 import { data } from './datasource';
 
 export default class App extends React.Component<{}, {}> {
-       public spreadsheet: SpreadsheetComponent;
        public styles: CellStyleModel  = { textAlign: 'center', fontWeight: 'bold', verticalAlign: 'middle', fontStyle: 'italic', fontSize: '15pt' };
        public cellStyle: CellStyleModel  = { fontStyle: 'italic', fontWeight: 'bold' };
        public fontStyle: CellStyleModel  = { fontWeight: 'bold', textAlign: 'right' };
+       public spreadsheet: SpreadsheetComponent;
        public beforeDataBound(): void{
+           let spreadsheetObj = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
          // Adding name dynamically for `last year spending` and `percentage change` ranges.
-         this.spreadsheet.addDefinedName({ name: 'LastYearSpendings', refersTo: '=D3:D11' });
-         this. spreadsheet.addDefinedName({ name: 'PercentageChange', refersTo: '=E3:E11' });
+         spreadsheetObj.addDefinedName({ name: 'LastYearSpendings', refersTo: '=D3:D11' });
+         spreadsheetObj.addDefinedName({ name: 'PercentageChange', refersTo: '=E3:E11' });
     };
        public oncreated(): void{
          // Removing the unwanted `PercentageChange` named range
@@ -164,7 +166,7 @@ export default class App extends React.Component<{}, {}> {
     };
 
      render() {
-        return  ( <div> <SpreadsheetComponent
+        return  ( <div> <SpreadsheetComponent id ='spreadsheet'
                         ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} beforeDataBound={this.beforeDataBound.bind(this)} showSheetTabs={false} showRibbon={false}>
                         <SheetsDirective>
                             <SheetDirective name={"Budget Details"}>

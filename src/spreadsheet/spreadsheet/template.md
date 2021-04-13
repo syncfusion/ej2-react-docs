@@ -21,7 +21,7 @@ import { RangeDirective, ColumnsDirective, ColumnDirective, getRangeIndexes, Cha
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import { RadioButtonComponent, ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { DropDownListComponent, MultiSelectComponent } from '@syncfusion/ej2-react-dropdowns';
-import { SelectionSettingsModel } from '@syncfusion/ej2-spreadsheet';
+import { SelectionSettingsModel } from '@syncfusion/ej2-react-spreadsheet';
 import { data } from './datasource';
 
 export default class App extends React.Component<{}, {}> {

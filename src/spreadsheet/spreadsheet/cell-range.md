@@ -422,6 +422,97 @@ The following features have some limitations in Data Validation:
 * Copy/paste with data validation.
 * Delete cells between data validation applied range.
 
+## Clear
+
+Clear feature helps you to clear the cell contents (formulas and data), formats (including number formats, conditional formats, and borders) in a spreadsheet. The cleared cells will remain blank or unformatted or content on the worksheet.
+
+### Apply Clear Feature
+
+You can apply clear feature by using one of the following ways,
+
+* Select the clear icon in the Ribbon toolbar under the Home Tab.
+* Using the [`clear()`](../api/spreadsheet/#clear) method to clear the values.
+
+Clear has the following types in the spreadsheet,
+
+| Options | Uses |
+|-----|------|
+| `Clear All` | Used to clear all contents, formats, and hyperlinks.  |
+| `Clear Formats` | Used to clear the formats (including number formats, conditional formats, and borders) in a cell. |
+| `Clear Contents` | Used to clear the contents (formulas and data) in a cell. |
+| `Clear Hyperlinks` | Used to clear the hyperlink in a cell. |
+
+### Methods
+
+Clear the cell contents and formats in the Spreadsheet document by using the [clear](../api/spreadsheet/#clear) method. The [clear](../api/spreadsheet/#clear) method has `type` and `range` as parameters. The following code example shows how to clear the cell contents and formats in the button click event.
+
+{% tab template="spreadsheet/clear", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px",  compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { data } from './datasource';
+import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
+import { getComponent } from '@syncfusion/ej2-base';
+import { RangeDirective, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-spreadsheet';
+export default class App extends React.Component<{}, {}> {
+    spreadsheet: SpreadsheetComponent;
+    public items: ItemModel[] = [
+    {
+        text: "Clear All"
+    },
+    {
+        text: "Clear Formats"
+    },
+    {
+        text: "Clear Contents"
+    },
+    {
+        text: "Clear Hyperlinks"
+    }
+    ];
+    public oncreated(args): void{
+        this.spreadsheet.cellFormat({ fontWeight: 'bold', fontSize: '12pt'}, 'A1:E1');
+        this.spreadsheet.cellFormat({ color: '#10c469' }, 'B1:B10');
+    }
+    public itemSelect(args): void {
+        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
+        if (args.item.text === 'Clear All')
+            spreadsheet.clear({ type: 'Clear All', range: 'D1:D10' }); // Clear the content, formats and hyperlinks applied in the provided range.
+        if (args.item.text === 'Clear Formats')
+            spreadsheet.clear({ type: 'Clear Formats', range: 'B1:B10' }); // Clear the formats applied in the provided range
+        if (args.item.text === 'Clear Contents')
+            spreadsheet.clear({ type: 'Clear Contents', range: 'A1:A10' }); // Clear the content in the provided range
+        if (args.item.text === 'Clear Hyperlinks')
+            spreadsheet.clear({ type: 'Clear Hyperlinks', range: 'F2:F6' }); // Clear the hyperlinks applied in the provided range
+    }
+     render() {
+        return  ( <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clear </DropDownButtonComponent>
+        <SpreadsheetComponent id ='spreadsheet' ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)}>
+                        <SheetsDirective>
+                            <SheetDirective>
+                                <RangesDirective>
+                                    <RangeDirective dataSource={data}></RangeDirective>
+                                </RangesDirective>
+                                <ColumnsDirective>
+                                    <ColumnDirective width={100}></ColumnDirective>
+                                    <ColumnDirective width={110}></ColumnDirective>
+                                    <ColumnDirective width={100}></ColumnDirective>
+                                    <ColumnDirective width={180}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                </ColumnsDirective>
+                            </SheetDirective>
+                        </SheetsDirective>
+                    </SpreadsheetComponent> </div>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
 ## See Also
 
 * [Rows and columns](./rows-and-columns)

@@ -45,13 +45,13 @@ import { defaultData } from './datasource';
 export default class App extends React.Component<{}, {}> {
     spreadsheet: SpreadsheetComponent;
      public onDataBound(): void {
-        if (this.spreadsheet.sheets[this.spreadsheet.activeSheetTab - 1].name === 'Sheet1' && !this.spreadsheet.isOpen) {
+        if (this.spreadsheet.activeSheetIndex === 0 && !this.spreadsheet.isOpen) {
             this.spreadsheet.cellFormat({ fontWeight: 'bold' }, 'A1:H1');
             this.spreadsheet.sort({ containsHeader: true }, 'A1:H11');
         }
     }
 
-    public onSortComplete(args): void{
+    public onSortComplete(args): void {
          this.spreadsheet.selectRange(args.range);
         // code here.
     }
