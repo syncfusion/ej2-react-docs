@@ -495,7 +495,7 @@ class App extends React.Component<{}, {}>{
     //triggers every time for header cell while rendering
   }
   render() {
-    return <div><div className="col-md-9"> <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} gridSettings={this.gridSettings} dataSourceSettings={this.dataSourceSettings} allowPdfExport={true}></PivotViewComponent></div>
+    return <div><div className="col-md-9"> <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} gridSettings={this.gridSettings} dataSourceSettings={this.dataSourceSettings} allowExcelExport={true}></PivotViewComponent></div>
     <div className='col-lg-3 property-section'><ButtonComponent cssClass='e-primary' onClick={this.btnClick.bind(this)}>Export</ButtonComponent></div></div>
   }
    btnClick(): void {
@@ -546,7 +546,7 @@ class App extends React.Component<{}, {}>{
     //triggers every time for header cell while rendering
   }
   render() {
-    return <div><div className="col-md-9"> <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} gridSettings={this.gridSettings} dataSourceSettings={this.dataSourceSettings} allowPdfExport={true}></PivotViewComponent></div>
+    return <div><div className="col-md-9"> <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} gridSettings={this.gridSettings} dataSourceSettings={this.dataSourceSettings} allowExcelExport={true}></PivotViewComponent></div>
     <div className='col-lg-3 property-section'><ButtonComponent cssClass='e-primary' onClick={this.btnClick.bind(this)}>Export</ButtonComponent></div></div>
   }
    btnClick(): void {
