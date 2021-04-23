@@ -1,5 +1,6 @@
 * [Getting Started](radio-button/getting-started.md)
 * [Label and Size](radio-button/label-and-size.md)
+* [Styles and Appearances](radio-button/style-and-appearance.md)
 * [Change RadioButton state](radio-button/how-to/change-radiobutton-state.md)
 * [Customize RadioButton Appearance](radio-button/how-to/customize-radiobutton-appearance.md)
 * [Name and Value in form submit](radio-button/how-to/name-and-value-in-form-submit.md)
