@@ -8,13 +8,13 @@ description: "How to section explains knowledge base samples and howto access di
 
 # Get the data of clicked area in accumulation chart
 
-By using the [`pointClick`](./api-accumulationChart.html#pointClick-emittypeIPointEventArgs) event, you can get the chart data of clicked area.
+By using the [`pointClick`](https://ej2.syncfusion.com/react/documentation/api/chart/#pointclick) event, you can get the chart data of clicked area.
 
 To show the clicked area data from pie, follow the given steps:
 
 **Step 1**:
 
-By using the [`pointClick`](./api-accumulationChart.html#pointClick-emittypeIPointEventArgs) event, you can get the `args.point.x` and `args.point.y` values.
+By using the [`pointClick`](https://ej2.syncfusion.com/react/documentation/api/chart/#pointclick) event, you can get the `args.point.x` and `args.point.y` values.
 
 {% tab template="chart/how-to", sourceFiles="app/**/*.tsx" %}
 
