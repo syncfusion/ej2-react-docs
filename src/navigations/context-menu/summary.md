@@ -2,6 +2,7 @@
 * [Icons and Navigation](context-menu/icons-and-navigation.md)
 * [Template](context-menu/template.md)
 * [Accessibility](context-menu/accessibility.md)
+* [Styles and Appearances](context-menu/style-and-appearance.md)
 * [Data Binding](context-menu/how-to/data-binding.md)
 * [Render with Separator](context-menu/how-to/render-with-separator.md)
 * [Open and close ContextMenu](context-menu/how-to/open-and-close-contextmenu.md)
