@@ -783,6 +783,110 @@ The following image illustrates how resize the lane.
 The following image illustrates how swapping the lane.
 ![Lane Swapping](images/swapping.gif)
 
+### Disable Swimlane Lane swapping
+
+You can disable swimlane lane swapping by using the property called `canMove`.
+
+The following code illustrates how to disable swimlane lane swapping.
+
+{% tab template= "diagram/swimlane/es5PhaseCustomize", sourceFiles="app/**/*.tsx" %}
+
+```typescript
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+    Diagram,
+    DiagramComponent,
+    NodeModel
+} from "@syncfusion/ej2-react-diagrams";
+
+// A node is created and stored in nodes array.
+
+let node: NodeModel[] = [{
+   shape: {
+            type: 'SwimLane',
+            orientation: 'Horizontal',
+             //Intialize header to swimlane
+             header: {
+                 annotation: { content: 'ONLINE PURCHASE STATUS', style: { fill: '#111111' } },
+                 height: 50, style: { fontSize: 11 },
+             },
+             lanes: [
+                 {
+                     id: 'stackCanvas1',
+                     height: 100,
+                     header: {
+                         annotation: { content: 'CUSTOMER' }, width: 50,
+                         style: { fontSize: 11 }
+                     },
+                       children: [
+                         {
+                         id: 'node1',
+                         annotations: [
+                             {
+                                 content: 'Consumer learns \n of product',
+                                 style: { fontSize: 11 }
+                             }
+                         ],
+                         margin: { left: 60, top: 30 },
+                         height: 40, width: 100,canMove: false
+                     }, {
+                         id: 'node2',
+                         shape: { type: 'Flow', shape: 'Decision' },
+                         annotations: [
+                           {
+                             content: 'Does \n Consumer want \nthe product',
+                             style: { fontSize: 11 }
+                           }
+                         ],
+                         margin: { left: 200, top: 20 },
+                         height: 60, width: 120,canMove: false
+                       },
+                     ],
+                 },
+
+             ],
+             phases: [
+                 {
+                     id: 'phase1', offset: 120,
+                     header: { annotation: { content: 'Phase' } },style:{fill:'red'}
+                 },{
+                    id: 'phase2', offset: 200,
+                    header: { annotation: { content: 'Phase' } }
+                },
+                 ],
+             phaseSize: 20,
+         },
+         offsetX: 300, offsetY: 200,
+         height: 200,
+         width: 350  
+}];
+
+// initialize Diagram component
+let diagramInstance: DiagramComponent;
+ReactDOM.render( < DiagramComponent id = "diagram"  ref={diagram => diagramInstance = diagram}
+        width = {
+            '100%'
+        }
+        height = {
+            '800px'
+        }
+        // Add node
+        nodes = {
+            node
+        }
+         created = {
+            () => {
+                let lane = [{id:"lane1",height:100,canMove: false}];
+    diagramInstance.addLanes(diagramInstance.nodes[0],lane,1);
+            }
+        }
+        // render initialized Diagram
+        />,   document.getElementById("diagram") );
+```
+
+{% endtab %}
+
 ### Resize helper
 
 * The special resize helper will be used to resize the lanes.
