@@ -16,7 +16,7 @@ The Spreadsheet control opens an Excel document with its data, style, format, an
 
 In user interface you can open an Excel document by clicking `File > Open` menu item in ribbon.
 
-The following code example shows `Open` option in the Spreadsheet control.
+The following sample shows the `Open` option by using the [`openUrl`](../api/spreadsheet/#openUrl) property in the Spreadsheet control. You can also use the [`beforeOpen`](../api/spreadsheet/#beforeOpen) event to trigger before opening an Excel file.
 
 {% tab template="spreadsheet/open-save", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
 
@@ -25,14 +25,25 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent } from '@syncfusion/ej2-react-spreadsheet';
 export default class App extends React.Component<{}, {}> {
+    public beforeOpen(args): void {
+        // your code snippets here
+    }
      render() {
-        return  (<SpreadsheetComponent allowOpen= {true} openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open'/>);
+        return  (<SpreadsheetComponent allowOpen= {true} openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open' beforeOpen={this.beforeOpen.bind(this)}/>);
     }
 }
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 {% endtab %}
+
+Please find the below table for the beforeOpen event arguments.
+
+ | **Parameter** | **Type** | **Description** |
+| ----- | ----- | ----- |
+| file | FileList or string or File | To get the file stream. `FileList` -  contains length and item index. <br/> `File` - specifies the file lastModified and file name. |
+| cancel | boolean | To prevent the open operation. |
+| requestData | object |  To provide the Form data. |
 
 > * Use `Ctrl + O` keyboard shortcut to open Excel documents.
 > * The default value of the [allowOpen](../api/spreadsheet/#allowopen) property is `true`. For demonstration purpose, we have showcased the [allowOpen](../api/spreadsheet/#allowopen) property in previous code snippet.
@@ -45,7 +56,7 @@ The Spreadsheet control saves its data, style, format, and more as Excel file do
 
 In user interface, you can save Spreadsheet data as Excel document by clicking `File > Save As` menu item in ribbon.
 
-The following code example shows `Save` option in the Spreadsheet control.
+The following sample shows the `Save` option by using the [`saveUrl`](../api/spreadsheet/#saveUrl) property in the Spreadsheet control. You can also use the [`beforeSave`](../api/spreadsheet/#beforeSave) event to trigger before saving the Spreadsheet as an Excel file.
 
 {% tab template="spreadsheet/open-save", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
 
@@ -56,9 +67,12 @@ import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective 
 import { RangeDirective, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
 export default class App extends React.Component<{}, {}> {
+    public beforeSave(args): void {
+        // your code snippets here
+    }
      render() {
         return  (<SpreadsheetComponent allowSave= {true}
-                        saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'>
+                        saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save' beforeSave={this.beforeSave.bind(this)}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>
@@ -79,8 +93,21 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
+Please find the below table for the beforeSave event arguments.
+
+| **Parameter** | **Type** | **Description** |
+| ----- | ----- | ----- |
+| url | string |  Specifies the save url.  |
+| fileName | string | Specifies the file name. |
+| saveType | SaveType | Specifies the saveType like Xlsx, Xls, Csv and Pdf. |
+| customParams | object | Passing the custom parameters from client to server while performing save operation. |
+| isFullPost | boolean | It sends the form data from client to server, when set to true. It fetches the data from client to server and returns the data from server to client, when set to false. |
+| needBlobData | boolean | You can get the blob data if set to true. |
+| cancel | boolean | To prevent the save operations. |
+
 > * Use `Ctrl + S` keyboard shortcut to save the Spreadsheet data as Excel file.
 > * The default value of [allowSave](../api/spreadsheet/#allowsave) property is `true`. For demonstration purpose, we have showcased the [allowSave](../api/spreadsheet/#allowsave) property in previous code snippet.
+> * Demo purpose only, we have used the online web service url link.
 
 ### Methods
 
