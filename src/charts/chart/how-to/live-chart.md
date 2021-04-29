@@ -33,57 +33,44 @@ from'@syncfusion/ej2-react-charts';
 import { getElement } from '@syncfusion/ej2-charts';
 
 class App extends React.Component<{}, {}>{
+  constructor(props: any, chart: ChartComponent) {
+    super(props)
+    for (; this.i < 50; this.i++) {
+      if (Math.random() > .5) {
+          this.value += Math.random() * 2.0;
+      }
+      this.series1[this.i] = { x: this.i, y: this.value };
+    }
+    this.chart = chart;
+  };
 
-  private chart: ChartComponent;
+  public chart: ChartComponent;
   public series1: Object[] = [];
-  public value: number = 10;
+  public value: number = 10;  
   public intervalId: any;
-  public setTimeoutValue: number;
+  public setTimeoutValue: number = 100;
   public i: number = 0;
   public loaded(args: ILoadedEventArgs): void {
-    this.setTimeoutValue = 100;
-    this.intervalId = setInterval(
+    this.intervalId = setTimeout(
       () => {
-        let i: number;
-        if (getElement('charts') === null) {
+        if (this.chart === null) {
           clearInterval(this.intervalId);
         } else {
           if (Math.random() > .5) {
-            if (this.value < 25) {
               this.value += Math.random() * 2.0;
-            } else {
-              this.value -= 2.0;
-            }
           }
           this.i++;
           this.series1.push({ x: this.i, y: this.value });
           this.series1.shift();
           args.chart.series[0].dataSource = this.series1;
-          args.chart.refresh();
         }
       },
       this.setTimeoutValue);
   }
-  constructor() {
-    super()
-    for (; this.i < 100; this.i++) {
-      if (Math.random() > .5) {
-        if (this.value < 25) {
-          this.value += Math.random() * 2.0;
-        } else {
-          this.value -= 2.0;
-        }
-      }
-      this.series1[this.i] = { x: this.i, y: this.value };
-
-    }
-  };
 
   render() {
     return <ChartComponent id='charts'
-      primaryXAxis={{ majorGridLines: { width: 0 } }}
-      primaryYAxis={{ minimum: 0, maximum: 50 }}
-      loaded={this.loaded.bind(this)}>
+      loaded={this.loaded.bind(this) as EmitType<ILoadedEventArgs>}>
       <Inject services={[LineSeries]} />
       <SeriesCollectionDirective>
         <SeriesDirective dataSource={this.series1} xName='x' yName='y' type='Line'>
@@ -91,7 +78,6 @@ class App extends React.Component<{}, {}>{
       </SeriesCollectionDirective>
     </ChartComponent>
   }
-
 };
 ReactDOM.render(<App />, document.getElementById('charts'));
 ```
