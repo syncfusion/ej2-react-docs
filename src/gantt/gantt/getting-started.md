@@ -8,7 +8,7 @@ description: "Learn how to create a Gantt and to enable the features like Editin
 
 This section explains you the steps required to create a simple Essential JS 2 Gantt in a React application and demonstrates its basic features.
 
-To get started quickly with React Gantt Chart the following video explains the project configuration and basic Gantt chart features behavior:
+To get started quickly with React Gantt Chart the following video explains the project configuration and basic Gantt chart features behaviours:
 
 `youtube:pCg5hUSKRh8`
 

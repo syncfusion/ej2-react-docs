@@ -15,6 +15,10 @@ The Gantt component supports two types of selection that can be set by using the
 * `Single`: Sets a single value by default and allows only selection of a single row or a cell.
 * `Multiple`: Allows you to select multiple rows or cells. To perform the multi-selection, press and hold the CTRL key and click the desired rows or cells.
 
+To get start quickly with Selection and to know its type and behaviours, you can check on this video
+
+`youtube:v=a-5EU7KxzhQ`
+
 ## Selection mode
 
 The Gantt component supports three types of selection modes that can be set by using the [`selectionSettings.mode`](../api/gantt/selectionSettings/#mode). They are:
