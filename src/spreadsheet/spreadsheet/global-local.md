@@ -456,11 +456,112 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 {% endtab %}
 
+## Internationalization
+
+The Internationalization library is used to globalize number, date, and time values in the spreadsheet component.
+
+The following example demonstrates the Spreadsheet in French [ `fr-CH`] culture. In the below sample we have globalized the Date(Date column), Time(Time column), and Currency(Amount column) formats.
+
+{% tab template="spreadsheet/internationalization", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { L10n, loadCldr, setCulture, setCurrencyCode } from '@syncfusion/ej2-base';
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { data } from './datasource';
+import { RangeDirective, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-spreadsheet';
+import * as cagregorian from './ca-gregorian.json';
+import * as currencies from './currencies.json';
+import { data } from './datasource';
+import * as numberingSystems from './numberingSystems.json';
+import * as numbers from './numbers.json';
+import * as timeZoneNames from './timeZoneNames.json';
+
+loadCldr(currencies, cagregorian, numbers, timeZoneNames, numberingSystems);
+
+setCulture('fr-CH');
+setCurrencyCode('EUR');
+
+L10n.load({
+    'fr-CH': {
+        'spreadsheet': {
+           'File': 'Fichier',
+            'Home': 'Accueil',
+            'Insert': 'Insérer',
+            'Formulas': 'Formules',
+            'Data': 'Les données',
+            'View': 'Vue',
+            'Cut': 'Coupe',
+            'Copy': 'Copie',
+            'Paste': 'Pâte',
+            'PasteSpecial': 'Pâte spéciale',
+            'All': 'Tous les',
+            'Values': 'Valeurs',
+            'Formats': 'Les formats',
+            'Font': 'fonte',
+            'FontSize': 'Taille de police',
+            'Bold': 'Audacieux',
+            'Italic': 'Italique',
+            'Underline': 'Souligner',
+            'Strikethrough': 'Barré',
+            'TextColor': 'Couleur du texte',
+            'FillColor': 'La couleur de remplissage',
+            'HorizontalAlignment': 'Alignement horizontal',
+            'AlignLeft': 'Alignez à gauche',
+            'AlignCenter': 'centre',
+            'AlignRight': 'Aligner à droite',
+            'VerticalAlignment': 'Alignement vertical',
+            'AlignTop': 'Aligner en haut',
+            'AlignMiddle': 'Aligner le milieu',
+            'AlignBottom': 'Aligner le bas',
+            'InsertFunction': 'Insérer une fonction',
+            'Delete': 'Effacer',
+            'Rename': 'Rebaptiser',
+            'Hide': 'Cacher',
+            'Unhide': 'Démasquer',
+            'NumberFormat': 'Nombre Format',
+        }
+    }
+});
+
+export default class App extends React.Component<{}, {}> {
+    spreadsheet: SpreadsheetComponent;
+    public created(): void {
+        //Applies cell and number formatting to specified range of the active sheet
+            this.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:F1');
+            this.spreadsheet.numberFormat('$#,##0.00', 'F2:F11');
+    }
+     render() {
+        return  (<SpreadsheetComponent ref={(ssObj) => { this.spreadsheet = ssObj }} locale='fr-CH' created={this.created.bind(this)}>
+                        <SheetsDirective>
+                            <SheetDirective>
+                                <RangesDirective>
+                                    <RangeDirective dataSource={data}></RangeDirective>
+                                </RangesDirective>
+                                <ColumnsDirective>
+                                    <ColumnDirective width={100}></ColumnDirective>
+                                    <ColumnDirective width={110}></ColumnDirective>
+                                    <ColumnDirective width={100}></ColumnDirective>
+                                    <ColumnDirective width={180}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                </ColumnsDirective>
+                            </SheetDirective>
+                        </SheetsDirective>
+                    </SpreadsheetComponent>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
 ## Right to left (RTL)
 
 RTL provides an option to switch the text direction and layout of the Spreadsheet component from right to left. It improves the user experiences and accessibility for users who use right-to-left languages (Arabic, Farsi, Urdu, etc.). To enable RTL Spreadsheet, set the [`enableRtl`](../api/spreadsheet/#enablertl) to true.
 
-{% tab template="spreadsheet/local-data-binding", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
+{% tab template="spreadsheet/internationalization", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
 
 ```tsx
 import * as React from 'react';

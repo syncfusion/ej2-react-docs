@@ -46,7 +46,7 @@ import { defaultData } from './datasource';
 import { addClass, removeClass } from '@syncfusion/ej2-base';
 
 export default class App extends React.Component<{}, {}> {
-       public spreadsheet: SpreadsheetComponent;
+    public spreadsheet: SpreadsheetComponent;
     public boldRight: CellStyleModel = { fontWeight: 'bold', textAlign: 'right' };
     public bold: CellStyleModel = { fontWeight: 'bold' };
      public updateCollection(): void {
