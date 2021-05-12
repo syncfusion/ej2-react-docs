@@ -64,7 +64,22 @@ The Rich Text Editor provides an option to localize its strings; it is used to a
         uppercase: "Upper Case",
         viewside: "View Side",
         zoomin: "Zoom In",
-        zoomout: "Zoom Out"
+        zoomout: "Zoom Out",
+        formatsDropDownParagraph: "Paragraph",
+        formatsDropDownCode: "Code",
+        formatsDropDownQuotation: "Quotation",
+        formatsDropDownHeading1: "Heading 1",
+        formatsDropDownHeading2: "Heading 2",
+        formatsDropDownHeading3: "Heading 3",
+        formatsDropDownHeading4: "Heading 4",
+        fontNameSegoeUI: "Segoe UI",
+        fontNameArial: "Arial",
+        fontNameGeorgia: "Georgia",
+        fontNameImpact: "Impact",
+        fontNameTahoma: "Tahoma",
+        fontNameTimesNewRoman: "Times New Roman",
+        fontNameVerdana: "Verdana"
+
       }
     }
 ```
@@ -145,7 +160,22 @@ To localize the editor’s strings with your own localization, copy the default 
         upperCase: "Großbuchstaben",
         viewside: "Seite anzeigen",
         zoomIn: "hineinzoomen",
-        zoomOut: "Rauszoomen"
+        zoomOut: "Rauszoomen",
+        formatsDropDownParagraph: "Absatz",
+        formatsDropDownCode: "Kodex",
+        formatsDropDownQuotation: "Zitat",
+        formatsDropDownHeading1: "Überschrift 1",
+        formatsDropDownHeading2: "Überschrift 2",
+        formatsDropDownHeading3: "Überschrift 3",
+        formatsDropDownHeading4: "Überschrift 4",
+        fontNameSegoeUI: "Segoe UI",
+        fontNameArial: "Arial",
+        fontNameGeorgia: "Georgia",
+        fontNameImpact: "Einschlag",
+        fontNameTahoma: "Tahoma",
+        fontNameTimesNewRoman: "Mal Neu römisch",
+        fontNameVerdana: "Verdana"
+
       }
     }
 ```
@@ -235,7 +265,22 @@ L10n.load({
       upperCase: "Großbuchstaben",
       viewside: "Seite anzeigen",
       zoomIn: "hineinzoomen",
-      zoomOut: "Rauszoomen"
+      zoomOut: "Rauszoomen",
+      formatsDropDownParagraph: "Absatz",
+      formatsDropDownCode: "Kodex",
+      formatsDropDownQuotation: "Zitat",
+      formatsDropDownHeading1: "Überschrift 1",
+      formatsDropDownHeading2: "Überschrift 2",
+      formatsDropDownHeading3: "Überschrift 3",
+      formatsDropDownHeading4: "Überschrift 4",
+      fontNameSegoeUI: "Segoe UI",
+      fontNameArial: "Arial",
+      fontNameGeorgia: "Georgia",
+      fontNameImpact: "Einschlag",
+      fontNameTahoma: "Tahoma",
+      fontNameTimesNewRoman: "Mal Neu römisch",
+      fontNameVerdana: "Verdana"
+
     }
   }
 });
