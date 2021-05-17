@@ -17,7 +17,7 @@ The Gantt component supports two types of selection that can be set by using the
 
 To get start quickly with Selection and to know its type and behaviours, you can check on this video
 
-`youtube:v=a-5EU7KxzhQ`
+`youtube:a-5EU7KxzhQ`
 
 ## Selection mode
 

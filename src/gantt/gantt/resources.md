@@ -8,6 +8,10 @@ description: "Learn how to assign the resource for the task's in the Essential J
 
 In Gantt, the resources are represented by staff, equipment and materials etc. In Gantt component you can show or allocate the resources (human resources) for each task.
 
+To get start quickly with Resource Allocation for each task and to know about Resource view Gantt, you can check on this video
+
+`youtube:Fb5irtrZZUg`
+
 ## Resource collection
 
 The resource collection contains details about resources that are used in the project. Resources are JSON object that contains id, name, unit and group of the resources and this collection is mapped to the Gantt control using the [`resources`](../api/gantt/#resources) property. These resource fields are mapped to the Gantt control using the [`resourceFields`](../api/gantt/#resourceFields) property.
