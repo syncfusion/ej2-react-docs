@@ -336,50 +336,6 @@ The following screenshot represents a grid touch selection in the device.
 
 ![Touch Interaction](images/touch-selection.jpg)
 
-## Multiple Selection based on condition
-
-You can select multiple grid rows based on condition by using the [`selectRows`](../api/grid/#selectrows) method.
-
-In the following code, the rows which contains **ShipCountry** value as **Brazil** are selected at initial rendering.
-
-{% tab template="grid/selection", sourceFiles="app/App.tsx,app/datasource.tsx" %}
-
-```typescript
-import { ColumnDirective, ColumnsDirective, Grid, GridComponent, SelectionSettingsModel } from '@syncfusion/ej2-react-grids';
-import * as React from 'react';
-import { data } from './datasource';
-
-export default class App extends React.Component<{}, {}>{
-  public grid: Grid | null;
-  public settings: SelectionSettingsModel = { type: 'Multiple' };
-  public dataBound() {
-    if (this.grid) {
-      const rowIndexes : number[]=[];
-      (this.grid.dataSource as object[]).forEach((dat: any,index) => {
-          if (dat.ShipCountry === "Brazil") {
-            rowIndexes.push(index);
-          }
-      });
-      this.grid.selectRows(rowIndexes);
-    }
-  }
-  public render() {
-      this.dataBound = this.dataBound.bind(this);
-      return <GridComponent dataSource={data} selectionSettings={this.settings}
-              dataBound={this.dataBound} ref={g => this.grid = g}>
-              <ColumnsDirective>
-               <ColumnDirective field='OrderID' width='120' textAlign="Right"/>
-               <ColumnDirective field='CustomerID' width='150'/>
-               <ColumnDirective field='ShipCountry' width='100'/>
-               <ColumnDirective field='ShipName' width='150'/>
-              </ColumnsDirective>
-             </GridComponent>
-  }
-};
-```
-
-{% endtab %}
-
 > [`getSelectedRecords`](../api/grid/#getselectedrecords) method has been used to retrieve the selected records.
 
 ## Simple Multiple Row selection
