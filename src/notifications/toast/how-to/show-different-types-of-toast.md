@@ -10,10 +10,10 @@ The Essential JS 2 Toast has the following predefined styles that can be defined
 
 | Class | Description |
 | -------- | -------- |
-| e-success | Used to represent a positive Toast. |
-| e-info |  Used to represent an informative Toast. |
-| e-warning | Used to represent a Toast with caution. |
-| e-danger | Used to represent a negative Toast. |
+| e-toast-success | Used to represent a positive Toast. |
+| e-toast-info |  Used to represent an informative Toast. |
+| e-toast-warning | Used to represent a Toast with caution. |
+| e-toast-danger | Used to represent a negative Toast. |
 
 {% tab template="toast/toast", sourceFiles="app/App.tsx", compileJsx=true  %}
 
