@@ -48,6 +48,39 @@ Please find the below table for the beforeOpen event arguments.
 > * Use `Ctrl + O` keyboard shortcut to open Excel documents.
 > * The default value of the [allowOpen](../api/spreadsheet/#allowopen) property is `true`. For demonstration purpose, we have showcased the [allowOpen](../api/spreadsheet/#allowopen) property in previous code snippet.
 
+### Open an external URL excel file while initial load
+
+You can achieve to access the remote excel file by using the [`created`](../api/spreadsheet/#created) event. In this event you can fetch the excel file and convert it to a blob. Convert this blob to a file and [`open`](../api/spreadsheet/#open) this file by using Spreadsheet component open method.
+
+{% tab template="spreadsheet/open-save", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px",  compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { SpreadsheetComponent } from '@syncfusion/ej2-react-spreadsheet';
+
+export default class App extends React.Component<{}, {}> {
+    spreadsheet: SpreadsheetComponent;
+    public created(args): void {
+        fetch("https://js.syncfusion.com/demos/ejservices/data/Spreadsheet/LargeData.xlsx") // fetch the remote url
+                .then((response) => {
+                    response.blob().then((fileBlob) => { // convert the excel file to blob
+                    var file = new File([fileBlob], "Sample.xlsx"); //convert the blob into file
+                    this.spreadsheet.open({ file: file }); // open the file into Spreadsheet
+                    })
+                })
+    }
+     render() {
+        return  (<SpreadsheetComponent ref={(ssObj) => { this.spreadsheet = ssObj }}
+                        openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open' created={this.created.bind(this)}>
+                    </SpreadsheetComponent>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
 ## Save
 
 The Spreadsheet control saves its data, style, format, and more as Excel file document. To enable this feature, set [`allowSave`](../api/spreadsheet/#allowsave) as `true` and assign service url to the [`saveUrl`](../api/spreadsheet/#saveurl) property.
@@ -108,6 +141,55 @@ Please find the below table for the beforeSave event arguments.
 > * Use `Ctrl + S` keyboard shortcut to save the Spreadsheet data as Excel file.
 > * The default value of [allowSave](../api/spreadsheet/#allowsave) property is `true`. For demonstration purpose, we have showcased the [allowSave](../api/spreadsheet/#allowsave) property in previous code snippet.
 > * Demo purpose only, we have used the online web service url link.
+
+### To send and receive custom params from client to server
+
+Passing the custom parameters from client to server by using [`beforeSave`](../api/spreadsheet/#beforeSave) event.
+
+{% tab template="spreadsheet/open-save", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { RangeDirective, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { defaultData } from './datasource';
+export default class App extends React.Component<{}, {}> {
+    public beforeSave(args): void {
+       args.customParams = { customParams: 'you can pass custom params in server side'}; // you can pass the custom params
+    }
+     render() {
+        return  (<SpreadsheetComponent allowSave= {true}
+                        saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save' beforeSave={this.beforeSave.bind(this)}>
+                        <SheetsDirective>
+                            <SheetDirective>
+                                <RangesDirective>
+                                    <RangeDirective dataSource={defaultData}></RangeDirective>
+                                </RangesDirective>
+                                <ColumnsDirective>
+                                    <ColumnDirective width={180}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                </ColumnsDirective>
+                            </SheetDirective>
+                        </SheetsDirective>
+                    </SpreadsheetComponent>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+Server side code snippets:
+
+```csharp
+
+    public IActionResult Save(SaveSettings saveSettings, string customParams)
+        {
+            Console.WriteLine(customParams); // you can get the custom params in controller side
+            return Workbook.Save(saveSettings);
+        }
+```
 
 ### Methods
 
