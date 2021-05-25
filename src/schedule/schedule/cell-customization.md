@@ -219,6 +219,41 @@ You can customize cells such as work cells, month cells, all-day cells, header c
 | minorSlot | triggers on minor time slot cell rendering.|
 | weekNumberCell | triggers on cell displaying week number.|
 
+## Customizing cell header in month view
+
+The month header of each date cell in the month view can be customized using the `cellHeaderTemplate` option which accepts the string or HTMLElement. The corresponding date can be accessed with the template.
+
+{% tab template="schedule/cell-dimension", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {
+  ScheduleComponent, Month, Inject, ViewsDirective,
+  ViewDirective
+} from "@syncfusion/ej2-react-schedule";
+import { Internationalization } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+  private instance = new Internationalization();
+  private getDateHeaderText(props): JSX.Element {
+    return (<div>{this.instance.formatDate(props.date, { skeleton: "Ed" })}</div>);
+  }
+  render() {
+    return <ScheduleComponent height='550px' cellHeaderTemplate={this.getDateHeaderText.bind(this)}>
+        <ViewsDirective>
+          <ViewDirective option='Month' />
+        </ViewsDirective>
+        <Inject services={[Month]} />
+      </ScheduleComponent>
+  }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
+
 ## Customizing the minimum and maximum date values
 
 Providing the `minDate` and `maxDate` property with some date values, allows the Scheduler to set the minimum and maximum date range. The Scheduler date that lies beyond this minimum and maximum date range will be in a disabled state so that the date navigation will be blocked beyond the specified date range.
@@ -258,3 +293,7 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 {% endtab %}
 
 >By default, the `minDate` property value is set to new Date(1900, 0, 1) and `maxDate` property value is set to new Date(2099, 11, 31). The user can also set the customized `minDate` and `maxDate` property values.
+
+## How to disable multiple cell and row selection in Schedule
+
+By default, the `allowMultiCellSelection` and `allowMultiRowSelection` properties of the Schedule are set to `true`. So, the Schedule allows user to select multiple cells and rows. If the user want to disable this multiple cell and row selection. The user can disable this feature by setting up `false` to these properties.

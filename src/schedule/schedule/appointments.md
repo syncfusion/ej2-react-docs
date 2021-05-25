@@ -1557,6 +1557,40 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
+## Appointments occupying entire cell
+
+The Scheduler allows the event to occupies the full height of the cell without its header part by setting `true` for `enableMaxHeight` Property.
+
+We can show more indicator if more than one appointment is available in a same cell by setting `true` to `enableIndicator` property whereas its default value is false.
+
+{% tab template="schedule/events", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {
+  ScheduleComponent, TimelineViews, TimelineMonth, Inject
+} from '@syncfusion/ej2-react-schedule';
+import { scheduleData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+   private data: Object[] = extend([], scheduleData, null, true) as Object[];
+render() {
+    return <ScheduleComponent width='100%' height='500px' selectedDate={new Date(2018, 1, 15)} eventSettings={ { dataSource: this.data, enableMaxHeight: true, enableIndicator: false } }>
+    <ViewsDirective>
+              <ViewDirective option='TimelineWeek' />
+              <ViewDirective option='TimelineMonth' />
+            </ViewsDirective>
+         <Inject services={[TimelineViews, TimelineMonth]} />
+      </ScheduleComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
+
 ## Display tooltip for appointments
 
 The tooltip shows the Scheduler appointment's information in a formatted style by making use of the tooltip related options.
