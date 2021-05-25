@@ -10,6 +10,10 @@ Gantt supports client-side exporting, which allows you to export its data to the
 
 To export data to Excel and CSV, inject the `ExcelExport` module in Gantt.
 
+To get start quickly with Excel exporting and to know its functionalities, you can check on this video
+
+`youtube:y-FfHD02-s0&t=299s`
+
 {% tab template="gantt/excel-export", compileJsx=true %}
 
 ```typescript

@@ -177,6 +177,10 @@ You can dynamically rearrange the rows in the Gantt control by using the `allowR
 
 To use row drag and drop, inject the `RowDD` and `Edit` module in the gantt.
 
+To get start quickly with drag and drop and to know its type and behaviours, you can check on this video
+
+`youtube:ZCEtHadA-5M`
+
 {% tab template="gantt/rows", compileJsx=true %}
 
 ```typescript

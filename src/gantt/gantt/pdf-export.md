@@ -10,6 +10,10 @@ PDF export allows exporting Gantt data to PDF document. You need to use the [`pd
 
 To export data to PDF document, inject the `PdfExport` module in Gantt.
 
+To get start quickly with PDF exporting and to know its functionalities, you can check on this video
+
+`youtube:y-FfHD02-s0`
+
 >Note: Currently, we do not have support for exporting manually scheduled tasks.
 
 {% tab template="gantt/pdf-export", compileJsx=true %}

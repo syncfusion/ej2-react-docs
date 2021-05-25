@@ -451,6 +451,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 A column template is used to customize the column’s look. The following code example explains how to define the custom template in Gantt using the [`template`](../api/gantt/column/#template) property.
 
+You can check this video to learn about how to use templates for column(based on conditions) and headers in Gantt.
+
+`youtube:llhPqZOsLdY`
+
 {% tab template="gantt/columntemplate", compileJsx=true %}
 
 ```typescript

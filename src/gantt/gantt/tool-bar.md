@@ -70,6 +70,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 Custom toolbar items can be added to the toolbar by defining the [`toolbar`](../api/gantt/#toolbar) property as a collection of `ItemModels`.
 Actions for this customized toolbar items are defined in the [`toolbarClick`](../api/gantt/#toolbarclick) event.
 
+You can check this video to learn about how to use custom toolbar in Gantt.
+
+`youtube:llhPqZOsLdY&t=123s`
+
 By default, the custom toolbar items are at left position. You can change the position by using the `align` property. In the following sample, the `Quick Filter` toolbar item is positioned at right.
 
 {% tab template="gantt/customtoolbar", compileJsx=true %}
