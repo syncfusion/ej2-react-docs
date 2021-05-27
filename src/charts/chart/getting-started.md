@@ -11,6 +11,10 @@ description: "Getting started file explains how to configure and install chart p
 
 This section explains you the steps required to create a simple chart and demonstrate the basic usage of the chart control.
 
+To get start quickly with React Charts, you can check on this video:
+
+`youtube:w1xHn0CceqE`
+
 ## Dependencies
 
 Below is the list of minimum dependencies required to use the chart component.

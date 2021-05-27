@@ -14,6 +14,10 @@ description: "Polar and Radar chart supports different draw types and customizat
 To render a polar series, use series [`type`](../api/chart/series/#type) as `Polar` and
 inject `PolarSeries` module into services
 
+To get start quickly with React Polar and Radar Charts, you can check on this video:
+
+`youtube:6kn9dCOla0c`
+
 ### Draw Types
 
 Polar drawType property is used to change the series plotting type to line, column, area, range column,

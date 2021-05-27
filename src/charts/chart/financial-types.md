@@ -10,6 +10,10 @@ description: "Financial charts are used to illustrate the movements in the price
 
 Financial charts are used to illustrate the movements in the price of a financial instrument over time.
 
+To get start quickly with React Financial Charts, you can check on this video:
+
+`youtube:nxcMqkfI-nA`
+
 Chart supports the following financial series
 
 <!-- markdownlint-disable MD036 -->
