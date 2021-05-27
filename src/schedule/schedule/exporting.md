@@ -510,3 +510,129 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 ```
 
 {% endtab %}
+
+## How to print the Scheduler element
+
+The Scheduler allows you to print the Scheduler element by using the `print` client-side method. The print method works in two ways. You can find it below.
+
+* Using print method without options.
+* Using a print method with options.
+
+> To print the Schedule, you need to import the `Print` module from the `@syncfusion/ej2-react-schedule` package and then inject it using `<Inject services={[Print]} />`.
+
+### Using print method without options
+
+You can print the Schedule element with the current view by using the `print` method without passing the options. The following example shows how to print the Scheduler using the `print` method without passing options.
+
+{% tab template="schedule/print", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as ReactDOM from 'react-dom';
+import * as React from 'react';
+import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Print, Inject } from '@syncfusion/ej2-react-schedule';
+import { scheduleData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+  public scheduleObj: ScheduleComponent;
+  private data: Object[] = extend([], scheduleData, null, true) as Object[];
+
+  private onActionBegin(args: ActionEventArgs & ToolbarActionArgs): void {
+    if (args.requestType === 'toolbarItemRendering') {
+      let exportItem: ItemModel = {
+        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icon-schedule-print',
+        text: 'Print', cssClass: 'e-schedule-print', click: this.onPrintIconClick.bind(this)
+      };
+      args.items.push(exportItem);
+    }
+  }
+
+  private onPrintIconClick(): void {
+    this.scheduleObj.print();
+  }
+
+    render() {
+    return (<div>
+    <ScheduleComponent ref={schedule => this.scheduleObj = schedule} width='100%' height='520px' selectedDate={new Date(2018, 1, 15)} eventSettings={ { dataSource: this.data } } actionBegin={this.onActionBegin.bind(this)}>
+    <Inject services={[Day, Week, WorkWeek, Month, Agenda, Print]} />
+    </ScheduleComponent></div>
+    );
+  }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
+
+### Using a print method with options
+
+You can print the Schedule element based on your needs using the `print` method by passing the print options used in this example with its values. The following example shows how to print the Scheduler using the `print` method by passing the options.
+
+{% tab template="schedule/print", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as ReactDOM from 'react-dom';
+import * as React from 'react';
+import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Print, Inject, ScheduleModel } from '@syncfusion/ej2-react-schedule';
+import { scheduleData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+  public scheduleObj: ScheduleComponent;
+  private data: Object[] = extend([], scheduleData, null, true) as Object[];
+
+  private onActionBegin(args: ActionEventArgs & ToolbarActionArgs): void {
+    if (args.requestType === 'toolbarItemRendering') {
+      let exportItem: ItemModel = {
+        align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icon-schedule-print',
+        text: 'Print', cssClass: 'e-schedule-print', click: this.onPrintIconClick.bind(this)
+      };
+      args.items.push(exportItem);
+    }
+  }
+
+  private onPrintIconClick(): void {
+    let printModel: ScheduleModel = {
+      agendaDaysCount: 14,
+      cssClass: 'e-print-schedule',
+      currentView: this.scheduleObj.currentView,
+      dateFormat: 'dd-MMM-yyyy',
+      enableRtl: false,
+      endHour: '18:00',
+      firstDayOfWeek: 1,
+      firstMonthOfYear: 0,
+      group: {},
+      height: 'auto',
+      locale: this.scheduleObj.locale,
+      maxDate: this.scheduleObj.selectedDate,
+      minDate: this.scheduleObj.getCurrentViewDates()[0],
+      readonly: true,
+      resources: [],
+      rowAutoHeight: false,
+      selectedDate: new Date(),
+      showHeaderBar: false,
+      showTimeIndicator: false,
+      showWeekNumber: false,
+      showWeekend: false,
+      startHour: '06:00',
+      timeFormat: 'HH',
+      timeScale: { enable: true },
+      width: 'auto',
+      workDays: [1, 2, 3, 4, 5],
+      workHours: { highlight: true, start: '10:00', end: '20:00' }
+    };
+    this.scheduleObj.print(printModel);
+  }
+
+    render() {
+    return (<div>
+    <ScheduleComponent ref={schedule => this.scheduleObj = schedule} width='100%' height='520px' selectedDate={new Date(2018, 1, 15)} eventSettings={ { dataSource: this.data } } actionBegin={this.onActionBegin.bind(this)}>
+    <Inject services={[Day, Week, WorkWeek, Month, Agenda, Print]} />
+    </ScheduleComponent></div>
+    );
+  }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
