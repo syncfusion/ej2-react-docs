@@ -65,26 +65,106 @@ import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
 import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
+import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
 
 export default class App extends React.Component<{}, {}> {
     public spreadsheet: SpreadsheetComponent;
+    public items: ItemModel[] = [
+    {
+        text: "Cut"
+    },
+    {
+        text: "Copy"
+    },
+    {
+        text: "Paste"
+    }];
     public oncreated(): void{
         this.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:H1');
     }
-    cut() {
-        this.spreadsheet.cut();
-    }
-    copy() {
-        this.spreadsheet.copy();
-    }
-    paste() {
-        this.spreadsheet.paste();
+    public itemSelect(args): void {
+        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
+        if (args.item.text === 'Cut')
+            this.spreadsheet.cut();
+        if (args.item.text === 'Copy')
+            this.spreadsheet.copy();
+        if (args.item.text === 'Paste')
+            this.spreadsheet.paste();
     }
      render() {
         return  ( <div>
-        <button className='e-btn' onClick={ this.cut.bind(this) }>Cut</button> <button className='e-btn' onClick={ this.copy.bind(this) }>Copy</button> <button className='e-btn' onClick={ this.paste.bind(this) }>Paste</button>
+        <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
              <SpreadsheetComponent
                         ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} enableClipboard={true}>
+                        <SheetsDirective>
+                            <SheetDirective>
+                                <RangesDirective>
+                                    <RangeDirective dataSource={defaultData}></RangeDirective>
+                                </RangesDirective>
+                                <ColumnsDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={92}></ColumnDirective>
+                                    <ColumnDirective width={96}></ColumnDirective>
+                                </ColumnsDirective>
+                            </SheetDirective>
+                        </SheetsDirective>
+                    </SpreadsheetComponent> </div>);
+    }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+{% endtab %}
+
+## Prevent the paste functionality
+
+The following example shows, how to prevent the paste action in spreadsheet. In [`actionBegin`](../api/spreadsheet/#actionbegin) event, you can set `cancel` argument as false in paste request type.
+
+{% tab template="spreadsheet/clipboard", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", compileJsx=true %}
+
+```tsx
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
+import { defaultData } from './datasource';
+import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
+
+export default class App extends React.Component<{}, {}> {
+    public spreadsheet: SpreadsheetComponent;
+    public items: ItemModel[] = [
+    {
+        text: "Cut"
+    },
+    {
+        text: "Copy"
+    },
+    {
+        text: "Paste"
+    }];
+    public onCreated(): void{
+        this.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:H1');
+    }
+    public onActiobBegin(pasteArgs): void{
+        if (pasteArgs.args.eventArgs.requestType === 'paste') {
+            pasteArgs.args.eventArgs.cancel = true;
+        }
+    }
+    public itemSelect(args): void {
+        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
+        if (args.item.text === 'Cut')
+            this.spreadsheet.cut();
+        if (args.item.text === 'Copy')
+            this.spreadsheet.copy();
+        if (args.item.text === 'Paste')
+            this.spreadsheet.paste();
+    }
+     render() {
+        return  ( <div>
+        <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
+             <SpreadsheetComponent
+                        ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} actionBegin={this.onActiobBegin.bind(this)} enableClipboard={true}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>

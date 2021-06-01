@@ -165,7 +165,7 @@ export default class App extends React.Component<{}, {}> {
      render() {
         return  ( <div>
              <SpreadsheetComponent
-                        ref={(ssObj) => { this.spreadsheet = ssObj }} allowEditing={false} created={this.onCreated.bind(this)} cellEdit={this.onEdit.bind(this)} selectionSettings={{mode:'None'}}>
+                        ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} cellEdit={this.onEdit.bind(this)} selectionSettings={{mode:'None'}}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>

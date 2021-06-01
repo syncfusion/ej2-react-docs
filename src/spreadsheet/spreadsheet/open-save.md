@@ -205,29 +205,39 @@ import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej
 import { CellStyleModel, getRangeIndexes } from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
 import { addClass, removeClass } from '@syncfusion/ej2-base';
+import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
 
 export default class App extends React.Component<{}, {}> {
     public spreadsheet: SpreadsheetComponent;
     public boldRight: CellStyleModel = { fontWeight: 'bold', textAlign: 'right' };
     public bold: CellStyleModel = { fontWeight: 'bold' };
-    xlsx() {
-        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xlsx"});
-    }
-    xls() {
-        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xls"});
-    }
-    csv() {
-        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Csv"});
-    }
-    pdf() {
-        this.spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Pdf"});
+    public items: ItemModel[] = [
+        {
+            text: "Save As xlsx"
+        },
+        {
+            text: "Save As xls"
+        },
+        {
+            text: "Save As csv"
+        },
+        {
+            text: "Save As pdf"
+        }
+        ];
+    public itemSelect(args): void {
+        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
+        if (args.item.text === 'Save As xlsx')
+      spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xlsx"});
+    if (args.item.text === 'Save As xls')
+      spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save', fileName: "Sample", saveType: "Xls"});
+    if (args.item.text === 'Save As csv')
+      spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save',fileName: "Sample", saveType: "Csv"});
+    if (args.item.text === 'Save As pdf')
+      spreadsheet.save({url: 'https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save',fileName: "Sample", saveType: "Pdf"});
     }
      render() {
-        return  ( <div> <div className='customClass'>
-        <button className='e-btn' onClick={ this.xlsx.bind(this) }>Save As xlsx</button>
-        <span className='btn'><button className='e-btn' onClick={ this.xls.bind(this) }>Save As xls</button></span>
-        <span className='btn'><button className='e-btn' onClick={ this.csv.bind(this) }>Save As csv</button></span>
-        <span className='btn'><button className='e-btn' onClick={ this.pdf.bind(this) }>Save As pdf</button></span></div>
+        return  ( <div> <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Save </DropDownButtonComponent>
              <SpreadsheetComponent
                         ref={(ssObj) => { this.spreadsheet = ssObj }} >
                         <SheetsDirective>

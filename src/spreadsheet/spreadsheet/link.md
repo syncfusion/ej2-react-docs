@@ -190,7 +190,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ## Limitations
 
-* Inserting multiple hyperlinks after selecting multiple ranges is not supported in Hyperlink.
+* Inserting hyperlink not supported for multiple ranges.
 
 ## See Also
 

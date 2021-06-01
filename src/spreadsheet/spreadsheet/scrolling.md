@@ -68,13 +68,17 @@ export default class App extends React.Component<{}, {}> {
              <SpreadsheetComponent
                         ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} scrollSettings={this.scrollSettings}>
                         <SheetsDirective>
-                            <SheetDirective rowCount={20} colCount={20}>
+                            <SheetDirective rowCount={9} colCount={7}>
                                 <RangesDirective>
                                     <RangeDirective dataSource={defaultData}></RangeDirective>
                                 </RangesDirective>
                                 <ColumnsDirective>
                                     <ColumnDirective width={130}></ColumnDirective>
                                     <ColumnDirective width={92}></ColumnDirective>
+                                    <ColumnDirective width={96}></ColumnDirective>
+                                    <ColumnDirective width={130}></ColumnDirective>
+                                    <ColumnDirective width={92}></ColumnDirective>
+                                    <ColumnDirective width={96}></ColumnDirective>
                                     <ColumnDirective width={96}></ColumnDirective>
                                 </ColumnsDirective>
                             </SheetDirective>
