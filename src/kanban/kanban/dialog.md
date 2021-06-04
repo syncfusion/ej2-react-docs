@@ -360,9 +360,14 @@ In the below section covers how to get the edited data details on the server-sid
 
 You can use the [`UrlAdaptor`](../../data/adaptors.html#url-adaptor) of `DataManager` when binding data source for remote data. In the initial load of Kanban, data are fetched from remote data and bound to the Kanban using `url` property of `DataManager`.
 
-Using the `crudUrl` property, the controller action URL can be specified to perform all the CRUD operations at server-side using a single method instead of specifying separate controller action method for CRUD (create, update and delete) operations. The action parameter of `crudUrl` is used to get the corresponding CRUD action.
+You can map the CRUD operation in Kanban can be mapped to server-side controller actions using the properties `insertUrl`, `removeUrl`, `updateUrl`, and `crudUrl`.
 
-The following code example describes the above behaviour.
+* `insertUrl` – You can perform single insertion operation on server-side.
+* `updateUrl` – You can update single data on server-side.
+* `removeUrl` – You can remove single data on server-side.
+* `crudUrl` – You can perform bulk data operation on server-side.
+
+The following code example describes the above behavior.
 
 ```typescript
 import * as React from 'react';
@@ -372,9 +377,12 @@ import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/
 
 class App extends React.Component<{}, {}>{
    public data = new DataManager({
-        url: "DataSource",
-        crudUrl: "UpdateData",
-        adaptor: new UrlAdaptor
+        url: 'Home/DataSource',
+        updateUrl: 'Home/Update',
+        insertUrl: 'Home/Insert',
+        removeUrl: 'Home/Delete',
+        adaptor: new UrlAdaptor(),
+        crossDomain: true
     });
   render() {
     return <KanbanComponent id="kanban" keyField="Status" dataSource={this.data} cardSettings={{ contentField: "Summary", headerField: "Id" }}>
@@ -392,6 +400,121 @@ ReactDOM.render(<App />, document.getElementById('kanban'));
 ```
 
 The server-side controller code to handle the CRUD operations are as follows.
+
+```typescript
+
+private NORTHWNDEntities db = new NORTHWNDEntities();
+public ActionResult DataSource() {
+    var DataSource = db.Tasks.ToList();
+    return Json(DataSource, JsonRequestBehavior.AllowGet);
+}
+public ActionResult Insert(Params value) {
+    //Insert card data into the database
+    return Json(value, JsonRequestBehavior.AllowGet);
+}
+public ActionResult Update(Params value) {
+    //Update card data into the database
+    return Json(value, JsonRequestBehavior.AllowGet);
+}
+public void Delete(Params value) {
+    //Delete card data from the database
+}
+
+public class Params {
+    public int Id { get; set; }
+    public string Status { get; set; }
+    public string Summary { get; set; }
+    public string Assignee { get; set; }
+}
+
+```
+
+### Insert card
+
+Using the `insertUrl` property, you can specify the controller action mapping URL to perform insert operation on the server-side.
+
+The following code example describes the above behavior.
+
+```typescript
+public ActionResult Insert(Params value)
+{
+    //Insert card in the database
+}
+
+```
+
+The newly added record details are bound to the `value` parameter.
+
+### Update card
+
+Using the `updateUrl` property, the controller action mapping URL can be specified to perform save/update operation on the server-side.
+
+The following code example describes the above behavior.
+
+```typescript
+public ActionResult Update(Params value)
+{
+    //Update card data in the database
+}
+
+```
+
+The updated record details are bound to the `value` parameter.
+
+### Delete card
+
+Using the `removeUrl` property, the controller action mapping URL can be specified to perform delete operation on the server-side.
+
+The following code example describes the above behavior.
+
+```typescript
+public void Delete(int key)
+{
+    //Delete card in the database
+}
+
+```
+
+The deleted card primary key value is bound to the `key` parameter.
+
+### CRUD URL
+
+Using the `crudUrl` property, the controller action mapping URL can be specified to perform all the CRUD operations at the server-side using a single method instead of specifying a separate controller action method for CRUD (insert, update and delete) operations.
+
+The action parameter of `crudUrl` is used to get the corresponding CRUD action.
+
+The following code example describes the above behavior.
+
+```typescript
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-react-kanban";
+
+class App extends React.Component<{}, {}>{
+   public data = new DataManager({
+        url: 'Home/DataSource',
+        updateUrl: 'Home/UpdateData',
+        insertUrl: 'Home/UpdateData',
+        removeUrl: 'Home/UpdateData',
+        crudUrl: 'Home/UpdateData',
+        adaptor: new UrlAdaptor(),
+        crossDomain: true
+    });
+  render() {
+    return <KanbanComponent id="kanban" keyField="Status" dataSource={this.data} cardSettings={{ contentField: "Summary", headerField: "Id" }}>
+                <ColumnsDirective>
+                  <ColumnDirective headerText="To Do" keyField="Open" />
+                  <ColumnDirective headerText="In Progress" keyField="InProgress" />
+                  <ColumnDirective headerText="Testing" keyField="Testing" />
+                  <ColumnDirective headerText="Done" keyField="Close" />
+                </ColumnsDirective>
+            </KanbanComponent>
+  }
+};
+ReactDOM.render(<App />, document.getElementById('kanban'));
+
+```
 
 ```typescript
 
@@ -436,8 +559,7 @@ public ActionResult UpdateData(EditParams param) {
         }
     }
     db.SaveChanges();
-    var data = db.Tasks.ToList();
-    return Json(data, JsonRequestBehavior.AllowGet);
+    return Json(param, JsonRequestBehavior.AllowGet);
 }
 
 public class EditParams {
@@ -450,3 +572,5 @@ public class EditParams {
 }
 
 ```
+
+> The `crudUrl` is used to update the bulk data sent to the server-side. Multiple selections and `sortBy` as `Index` properties are used for `crudUrl` properties to update the modified bulk data to the server-side.
