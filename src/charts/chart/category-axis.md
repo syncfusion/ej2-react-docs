@@ -10,6 +10,10 @@ description: "Category axis are used to represent, the string values instead of 
 
 Category axis are used to represent, the string values instead of numbers.
 
+To get start quickly with React Category Axis, you can check out this video:
+
+`youtube:PS4WWiu4TYM`
+
 {% tab template="chart/axis/category", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
 ```tsx

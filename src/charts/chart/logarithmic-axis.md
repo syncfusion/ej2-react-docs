@@ -13,6 +13,10 @@ description: "Logarithmic axis uses logarithmic scale is defined as one where th
 Logarithmic axis uses logarithmic scale and it is very useful in visualizing data, when it has numeric values
 in both lower order of magnitude (eg: 10<sup>-6</sup>) and higher order of magnitude (eg: 10<sup>6</sup>).
 
+To get start quickly with React Logarithmic Axis, you can check out this video:
+
+`youtube:v7ICR9tdMyI`
+
 {% tab template="chart/axis/log", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
 ```tsx

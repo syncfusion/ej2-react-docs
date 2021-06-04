@@ -12,6 +12,10 @@ description: "Getting started file explains how configure and install chart pack
 In EJ2, accumulation chart is implemented as a separate control to avoid the axis related logics.
 The dependencies for accumulation chart is same as chart control.
 
+To get start quickly with React Accumulation Charts, you can check on this video:
+
+`youtube:VHYoL3gVmHA`
+
 ## Dependencies
 
 Below is the list of minimum dependencies required to use the accumulation chart component.
