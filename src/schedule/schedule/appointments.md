@@ -1569,7 +1569,7 @@ We can show more indicator if more than one appointment is available in a same c
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {
-  ScheduleComponent, TimelineViews, TimelineMonth, Inject
+  ScheduleComponent, TimelineViews, TimelineMonth, ViewsDirective, ViewDirective, Inject
 } from '@syncfusion/ej2-react-schedule';
 import { scheduleData } from './datasource';
 import { extend } from '@syncfusion/ej2-base';
