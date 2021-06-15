@@ -79,8 +79,10 @@ import { addClass, removeClass } from '@syncfusion/ej2-base';
 
 export default class App extends React.Component<{}, {}> {
     public spreadsheet: SpreadsheetComponent;
-    public oncreated(): void{
-        this.spreadsheet.addContextMenuItems([{ text: 'Custom Item' }], 'Paste Special', false); //To pass the items, Item before / after that the element to be inserted, Set false if the items need to be inserted before the text.
+    public oncreated(args): void {
+        if (args.element.id === this.spreadsheet.element.id + '_contextmenu') {
+            this.spreadsheet.addContextMenuItems([{ text: 'Custom Item' }], 'Paste Special', false); //To pass the items, Item before / after that the element to be inserted, Set false if the items need to be inserted before the text.
+        }
     }
      render() {
         return  ( <div>

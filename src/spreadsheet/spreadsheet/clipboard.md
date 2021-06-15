@@ -85,17 +85,16 @@ export default class App extends React.Component<{}, {}> {
     public itemSelect(args): void {
         let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
         if (args.item.text === 'Cut')
-            this.spreadsheet.cut();
+            spreadsheet.cut();
         if (args.item.text === 'Copy')
-            this.spreadsheet.copy();
+            spreadsheet.copy();
         if (args.item.text === 'Paste')
-            this.spreadsheet.paste();
+            spreadsheet.paste();
     }
      render() {
         return  ( <div>
-        <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
-             <SpreadsheetComponent
-                        ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} enableClipboard={true}>
+        <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
+             <SpreadsheetComponent ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} enableClipboard={true}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>
@@ -146,7 +145,7 @@ export default class App extends React.Component<{}, {}> {
     public onCreated(): void{
         this.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center', verticalAlign: 'middle' }, 'A1:H1');
     }
-    public onActiobBegin(pasteArgs): void{
+    public onActionBegin(pasteArgs): void{
         if (pasteArgs.args.eventArgs.requestType === 'paste') {
             pasteArgs.args.eventArgs.cancel = true;
         }
@@ -154,17 +153,16 @@ export default class App extends React.Component<{}, {}> {
     public itemSelect(args): void {
         let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
         if (args.item.text === 'Cut')
-            this.spreadsheet.cut();
+            spreadsheet.cut();
         if (args.item.text === 'Copy')
-            this.spreadsheet.copy();
+            spreadsheet.copy();
         if (args.item.text === 'Paste')
-            this.spreadsheet.paste();
+            spreadsheet.paste();
     }
      render() {
-        return  ( <div>
-        <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
+        return  ( <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
              <SpreadsheetComponent
-                        ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} actionBegin={this.onActiobBegin.bind(this)} enableClipboard={true}>
+                        ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} actionBegin={this.onActionBegin.bind(this)} enableClipboard={true}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>

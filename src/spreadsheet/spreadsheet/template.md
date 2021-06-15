@@ -10,7 +10,7 @@ Cell Template is used for adding HTML elements into Spreadsheet. You can add the
 
 The following sample describes the above behavior.
 
-Sample link: [`Cell template`]("https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/cell-template")
+Sample link: [`Cell template`](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/cell-template)
 
 <!-- {% tab template="spreadsheet/template", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true %, compileJsx=true %}
 

@@ -58,7 +58,7 @@ export default class App extends React.Component<{}, {}> {
        public dataBound(): void{
         this.spreadsheet.cellFormat({ fontWeight: 'bold', textAlign: 'center' }, 'A1:D1');
         this.spreadsheet.cellFormat({ fontWeight: 'bold'}, 'A11:D11');
-        spreadsheet.protectSheet(1, { selectCells: false});
+        this.spreadsheet.protectSheet(1, { selectCells: false});
     };
   
      render() {
