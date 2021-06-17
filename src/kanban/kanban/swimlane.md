@@ -269,3 +269,42 @@ ReactDOM.render(<App />, document.getElementById('kanban'));
 ```
 
 {% endtab %}
+
+## Enable frozen rows
+
+Frozen rows provide an option to make the current swimlane row header text always visible on top of the content while scrolling the Kanban content. The swimlane header text will be changed dynamically, when you scroll to another swimlane row.
+
+By default, the `enableFrozenRows` property is set as `false`. If you wish to show the swimlane frozen rows, you can enable the `enableFrozenRows` property.
+
+> This feature support only when using Kanban content scrolling.
+
+{% tab template="kanban/swimlane-enable-frozen", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { extend } from '@syncfusion/ej2-base';
+import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-react-kanban";
+import { kanbanData } from './datasource';
+
+class App extends React.Component<{}, {}>{
+   constructor() {
+        super(...arguments);
+        this.data = extend([], kanbanData, null, true);
+    }
+  render() {
+    return <KanbanComponent id="kanban" keyField="Status" dataSource={this.data} cardSettings={{ contentField: "Summary", headerField: "Id" }} swimlaneSettings={{ keyField: "Assignee", enableFrozenRows: true }} height="500px">
+                <ColumnsDirective>
+                  <ColumnDirective headerText="To Do" keyField="Open" />
+                  <ColumnDirective headerText="In Progress" keyField="InProgress" />
+                  <ColumnDirective headerText="Testing" keyField="Testing" />
+                  <ColumnDirective headerText="Done" keyField="Close" />
+                </ColumnsDirective>
+            </KanbanComponent>
+  }
+};
+ReactDOM.render(<App />, document.getElementById('kanban'));
+
+```
+
+{% endtab %}
