@@ -6,6 +6,8 @@ By default, on focusing the MaskedTextBox the entire mask gets selected. You can
 * Setting cursor position at the end of the MaskedTextBox.
 * Setting cursor at the specified position in the MaskedTextBox.
 
+> The **selectionStart** and **selectionEnd** set to **0** instead of the input element value's length, when we focus on a MaskedTextBox control filled with all mask characters. This is the default behavior of the HTML 5 input element.
+
 Following is an example that demonstrates the above cases to set cursor position in the MaskedTextBox using [`focus`](../../api/maskedtextbox#focus) event.
 
 {% tab template="masked-textbox/cursor-position", sourceFiles="app/**/*.tsx" %}
@@ -24,11 +26,11 @@ export default class App extends React.Component<{}, {}> {
   }
   public onfocus(args: MaskFocusEventArgs) {
       // sets cursor position at start of MaskedTextBox
-      args.selectionEnd= args.selectionStart;
+      args.selectionEnd= args.selectionStart = 0;
   }
   public onfocus1(args: MaskFocusEventArgs) {
       // sets cursor position at end of MaskedTextBox
-      args.selectionStart=args.selectionEnd;
+      args.selectionStart=args.selectionEnd = args.maskedValue.length;
   }
   public onfocus2(args: MaskFocusEventArgs) {
       // sets cursor at specified position
@@ -39,9 +41,9 @@ export default class App extends React.Component<{}, {}> {
       return (
         <div>
           <br/><MaskedTextBoxComponent name="mask_value1" placeholder="Default cursor position" mask= "00000-00000" value="93828-32132" floatLabelType='Always'/>
-          <MaskedTextBoxComponent name="mask_value2" placeholder="Cursor positioned at start" mask= "00000-00000" value="83929-43427" floatLabelType='Always' focus={this.onfocus}/>
-          <MaskedTextBoxComponent name="mask_value3" placeholder="Cursor positioned at end" mask= "00000-00000" value="83929-32131" floatLabelType='Always' focus={this.onfocus1}/>
-          <MaskedTextBoxComponent name="mask_value4" placeholder="Cursor at specified position" mask= "+1 000-000-0000" value="234-432-4324" floatLabelType='Always' focus={this.onfocus2}/>
+          <MaskedTextBoxComponent name="mask_value2" placeholder="Cursor positioned at start" mask= "00000-00000" value="83929-4342" floatLabelType='Always' focus={this.onfocus}/>
+          <MaskedTextBoxComponent name="mask_value3" placeholder="Cursor positioned at end" mask= "00000-00000" value="83929-3213" floatLabelType='Always' focus={this.onfocus1}/>
+          <MaskedTextBoxComponent name="mask_value4" placeholder="Cursor at specified position" mask= "+1 000-000-0000" value="234-432-432" floatLabelType='Always' focus={this.onfocus2}/>
         </div>
       );
   }
