@@ -22,7 +22,7 @@ export default class App extends React.Component<{}, {}> {
 
       public render() {
         return (
-          <NumericTextBoxComponent id="numeric" decimals={2} format={"n2"} ref={(numeric) => { this.numericInstance = numeric as NumericTextBoxComponent; }}  value={10} change={this.onNumericFocus} focus={this.onNumericFocus}/>
+          <NumericTextBoxComponent id="numeric" decimals={2} format={"n2"} ref={(numeric) => { this.numericInstance = numeric as NumericTextBoxComponent; }}  value={10} change={this.onNumericFocus} onFocus={this.onNumericFocus}/>
         );
     }
 }
