@@ -51,6 +51,7 @@ There is an event named `beforeHyperlinkClick` which triggers only on clicking h
 {% tab template="spreadsheet/link", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
 
 ```tsx
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, CellDirective, RowDirective } from '@syncfusion/ej2-react-spreadsheet';
@@ -79,8 +80,8 @@ public onbeforeHyperlinkClick(args): void {
                             <CellsDirective>
                                 <CellDirective value='Casual Shoes' ></CellDirective>
                                 <CellDirective value='10' ></CellDirective>
-                                <CellDirective value='$20' ></CellDirective>
-                                <CellDirective value='$200' ></CellDirective>
+                                <CellDirective value='20' ></CellDirective>
+                                <CellDirective value='200' ></CellDirective>
                                 <CellDirective value='OUT OF STOCK' ></CellDirective>
                                 <CellDirective value='Amazon' hyperlink='https://www.amazon.com/'></CellDirective>
                             </CellsDirective>
@@ -89,8 +90,8 @@ public onbeforeHyperlinkClick(args): void {
                             <CellsDirective>
                                 <CellDirective value='Sports Shoes' ></CellDirective>
                                 <CellDirective value='20' ></CellDirective>
-                                <CellDirective value='$30' ></CellDirective>
-                                <CellDirective value='$600'></CellDirective>
+                                <CellDirective value='30' ></CellDirective>
+                                <CellDirective value='600'></CellDirective>
                                 <CellDirective value='IN STOCK' hyperlink='Stock!A2:B2' ></CellDirective>
                                 <CellDirective value='Overstack' hyperlink='https://www.overstock.com/'></CellDirective>
                             </CellsDirective>
@@ -99,8 +100,8 @@ public onbeforeHyperlinkClick(args): void {
                             <CellsDirective>
                                 <CellDirective value='Formal Shoes' ></CellDirective>
                                 <CellDirective value='20' ></CellDirective>
-                                <CellDirective value='$15' ></CellDirective>
-                                <CellDirective value='$300'></CellDirective>
+                                <CellDirective value='15' ></CellDirective>
+                                <CellDirective value='300'></CellDirective>
                                 <CellDirective value='IN STOCK' hyperlink='Stock!A3:B3' ></CellDirective>
                                 <CellDirective value='AliExpress' hyperlink='https://www.aliexpress.com/'></CellDirective>
                             </CellsDirective>
@@ -109,8 +110,8 @@ public onbeforeHyperlinkClick(args): void {
                             <CellsDirective>
                                 <CellDirective value='Sandals & Floaters' ></CellDirective>
                                 <CellDirective value='15' ></CellDirective>
-                                <CellDirective value='$20' ></CellDirective>
-                                <CellDirective value='$300' ></CellDirective>
+                                <CellDirective value='20' ></CellDirective>
+                                <CellDirective value='300' ></CellDirective>
                                 <CellDirective value='OUT OF STOCK' ></CellDirective>
                                 <CellDirective value='AliBaba' hyperlink='https://www.alibaba.com/'></CellDirective>
                             </CellsDirective>
@@ -119,8 +120,8 @@ public onbeforeHyperlinkClick(args): void {
                             <CellsDirective>
                                 <CellDirective value='Flip-Flops & Slippers' ></CellDirective>
                                 <CellDirective value='30' ></CellDirective>
-                                <CellDirective value='$10' ></CellDirective>
-                                <CellDirective value='$300'></CellDirective>
+                                <CellDirective value='10' ></CellDirective>
+                                <CellDirective value='300'></CellDirective>
                                 <CellDirective value='IN STOCK' hyperlink='Stock!A4:B4' ></CellDirective>
                                 <CellDirective value='Taobao' hyperlink='https://taobao.com/'></CellDirective>
                             </CellsDirective>
@@ -184,6 +185,7 @@ public onbeforeHyperlinkClick(args): void {
     }
 }
 ReactDOM.render(<App />, document.getElementById('root'));
+
 ```
 
 {% endtab %}

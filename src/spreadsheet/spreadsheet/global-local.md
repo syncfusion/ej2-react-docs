@@ -473,7 +473,6 @@ import { data } from './datasource';
 import { RangeDirective, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-spreadsheet';
 import * as cagregorian from './ca-gregorian.json';
 import * as currencies from './currencies.json';
-import { data } from './datasource';
 import * as numberingSystems from './numberingSystems.json';
 import * as numbers from './numbers.json';
 import * as timeZoneNames from './timeZoneNames.json';

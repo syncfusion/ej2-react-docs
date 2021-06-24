@@ -63,6 +63,7 @@ Paste can be done in one of the following ways.
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import {getComponent} from '@syncfusion/ej2-base';
 import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
 import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
@@ -126,6 +127,7 @@ The following example shows, how to prevent the paste action in spreadsheet. In 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective } from '@syncfusion/ej2-react-spreadsheet';
+import {getComponent} from '@syncfusion/ej2-base';
 import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
 import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
@@ -151,13 +153,12 @@ export default class App extends React.Component<{}, {}> {
         }
     }
     public itemSelect(args): void {
-        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
         if (args.item.text === 'Cut')
-            spreadsheet.cut();
+            this.spreadsheet.cut();
         if (args.item.text === 'Copy')
-            spreadsheet.copy();
+            this.spreadsheet.copy();
         if (args.item.text === 'Paste')
-            spreadsheet.paste();
+            this.spreadsheet.paste();
     }
      render() {
         return  ( <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
