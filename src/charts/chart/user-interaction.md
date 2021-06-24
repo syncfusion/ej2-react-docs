@@ -14,6 +14,10 @@ description: "It describes user interactions like tooltip, crosshair, trackball 
 
 Chart will display details about the points through tooltip, when the mouse is moved over the point
 
+To get start quickly with React Chart Tooltip, you can check on this video:
+
+`youtube:nQhhLNUzyM4`
+
 **Enable Tooltip for Data Point**
 
 <!-- markdownlint-disable MD012 -->
@@ -236,6 +240,10 @@ ReactDOM.render(
 
 ## Zooming  and Panning
 
+To get start quickly with React Chart Zooming and Panning, you can check on this video:
+
+`youtube:6Fq99_MnpSA`
+
 **Enable Zooming**
 
 Chart can be zoomed in three ways.
@@ -397,6 +405,10 @@ ReactDOM.render(
 ## Crosshair
 
 Crosshair has a vertical and horizontal line to view the value of the axis at mouse or touch position.
+
+To get start quickly with React Chart Crosshair, you can check on this video:
+
+`youtube:gAMNG5ogCbE`
 
 **Enable Crosshair**
 

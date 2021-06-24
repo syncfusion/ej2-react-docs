@@ -21,7 +21,7 @@ Initialize the grid with datasource.
 By using the grid’s `actionComplete` event and `getCurrentViewRecords` method, you can get the current page records.
 By using the grid’s `databound` event, you can update the current page records into the chart’s datasource and visualize the grid data in chart.
 
-{% tab template= "chart/grid-visual", sourceFiles="app/**/*.tsx,app/datasource.ts" %}
+{% tab template="chart/grid-visual", sourceFiles="app/**/*.tsx,app/datasource.ts" %}
 
 ```typescript
 import React from 'react';
@@ -33,11 +33,12 @@ import { ColumnDirective, ColumnsDirective, GridComponent, Page, PageSettingsMod
 import { DataManager, Query } from '@syncfusion/ej2-data';
 import { orderData } from './datasource';
 
+
 class App extends React.Component<{}, {}> {
   public pageSettings: PageSettingsModel = { pageSize: 10 }
   public data: object[] = new DataManager(orderData).executeLocal(new Query().take(100));
-  private grid!: Grid | GridComponent | null;
-  public chart!: Chart | ChartComponent | null;
+  private grid: Grid | GridComponent | null;
+  public chart: Chart | ChartComponent | null;
   public primaryxAxis: AxisModel = { valueType: 'DateTime' };
   public actionComplete(args: any) {
     if (args.requestType === 'paging') {
@@ -46,10 +47,10 @@ class App extends React.Component<{}, {}> {
     }
   };
   public dataBound(args: any): void {
-    (this.chart as Chart).series[0].dataSource = this.grid?.getCurrentViewRecords();
+    (this.chart as Chart).series[0].dataSource = this.grid.getCurrentViewRecords();
   };
-  public render() {
-    return <div className='row'>
+  render() {
+    return (<div className='row'>
       <div className="col-sm-4" style={{ width: "400px", height: "350px", float: "left" }}>
         <GridComponent ref={g => this.grid = g} id='grid' dataSource={this.data} allowPaging={true} pageSettings={this.pageSettings} actionComplete={this.actionComplete.bind(this)} dataBound={this.dataBound.bind(this)}>
           <ColumnsDirective>
@@ -68,10 +69,10 @@ class App extends React.Component<{}, {}> {
           </SeriesCollectionDirective>
         </ChartComponent>
       </div>
-    </div>
+    </div>)
   }
 };
-ReactDOM.render(<App />, document.getElementById("charts"));
+ReactDOM.render(<App />, document.getElementById('charts'));
 ```
 
 {% endtab %}

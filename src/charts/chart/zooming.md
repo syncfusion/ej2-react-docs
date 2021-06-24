@@ -8,6 +8,10 @@ description: "Chart have zooming and panning properties. Chart contains differen
 
 # Zooming  and Panning
 
+To get start quickly with React Chart Zooming and Panning, you can check on this video:
+
+`youtube:6Fq99_MnpSA`
+
 ## Enable Zooming
 
 Chart can be zoomed in three ways.
