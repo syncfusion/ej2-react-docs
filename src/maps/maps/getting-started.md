@@ -229,6 +229,8 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
+> Note: Refer the value of the data source of [`world-map.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/world_map1260719407) and [`data.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/data445116385) here.
+
 ## Apply Color Mapping
 
 The Color Mapping feature supports customization of shape colors based on the underlying value of shape received from bounded data.
@@ -268,6 +270,8 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
+> Note: Refer the value of the data source of [`world-map.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/world_map1260719407) and [`data.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/data445116385) here.
+
 ## Add Title for Maps
 
 You can add a title using [`titleSettings`] property to the map to provide quick
@@ -304,6 +308,8 @@ document.getElementById("maps") as HTMLElement
 ```
 
 {% endtab %}
+
+> Note: Refer the value of the data source of [`world-map.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/world_map1260719407) and [`data.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/data445116385) here.
 
 ## Enable Legend
 
@@ -343,6 +349,8 @@ document.getElementById("maps") as HTMLElement
 ```
 
 {% endtab %}
+
+> Note: Refer the value of the data source of [`world-map.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/world_map1260719407) and [`data.ts`](https://www.syncfusion.com/downloads/support/directtrac/general/ze/data445116385) here.
 
 ## Add Data Label
 
