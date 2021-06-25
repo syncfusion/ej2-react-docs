@@ -510,3 +510,72 @@ export default App;
 ```
 
 {% endtab %}
+
+## Number and Bullet Format Lists
+
+This feature allows the user to change the appearance of the Numbered and Bulleted lists. Users can also apply different numbering or bullet formats lists such as lowercase greek, upper Alpha, square and circles. You can also customize the style type of the lists to be populated in the dropdown from the toolbar by using the `numberFormatList` and `bulletFormatList` properties in the Rich Text Editor.
+
+{% tab template="rich-text-editor/format-lists", sourceFiles="app/App.tsx", isDefaultActive = "true", compileJsx=true %}
+
+```typescript
+
+/**
+ * Rich Text Editor - Number/Bullet Format list Sample
+ */
+import { HtmlEditor, Image, Inject, Link, QuickToolbar, RichTextEditorComponent, Toolbar } from '@syncfusion/ej2-react-richtexteditor';
+import * as React from 'react';
+
+class App extends React.Component<{},{}> {
+  private toolbarSettings: object = {
+    items: ['NumberFormatList', 'BulletFormatList']
+  }
+
+  public render() {
+    return (<div>
+      <RichTextEditorComponent toolbarSettings={this.toolbarSettings}>
+        <p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user experience to create and update the content.
+          Users can format their content using standard toolbar commands.</p>
+        <p><b>Key features:</b></p>
+        <ul>
+          <li>
+            <p>Provides &lt;IFRAME&gt; and &lt;DIV&gt; modes</p>
+          </li>
+          <li>
+            <p>Capable of handling markdown editing.</p>
+          </li>
+          <li>
+            <p>Contains a modular library to load the necessary functionality on demand.</p>
+          </li>
+          <li>
+            <p>Provides a fully customizable toolbar.</p>
+          </li>
+          <li>
+            <p>Provides HTML view to edit the source directly for developers.</p>
+          </li>
+          <li>
+            <p>Supports third-party library integration.</p>
+          </li>
+          <li>
+            <p>Allows preview of modified content before saving it.</p>
+          </li>
+          <li>
+            <p>Handles images, hyperlinks, video, hyperlinks, uploads, etc.</p>
+          </li>
+          <li>
+            <p>Contains undo/redo manager.</p>
+          </li>
+          <li>
+            <p>Creates bulleted and numbered lists.</p>
+          </li>
+        </ul>
+        <Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} />
+      </RichTextEditorComponent>
+      </div>);
+  }
+}
+
+export default App;
+
+```
+
+{% endtab %}
