@@ -204,7 +204,7 @@ import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective 
 import { RangeDirective, ColumnsDirective, ColumnDirective} from '@syncfusion/ej2-react-spreadsheet';
 import { CellStyleModel, getRangeIndexes } from '@syncfusion/ej2-react-spreadsheet';
 import { defaultData } from './datasource';
-import { addClass, removeClass } from '@syncfusion/ej2-base';
+import { addClass, removeClass, getComponent } from '@syncfusion/ej2-base';
 import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
 
 export default class App extends React.Component<{}, {}> {
@@ -238,7 +238,7 @@ export default class App extends React.Component<{}, {}> {
     }
      render() {
         return  ( <div> <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Save </DropDownButtonComponent>
-             <SpreadsheetComponent
+             <SpreadsheetComponent id="spreadsheet"
                         ref={(ssObj) => { this.spreadsheet = ssObj }} >
                         <SheetsDirective>
                             <SheetDirective>
@@ -280,6 +280,10 @@ The following list of Excel file formats are supported in Spreadsheet:
 * MS Excel (.xlsx)
 * MS Excel 97-2003 (.xls)
 * Comma Separated Values (.csv)
+
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.
 
 ## See Also
 

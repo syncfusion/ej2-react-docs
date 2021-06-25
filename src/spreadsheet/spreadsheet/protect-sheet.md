@@ -286,6 +286,10 @@ In the active Spreadsheet, the workbook Unprotection can be done in any of the f
 
 * Encryption with password is not supported in the Protect workbook feature.
 
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.
+
 ## See Also
 
 * [Hyperlink](./link)

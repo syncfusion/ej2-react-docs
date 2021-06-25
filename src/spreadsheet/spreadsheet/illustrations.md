@@ -342,6 +342,10 @@ The following features have some limitations in the Chart:
 * Copy/paste into the chart data source will not reflect the chart.
 * Corner resizing option in chart element.
 
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.
+
 ## See Also
 
 * [Formatting](./formatting)

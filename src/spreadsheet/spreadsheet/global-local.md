@@ -462,8 +462,6 @@ The Internationalization library is used to globalize number, date, and time val
 
 The following example demonstrates the Spreadsheet in French [ `fr-CH`] culture. In the below sample we have globalized the Date(Date column), Time(Time column), and Currency(Amount column) formats.
 
-{% tab template="spreadsheet/internationalization", sourceFiles="app/**/*.tsx,index.html", iframeHeight="450px", isDefaultActive=true, compileJsx=true %}
-
 ```tsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -554,7 +552,7 @@ export default class App extends React.Component<{}, {}> {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-{% endtab %}
+Internationalization [`sample link`](https://stackblitz.com/edit/react-5rhnwd-ujh6z5?file=index.js)
 
 ## Right to left (RTL)
 
@@ -636,6 +634,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 {% endtab %}
+
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.
 
 ## See Also
 

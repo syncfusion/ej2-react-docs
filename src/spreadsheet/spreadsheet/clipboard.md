@@ -95,7 +95,7 @@ export default class App extends React.Component<{}, {}> {
      render() {
         return  ( <div>
         <DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
-             <SpreadsheetComponent ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} enableClipboard={true}>
+             <SpreadsheetComponent id="spreadsheet"     ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.oncreated.bind(this)} enableClipboard={true}>
                         <SheetsDirective>
                             <SheetDirective>
                                 <RangesDirective>
@@ -153,16 +153,17 @@ export default class App extends React.Component<{}, {}> {
         }
     }
     public itemSelect(args): void {
+        let spreadsheet = getComponent(document.getElementById("spreadsheet"), "spreadsheet");
         if (args.item.text === 'Cut')
-            this.spreadsheet.cut();
+            spreadsheet.cut();
         if (args.item.text === 'Copy')
-            this.spreadsheet.copy();
+            spreadsheet.copy();
         if (args.item.text === 'Paste')
-            this.spreadsheet.paste();
+            spreadsheet.paste();
     }
      render() {
         return  ( <div><DropDownButtonComponent id="element" items={this.items} select={this.itemSelect}> Clipboard </DropDownButtonComponent>
-             <SpreadsheetComponent
+             <SpreadsheetComponent id="spreadsheet"
                         ref={(ssObj) => { this.spreadsheet = ssObj }} created={this.onCreated.bind(this)} actionBegin={this.onActionBegin.bind(this)} enableClipboard={true}>
                         <SheetsDirective>
                             <SheetDirective>
@@ -190,3 +191,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 * If you copy =SUM(A2,B2) and paste, the formula reference will change depending on the pasted cell address but we don't have support for nested formula(formula reference will be same).
 * Clipboard is not supported with conditional formatting (values only pasting).
 * We have limitation while copying the whole sheet data and pasting it into another sheet.
+
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.

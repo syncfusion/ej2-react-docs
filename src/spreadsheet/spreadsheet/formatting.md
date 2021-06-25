@@ -383,6 +383,10 @@ The following features have some limitations in Conditional Formatting:
 * Copy and paste the conditional formatting applied cells.
 * Custom rule support.
 
+## Note
+
+You can refer to our [React Spreadsheet](https://www.syncfusion.com/react-ui-components/react-spreadsheet) feature tour page for its groundbreaking feature representations. You can also explore our [React Spreadsheet example](https://ej2.syncfusion.com/react/demos/#/material/spreadsheet/default) to knows how to present and manipulate data.
+
 ## See Also
 
 * [Rows and columns](./rows-and-columns)
