@@ -119,6 +119,37 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
+## How to display the view options within the header bar popup
+
+By default, the header bar holds the view navigation options, through which the user can switch between various views. You can move this view options to the header bar popup by setting `true` to the `enableAdaptiveUI` property.
+
+{% tab template="schedule/header-bar", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {
+  ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
+import { extend } from '@syncfusion/ej2-base';
+import { scheduleData } from './datasource';
+
+class App extends React.Component<{}, {}>{
+    private data: Object[] = extend([], scheduleData, null, true) as Object[];
+    render() {
+    return <ScheduleComponent  width='100%' height='500px' selectedDate={new Date(2018, 1, 15)} enableAdaptiveUI={true} eventSettings={ {dataSource:this.data
+        } }>
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+        </ScheduleComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+
+```
+
+{% endtab %}
+
+> Refer [here](./resources/#adaptive-ui-in-desktop) to know more about adaptive UI in resources scheduler.
+
 ## Date header customization
 
 The Scheduler UI that displays the date text on all views are considered as the date header cells. You can customize the date header cells of Scheduler either using `dateHeaderTemplate` or `renderCell` event.

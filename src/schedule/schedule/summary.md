@@ -31,3 +31,4 @@
 * [Prevent the Date Navigation](schedule/how-to/prevent-date-navigation.md)
 * [Set Different Working Hours on Different Days](schedule/how-to/set-different-work-hours.md)
 * [Show Quick Info Template](schedule/how-to/show-quick-info-template.md)
+* [Enable scroll option on all-day section](schedule/how-to/enable-scroll-option-on-all-day-section.md)
