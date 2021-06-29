@@ -6,6 +6,8 @@
 * [Using ASP.NET MVC](document-editor/web-services/mvc.md)
 * [Using Java](document-editor/web-services/java.md)
 * [Images](document-editor/image.md)
+* [Shapes](document-editor/shapes.md)
+* [Text Wrapping Style](document-editor/text-wrapping-style.md)
 * [Bookmarks](document-editor/bookmark.md)
 * [Hyperlink](document-editor/link.md)
 * [Tables](document-editor/table.md)
