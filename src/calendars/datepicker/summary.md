@@ -6,6 +6,7 @@
 * [Customization](datepicker/customization.md)
 * [Start and Depth View](datepicker/date-views.md)
 * [Accessibility](datepicker/accessibility.md)
+* [Mask Support](datepicker/date-masking.md)
 * [Disabled the DatePicker Component](datepicker/how-to/disabled-the-datepicker-component.md)
 * [Customize the Day Header](datepicker/how-to/customize-the-datepicker-day-header.md)
 * [Set the Placeholder](datepicker/how-to/set-the-placeholder.md)

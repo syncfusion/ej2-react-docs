@@ -4,6 +4,7 @@
 * [DateTime Range](datetimepicker/date-time-range.md)
 * [Customization](datetimepicker/customization.md)
 * [Accessibility](datetimepicker/accessibility.md)
+* [Mask Support](datetimepicker/date-time-masking.md)
 * [Disable the Component](datetimepicker/how-to/disable-the-datetimepicker-component.md)
 * [Customize the Day Header](datetimepicker/how-to/customize-the-datetimepicker-day-header.md)
 * [Set the Placeholder](datetimepicker/how-to/set-the-placeholder.md)
