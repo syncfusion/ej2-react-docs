@@ -160,7 +160,7 @@ export default class App extends React.Component<{}, {}> {
   ];
 
   public jacobTag: object[] = [
-    { id: "list51", Name: "100 Albums - $5 Each" },
+    { id: "list51", Name: "100 Albums" },
     { id: "list52", Name: "Hip-Hop and R&B Sale" },
     { id: "list53", Name: "CD Deals" }
   ];
