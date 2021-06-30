@@ -847,10 +847,6 @@ To Export the Grid in server side, You need to call the
            return GridModel;
         }
 
-        public class GridColumnModel
-        {
-            public List<GridColumn> columns { get; set; }
-        }
         public IActionResult UrlDatasource([FromBody]DataManagerRequest dm)
         {
             IEnumerable DataSource = OrdersDetails.GetAllRecords();
@@ -903,3 +899,76 @@ export default class App extends React.Component<{}, {}> {
 ```
 
 > **Note:** Refer to the GitHub sample for quick implementation and testing from [here](https://github.com/SyncfusionExamples/React-EJ2-Grid-server-side-exporting).
+
+### CSV Export in server side
+
+You can export the Grid to CSV format by using the [`serverCsvExport`](../api/grid/#servercsvexport) method which will pass the Grid properties to server.
+
+In the below demo, we have invoked the above method inside the [`toolbarClick`](../api/grid/#toolbarclick) event. In server side, we have deserialized the Grid properties and passed to the `CsvExport` method which will export the properties to CSV format.
+
+```typescript
+
+        public ActionResult CsvGridExport([FromForm] string gridModel)
+        {
+            GridExcelExport exp = new GridExcelExport();
+            Grid gridProperty = ConvertGridObject(gridModel);
+            return exp.CsvExport<OrdersDetails>(gridProperty, OrdersDetails.GetAllRecords());
+        }
+
+        private Grid ConvertGridObject(string gridProperty)
+        {
+           Grid GridModel = (Grid)Newtonsoft.Json.JsonConvert.DeserializeObject(gridProperty, typeof(Grid));
+           GridColumnModel cols = (GridColumnModel)Newtonsoft.Json.JsonConvert.DeserializeObject(gridProperty, typeof(GridColumnModel));
+           GridModel.Columns = cols.columns;
+           return GridModel;
+        }
+
+        public IActionResult UrlDatasource([FromBody]DataManagerRequest dm)
+        {
+            IEnumerable DataSource = OrdersDetails.GetAllRecords();
+            DataOperations operation = new DataOperations();
+            int count = DataSource.Cast<OrdersDetails>().Count();
+            return dm.RequiresCounts ? Json(new { result = DataSource, count = count }) : Json(DataSource);
+        }
+
+```
+
+```typescript
+import { ClickEventArgs } from '@syncfusion/ej2-navigations';
+import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
+import { ColumnDirective, ColumnsDirective, GridComponent, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import { Grid, Inject, Toolbar } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+
+export default class App extends React.Component<{}, {}> {
+  public grid: Grid | null;
+  public dataManager: DataManager = new DataManager({
+    adaptor: new UrlAdaptor(),
+    url: "Home/UrlDatasource"
+  });
+  public toolbar: ToolbarItems[] = ['CsvExport'];
+  public toolbarClick = (args: ClickEventArgs) => {
+    if (this.grid && args.item.id === 'grid_csvexport') {
+        this.grid.serverCsvExport('Home/CsvGridExport');
+    }
+  }
+  public render() {
+    this.toolbarClick = this.toolbarClick.bind(this);
+    return (
+      <div>
+        <GridComponent id='grid' dataSource={this.dataManager} height={270} toolbar={this.toolbar} toolbarClick={this.toolbarClick} ref={g=> this.grid = g}>
+        <ColumnsDirective>
+            <ColumnDirective field='OrderID' headerText='Order ID' width='120' textAlign='Right'/>
+            <ColumnDirective field='CustomerID' headerText='Customer ID' width='150' />
+            <ColumnDirective field='Freight' format="C2" width='100' textAlign='Right'/>
+            <ColumnDirective field='ShipCity' headerText='Ship City' width='150'/>
+            <ColumnDirective field='ShipName' headerText='Ship Name' width='150' />
+        </ColumnsDirective>
+        <Inject services={[Toolbar]}/>
+      </GridComponent>
+    </div>
+    );
+  }
+}
+
+```
