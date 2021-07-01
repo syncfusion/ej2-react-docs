@@ -25,23 +25,26 @@ The loaded data will be cached and reused when it is needed for next time.
 
 ```typescript
 import { ColumnDirective, ColumnsDirective, GridComponent, Inject } from '@syncfusion/ej2-react-grids';
-import { PageSettingsModel, VirtualScroll} from '@syncfusion/ej2-react-grids';
+import { PageSettingsModel, VirtualScroll, Edit, Toolbar, EditSettingsModel, ToolbarItems } from '@syncfusion/ej2-react-grids';
 import * as React from 'react';
 import { data } from './largeData';
 
 export default class App extends React.Component<{}, {}>{
   public data: object[] = data(1000);
   public pageSettings: PageSettingsModel = { pageSize: 50 };
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
+  public rules: object = { required: true };
   public render() {
     return <GridComponent dataSource={this.data} height={300} enableVirtualization={true}
-            pageSettings={ this.pageSettings }>
-            <Inject services={[VirtualScroll]} />
+            pageSettings={ this.pageSettings } editSettings={this.editOptions} toolbar={this.toolbarOptions}>
+            <Inject services={[VirtualScroll, Edit, Toolbar]} />
             <ColumnsDirective>
-                <ColumnDirective field='TaskID' headerText='Task ID' width='70' textAlign='Right'/>
+                <ColumnDirective field='TaskID' headerText='Task ID' width='100' textAlign='Right' isPrimaryKey={true} validationRules={this.rules}/>
                 <ColumnDirective field='Engineer' width='100'/>
-                <ColumnDirective field='Designation' width='100'/>
-                <ColumnDirective field='Estimation' headerText='Estimation' textAlign='Right' width='100'/>
-                <ColumnDirective field='Status' width='100'/>
+                <ColumnDirective field='Designation' width='140' editType='dropdownedit' validationRules={this.rules}/>
+                <ColumnDirective field='Estimation' headerText='Estimation' textAlign='Right' width='110' editType='numericedit' validationRules={this.rules}/>
+                <ColumnDirective field='Status' width='100' editType='dropdownedit'/>
             </ColumnsDirective>
             </GridComponent>
   }
@@ -61,19 +64,23 @@ To setup the column virtualization, set the [`enableVirtualization`](../api/grid
 
 ```typescript
 import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
-import { Inject, VirtualScroll} from '@syncfusion/ej2-react-grids';
+import { Inject, VirtualScroll, Edit, Toolbar, EditSettingsModel, ToolbarItems } from '@syncfusion/ej2-react-grids';
 import * as React from 'react';
 import { dataSource } from './virtualData';
 
 export default class App extends React.Component<{}, {}>{
   
   public data: object[] = dataSource();
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
+  public rules: object = { required: true };
   public render() {
     return <GridComponent dataSource={this.data} height={300} enableVirtualization={true}
-            enableColumnVirtualization={true} pageSettings={{ pageSize: 50 }}>
-            <Inject services={[VirtualScroll]} />
+            enableColumnVirtualization={true} pageSettings={{ pageSize: 50 }} editSettings={this.editOptions} toolbar={this.toolbarOptions}>
+            <Inject services={[VirtualScroll, Edit, Toolbar]} />
             <ColumnsDirective>
-                <ColumnDirective field='FIELD1' headerText='Player Name' width='140'/>
+                <ColumnDirective field='SNo' headerText='S.No' width='120' isPrimaryKey={true} validationRules={this.rules}/>
+                <ColumnDirective field='FIELD1' headerText='Player Name' width='140' editType='dropdownedit' validationRules={this.rules}/>
                 <ColumnDirective field='FIELD2' headerText='Year' width='120' textAlign='Right'/>
                 <ColumnDirective field='FIELD3' headerText='Stint' width='120' textAlign='Right'/>
                 <ColumnDirective field='FIELD4' headerText='TMID' width='120' textAlign='Right'/>
@@ -102,7 +109,7 @@ export default class App extends React.Component<{}, {}>{
                 <ColumnDirective field='FIELD27' headerText='PostPoints' width='130' textAlign='Right'/>
                 <ColumnDirective field='FIELD28' headerText='PostoRebounds' width='130' textAlign='Right'/>
                 <ColumnDirective field='FIELD29' headerText='PostdRebounds' width='130' textAlign='Right'/>
-                <ColumnDirective field='FIELD30' headerText='PostRebounds' width='130' textAlign='Right'/>
+                <ColumnDirective field='FIELD30' headerText='PostRebounds' width='130' textAlign='Right' editType='numericedit' validationRules={this.rules}/>
             </ColumnsDirective>
             </GridComponent>
   }
