@@ -433,47 +433,32 @@ The HTML element can be rendered in the tooltip of the Maps using the [`template
 ```tsx
 
 import { world_map } from 'world-map.ts';
-import { tooltipData } from 'data.ts';
+import { default_data } from 'data.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject, ITooltipRenderEventArgs, Legend } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject } from '@syncfusion/ej2-react-maps';
 
 class App extends React.Component {
     render() {
-        return ( <MapsComponent id="maps" tooltipRender={this.tooltipRender.bind(this)}>
-                 <Inject services={[MapsTooltip, Legend]} />
-                 <LayersDirective>
-                 <LayerDirective shapeData={world_map} shapePropertyPath="name" shapeDataPath="name"
-                                 dataSource = {tooltipData}
-                                 tooltipSettings={ {
-                                     visible: true,
-                                     valuePath: 'name',
-                                     template: '<div id="tooltemplate" style="width: 90px;background: rgba(53, 63,  76, 0.90); opacity: 90%;background: rgba(53, 63, 76, 0.90);box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);padding-bottom: 10px;padding-top: 10px;padding-left: 10px;padding-right: 10px;border: 1px #abb9c6">'+
-                                     '<div style="font-size:13px;color:#ffffff;font-weight: 500;"><center>${country}</center></div>'+
-                                     '<hr style="margin-top: 2px;margin-bottom:5px;border:0.5px solid #DDDDDD">'+
-                                      '<div><span style="font-size:13px;color:#cccccc">Finalist : </span><span style="font-size:13px;color:#ffffff;font-weight: 500;">${value1}</span></div>'+
-                                      '<div><span style="font-size:13px;color:#cccccc">Win : </span><span style="font-size:13px;color:#ffffff;font-weight: 500;">${value2}</span></div></div>'
-                                 }} shapeSettings={{
-                                 fill: '#E5E5E5',
-                                 colorMapping: [
-                                    { color: '#b3daff', value: '1' },
-                                    { color: '#80c1ff', value: '2' },
-                                    { color: '#1a90ff', value: '3' },
-                                    { color: '#005cb3', value: '7' }
-                                 ],
-                                  colorValuePath: 'value1'
-                }}>
-                </LayerDirective>
-              </LayersDirective>
-            </MapsComponent>);
-    }
-    public tooltipRender(args: ITooltipRenderEventArgs): void {
-        if (!args.options['data']) {
-            args.cancel = true;
-        }
+        return(<div><MapsComponent id="maps">
+        <Inject services={[MapsTooltip]}/>
+            <LayersDirective>
+              <LayerDirective shapeData={world_map} dataSource={default_data} shapeDataPath='continent'
+              shapePropertyPath='continent'
+              tooltipSettings={{
+                  visible: true,
+                  valuePath: 'continent',
+                  template: '<div style="width:60px; text-align:center; background-color: white; border: 2px solid black; padding-bottom: 10px;padding-top: 10px;padding-left: 10px;padding-right: 10px;"><span>${continent}</span></div>',
+                  textStyle: {
+                      color: 'black'
+                  }
+              }}/>
+            </LayersDirective>
+           </MapsComponent></div>);
     }
 }
-export default App;
+ReactDOM.render(<App/>, document.getElementById('maps'));
+
 
 ```
 
