@@ -8,9 +8,9 @@ description: "This section explains how to customize the Year view using differe
 
 The year view of our scheduler displays all the 365 days and their related appointments of a particular year. You can customize the year view by using the following properties.
 
-* [`firstMonthOfYear`](../api/schedule#firstmonthofyear)
-* [`monthsCount`](../api/schedule#monthscount)
-* [`monthHeaderTemplate`](../api/schedule#monthheadertemplate)
+* [`firstMonthOfYear`](../../api/schedule#firstmonthofyear)
+* [`monthsCount`](../../api/schedule#monthscount)
+* [`monthHeaderTemplate`](../../api/schedule#monthheadertemplate)
 
 In the following code example, you can see how to render only the last six months of a year in the scheduler. To start with the month of  June, `firstMonthYear` is set to 6 and `monthsCount` is set to 6 to render only 6 months.
 
@@ -26,25 +26,22 @@ import { resourceData } from './datasource';
 import { extend } from '@syncfusion/ej2-base';
 
 class App extends React.Component<{}, {}>{
-  private data: Object[] = extend([], resourceData, null, true) as Object[];
-  private ownerData: Object[] = [
-    { OwnerText: 'Nancy', Id: 1, OwnerColor: '#ffaa00' },
-    { OwnerText: 'Steven', Id: 2, OwnerColor: '#f8a398' },
-    { OwnerText: 'Michael', Id: 3, OwnerColor: '#7499e1' },
-    { OwnerText: 'Smith', id: 4, OwnerText: '#5978ee' },
-    { OwnerText: 'Micheal', id: 5, OwnerText: '#df5286' }
+   private data: Object[] = extend([], resourceData, null, true) as Object[];
+  private categoriesData: Object[] = [
+    { text: 'Nancy', id: 1, color: '#ffaa00' },
+    { text: 'Steven', id: 2, color: '#f8a398' },
+    { text: 'Robert', id: 3, color: '#7499e1' },
+    { text: 'Smith', id: 4, color: '#5978ee' },
+    { text: 'Micheal', id: 5, color: '#df5286' }
   ];
-  getMonthHeaderText(props) {
-    return (
-      <div>
-        {props.date.toLocaleString('en-us', { month: 'long' }) + ' ' + props.date.getFullYear()}</div>
-    );
+  private getMonthHeaderText(props): JSX.Element {
+    return (<div>{props.date.toLocaleString('en-us', { month: 'long' }) + ' ' + props.date.getFullYear()}</div>);
   }
-  resourceHeaderTemplate(props) {
+  private resourceHeaderTemplate(props): JSX.Element {
     return (
       <div className="template-wrap">
         <div className="resource-details">
-          <div className="resource-name">{props.resourceData.OwnerText}</div>
+          <div className="resource-name">{props.resourceData.text}</div>
         </div>
       </div>
     );
@@ -52,15 +49,15 @@ class App extends React.Component<{}, {}>{
   render() {
     return <ScheduleComponent
       width="100%"
-      height="555px"
+      height="495px"
       selectedDate={new Date(2021, 7, 15)}
       ref={schedule => (this.scheduleObj = schedule)}
       eventSettings={{ dataSource: this.data }}
       firstMonthOfYear={6}
       monthsCount={6}
+      group={{ resources: ['Categories'] }}
       resourceHeaderTemplate={this.resourceHeaderTemplate.bind(this)}
       monthHeaderTemplate={this.getMonthHeaderText.bind(this)}
-      eventRendered={this.onEventRendered.bind(this)}
     >
       <ResourcesDirective>
         <ResourceDirective
@@ -85,7 +82,6 @@ class App extends React.Component<{}, {}>{
           option="TimelineYear"
           displayName="Vertical TimelineYear"
           orientation="Vertical"
-          group={{ resources: ['Categories'] }}
         />
       </ViewsDirective>
       <Inject
