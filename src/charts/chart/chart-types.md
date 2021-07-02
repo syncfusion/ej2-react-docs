@@ -420,7 +420,7 @@ class App extends React.Component<{}, {}> {
       <SeriesCollectionDirective>
         <SeriesDirective dataSource={splineRangeData} xName='x' high='high' low='low' name='England' opacity={0.4} type='SplineRangeArea'>
         </SeriesDirective>
-        <SeriesDirective dataSource={splineRangeData} xName='x' high='high' low='low' name='India' opacity={0.4} type='SplineRangeArea'>
+        <SeriesDirective dataSource={splineRangeData} xName='x' high='high1' low='low1' name='India' opacity={0.4} type='SplineRangeArea'>
         </SeriesDirective>
       </SeriesCollectionDirective>
     </ChartComponent>
