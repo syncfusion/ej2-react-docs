@@ -438,6 +438,48 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
+### Querying in Data Manager
+
+By default, the data manager retrieves all the data from the provider which is mapped in it. The data from the provider can be filtered, sorted, paged, etc. by setting the own query in `defaultQuery` property in the data manager instance.
+
+{% tab template="pivot-table/default", sourceFiles="app/**/index.tsx",compileJsx=true %}
+
+```typescript
+import { IDataOptions, IDataSet, PivotViewComponent } from '@syncfusion/ej2-react-pivotview';
+import { DataManager, ODataAdaptor, Query, ReturnOption } from '@syncfusion/ej2-data';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+
+class App extends React.Component<{}, {}>{
+  public pivotObj: PivotViewComponent;
+  private dataSource: DataManager = new DataManager(
+    {
+      url:
+        'https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders',
+      adaptor: new ODataAdaptor(),
+      crossDomain: true
+    },
+    new Query().take(2)
+  );
+  public dataSourceSettings: IDataOptions = {
+    dataSource: this.dataSource,
+    expandAll: false,
+    columns: [{ name: 'CustomerID', caption: 'Customer ID' }],
+    rows: [{ name: 'ShipCountry', caption: 'Ship Country' }, { name: 'ShipCity', caption: 'Ship City' }],
+    values: [{ name: 'Freight' }]
+  };
+
+  render() {
+    return <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} dataSourceSettings={this.dataSourceSettings}></PivotViewComponent>
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('pivotview'));
+
+```
+
+{% endtab %}
+
 ## Mapping
 
 One can define field information like alias name (caption), data type, aggregation type, show and hide subtotals etc. using the [`fieldMapping`](https://ej2.syncfusion.com/react/documentation/api/pivotview/dataSourceSettings/#fieldmapping) property under [`dataSourceSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/dataSourceSettings/). The available options are,

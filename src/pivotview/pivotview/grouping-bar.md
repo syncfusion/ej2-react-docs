@@ -51,6 +51,44 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 The grouping bar provides some additional options to customize it's UI using `groupingBarSettings` property.
 
+## Show or hide fields panel
+
+The fields panel, which is positioned above the grouping bar, displays the fields that are available in the data source but are not bound in the report. The fields can be dragged and dropped into the appropriate axis. In addition, any field removed from any axes will be automatically added to the fields panel. The fields panel can be displayed by setting the [`showFieldsPanel`](https://ej2.syncfusion.com/react/documentation/api/pivotview/groupingBarSettingsModel/#showfieldspanel) property in the [`groupingBarSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#groupingbarsettings) to **true**.
+
+{% tab template="pivot-table/default", sourceFiles="app/**/index.tsx",compileJsx=true %}
+
+```typescript
+import { GroupingBar, GroupingBarSettings,  IDataOptions, IDataSet, Inject, PivotViewComponent } from '@syncfusion/ej2-react-pivotview';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { pivotData } from './datasource';
+
+class App extends React.Component<{}, {}>{
+  public groupingSettings: GroupingBarSettings = {
+    showFieldsPanel: true
+  } as GroupingBarSettings;
+
+  public dataSourceSettings: IDataOptions = {
+    columns: [{ name: 'Year', caption: 'Production Year' }, { name: 'Quarter' }],
+    dataSource: pivotData as IDataSet[],
+    expandAll: false,
+    filters: [],
+    formatSettings: [{ name: 'Amount', format: 'C0' }],
+    rows: [{ name: 'Country' }, { name: 'Products' }],
+    values: [{ name: 'Sold', caption: 'Units Sold' }, { name: 'Amount', caption: 'Sold Amount' }]
+  }
+  public pivotObj: PivotViewComponent;
+  render() {
+    return <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} groupingBarSettings={this.groupingSettings} dataSourceSettings={this.dataSourceSettings} showGroupingBar={true} ><Inject services={[GroupingBar]}/> </PivotViewComponent>
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('pivotview'));
+
+```
+
+{% endtab %}
+
 ## Show or hide all filter icon
 
 The Grouping Bar has an option to filter members of particular fields at runtime in pivot table. In order to filter members in a field, click the filter icon in the pivot button and check/uncheck the members that needs to be displayed. To disable the filter icon, you need to set [`showFilterIcon`](https://ej2.syncfusion.com/react/documentation/api/pivotview/groupingBarSettingsModel/#showfiltericon) in [`groupingBarSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#groupingbarsettings) to **false**.
@@ -632,6 +670,8 @@ The event [`aggregateMenuOpen`](https://ej2.syncfusion.com/react/documentation
 
 * [`aggregateTypes`](https://ej2.syncfusion.com/react/documentation/api/pivotview#aggregatetypes): It holds the aggregation types set for a field.
 
+* `displayMenuCount`: It allows to set the menu count to be displayed initially. By default, its count is 7.
+
 * `cancel`: It is a boolean property and by setting this to true, dropdown menu won’t be displayed.
 
 In the below sample, the aggregate types of the field "Amount" has been customized in it's dropdown menu.
@@ -660,10 +700,11 @@ class App extends React.Component<{}, {}>{
     return <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} dataSourceSettings={this.dataSourceSettings} aggregateMenuOpen={this.aggregateMenuOpen.bind(this)} showGroupingBar={true}><Inject services={[GroupingBar]} /></PivotViewComponent>
   }
   aggregateMenuOpen (args: AggregateMenuOpenEventArgs ): void {
-        if(args.fieldName === 'Amount') {
-            args.aggregateTypes = ['Sum', 'Avg', 'Max'];
-        }
+    args.displayMenuCount = 4;
+    if(args.fieldName === 'Amount') {
+      args.aggregateTypes = ['Sum', 'Avg', 'Max'];
     }
+  }
 };
 
 ReactDOM.render(<App />, document.getElementById('pivotview'));

@@ -981,6 +981,64 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
+One can also customize multi-level labels of primary x-axis by using the `multiLevelLabelRender` event in the [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings), which fires on rendering each multi-level label in the pivot chart. It has the following parameters:
+
+`axis` - It holds the information of the current axis.
+
+`text` - It allows to change the text of the multi-level label.
+
+`textStyle` - It allows to customize the text font.
+
+`alignment` - It allows to set the text alignment.
+
+{% tab template="pivot-table/default", sourceFiles="app/**/index.tsx",compileJsx=true %}
+
+```typescript
+import { IDataOptions, IDataSet, PivotViewComponent, DisplayOption, Inject, PivotChart } from '@syncfusion/ej2-react-pivotview';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { pivotData } from './datasource';
+import { ChartSettings } from '@syncfusion/ej2-pivotview/src/pivotview/model/chartSettings';
+
+class App extends React.Component<{}, {}>{
+
+  public displayOption: DisplayOption = {
+    view: 'Chart'
+  } as DisplayOption;
+
+  public chartSettings: ChartSettings = {
+    chartSeries: { type: 'Column' },
+    multiLevelLabelRender(e) {
+      e.alignment = 'Near';
+      e.textStyle = { fontFamily: 'Bold', fontWeight: '400', size: '16px', color: 'red' };
+      if (e.text === ' + United Kingdom') {
+        e.text = 'Text Changed';
+        e.textStyle = { fontFamily: 'Bold', fontWeight: '800', size: '16px', color: 'Blue' };
+      }
+    }
+  } as ChartSettings;
+
+  public dataSourceSettings: IDataOptions = {
+    columns: [{ name: 'Year', caption: 'Production Year' }, { name: 'Quarter' }],
+    dataSource: pivotData as IDataSet[],
+    expandAll: false,
+    filters: [],
+    formatSettings: [{ name: 'Amount', format: 'C0' }],
+    rows: [{ name: 'Country' }, { name: 'Products' }],
+    values: [{ name: 'Sold', caption: 'Units Sold' }, { name: 'Amount', caption: 'Sold Amount' }]
+  }
+  public pivotObj: PivotViewComponent;
+  render() {
+    return <PivotViewComponent height={350} ref={d => this.pivotObj = d!} id='PivotView' chartSettings={this.chartSettings} displayOption={this.displayOption} dataSourceSettings={this.dataSourceSettings}><Inject services={[PivotChart]}/></PivotViewComponent>
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('pivotview'));
+
+```
+
+{% endtab %}
+
 ## Legend customization
 
 User can customize legend using [`legendSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#legendsettings) in [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings). By default, legend will be visible and it can be hidden by setting the property `Visible` in [`legendSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#legendsettings) as **false**.

@@ -137,6 +137,47 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
+### Adjust width based on columns
+
+By default, if the component width set in code-behind is more than the width of the total columns, then the columns will be stretched to make it fit. To avoid the stretching, set the [`allowAutoResizing`](https://ej2.syncfusion.com/react/documentation/api/pivotview/gridSettingsModel/#allowautoresizing) property in the [`gridSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/#gridsettings) to **false**. By doing so, the component will be adjusted (shrinked) based on the width of total columns.
+
+{% tab template="pivot-table/default", sourceFiles="app/**/index.tsx",compileJsx=true %}
+
+```typescript
+import { IDataOptions, IDataSet, PivotViewComponent } from '@syncfusion/ej2-react-pivotview';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { pivotData } from './datasource';
+import { GridSettings } from '@syncfusion/ej2-pivotview/src/pivotview/model/gridsettings';
+
+class App extends React.Component<{}, {}>{
+  public gridSettings: GridSettings = {
+    allowAutoResizing: false
+  } as GridSettings;
+
+  public dataSourceSettings: IDataOptions = {
+    columns: [{ name: 'Year', caption: 'Production Year' }, { name: 'Quarter' }],
+    dataSource: pivotData as IDataSet[],
+    expandAll: false,
+    filters: [],
+    drilledMembers: [{ name: 'Country', items: ['France'] }],
+    formatSettings: [{ name: 'Amount', format: 'C0' }],
+    filterSettings: [{ name: 'Year', type: 'Exclude', items: ['FY 2015', 'FY 2017'] }],
+    rows: [{ name: 'Country' }],
+    values: [{ name: 'Sold', caption: 'Units Sold' }]
+  }
+  public pivotObj: PivotViewComponent;
+  render() {
+    return <PivotViewComponent  ref={d => this.pivotObj = d!} id='PivotView' height={350} gridSettings={this.gridSettings} dataSourceSettings={this.dataSourceSettings} ></PivotViewComponent>
+  }
+};
+
+ReactDOM.render(<App />, document.getElementById('pivotview'));
+
+```
+
+{% endtab %}
+
 ## Reorder
 
 Allows end user to reorder a particular column header from one index to another index within the pivot table through drag-and-drop option. It can be enabled by setting the [`allowReordering`](https://ej2.syncfusion.com/react/documentation/api/pivotview/gridSettingsModel/#allowreordering) property in [`gridSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview/#gridsettings) to **true**.
