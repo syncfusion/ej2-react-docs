@@ -118,9 +118,9 @@ ReactDOM.render(
                 </PointerDirective>
             </PointersDirective>
             <RangesDirective>
-                <RangeDirective start= {0} end= {70} radius= '110%' strokeWidth= {10}></RangeDirective>
-                <RangeDirective start= {70} end= {110} radius= '110%' strokeWidth= {10}></RangeDirective>
-                <RangeDirective start= {110} end= {120} radius= '110%' strokeWidth= {10}></RangeDirective>
+                <RangeDirective start= {0} end= {70} radius= '110%'></RangeDirective>
+                <RangeDirective start= {70} end= {110} radius= '110%'></RangeDirective>
+                <RangeDirective start= {110} end= {120} radius= '110%'></RangeDirective>
             </RangesDirective>
         </AxisDirective>
     </AxesDirective>
@@ -158,9 +158,9 @@ ReactDOM.render(
                 </PointerDirective>
             </PointersDirective>
             <RangesDirective>
-                <RangeDirective start= {0} end= {70} radius= '110%' strokeWidth= {10}></RangeDirective>
-                <RangeDirective start= {70} end= {110} radius= '110%' strokeWidth= {10}></RangeDirective>
-                <RangeDirective start= {110} end= {120} radius= '110%' strokeWidth= {10}></RangeDirective>
+                <RangeDirective start= {0} end= {70} radius= '110%'></RangeDirective>
+                <RangeDirective start= {70} end= {110} radius= '110%'></RangeDirective>
+                <RangeDirective start= {110} end= {120} radius= '110%'></RangeDirective>
             </RangesDirective>
         </AxisDirective>
     </AxesDirective>

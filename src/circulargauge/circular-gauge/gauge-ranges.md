@@ -133,7 +133,7 @@ import * as ReactDOM from "react-dom";
 import { CircularGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective,
 RangesDirective, RangeDirective } from '@syncfusion/ej2-react-circulargauge';
 ReactDOM.render(
-  <CircularGaugeComponent id='circulargauge' enableRangeDrag='true' height='250px' width='250px'>
+  <CircularGaugeComponent id='circulargauge' enableRangeDrag={true} height='250px' width='250px'>
     <AxesDirective>
       <AxisDirective>
         <RangesDirective>

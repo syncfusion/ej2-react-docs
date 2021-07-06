@@ -25,7 +25,7 @@ ReactDOM.render(
             <PointerDirective value = {50}></PointerDirective>
         </PointersDirective>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div><div><span>Pointer Value : 50</span></div></div>'/>
+            <AnnotationDirective content='<div><div><span>Pointer Value : 50</span></div></div>' zIndex='1'/>
         </AnnotationsDirective>
       </AxisDirective>
     </AxesDirective>
@@ -59,7 +59,7 @@ ReactDOM.render(
             <PointerDirective value = {50}></PointerDirective>
         </PointersDirective>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div><div><span>Pointer Value : 50</span></div></div>' angle= {90} radius = '150%'/>
+            <AnnotationDirective content='<div><div><span>Pointer Value : 50</span></div></div>' angle= {90} radius = '150%' zIndex='1'/>
         </AnnotationsDirective>
       </AxisDirective>
     </AxesDirective>
@@ -117,8 +117,8 @@ ReactDOM.render(
             <RangeDirective start={3} end={12} color='rgba(168,145,102,0.1)'></RangeDirective>
         </RangesDirective>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div id="subGauge" style="width:90px;height:90px;"></div>' angle= {270} radius = '40%'/>
-            <AnnotationDirective content='<div id="time"><span>6:30 PM</span></div>' angle= {90} radius = '40%'/>
+            <AnnotationDirective content='<div id="subGauge" style="width:90px;height:90px;"></div>' angle= {270} radius = '40%' zIndex='1'/>
+            <AnnotationDirective content='<div id="time"><span>6:30 PM</span></div>' angle= {90} radius = '40%' zIndex='1'/>
         </AnnotationsDirective>
         <PointersDirective>
             <PointerDirective pointerWidth= {5} radius= '40%' value= {6.5} color= 'rgb(29,29,29)' border = {{ width: 1, color: 'rgb(29,29,29)' }} cap = {{

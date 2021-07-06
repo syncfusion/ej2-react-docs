@@ -61,7 +61,7 @@ import { CircularGaugeComponent, RangesDirective, AnnotationsDirective, Annotati
 
 class App extends React.Component<{}, {}>{
     render() {
-        return  <CircularGaugeComponent id='circulargauge' tooltip={{
+        return ( <CircularGaugeComponent id='circulargauge' tooltip={{
                                type:['Pointer', 'Range', 'Annotation'],
                                enable: true,
                                 enableAnimation: false,
@@ -69,7 +69,7 @@ class App extends React.Component<{}, {}>{
                                 rangeSettings: { fill:'red' }
                               }}
                     >
-                  <Inject services={[ GaugeTooltip ]}/>
+                  <Inject services={[ GaugeTooltip, Annotations ]}/>
                   <AxesDirective>
                                 <AxisDirective startAngle={240} endAngle={120} radius='90%' minimum={0} maximum={120}
                                     majorTicks={{
@@ -82,7 +82,7 @@ class App extends React.Component<{}, {}>{
                                         useRangeColor: true, font: { color: '#424242', size: '13px', fontFamily: 'Roboto' }
                                     }}>
                                     <AnnotationsDirective>
-                                          <AnnotationDirective content='Circular Gauge' angle= {180} zIndex= {1} radius = '40%'/>
+                                          <AnnotationDirective content='Circular Gauge' angle= {180} zIndex= '1' radius = '40%'/>
                                    </AnnotationsDirective>
                                     <PointersDirective>
                                         <PointerDirective value={70} radius='60%'
@@ -99,7 +99,7 @@ class App extends React.Component<{}, {}>{
                                     </RangesDirective>
                                 </AxisDirective>
                             </AxesDirective>
-                </CircularGaugeComponent>
+                </CircularGaugeComponent>)
     }
 }
 ReactDOM.render(<App />, document.getElementById('circulargauge'));
