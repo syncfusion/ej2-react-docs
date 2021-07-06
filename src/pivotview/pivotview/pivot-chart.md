@@ -981,7 +981,7 @@ ReactDOM.render(<App />, document.getElementById('pivotview'));
 
 {% endtab %}
 
-One can also customize multi-level labels of primary x-axis by using the `multiLevelLabelRender` event in the [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings), which fires on rendering each multi-level label in the pivot chart. It has the following parameters:
+One can also customize multi-level labels of primary x-axis by using the [`multiLevelLabelRender`](https://ej2.syncfusion.com/react/documentation/api/pivotview/chartSettingsModel/#multilevellabelrender) event in the [`chartSettings`](https://ej2.syncfusion.com/react/documentation/api/pivotview#chartsettings), which fires on rendering each multi-level label in the pivot chart. It has the following parameters:
 
 `axis` - It holds the information of the current axis.
 
