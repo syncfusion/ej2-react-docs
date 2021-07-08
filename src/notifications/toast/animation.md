@@ -25,6 +25,7 @@ class App extends React.Component<{}, {}> {
   public toastInstance: ToastComponent;
   public timeOutDelay: number = 600;
   public position = { X: 'Right', Y: 'Bottom' };
+  public animation: { show: { effect: 'SlideRightIn' }, hide: { effect: 'SlideLeftOut' } };
   public style = { paddingTop: '20px' };
   public dropDownShowInstance: DropDownListComponent;
   public dropDownHideInstance: DropDownListComponent;
@@ -73,7 +74,7 @@ class App extends React.Component<{}, {}> {
             <DropDownListComponent ref={drop => this.dropDownHideInstance = drop!} dataSource={this.AnimationDB} placeholder="Select a ProgressBar Color" change={this.valueChangeHide = this.valueChangeHide.bind(this)} index='0' />
           </div>
         </div>
-        <ToastComponent ref={toast => this.toastInstance = toast!} title='Matt sent you a friend request' content='Hey, wanna dress up as wizards and ride our hoverboards?' position={this.position} showProgressBar='true' created={this.toastCreated = this.toastCreated.bind(this)} />
+        <ToastComponent ref={toast => this.toastInstance = toast!} title='Matt sent you a friend request' content='Hey, wanna dress up as wizards and ride our hoverboards?' position={this.position} animation={this.animation} showProgressBar='true' created={this.toastCreated = this.toastCreated.bind(this)} />
       </div>
     );
   }
