@@ -18,7 +18,7 @@ import * as React from 'react';
 
 export default class App extends React.Component<{}, {}> {
     public render() {
-        return <DatePickerComponent enableMask={true}> <Inject services={[MaskedDateTime]} /></DatePickerComponent>
+        return <DatePickerComponent enableMask={true}><Inject services={[MaskedDateTime]} /></DatePickerComponent>
     }
 }
 ReactDOM.render(<App />, document.getElementById('element'));
@@ -49,12 +49,12 @@ export default class App extends React.Component<{}, {}> {
        return (
             <div>
                 {/* specifies the masked DatePicker component without format */}
-                <DatePickerComponent enableMask={true}> <Inject services={[MaskedDateTime]} /></DatePickerComponent>
+                <DatePickerComponent enableMask={true}><Inject services={[MaskedDateTime]} /></DatePickerComponent>
                 <br />
                 <br />
 
                 {/* specifies the masked DatePicker component with format  */}
-                <DatePickerComponent format='dd-MM-yyyy' enableMask={true}> <Inject services={[MaskedDateTime]} /></DatePickerComponent>
+                <DatePickerComponent format='dd-MM-yyyy' enableMask={true}><Inject services={[MaskedDateTime]} /></DatePickerComponent>
             </div>
         );
 
@@ -104,12 +104,12 @@ export default class App extends React.Component<{}, {}> {
        return (
             <div>
                 {/* specifies the masked DatePicker component without mask placeholder */}
-                <DatePickerComponent enableMask={true}> <Inject services={[MaskedDateTime]} /></DatePickerComponent>
+                <DatePickerComponent enableMask={true}><Inject services={[MaskedDateTime]} /></DatePickerComponent>
                 <br />
                 <br />
 
                 {/* specifies the masked DatePicker component with mask placeholder  */}
-                <DatePickerComponent  enableMask={true} maskPlaceholder={this.maskPlaceholderValue}> <Inject services={[MaskedDateTime]} /></DatePickerComponent>
+                <DatePickerComponent  enableMask={true} maskPlaceholder={this.maskPlaceholderValue}><Inject services={[MaskedDateTime]} /></DatePickerComponent>
             </div>
         );
 
