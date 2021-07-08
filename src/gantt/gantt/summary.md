@@ -8,6 +8,7 @@
 * [Sorting](gantt/sorting.md)
 * [BaseLine](gantt/baseline.md)
 * [Timeline](gantt/time-line.md)
+* [Timezone](gantt/timezone.md)
 * [Event Markers](gantt/event-markers.md)
 * [Work](gantt/work.md)
 * [Resources](gantt/resources.md)
