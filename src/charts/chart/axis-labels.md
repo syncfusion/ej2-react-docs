@@ -8,6 +8,10 @@ description: "Chart contains smart axis labels, label positioning, multilevelabe
 
 # Axis Labels
 
+To get start quickly with Axis Labels in React Charts, you can check on this video:
+
+`youtube:NLrOSKAnxes`
+
 ## Smart Axis Labels
 
 When the axis labels overlap with each other, you can use
