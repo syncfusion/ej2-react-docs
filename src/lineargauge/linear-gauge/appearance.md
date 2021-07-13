@@ -1,36 +1,22 @@
+---
+title: " Appearance in React Linear Gauge component | Syncfusion "
 
-# Appearance
+component: "Linear Gauge"
+
+description: "Learn here all about the Appearance of Syncfusion React Linear Gauge component and more."
+---
+
+# Appearance in React Linear Gauge
 
 <!-- markdownlint-disable MD013 -->
 
-## Gauge Area Customization
+## Customizing the Linear Gauge area
 
-<!-- markdownlint-disable MD036 -->
+The following properties are available in the [`LinearGaugeComponent`](../api/linear-gauge/) to customize the Linear Gauge area.
 
-**Customize the Gauge background**
-
-Using [`background`](../api/linear-gauge/linearGaugeModel/#background-string) and
-[`border`](../api/linear-gauge/linearGaugeModel/#border-bordermodel) properties, you can change the background color and border of the linear gauge.
-
-{% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
-
-```tsx
-
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent } from '@syncfusion/ej2-react-lineargauge';
-
-ReactDOM.render(
-    <LinearGaugeComponent id='gauge' background='skyblue' border= { { color: "#FF0000", width: 2 } }>
-    </LinearGaugeComponent>,document.getElementById('gauge'));
-
-```
-
-{% endtab %}
-
-**Gauge Margin**
-
-You can set margin for the lineargauge through [`margin`](../api/linear-gauge/marginModel/) property.
+* [`background`](../api/linear-gauge/#background) - Applies the background color for the Linear Gauge.
+* [`border`](../api/linear-gauge/#border) - To customize the color and width of the border in Linear Gauge.
+* [`margin`](../api/linear-gauge/#margin) - To customize the margins of the Linear Gauge.
 
 {% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -41,16 +27,24 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge' margin= { { left: 40, right: 40, top: 40, bottom: 40 } }>
+    <LinearGaugeComponent id='gauge' background='skyblue' border= { { color: "#FF0000", width: 2 } }
+        margin= { { left: 40, right: 40, top: 40, bottom: 40 } }>
     </LinearGaugeComponent>,document.getElementById('gauge'));
 
 ```
 
 {% endtab %}
 
-## Gauge Title
+## Setting up the Linear Gauge title
 
-You can give the title using [`title`](../api/linear-gauge/linearGaugeModel/#title-string) property to show the information about the linear gauge. Its appearance can be customized by using the [`titleStyle`](../api/linear-gauge/linearGaugeModel/#titlestyle-fontmodel) property.
+The title for the Linear Gauge can be set using [`title`](../api/linear-gauge/#title) property in [`LinearGaugeComponent`](../api/linear-gauge/). Its appearance can be customized using the [`titleStyle`](../api/linear-gauge/#titlestyle) with the below properties.
+
+* [`color`](../api/linear-gauge/fontModel/#color) - Specifies the text color of the title.
+* [`fontStyle`](../api/linear-gauge/fontModel/#fontStyle) - Specifies the font style of the title.
+* [`fontWeight`](../api/linear-gauge/fontModel/#fontweight) - Specifies the font weight of the title.
+* [`size`](../api/linear-gauge/fontModel/#size) - Specifies the font size of the title.
+* [`opacity`](../api/linear-gauge/fontModel/#opacity) - Specifies the opacity of the title.
+* [`fontFamily`](../api/linear-gauge/fontModel/#fontfamily) - Specifies the font family of the title.
 
 {% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -61,25 +55,33 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge' title='linear gauge' titleStyle={ { fontFamily:'Arial', fontStyle:
-    'italic', fontWeight:'regular', color:'#E27F2D', size:'23px' } }>
+    <LinearGaugeComponent id='gauge' title='linear gauge'
+        titleStyle={ { fontFamily:'Arial', fontStyle:'italic', fontWeight:'regular', color:'#E27F2D', size:'23px' } }>
     </LinearGaugeComponent>,document.getElementById('gauge'));
 
 ```
 
 {% endtab %}
 
-## Gauge Container
+## Customizing the Linear Gauge container
 
-The area used to render the ranges and pointers at the center position of the gauge is called [`container`](../api/linear-gauge/containerModel/). It can be customized by using [`type`](../api/linear-gauge/containerModel/#type-string), [`offset`](../api/linear-gauge/containerModel/#offset-number), [`width`](../api/linear-gauge/containerModel/#width-number), [`height`](../api/linear-gauge/containerModel/#height-number) and [`backgroundColor`](../api/linear-gauge/containerModel/#backgroundcolor-string) properties in [`container`](../api/linear-gauge/containerModel/). It is of three types namely,
+The area used to render the ranges and pointers at the center position of the gauge is called container. It is of three types namely,
 
 * Normal
 * Rounded Rectangle
 * Thermometer
 
-**Normal**
+The type of the container can be modified by using the [`type`](../api/linear-gauge/containerModel/#type) property in [`container`](../api/linear-gauge/containerModel/). The container can be customized by using the following properties in [`container`](../api/linear-gauge/containerModel/).
 
-The normal type will render the container as rectangle and this is the default container type.
+* [`offset`](../api/linear-gauge/containerModel/#offset) - To place the container with the specified distance from the axis of the Linear Gauge.
+* [`width`](../api/linear-gauge/containerModel/#width) - To set the thickness of the container.
+* [`height`](../api/linear-gauge/containerModel/#height) - To set the length of the container.
+* [`backgroundColor`](../api/linear-gauge/containerModel/#backgroundcolor) - To set the background color of the container.
+* [`border`](../api/linear-gauge/container/#border) - To set the color and width for the border of the container.
+
+### Normal
+
+The "**Normal**" type will render the container as a rectangle and this is the default container type.
 
 {% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -90,7 +92,7 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AxesDirective, AxisDirective , PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge' container={ { height:300, width:30 } }>
+    <LinearGaugeComponent id='gauge' container={ { width:30 } }>
         <AxesDirective>
             <AxisDirective>
                 <PointersDirective>
@@ -105,9 +107,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-**Rounded Rectangle**
+### Rounded Rectangle
 
-The rounded rectangle type will render the container as rectangle with rounded corners.
+The "**RoundedRectangle**" type will render the container as a rectangle with rounded corner radius. The rounded corner radius of the container can be customized using the [`roundedCornerRadius`](../api/linear-gauge/container/#roundedcornerradius) property in [`container`](../api/linear-gauge/containerModel/).
 
 {% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -118,7 +120,7 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AxesDirective, AxisDirective , PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge' container={ { height:300, width:30, type:'RoundedRectangle' } }>
+    <LinearGaugeComponent id='gauge' container={ { width:30, type:'RoundedRectangle' } }>
         <AxesDirective>
             <AxisDirective>
                 <PointersDirective>
@@ -133,9 +135,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-**Thermometer**
+### Thermometer
 
-This type is used to render the container similar to the thermometer appearance.
+The "**Thermometer**" type will render the container similar to the appearance of thermometer.
 
 {% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -146,7 +148,7 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AxesDirective, AxisDirective , PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge' container={ { height:300, width:30, type:'Thermometer' } }>
+    <LinearGaugeComponent id='gauge' container={ { width:30, type:'Thermometer' } }>
         <AxesDirective>
             <AxisDirective>
                 <PointersDirective>
@@ -160,3 +162,25 @@ ReactDOM.render(
 ```
 
 {% endtab %}
+
+## Fitting the Linear Gauge to the control
+
+The Linear Gauge component is rendered with margin by default. To remove the margin around the Linear Gauge, the [`allowMargin`](../api/linear-gauge/#allowmargin) property in [`LinearGaugeComponent`](../api/linear-gauge/) is set as "**false**".
+
+{% tab template="linear-gauge/appearance", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { LinearGaugeComponent, AxesDirective, AxisDirective , PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
+
+ReactDOM.render(
+    <LinearGaugeComponent allowMargin={false} id='gauge' height="100%" width="100%" orientation='Horizontal' margin= {{ left: 0, right: 0, top: 0, bottom: 0 }} border= {{ width: 2, color: "red" }}>
+    </LinearGaugeComponent>,document.getElementById('gauge'));
+
+```
+
+{% endtab %}
+
+> Note: To use this feature, set the [`allowMargin`](../api/linear-gauge/#allowmargin) property to "**false**", the [`width`](../api/linear-gauge/#width) property to "**100%**" and the properties of [`margin`](../api/linear-gauge/#margin) to "**0**".

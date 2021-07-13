@@ -1,12 +1,20 @@
-# Annotations
+---
+title: " Annotations in React Linear Gauge component | Syncfusion "
+
+component: "Linear Gauge"
+
+description: "Learn here all about Annotations feature of Syncfusion React Linear Gauge component and more."
+---
+
+# Annotations in React Linear Gauge
 
 <!-- markdownlint-disable MD013 -->
 
-Annotations are used to mark the specific area of interest in the gauge area with texts, shapes or images. You can add any number of annotations to the gauge.
+Annotations are used to mark the specific area of interest in the Linear Gauge with text, HTML elements, or images. Any number of annotations can be added to the Linear Gauge component.
 
-## Annotation
+## Adding annotation
 
-By using the [`content`](../api/linear-gauge/annotation/#content-string) property of [`annotation`](../api/linear-gauge/annotation/) object, you can either specify the id of the element or specify the code to create a new element, that needs to be displayed in the gauge area.
+To render the custom HTML elements in the Linear Gauge component, use the [`content`](../api/linear-gauge/annotation/#content) property in the [`AnnotationDirective`](../api/linear-gauge/annotation). The annotation can be rendered either by specifying the id of the element or specifying the code to create a new element that needs to be displayed in the gauge area.
 
 <!-- markdownlint-disable MD036 -->
 
@@ -27,28 +35,30 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AnnotationsDirective, AnnotationDirective, Annotations, Inject } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    <Inject services={[Annotations]}/>
+    <LinearGaugeComponent>
+        <Inject services={[Annotations]}/>
         <AnnotationsDirective>
-            <AnnotationDirective content='fruits' x={100} y={100}>
+            <AnnotationDirective content='#fruits' x={100} zIndex='1' y={100}>
             </AnnotationDirective>
         </AnnotationsDirective>
     </LinearGaugeComponent>,document.getElementById('gauge'));
 
 ```
 
-## Annotation Customization
+## Customization
 
-You can customize the annotation using following properties.
+The following properties are used to customize the annotation.
 
-* [`zIndex`](../api/linear-gauge/annotation/#zindex-string) - When annotation overlaps with another element, you can use this property to bring annotation to the front or back.
-* [`horizontalAlignment`](../api/linear-gauge/annotation#horizontalalignment-string) - To move annotation horizontally. Possible values are "Center", "Far", "Near", "None"
-* [`verticalAlignment`](../api/linear-gauge/annotation#verticalalignment-string) - To move annotation vertically. Possible values are "Center", "Far", "Near", "None"
-* [`x`](../api/linear-gauge/annotation/#x-number) and [`y`](../api/linear-gauge/annotation/#y-number) - To move annotation to the specified location.
+* [`zIndex`](../api/linear-gauge/annotation/#zindex) - This property is used to bring the annotation to the front or back, when annotation overlaps with another element.
+* [`axisValue`](../api/linear-gauge/annotation/#axisvalue) - This property is used to place the annotation in the specified axis value with respect to the provided axis index.
+* [`axisIndex`](../api/linear-gauge/annotation/#axisindex) - This property is used to place the annotation in the specified axis with respect to the provided axis value.
+* [`horizontalAlignment`](../api/linear-gauge/annotation#horizontalalignment) - This property is used to place the annotation horizontally.
+* [`verticalAlignment`](../api/linear-gauge/annotation#verticalalignment) - This property is used to place the annotation vertically.
+* [`x`](../api/linear-gauge/annotation/#x-number), [`y`](../api/linear-gauge/annotation/#y-number) - This property is used to place the annotation in the specified location.
 
-**Changing the z-order**
+### Changing the z-index
 
-You can change the z-order of the annotation element by using the [`zIndex`](../api/linear-gauge/annotation/#zindex-string) property.
+To change the stack order of an annotation element, the [`zIndex`](../api/linear-gauge/annotation/#zindex) property of the [`AnnotationDirective`](../api/linear-gauge/annotation/) can be used.
 
 {% tab template="linear-gauge/annotations", compileJsx=true sourceFiles="app/**/*.tsx" %}
 
@@ -59,10 +69,10 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AnnotationsDirective, AnnotationDirective, Annotations,Inject } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    <Inject services={[Annotations]}/>
+    <LinearGaugeComponent  id='gauge'>
+        <Inject services={[Annotations]}/>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' verticalAlignment='Center' horizontalAlignment='Center' zIndex='-1'>
+            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' zIndex='1' >
             </AnnotationDirective>
         </AnnotationsDirective>
     </LinearGaugeComponent>,document.getElementById('gauge'));
@@ -71,9 +81,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-**Positioning the Annotation**
+### Positioning an annotation
 
-You can place the annotation anywhere in gauge area by specifying pixel values to the [`x`](../api/linear-gauge/annotation/#x-number) and [`y`](../api/linear-gauge/annotation/#y-number) properties.
+The annotation can be placed anywhere in the Linear Gauge by setting the pixel value to the [`x`](../api/linear-gauge/annotation/#x) and [`y`](../api/linear-gauge/annotation/#y) properties in the [`AnnotationDirective`](../api/linear-gauge/annotation/).
 
 {% tab template="linear-gauge/annotations", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -84,10 +94,10 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AnnotationsDirective, AnnotationDirective, Annotations, Inject } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    <Inject services={[Annotations]}/>
+    <LinearGaugeComponent  id='gauge'>
+        <Inject services={[Annotations]}/>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' x={100} y={100}>
+            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' x={100} y={100} zIndex='1' >
             </AnnotationDirective>
         </AnnotationsDirective>
     </LinearGaugeComponent>,document.getElementById('gauge'));
@@ -98,9 +108,9 @@ ReactDOM.render(
 
 <!-- markdownlint-disable MD036 -->
 
-**Alignment of Annotation**
+### Alignment of annotation
 
-You can align the annotation using [`horizontalAlignment`](../api/linear-gauge/annotation/#horizontalalignment-string) and [`verticalAlignment`](../api/linear-gauge/annotation/#verticalalignment-string) properties.
+The annotation can be aligned horizontally and vertically by using the [`horizontalAlignment`](../api/linear-gauge/annotation/#horizontalalignment) and [`verticalAlignment`](../api/linear-gauge/annotation/#verticalalignment) properties respectively. The possible values can be "**Center**", "**Far**", "**Near**", and "**None**". The [`horizontalAlignment`](../api/linear-gauge/annotation/#horizontalalignment) and [`verticalAlignment`](../api/linear-gauge/annotation/#verticalalignment) properties are not applicable when the [`x`](../api/linear-gauge/annotation/#x) and [`y`](../api/linear-gauge/annotation/#y) properties are set in the [`AnnotationDirective`](../api/linear-gauge/annotation/).
 
 {% tab template="linear-gauge/annotations", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -111,10 +121,10 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AnnotationsDirective, AnnotationDirective, Annotations, Inject } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    <Inject services={[Annotations]}/>
+    <LinearGaugeComponent  id='gauge'>
+        <Inject services={[Annotations]}/>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' verticalAlignment='Center' horizontalAlignment='Center'>
+            <AnnotationDirective content='<div id="first"><h1>Gauge</h1></div>' verticalAlignment="Center" horizontalAlignment="Center" zIndex='1' >
             </AnnotationDirective>
         </AnnotationsDirective>
     </LinearGaugeComponent>,document.getElementById('gauge'));
@@ -123,9 +133,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-## Multiple Annotations
+## Multiple annotations
 
-You can add multiple annotations to the gauge as demonstrated below.
+Multiple annotations can be added to the Linear Gauge component by adding the multiple [`AnnotationDirective`](../api/linear-gauge/annotation/) in the [`AnnotationsDirective`](../api/linear-gauge/#annotations) and customization for the annotation can be done with the [`AnnotationDirective`](../api/linear-gauge/annotation/).
 
 {% tab template="linear-gauge/annotations", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -136,12 +146,12 @@ import * as ReactDOM from "react-dom";
 import { LinearGaugeComponent, AnnotationsDirective, AnnotationDirective, Annotations, Inject } from '@syncfusion/ej2-react-lineargauge';
 
 ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    <Inject services={[Annotations]}/>
+    <LinearGaugeComponent  id='gauge'>
+        <Inject services={[Annotations]}/>
         <AnnotationsDirective>
-            <AnnotationDirective content='<div id="first"><h1 style="color:red;">Speed</h1></div>' verticalAlignment='Near' horizontalAlignment='Center' x={100} y={150}>
+            <AnnotationDirective content='<div><h1 style="color:red;">Speed</h1></div>' verticalAlignment='Near' horizontalAlignment='Center' zIndex='1'>
             </AnnotationDirective>
-            <AnnotationDirective content='<div id="first"><h1 style="color:blue;">Meter</h1></div>' verticalAlignment='Center' horizontalAlignment='Center' x={-100} y={-100}>
+            <AnnotationDirective content='<div><h1 style="color:blue;">Meter</h1></div>' zIndex='1' x={150} y={400}>
             </AnnotationDirective>
         </AnnotationsDirective>
     </LinearGaugeComponent>,document.getElementById('gauge'));

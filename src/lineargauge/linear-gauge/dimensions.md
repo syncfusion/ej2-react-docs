@@ -1,41 +1,24 @@
+---
+title: " Dimensions in React Linear Gauge component | Syncfusion "
 
-# Linear Gauge Dimensions
+component: "Linear Gauge"
+
+description: "Learn here all about the Dimensions of Syncfusion React Linear Gauge component and more."
+---
+
+# Dimensions in React Linear Gauge
 
 <!-- markdownlint-disable MD013 -->
 
-## Size for Container
+## Size for Linear Gauge
 
-Linear gauge can render to its container size. You can set the size via inline or CSS as demonstrated below.
-
-```html
- <div id="charts" style="width:650px; height:350px"></div>
-```
-
-{% tab template="linear-gauge/dimensions", compileJsx=true, sourceFiles="app/**/*.tsx" %}
-
-```tsx
-
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent } from '@syncfusion/ej2-react-lineargauge';
-
-ReactDOM.render(
-    <LinearGaugeComponent id='gauge'>
-    </LinearGaugeComponent>,document.getElementById('gauge'));
-
-```
-
-{% endtab %}
+The height and width of the Linear Gauge can be set using the [`width`](../api/linear-gauge/#width) and [`height`](../api/linear-gauge/#height) properties in [`LinearGaugeComponent`](../api/linear-gauge/).
 
 <!-- markdownlint-disable MD036 -->
 
-## Size for Linear Gauge
+### In Pixel
 
-You can also set size for linear gauge directly through [`width`](../api/linear-gauge/linearGaugeModel/#width-string) and [`height`](../api/linear-gauge/linearGaugeModel/#height-string) properties.
-
-**In Pixel**
-
-You can set the size of lineargauge in pixel as demonstrated below.
+The size of the Linear Gauge can be set in pixel as demonstrated below.
 
 {% tab template="linear-gauge/dimensions", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -53,9 +36,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-**In Percentage**
+### In Percentage
 
-By setting value in percentage, linear gauge gets its dimension with respect to its container. For example, when the height is ‘50%’, linear gauge renders to half of the container height.
+By setting value in percentage, Linear Gauge receives its dimension matching to its parent. For example, when the height is set as "**50%**", Linear Gauge renders to half of the parent height. The Linear Gauge will be responsive when the width is set as "**100%**".
 
 ```html
     <div id='container'>
@@ -79,4 +62,4 @@ ReactDOM.render(
 
 {% endtab %}
 
->Note: When you do not specify the size, it takes `450px` as the height and window size as its width.
+>Note: When the component's size is not specified, the height will be "**450px**" and the width will be the same as the parent element's width.

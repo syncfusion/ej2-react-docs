@@ -1,8 +1,16 @@
-# Getting Started
+---
+title: " Getting started with React Linear Gauge component | Syncfusion "
+
+component: "Linear Gauge"
+
+description: "Learn here about getting started with Syncfusion React Linear Gauge component, its element, and more."
+---
+
+# Getting Started with React Linear Gauge
 
 <!-- markdownlint-disable MD013 -->
 
-This section explains you the steps required to create a simple linear gauge and demonstrate the basic usage of the linear gauge control.
+This section explains you the steps required to create a simple Linear Gauge and demonstrate the basic usage of the Linear Gauge control.
 
 ## Dependencies
 
@@ -19,14 +27,14 @@ Below is the list of minimum dependencies required to use the linear gauge compo
 
 ## Installation and configuration
 
-You can use [`create-react-app`](https://github.com/facebookincubator/create-react-app) to setup the applications.
-To install `create-react-app` run the following command.
+Use the [`create-react-app`](https://github.com/facebookincubator/create-react-app) to setup the applications.
+To get started, run the below command to create a react app.
 
 ```sh
 npm install -g create-react-app
 ```
 
-* To setup basic `React` sample use following commands.
+* Start a new project using create-react-app command as follows
 
 <div class='tsx'>
 
@@ -41,16 +49,15 @@ npm install
 
 </div>
 
-* Install Syncfusion packages using below command.
+* To install the Linear Gauge component, use the following command.
 
 ```sh
 npm install @syncfusion/ej2-react-lineargauge --save
 ```
 
-## Add Linear Gauge  to the Project
+## Adding Linear Gauge component to the Project
 
-Now, you can start adding LinearGauge component in the application.
-For getting started, add the LinearGauge component in `src/index.tsx` file using following code.
+Now, you can start adding Linear Gauge components to the application. For getting started, add the Linear Gauge component in the **src/index.tsx** file using following code.
 
 {% tab compileJsx=true%}
 
@@ -73,16 +80,12 @@ export default App;
 ## Module Injection
 
 Linear gauge component are segregated into individual feature-wise modules. In order to use a particular feature,
-you need to inject its feature service in the AppModule. In the current application, we are
-going to modify the above basic chart to visualize sales data for a particular year.
-For this application we are going to use line series, tooltip, data label, category axis and legend
-feature of the chart. Please find the relevant feature
-service name and description as follows.
+inject its feature service in the **AppModule**. Please find the feature service name and description as follows.
 
 * `Annotations` - Inject this module in to `services` to use annotation feature.
 * `GaugeTooltip` - Inject this module in to `services` to use tooltip feature.
 
-These modules should be injected to the `services` section as follows,
+These modules should be injected into the `services` section as follows,
 
 {% tab compileJsx=true%}
 
@@ -99,9 +102,9 @@ document.getElementById('gauge'));
 
 {% endtab %}
 
-## Add Gauge Title
+## Adding the Linear Gauge Title
 
-You can add a title using [`title`](../api/linear-gauge/linearGaugeModel/#title-string) property to the linear gauge to provide quick information to the user.
+The title can be added to the Linear Gauge component using the [`title`](../api/linear-gauge/linearGaugeModel#title-string) property in the Linear Gauge.
 
 {% tab template="linear-gauge/getting-started", compileJsx=true, sourceFiles="app/**/*.tsx",  isDefaultActive=true %}
 
@@ -121,7 +124,7 @@ ReactDOM.render(
 
 ## Axis Range
 
-You can set the range to the axis using [`minimum`](../api/linear-gauge/axis/#minimum-number) and [`maximum`](../api/linear-gauge/axis/#maximum-number) properties.
+The range of the axis can be set using the [`minimum`](../api/linear-gauge/axis#minimum-number) and [`maximum`](../api/linear-gauge/axis#maximum-number) properties in the Linear Gauge.
 
 {% tab template="linear-gauge/getting-started", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -143,9 +146,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-To denote the axis values with temperature units, we can add °C as suffix to each label. This can be achieved by setting the {value}°C to the format property of labelStyle in the axis. Here, {value} acts as a placeholder for each axis label.
+To denote the axis values with temperature units, add the °C as suffix to each label. This can be achieved by setting the **{value}°C** to the [`format`](../api/linear-gauge/labelModel/#format-string) property in the [`labelStyle`](../api/linear-gauge/axis#labelstyle-labelmodel) object of the axis. Here, **{value}** acts as a placeholder for each axis label.
 
-You can change the pointer value from the default value of the gauge by settings the [`value`](../api/linear-gauge/pointer/#value-number)  property in pointers option in axis.
+To change the pointer value from the default value of the gauge, set the [`value`](../api/linear-gauge/pointer/#value-number) property in [`pointers`](../api/linear-gauge/pointerModel/) object of the axis.
 
 {% tab template="linear-gauge/getting-started", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -181,9 +184,9 @@ ReactDOM.render(
 
 {% endtab %}
 
-## Set Pointer Value
+## Setting the value of the pointer
 
-You can change the pointer value in the below sample using [`value`](../api/linear-gauge/pointer/#value-number) property in [`pointers`](../api/linear-gauge/pointer/).
+The pointer value is changed in the below sample using the [`value`](../api/linear-gauge/pointer/#value-number) property in [`pointers`](../api/linear-gauge/pointer) object of the axis.
 
 {% tab template="linear-gauge/getting-started", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
