@@ -271,7 +271,36 @@ In Spreadsheet control, Excel import and export support processed in `server-sid
 * WCF Service
 * ASP.NET MVC Controller Action
 
-> * [Refer](../api/spreadsheet/#allowsave) to the link about, perform an Excel import and export operation with help of `WebAPI` configuration.
+The following code snippets shows server configuration using `WebAPI` service,
+
+```csharp
+
+    [Route("api/[controller]")]
+    public class SpreadsheetController : Controller
+    {
+        //To open excel file
+        [AcceptVerbs("Post")]
+        [HttpPost]
+        [EnableCors("AllowAllOrigins")]
+        [Route("Open")]
+        public IActionResult Open(IFormCollection openRequest)
+        {
+            OpenRequest open = new OpenRequest();
+            open.File = openRequest.Files[0];
+            return Content(Workbook.Open(open));
+        }
+
+        //To save as excel file
+        [AcceptVerbs("Post")]
+        [HttpPost]
+        [EnableCors("AllowAllOrigins")]
+        [Route("Save")]
+        public IActionResult Save(SaveSettings saveSettings)
+        {
+            return Workbook.Save(saveSettings);
+        }
+    }
+```
 
 ## Supported File Formats
 
