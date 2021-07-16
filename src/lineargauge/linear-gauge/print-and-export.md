@@ -19,7 +19,7 @@ The rendered Linear Gauge can be printed directly from the browser by calling th
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { LinearGaugeComponent, AxesDirective, Print, Inject, AxisDirective, PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
+import { LinearGaugeComponent, Print, Inject } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public clickHandler(){
   this.linear.print();
@@ -56,7 +56,7 @@ To use the image export functionality, set the [`allowImageExport`](../api/linea
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { LinearGaugeComponent, AxesDirective, ImageExport, Inject, AxisDirective, PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
+import { LinearGaugeComponent, ImageExport, Inject } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public clickHandler(){
   this.linear.export('PNG','Gauge');
@@ -87,12 +87,12 @@ To use the PDF export functionality, set the [`allowPdfExport`](../api/linear-ga
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { LinearGaugeComponent, AxesDirective, PdfExport, Inject, AxisDirective, PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
+import { LinearGaugeComponent, PdfExport, Inject } from '@syncfusion/ej2-react-lineargauge';
 
 class App extends React.Component<{}, {}>{
 
 public clickHandler(){
-  this.linear.export('PDF', 'Gauge', 0);
+  this.linear.export('PDF', 'Gauge');
 }
 
 private linear: LinearGaugeComponent;
@@ -123,7 +123,7 @@ The Linear Gauge can be exported as base64 string for the JPEG, PNG and PDF form
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { LinearGaugeComponent, AxesDirective, ImageExport, Inject, AxisDirective, PointersDirective, PointerDirective } from '@syncfusion/ej2-react-lineargauge';
+import { LinearGaugeComponent, ImageExport, Inject } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public clickHandler(){
     this.linear.export('PNG', 'Gauge', null, false).then((data: string)=>{

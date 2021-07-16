@@ -20,7 +20,7 @@ When the pointer animation is completed, the [`animationComplete`](../api/linear
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IAnimationCompleteEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IAnimationCompleteEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public animationComplete(args: IAnimationCompleteEventArgs){
 }
@@ -87,7 +87,7 @@ Before each axis label is rendered in the Linear Gauge, the [`axisLabelRender`](
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IAxisLabelRenderEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IAxisLabelRenderEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public axisLabelRender(args: IAxisLabelRenderEventArgs){
 }
@@ -123,7 +123,7 @@ The [`beforePrint`](../api/linear-gauge/#beforeprint) event is fired before the 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { LinearGaugeComponent, AxesDirective, Print, Inject, AxisDirective, PointersDirective, PointerDirective, IPrintEventArgs } from '@syncfusion/ej2-react-lineargauge';
+import { LinearGaugeComponent, Print, Inject, IPrintEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public clickHandler(){
   this.linear.print();
@@ -155,7 +155,7 @@ The [`dragEnd`](../api/linear-gauge#dragend) event will be fired before the poin
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public dragEnd(args: IPointerDragEventArgs){
 }
@@ -190,7 +190,7 @@ The [`dragMove`](../api/linear-gauge#dragmove) event will be fired when the poin
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public dragMove(args: IPointerDragEventArgs){
 }
@@ -225,7 +225,7 @@ When the pointer drag begins, the [`dragStart`](../api/linear-gauge#dragstart) e
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IPointerDragEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public dragStart(args: IPointerDragEventArgs){
 }
@@ -260,7 +260,7 @@ When mouse is pressed down on the gauge, the [`gaugeMouseDown`](../api/linear-ga
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public gaugeMouseDown(args: IMouseEventArgs){
 }
@@ -287,7 +287,7 @@ When mouse pointer moves over the gauge, the [`gaugemouseleave`](../api/linear-g
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public gaugeMouseLeave(args: IMouseEventArgs){
 }
@@ -314,7 +314,7 @@ When mouse pointer leaves the gauge, the [`gaugeMouseMove`](../api/linear-gauge#
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public gaugeMouseMove(args: IMouseEventArgs){
 }
@@ -341,7 +341,7 @@ When the mouse pointer is released over the Linear Gauge, the [`gaugeMouseUp`](.
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, IMouseEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public gaugeMouseUp(args: IMouseEventArgs){
 }
@@ -368,7 +368,7 @@ Before the Linear Gauge is loaded, the [`load`](../api/linear-gauge#load) event 
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, ILoadEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, ILoadEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public load(args: ILoadEventArgs){
 }
@@ -395,7 +395,7 @@ After the Linear Gauge has been loaded, the [`loaded`](../api/linear-gauge#loade
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, ILoadedEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, ILoadedEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public loaded(args: ILoadedEventArgs){
 }
@@ -422,14 +422,14 @@ After the window resizing, the [`resized`](../api/linear-gauge#resized) event is
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, IResizeEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, IResizeEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public resized(args: IResizeEventArgs){
 }
 private linear: LinearGaugeComponent;
 render(){
     return (<div>
-    <LinearGaugeComponent id='gauge' ref={g => this.linear = g} loaded={this.loaded.bind(this)}>
+    <LinearGaugeComponent id='gauge' ref={g => this.linear = g} loaded={this.resized.bind(this)}>
     </LinearGaugeComponent></div>)
     }
 };
@@ -449,7 +449,7 @@ The [`tooltipRender`](../api/linear-gauge#tooltiprender) event is fired before t
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, ITooltipRenderEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, ITooltipRenderEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public tooltipRender(args: ITooltipRenderEventArgs){
 }
@@ -484,7 +484,7 @@ The [`valueChange`](../api/linear-gauge#valuechange) event is triggered when the
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IValueChangeEventArgs } from '@syncfusion/ej2-react-lineargauge';`
+import { LinearGaugeComponent, AxesDirective, AxisDirective, PointersDirective, PointerDirective, IValueChangeEventArgs } from '@syncfusion/ej2-react-lineargauge';
 class App extends React.Component<{}, {}>{
 public valueChange(args: IValueChangeEventArgs){
 }
