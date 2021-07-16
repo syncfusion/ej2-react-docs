@@ -1,6 +1,6 @@
 # Getting Started
 
-This section briefly explains how to create **scheduler** component and configure its available functionalities in React environment,
+This section briefly explains how to create [**React Scheduler**](https://www.syncfusion.com/react-ui-components/react-scheduler) component and configure its available functionalities in React environment,
 using Essential JS 2 [quickstart](https://github.com/syncfusion/ej2-quickstart.git) seed repository.
 
 To get start quickly with React Scheduler using the Create React App, you can check on this video:
@@ -365,3 +365,5 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 ```
 
 {% endtab %}
+
+> You can refer to our [React Scheduler](https://www.syncfusion.com/react-ui-components/react-scheduler) feature tour page for its groundbreaking feature representations. You can also explore our [React Scheduler example](https://ej2.syncfusion.com/react/demos/#/material/schedule/overview) to knows how to present and manipulate data.

@@ -284,3 +284,5 @@ Returns `Date`
     let convertedDate: Date = timezone.removeLocalOffset(date);
     console.log(convertedDate); //2018-12-05T15:25:11.000Z
 ```
+
+> You can refer to our [React Scheduler](https://www.syncfusion.com/react-ui-components/react-scheduler) feature tour page for its groundbreaking feature representations. You can also explore our [React Scheduler example](https://ej2.syncfusion.com/react/demos/#/material/schedule/overview) to knows how to present and manipulate data.

@@ -47,3 +47,5 @@ Keys | Description |
 | <kbd>Space</kbd> or <kbd>Enter</kbd> | It activates any of the focused items. |
 | <kbd>Page Up</kbd> & <kbd>Page Down</kbd> | To scroll through the work cells area. |
 | <kbd>Home</kbd> | To move the selection to the first cell of Scheduler. |
+
+> You can refer to our [React Scheduler](https://www.syncfusion.com/react-ui-components/react-scheduler) feature tour page for its groundbreaking feature representations. You can also explore our [React Scheduler example](https://ej2.syncfusion.com/react/demos/#/material/schedule/overview) to knows how to present and manipulate data.
