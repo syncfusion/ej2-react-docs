@@ -10,6 +10,10 @@ description: "Chart legend provides information about the series rendered in the
 
 Legend provides information about the series rendered in the chart.
 
+To get start quickly with Legends in React Charts, you can check on this video:
+
+`youtube:7VYeN4W_wMc`
+
 ## Position and Alignment
 
 By using the [`position`](../api/chart/legendSettings/#position) property, you can position the legend
