@@ -415,7 +415,7 @@ ReactDOM.render( <DiagramComponent id = "diagram_contextmenu" ref={diagram => di
 
 ## Context menu events
 
-You would be notified with events, when you try to open the context menu items [`contextMenuOpen`](../api/diagram/diagramBeforeMenuOpenEventArgs#DiagramBeforeMenuOpenEventArgs) and when you click the menu items `contextMenuClick`.
+You would be notified with events, when you try to open the context menu items [`contextMenuOpen`](../api/diagram#contextmenuopen) and when you click the menu items `contextMenuClick`.
 The following code example illustrates how to define those events.
 
 {% tab template= "diagram/contextmenu/es5events", sourceFiles="app/**/*.tsx" %}

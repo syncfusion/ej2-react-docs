@@ -60,6 +60,11 @@ Add Diagram component's styles as given below in `App.css`.
 
 ```css
 @import "../node_modules/@syncfusion/ej2-react-diagrams/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-navigations/styles/material.css";
 ```
 
 ### Adding Diagram component to the Application
