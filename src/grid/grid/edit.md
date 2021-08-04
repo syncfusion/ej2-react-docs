@@ -287,6 +287,95 @@ export default class App extends React.Component<{}, {}> {
 
 > Normal edit mode is default mode of editing.
 
+### Automatically update the column based on another column edited value
+
+You can update the column value based on another column edited value by using the Cell Edit Template feature.
+
+In the below demo, we have update the `TotalCost` column value based on the `UnitPrice` and `UnitInStock` column value while editing.
+
+{% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, EditSettingsModel, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Edit, IEditCell, Inject, Toolbar, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import { NumericTextBox } from '@syncfusion/ej2-inputs';
+import * as React from 'react';
+import { productData } from './datasource';
+
+export default class App extends React.Component<{}, {}> {
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
+  public priceParams : IEditCell = {
+    create: () => {
+      this.priceElem = document.createElement('input');
+      return this.priceElem;
+    },
+    read: () => {
+      return this.priceObj.value;
+    },
+    destroy: () => {
+      this.priceObj.destroy();
+    },
+    write: args => {
+      this.priceObj = new NumericTextBox({
+        value: args.rowData[args.column.field],
+        change: function(args) {
+          var formEle = this.gridInstance.element.querySelector('form').ej2_instances[0];
+          var totalCostFieldEle = formEle.getInputElement('TotalCost');
+          totalCostFieldEle.value = this.priceObj.value * this.stockObj.value;
+        }.bind(this)
+      });
+      this.priceObj.appendTo(this.priceElem);
+    }
+  };
+  public stockParams : object = {
+    create: () => {
+      this.stockElem = document.createElement('input');
+      return this.stockElem;
+    },
+    read: () => {
+      return this.stockObj.value;
+    },
+    destroy: () => {
+      this.stockObj.destroy();
+    },
+    write: args => {
+      this.stockObj = new NumericTextBox({
+        value: args.rowData[args.column.field],
+        change: function(args) {
+          var formEle = this.gridInstance.element.querySelector('form').ej2_instances[0];
+          var totalCostFieldEle = formEle.getInputElement('TotalCost');
+          totalCostFieldEle.value = this.priceObj.value * this.stockObj.value;
+        }.bind(this)
+      });
+      this.stockObj.appendTo(this.stockElem);
+    }
+  };
+
+  public priceElem: HTMLElement;
+  public priceObj: NumericTextBox;
+
+  public stockElem: HTMLElement;
+  public stockObj: NumericTextBox;
+
+  public render() {
+    return <GridComponent dataSource={productData} ref={grid => this.gridInstance = grid} editSettings={this.editOptions}
+        toolbar={this.toolbarOptions} height={273}>
+        <ColumnsDirective>
+          <ColumnDirective field="ProductID" headerText="Product ID" textAlign="Right" isPrimaryKey={true} width="100"/>
+          <ColumnDirective field="ProductName" headerText="Product Name" width="120"/>
+          <ColumnDirective field="UnitPrice" headerText="Unit Price" editType="numericedit"  edit={this.priceParams} width="150" format="C2" textAlign="Right"/>
+          <ColumnDirective field="UnitsInStock" headerText="Units In Stock" editType="numericedit"  edit={this.stockParams} width="150" textAlign="Right"/>
+          <ColumnDirective field="TotalCost" headerText="Total Cost" width="150" allowEditing={false} format="C2" textAlign="Right"/>
+        </ColumnsDirective>
+        <Inject services={[Edit, Toolbar]} />
+    </GridComponent>
+  }
+};
+```
+
+{% endtab %}
+
 ### Dialog
 
 In Dialog edit mode, when you start editing the currently selected row data will be shown on a dialog.
