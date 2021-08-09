@@ -376,6 +376,67 @@ export default class App extends React.Component<{}, {}> {
 
 {% endtab %}
 
+#### Cancel edit based on condition
+
+You can prevent the CRUD operations of the Grid by using condition in the [`actionBegin`](../api/grid/#actionbegin) event with requestType as `beginEdit` for editing, `add` for adding and `delete` for deleting actions.
+
+In the below demo, we prevent the CRUD operation based on the `Role` column value. If the Role Column is ‘employee’, we are unable to edit/delete that row.
+
+{% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Edit, EditSettingsModel, Inject, Toolbar, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}> {
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Normal' };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
+  public isAddable: boolean = true;
+  public actionBegin (args) {
+      if (args.requestType == 'beginEdit') {
+        if (args.rowData['Role'].toLowerCase() == 'employee') {
+           args.cancel = true;
+        }
+      }
+      if (args.requestType == 'delete') {
+        if (args.data[0]['Role'].toLowerCase() == 'employee') {
+          args.cancel = true;
+        }
+      }
+      if (args.requestType == 'add') {
+        if (!this.isAddable) {
+          args.cancel = true;
+        }
+      }
+  }
+  public btnClick = (args) => {
+    args.target.innerText == 'Grid is Addable' ? (args.target.innerText = 'Grid is Not Addable') : (args.target.innerText = 'Grid is Addable');
+    this.isAddable = !this.isAddable;
+  }
+
+  public render() {
+    this.actionBegin = this.actionBegin.bind(this);
+    this.btnClick = this.btnClick.bind(this);
+    return (<div>
+    <button onClick={this.btnClick}>Grid is Addable</button>
+    <GridComponent dataSource={data} editSettings={this.editOptions} toolbar={this.toolbarOptions} actionBegin= {this.actionBegin} height={240}>
+      <ColumnsDirective>
+          <ColumnDirective field='OrderID' headerText='Order ID' width='100' textAlign="Right" isPrimaryKey={true}/>
+          <ColumnDirective field='Role' headerText='Role' width='120'/>
+          <ColumnDirective field='Freight' headerText='Freight' width='120' format="C2" editType= 'numericedit' textAlign="Right"/>
+          <ColumnDirective field='ShipCountry' headerText='Ship Country' editType= 'dropdownedit' width='150'/>
+      </ColumnsDirective>
+      <Inject services={[Edit, Toolbar]} />
+    </GridComponent>
+    </div>)
+  }
+};
+```
+
+{% endtab %}
+
 ### Dialog
 
 In Dialog edit mode, when you start editing the currently selected row data will be shown on a dialog.
