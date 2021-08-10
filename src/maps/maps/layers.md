@@ -1,52 +1,32 @@
-# Layers
+---
+title: " Layers in React Maps control | Syncfusion "
 
-Map is maintained through `layers` and it can accommodate one or more layers.
+component: "Maps"
+
+description: "Learn here all about Layers feature of Syncfusion React Maps control and more."
+---
+
+# Layers in React Maps control
+
+The Maps control is rendered through [`layers`](../api/maps/#layers) and any number of layers can be added to the Maps.
 
 ## Multilayer
 
-The Multilayer support allows you to load multiple shape files in a single container, enabling maps to display more information.
+The Multilayer support allows loading multiple shape files and map providers in a single container, enabling Maps to display more information. The shape layer or map providers are the main layers of the Maps. Multiple layers can be added as **SubLayer** over the main layers using the [`type`](../api/maps/layerSettingsModel/#type) property of [`layers`](../api/maps/#layers) property.
 
-### Adding Multiple Layers in the Map
+## Sublayer
 
-The shape layers is the core layer of the map. The multiple layers can be added in the shape layer `type` as `SubLayer`.
+Sublayer is a type of shape file layer. It allows loading multiple shape files in a single map view. For example, a sublayer can be added over the main layer to view geographic features such as rivers, valleys and cities in a map of a country. Similar to the main layer, elements in the Maps such as markers, bubbles, color mapping and legends can be added to the sub-layer.
 
-## SubLayer
-
-In this example, World Map shape is used as shape data by utilizing the `“WorldMap.json”` file in the
-following folder structure obtained from downloaded Maps_GeoJSON folder.
-
-..\ Maps_GeoJSON\
-
-You can assign the complete contents in `WorldMap.json` file to new JSON object. For better understanding, a
-TS file `WorldMap.ts` is already created to store JSON data in JSON object “world_map” and also copy the
-WorldMap.json file data, bind value to “usMap” like “world_map”.
-
-`[WorldMap.ts]`
-
-{% tab compileJsx=true%}
-
-```tsx
-export let worldmap = //Paste all the content copied from the JSON file//
-```
-
-{% endtab %}
-
-`[usa.ts]`
-
-{% tab compileJsx=true%}
-
-```tsx
-export let world_map = //Paste all the content copied from the WorldMap.JSON file//
-```
-
-{% endtab %}
+In this example, the United States map shape is used as shape data by utilizing "**usa.ts**" file, and "**texas.ts**" and "**california.ts**" files are used as sub-layers in the United States map.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
-import { usa_map } from 'usa.ts'
+import { texas } from 'texas.ts';
+import { usa_map } from 'usa.ts';
+import { california } from 'california.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
@@ -54,15 +34,20 @@ import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-
 ReactDOM.render(
             <MapsComponent id="maps">
                 <LayersDirective>
-                    <LayerDirective shapeData={world_map}
+                    <LayerDirective shapeData={usa_map}
                         shapeSettings={ {
-                            fill: '#9CBF4E',
-                            border: { width: 0.5, color: 'White' },
+                            fill: '#E5E5E5',
+                            border: { width: 0.1, color: 'Black' },
                         } } />
-                    <LayerDirective shapeData={usa_map} type="SubLayer"
+                    <LayerDirective shapeData={texas} type="SubLayer"
                         shapeSettings={ {
-                            fill: 'orange',
-                            border: { width: 1, color: 'White' },
+                            fill: 'rgba(141, 206, 255, 0.6)',
+                            border: { width: 0.25, color: '#1a9cff' },
+                        } } />
+                    <LayerDirective shapeData={california} type="SubLayer"
+                        shapeSettings={ {
+                            fill: 'rgba(141, 206, 255, 0.6)',
+                            border: { width: 0.25, color: '#1a9cff' },
                         } } />
                 </LayersDirective>
             </MapsComponent>,
@@ -73,11 +58,9 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
-## Displaying layer in the view
+## Displaying different layer in the view
 
-In Maps,you can load multiple shape files. Using the `baseLayerIndex` property, you can select a layer to display on user interface.
-
-In this examples, we have loaded two layers with the World map and the United States map shape data and selected a layer using the `baseLayerIndex` property to show that layer on the web page.
+Multiple shape files and map providers can be loaded simultaneously in Maps. The [`baseLayerIndex`](../api/maps/mapsModel/#baselayerindex) property is used to determine which layer on the user interface should be displayed. This property is used for the Maps drill-down feature, so when the [`baseLayerIndex`](../api/maps/mapsModel/#baselayerindex) value is changed, the corresponding shape is loaded. In this example, two layers can be loaded with the World map and the United States map. Based on the given [`baseLayerIndex`](../api/maps/mapsModel/#baselayerindex) value the corresponding shape will be loaded in the user interface. If the [`baseLayerIndex`](../api/maps/mapsModel/#baselayerindex) value is set to 0, then the world map will be loaded.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -102,9 +85,3 @@ document.getElementById("maps") as HTMLElement
 ```
 
 {% endtab %}
-
-If you set the `baseLayerIndex` value to 0, the world map will be loaded.
-
-This concept is used in the Maps drill-down feature, so the corresponding shape will be loaded when clicking a shape of the maps.
-
-Refer the [`API`](../api/maps/layerSettingsModel/) for Layers feature.

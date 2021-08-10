@@ -1,14 +1,10 @@
 # Annotations
 
-Annotations are used to mark the specific area of interest in a map area with texts, shapes, or images. To
-update the annotation in maps, please follow the given procedure.
+Annotations are used to mark the specific area of interest in the Maps with texts, shapes, or images. Any number of annotations can be added to the Maps component.
 
-Initialize the maps control with annotation option, and specify the ID of HTML element in the content that
-needs to be displayed in maps area by using the `content` property. You can specify the content position
-with `x` and `y` values as mentioned in the following code example. To know more about annotations, please
-refer to the [`API`](../../api/maps/annotation/) documentation.
+Initialize the Maps control with annotation option, text content or ID of an HTML element or an HTML string can be specified to render a new element that needs to be displayed in the Maps by using the [`content`](../api/maps/annotationModel/#content) property. To specify the content position with [`x`](../api/maps/annotationModel/#x) and [`y`](../api/maps/annotationModel/#y) properties as mentioned in the following example.
 
-In annotation, you can import the image in the specified map area by using require function as mentioned in the below code example.
+In annotation, import the image in the specified Map area by using require function as mentioned in the below example.
 
 ```sh
 const logo = require('./compass.png');
@@ -17,10 +13,10 @@ const logo = require('./compass.png');
 
 [`app.tsx`]
 
-{% tab compileJsx=true%}
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
 ```tsx
-import { africa_continent } from './MapData/africa_continent';
+import { africa_continent } from 'africa-continent.ts';
 import * as React from 'react';
 import './App.css';
 import {
@@ -47,7 +43,7 @@ const SAMPLE_CSS = `
         -webkit-box-shadow: 0px 2px 5px #666;
         box-shadow: 0px 2px 5px #666;
     }`;
-const logo = require('./compass.png');
+const logo = require('./compass.svg');
 class App extends React.Component {
   render() {
     return (

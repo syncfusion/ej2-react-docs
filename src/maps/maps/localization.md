@@ -1,9 +1,14 @@
-# Localization
+---
+title: " Localization in React Maps control | Syncfusion "
 
-Localization library allows to localize the default text content of Maps. In Maps component,
-it has the static text on some features(like zooming toolbars) and this can be changed to any
-other culture(Arabic, Deutsch, French, etc) by defining the locale value and translation object.
+component: "Maps"
 
+description: "Learn here all about Localization of Syncfusion React Maps control and more."
+---
+
+# Localization in React Maps
+
+The localization library allows localizing the default text content of the Maps control. The Maps control has the static text of some features such as tooltip of zoom toolbar, and that can be changed to any other culture(Arabic, Deutsch, French, etc) by defining the locale value and translation object.
 <!-- markdownlint-disable MD033 -->
 
 <table>
@@ -17,11 +22,11 @@ other culture(Arabic, Deutsch, French, etc) by defining the locale value and tra
 </tr>
 <tr>
 <td>ZoomIn</td>
-<td>ZoomIn</td>
+<td>Zoom In</td>
 </tr>
 <tr>
 <td>ZoomOut</td>
-<td>ZoomOut</td>
+<td>Zoom Out</td>
 </tr>
 <tr>
 <td>Reset</td>
@@ -30,17 +35,10 @@ other culture(Arabic, Deutsch, French, etc) by defining the locale value and tra
 <tr>
 <td>Pan</td>
 <td>Pan</td>
-</tr>
-<tr>
-<td>ResetZoom</td>
-<td>Reset Zoom</td>
 </tr>
 </table>
 
-To load translation object in an application use load function of L10n class.
-
-For more information about localization, refer this
-[`localization`](http://ej2.syncfusion.com/documentation/base/localization.html)
+To load translation object in the application, use `load` function of **L10n** class. For more information about localization, refer [here](http://ej2.syncfusion.com/documentation/base/localization.html).
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -67,7 +65,10 @@ ReactDOM.render(
             <MapsComponent id="maps" locale="ar-AR" zoomSettings={ { enable: true } }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
-                    <LayerDirective shapeData={world_map} shapeDataPath='Country' shapePropertyPath='name' dataSource={uncountries}>
+                    <LayerDirective shapeData={world_map}
+                                    shapeDataPath='Country'
+                                    shapePropertyPath='name'
+                                    dataSource={uncountries}>
                     </LayerDirective>
                 </LayersDirective>
             </MapsComponent>,

@@ -9,6 +9,7 @@
 * [Data Labels](maps/data-label.md)
 * [Markers](maps/markers.md)
 * [Bubble](maps/bubble.md)
+* [Annotation](maps/annotations.md)
 * [Legend](maps/legend.md)
 * [Navigation Lines](maps/navigation-line.md)
 * [User Interactions](maps/user-interactions.md)

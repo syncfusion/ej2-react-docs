@@ -1,22 +1,24 @@
+---
+title: " User interactions in React Maps control | Syncfusion "
 
-# User Interactions
+component: "Maps"
 
-Options like zooming, panning, single click and double click, highlight and map selection enables the effective interaction on Map elements.
+description: "Learn here all about User interactions of Syncfusion React Maps control and more."
+---
+
+# User Interactions in React Maps control
 
 ## Zooming
 
-The zooming feature enables you to zoom in and out the Map to show in-depth information. It is controlled by
-the `zoomFactor` property of the `zoomSettings` of the map. When the zoomFactor is increased, the Map is
-zoomed in. When the zoomFactor is decreased, then the Map is zoomed out.
+The zooming feature is used to zoom in and out the Map to show in-depth information. It is controlled by the [`zoomFactor`](../api/maps/zoomSettingsModel/#zoomfactor) property of the [`zoomSettings`](../api/maps/zoomSettingsModel) of the Maps. The Map is zoomed in when the [`zoomFactor`](../api/maps/zoomSettingsModel/#zoomfactor) is increased. The Map will be zoomed out as the [`zoomFactor`](../api/maps/zoomSettingsModel/#zoomfactor) is reduced.
 
-### Enable Zooming
+<b>Enable zooming</b>
 
-To enable the zooming feature, set the `zoomSettings.enable` as true in maps. Zooming feature needs the `Zoom`
-module injection to perform zooming actions, use module injection to inject zoom into Maps by using `<Inject services={[Zoom]}/>` tag.
+Zooming of the Maps is enabled by setting the [`enable`](../api/maps/zoomSettingsModel/#enable) property of [`zoomSettings`](../api/maps/zoomSettingsModel/) property to "**true**".
 
-### Enable panning
+<b>Enable panning</b>
 
-To enable the panning feature, set the [`enablePanning`](../api/maps/zoomSettings/#enablepanning) property of [`zoomSettings`](../api/maps/zoomSettings) to **true**.
+To enable the panning feature, set the [`enablePanning`](../api/maps/zoomSettingsModel/#enablepanning) property of [`zoomSettings`](../api/maps/zoomSettingsModel) to "**true**".
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -44,22 +46,29 @@ document.getElementById("maps") as HTMLElement
 
 ### Various type of zooming
 
-Zooming can be performed by various types. click zooming, double click zooming, toolbar zooming
-rectangular zooming, mouse wheel zooming and pinch zooming.
+Zooming can be performed in following types:
 
-<b>Zooming toolbar</b>
+#### Zooming toolbar
 
-By default, the toolbar is rendered with `zoom-in`, `zoom-out`, and `reset` options when it is set to 'true' in the `enable` property of `zoomSettings`. You can also customize the toolbar items using the `toolBArs` property in `zoomSettings`.
+By default, the toolbar is rendered with **zoom-in**, **zoom-out**, and **reset** options when it is set to **true** in the [`enable`](../api/maps/zoomSettingsModel/#enable) property of [`zoomSettings`](../api/maps/zoomSettingsModel/).
 
-The following options are available in toolbar, and you can use the options as needed:
+The following options are available in toolbar.
 
 1. Zoom - Provides rectangular zoom support.
-2. ZoomIn - Zooms in the maps.
-3. ZoomOut - Zooms out the maps.
+2. ZoomIn - Zooms in the Maps.
+3. ZoomOut - Zooms out the Maps.
 4. Pan - Switches to panning if rectangular zoom is activated.
-5. Reset - Restores the maps to the default view.
+5. Reset - Restores the Maps to the default view.
 
-Refer the [`API`](../api/maps/zoomSettingsModel/) links for Zooming.
+The following properties are available in toolbars to customize the zooming toolbars.
+
+* [`color`](../api/maps/zoomSettingsModel/#color) - To apply the color for toolbars in Maps.
+* [`highlightColor`](../api/maps/zoomSettingsModel/#highlightcolor) - To apply the color for the zooming toolbar when the mouse has hovered on the toolbar element in Maps.
+* [`horizontalAlignment`](../api/maps/zoomSettingsModel/#horizontalalignment) - To customize the position type of toolbar when it is placed horizontally.
+* [`selectionColor`](../api/maps/zoomSettingsModel/#selectioncolor) - To apply the color for the zooming toolbar when clicking the zooming toolbar in Maps.
+* [`toolBarOrientation`](../api/maps/zoomSettingsModel/#toolbarorientation) - To customize the orientation of the zooming toolbar.
+* [`toolbars`](../api/maps/zoomSettingsModel/#toolbars) - To customize the items that are to be shown in the zooming toolbar in Maps.
+* [`verticalAlignment`](../api/maps/zoomSettingsModel/#verticalalignment) - To customize the position type of toolbar when it is placed vertically.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -71,7 +80,13 @@ import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings={ { enable: true } }>
+            <MapsComponent id="maps" zoomSettings={ {
+                                        enable: true,
+                                        color: 'green',
+                                        highlightColor: 'blue',
+                                        selectionColor: 'orange',
+                                        horizontalAlignment: 'Center',
+                                        toolbars: ['ZoomIn', 'ZoomOut', 'Pan', 'Reset']} }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}>
@@ -85,9 +100,9 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
-<b>Pinch Zooming</b>
+#### Pinch zooming
 
-Use the `pinchZooming` property in `zoomSettings` to enable or disable the pinch zooming.
+To enable or disable the pinch zooming, use the [`pinchZooming`](../api/maps/zoomSettingsModel/#pinchzooming) property in [`zoomSettings`](../api/maps/zoomSettingsModel) property.
 
 ```tsx
 
@@ -97,7 +112,7 @@ import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings={ { enable: true pinchZooming: true } }>
+            <MapsComponent id="maps" zoomSettings={ { enable: true, pinchZooming: true } }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}>
@@ -109,9 +124,9 @@ document.getElementById("maps") as HTMLElement
 
 ```
 
-<b>Single-click zooming</b>
+#### Single-click zooming
 
-Use the `zoomOnClick` property in `zoomSettings` to enable or disable the single-click zooming
+To enable or disable the single-click zooming, use the [`zoomOnClick`](../api/maps/zoomSettingsModel/#zoomonclick) property in [`zoomSettings`](../api/maps/zoomSettingsModel) property.
 
 ```tsx
 
@@ -121,7 +136,7 @@ import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings={ { enable: true zoomOnClick: true } }>
+            <MapsComponent id="maps" zoomSettings={ { enable: true, zoomOnClick: true } }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}>
@@ -133,9 +148,9 @@ document.getElementById("maps") as HTMLElement
 
 ```
 
-<b>Double-click zooming</b>
+#### Double-click zooming
 
-Use the `doubleClickZoom` property in `zoomSettings` to enable or disable the double-click zooming.
+To enable or disable the double-click zooming, use the [`doubleClickZoom`](../api/maps/zoomSettingsModel/#doubleclickzoom) property in [`zoomSettings`](../api/maps/zoomSettingsModel/) property.
 
 ```tsx
 
@@ -145,7 +160,7 @@ import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings={ { enable: true doubleClickZoom: true } }>
+            <MapsComponent id="maps" zoomSettings={ { enable: true, doubleClickZoom: true } }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}>
@@ -157,9 +172,9 @@ document.getElementById("maps") as HTMLElement
 
 ```
 
-<b>Mouse wheel zooming</b>
+#### Mouse wheel zooming
 
-Use the `mouseWheelZoom` property in `zoomSettings` to enable or disable mouse wheel zooming.
+To enable or disable mouse wheel zooming, use the [`mouseWheelZoom`](../api/maps/zoomSettingsModel/#mousewheelzoom) property in [`zoomSettings`](../api/maps/zoomSettingsModel/) property.
 
 ```tsx
 
@@ -169,7 +184,57 @@ import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings={ { enable: true mouseWheelZoom: true } }>
+            <MapsComponent id="maps" zoomSettings={ { enable: true, mouseWheelZoom: true } }>
+            <Inject services={[Zoom]}/>
+                <LayersDirective>
+                    <LayerDirective shapeData={world_map}>
+                    </LayerDirective>
+                </LayersDirective>
+            </MapsComponent>,
+document.getElementById("maps") as HTMLElement
+);
+
+```
+
+#### Selection zooming
+
+To enable or disable selection zooming, use the [`enableSelectionZooming`](../api/maps/zoomSettingsModel/#enableselectionzooming) property in [`zoomSettings`](../api/maps/zoomSettingsModel/) property. The [`enablePanning`](../api/maps/zoomSettingsModel/#enablepanning) property must be set to **false** to enable the selection zooming in Maps.
+
+```tsx
+
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
+
+ReactDOM.render(
+            <MapsComponent id="maps" zoomSettings={ { enable: true, enableSelectionZooming: true,
+                                                      enablePanning: false } }>
+            <Inject services={[Zoom]}/>
+                <LayersDirective>
+                    <LayerDirective shapeData={world_map}>
+                    </LayerDirective>
+                </LayersDirective>
+            </MapsComponent>,
+document.getElementById("maps") as HTMLElement
+);
+
+```
+
+### Setting minimum and maximum values for zoom factor
+
+The zooming range can be adjusted using the [`minZoom`](../api/maps/zoomSettingsModel/#minzoom) and [`maxZoom`](../api/maps/zoomSettingsModel/#maxzoom) properties in [`zoomSettings`](../api/maps/zoomSettingsModel/) property. The minZoom value is set to 1 by default, and the maxZoom value is set to 10.
+
+```tsx
+
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
+
+ReactDOM.render(
+            <MapsComponent id="maps" zoomSettings={ { enable: true, minZoom: 2,
+                                                      maxZoom: 12 } }>
             <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}>
@@ -183,7 +248,7 @@ document.getElementById("maps") as HTMLElement
 
 ### Zooming with animation
 
-You can use the `animationDuration` property in  `layers` property to zoom in or zoom out the maps with animation.
+To zoom in or zoom out the Maps with animation, use the [`animationDuration`](../api/maps/layerSettingsModel/#animationduration) property in [`layers`](../api/maps/layerSettingsModel) property.
 
 ```tsx
 
@@ -207,19 +272,16 @@ document.getElementById("maps") as HTMLElement
 
 ## Selection
 
-Each shape in the Map can be selected and deselected during interaction with the shapes.
+Each shape in the Maps can be selected and deselected during interaction with the shapes. Selection is enabled by setting the [`enable`](../api/maps/selectionSettingsModel/#enable) property of [`selectionSettings`](../api/maps/selectionSettingsModel) to **true**.
+
+The following properties are available to customize the selection of Map elements such as shapes, bubbles, markers and legends.
+
+* [`border`](../api/maps/selectionSettingsModel/#border) - To customize the color, width and opacity of the border of which element is selected in Maps.
+* [`fill`](../api/maps/selectionSettingsModel/#fill) - Applies the color for the element that is selected.
+* [`opacity`](../api/maps/selectionSettingsModel/#opacity) - To customize the transparency for the element that is selected.
+* [`enableMultiSelect`](../api/maps/selectionSettingsModel/#enablemultiselect) - To enable or disable the selection for multiple shapes or markers or bubbles in the Maps.
 
 By tapping on the specific legend, the shapes which are bounded to the selected legend is also selected and vice versa.
-
-The layer `selectionSettings.fill` property is used to change the selected layer shape color. The
-`selectionSettings.border.color` and `selectionSettings.border.width` properties are used to customize the selected shape border.
-
-You can select the shape by tapping the shape. The Single selection is enabled by the
-`selectionSettings.enable` property of shape layer. When `selectionSettings.enable` is set to false, the shapes cannot be selected.
-
-Refer the [`API`](../api/maps/selectionSettingsModel/) and code snippet for Selection.
-
-**Note:** Selection is separate module, need to inject to work on Selection.`<Inject services={[Selection]} />`
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -228,17 +290,30 @@ Refer the [`API`](../api/maps/selectionSettingsModel/) and code snippet for Sele
 import { world_map } from 'world-map.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Selection, Inject  } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Selection, Inject, Legend  } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps">
-            <Inject services={[Selection]} />
+            <MapsComponent id="maps" legendSettings={{visible: true}}>
+            <Inject services={[Selection, Legend]} />
                 <LayersDirective>
                     <LayerDirective shapeData={world_map} selectionSettings={ {
                         enable: true,
-                        fill: 'green',
+                        fill: 'blue',
                         border: { color: 'white', width: 2 }
-                    } }>
+                    } } dataSource={[
+                        {"Country": "China", "Membership": "Permanent"},
+                        {"Country": "France","Membership": "Permanent" },
+                        { "Country": "Russia","Membership": "Permanent"},
+                        {"Country": "Kazakhstan","Membership": "Non-Permanent"},
+                        { "Country": "Poland","Membership": "Non-Permanent"},
+                        {"Country": "Sweden","Membership": "Non-Permanent"}
+                       ]} shapePropertyPath="name" shapeDataPath="Country"
+                        shapeSettings={{
+                           colorValuePath: 'Membership',
+                           colorMapping: [
+                               { value: 'Permanent', color: '#D84444' },
+                               { value: 'Non-Permanent', color: '#316DB5'}]
+                        }}>
                     </LayerDirective>
                 </LayersDirective>
             </MapsComponent>,
@@ -249,9 +324,100 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
-## Public method for the shape selection
+### Enable selection for bubbles
 
-Each shape in the map can be selected by calling the `shapeSelection` method. Input parameters for this method are layerIndex, propertyName, country name and selected value as in boolean state(true / false).
+To enable the selection for bubbles in Maps, set the [`selectionSettings`](../api/maps/selectionSettingsModel) property in [`bubbleSettings`](../api/maps/bubbleSettingsModel/) property and set the [`enable`](../api/maps/selectionSettingsModel/#enable) property of [`selectionSettings`](../api/maps/selectionSettingsModel) property as **true**.
+
+**Note:** To use the bubble feature, the Bubble module must be injected.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, Inject } from '@syncfusion/ej2-react-maps';
+import { BubblesDirective, BubbleDirective, Bubble, Selection } from '@syncfusion/ej2-react-maps';
+
+
+ReactDOM.render(
+            <MapsComponent id="maps">
+            <Inject services={[Bubble, Selection]}/>
+                <LayersDirective>
+                    <LayerDirective shapeData={world_map} shapeDataPath="name" shapePropertyPath="name">
+                        <BubblesDirective>
+                            <BubbleDirective visible={true} valuePath="population"
+                                             dataSource={[
+                                                { name: 'India', population: '38332521' },
+                                                { name: 'Pakistan', population: '3090416' },
+                                                { name: 'New Zealand', population: '19651127' }
+                                             ]}
+                                             selectionSettings={{
+                                                enable: true,
+                                                fill: 'green',
+                                                border: { color: 'white', width: 2}
+                                             }} />
+                        </BubblesDirective>
+                    </LayerDirective>
+                </LayersDirective>
+            </MapsComponent>,
+            document.getElementById("maps") as HTMLElement
+);
+```
+
+{% endtab %}
+
+### Enable selection for markers
+
+To enable the selection for markers in Maps, set the [`selectionSettings`](../api/maps/selectionSettingsModel) property in the [`markerSettings`](../api/maps/markerSettingsModel) property and set the [`enable`](../api/maps/selectionSettingsModel/#enable) property of the [`selectionSettings`](../api/maps/selectionSettingsModel) property as **true**.
+
+**Note:** To use the marker feature, the Marker module must be injected.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Selection, Marker, Inject } from '@syncfusion/ej2-react-maps';
+
+ReactDOM.render(
+                <MapsComponent id="maps">
+                <Inject services={[Marker, Selection]} />
+                    <LayersDirective>
+                        <LayerDirective shapeData={world_map}>
+                        <MarkersDirective>
+                            <MarkerDirective visible={true}
+                                            height={20}
+                                            width={20}
+                                            animationDuration={0}
+                                            fill="green"
+                                            shape="Balloon"
+                                            dataSource={[
+                                                { latitude: 49.95121990866204, longitude: 18.468749999999998, name:'Europe' },
+                                                { latitude: 59.88893689676585, longitude: -109.3359375, name:'North America'},
+                                                { latitude: -6.64607562172573, longitude: -55.54687499999999, name:'South America'}
+                                            ]}
+                                            selectionSettings={{
+                                                enable: true,
+                                                fill: 'blue',
+                                                border: { color: 'white', width: 2}
+                                            }}>
+                            </MarkerDirective>
+                        </MarkersDirective>
+                        </LayerDirective>
+                    </LayersDirective>
+                </MapsComponent>,
+            document.getElementById("maps") as HTMLElement
+);
+```
+
+{% endtab %}
+
+### Public method for the shape selection
+
+The [`shapeSelection`](../api/maps/#shapeselection) method can be used to select each shape in the Maps.
+LayerIndex, propertyName, country name, and selected value as a boolean state(true / false) are the input parameters for this method.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -294,9 +460,9 @@ ReactDOM.render(<App />, document.getElementById('maps'));
 
 {% endtab %}
 
-## Initial shape selection
+### Initial shape selection
 
-Initially, the shape can be selected by using the property `initialShapeSelection` and the values are mapped to the `shapePath` and `shapeValue`.
+The shape is initially selected using the [`initialShapeSelection`](../api/maps/initialShapeSelectionSettingsModel/) property, and the values are mapped to the [`shapePath`](../api/maps/initialShapeSelectionSettingsModel/#shapepath) and [`shapeValue`](../api/maps/initialShapeSelectionSettingsModel/#shapevalue).
 
 **Note:** initialShapeSelection is an Array property.
 
@@ -313,17 +479,17 @@ ReactDOM.render(
             <MapsComponent id="maps">
             <Inject services={[Selection]} />
                 <LayersDirective>
-                    <LayerDirective shapeData={world_map}  selectionSettings={ {
+                    <LayerDirective shapeData={world_map}  selectionSettings={{
                         enable: true,
                         fill: 'green',
                         border: { color: 'white', width: 2 }
-                    } }>
-            <initialShapeSelectionsDirective>
-                <initialShapeSelectionDirective shapePath= {'continent'} shapeValue= {'Africa'}>
-                </initialShapeSelectionDirective>
-                <initialShapeSelectionDirective shapePath= {'name'} shapeValue= {'India'} >
-                </initialShapeSelectionDirective>
-            </initialShapeSelectionsDirective>
+                    }}>
+        <InitialShapeSelectionsDirective>
+            <InitialShapeSelectionDirective shapePath={'continent'} shapeValue={'Africa'}>
+            </InitialShapeSelectionDirective>
+            <InitialShapeSelectionDirective shapePath={'name'} shapeValue={'India'}>
+            </InitialShapeSelectionDirective>
+        </InitialShapeSelectionsDirective>
                     </LayerDirective>
                 </LayersDirective>
             </MapsComponent>,
@@ -334,22 +500,67 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
+### Initial marker selection
+
+Using the [`initialMarkerSelection`](../api/maps/initialMarkerSelectionSettingsModel) property, the marker shape can be selected initially. Markers render based on the [`latitude`](../api/maps/initialMarkerSelectionSettingsModel/#latitude) and [`longitude`](../api/maps/initialMarkerSelectionSettingsModel/#longitude) values.
+
+**Note:** initialMarkerSelection is an Array property.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Selection, Marker, Inject } from '@syncfusion/ej2-react-maps';
+
+ReactDOM.render(
+                <MapsComponent id="maps">
+                <Inject services={[Marker, Selection]} />
+                    <LayersDirective>
+                        <LayerDirective shapeData={world_map}>
+                        <MarkersDirective>
+                            <MarkerDirective visible={true}
+                                            height={20}
+                                            width={20}
+                                            animationDuration={0}
+                                            fill="green"
+                                            shape="Balloon"
+                                            dataSource={[
+                                                { latitude: 49.95121990866204, longitude: 18.468749999999998, name:'Europe' },
+                                                { latitude: 59.88893689676585, longitude: -109.3359375, name:'North America'},
+                                                { latitude: -6.64607562172573, longitude: -55.54687499999999, name:'South America'}
+                                            ]}
+                                            initialMarkerSelection={{
+                                                latitude: -6.64607562172573, longitude: -55.54687499999999
+                                            }}
+                                            selectionSettings={{
+                                                enable: true,
+                                                fill: 'blue',
+                                                border: { color: 'white', width: 2}
+                                            }}>
+                            </MarkerDirective>
+                        </MarkersDirective>
+                        </LayerDirective>
+                    </LayersDirective>
+                </MapsComponent>,
+            document.getElementById("maps") as HTMLElement
+);
+```
+
+{% endtab %}
+
 ## Highlight
 
-Each shape in the Map can be highlighted during mouse over on the shapes.
+Each shape in the Map can be highlighted during mouse hover on the Map elements such as shapes, bubbles, markers and legends. Highlight is enabled by setting the [`enable`](../api/maps/highlightSettingsModel/#enable) property of [`highlightSettings`](../api/maps/highlightSettingsModel) to "**true**".
+
+The following properties are available to customize the highlight of Map elements such as shapes, bubbles, markers and legends.
+
+* [`border`](../api/maps/highlightSettingsModel/#border) - To customize the color, width and opacity of the border of which element is highlighted in Maps.
+* [`fill`](../api/maps/highlightSettingsModel/#fill) - Applies the color for the element that is highlighted.
+* [`opacity`](../api/maps/highlightSettingsModel/#opacity) - To customize the transparency for the element that is highlighted.
 
 Hovering on the specific legend, the shapes which are bounded to the selected legend is also highlighted and vice versa.
-
-The layer `highlightSettings.fill` property is used to change the highlighted layer shape color. The
-`highlightSettings.border.color` and `highlightSettings.border.width` properties are used to customize the highlighted shape border.
-
-You can highlight the shape by mouse over on the shape. The highlight is enabled by the
-`highlightSettings.enable` property of shape layer. When `highlightSettings.enable` is set to false, the shapes cannot be highlighted.
-
-**Note:** Highlight is separate module, need to inject to work on Highlight.
-`<Inject services={[Highlight]} />`
-
-Refer the [`API`](../api/maps/highlightSettingsModel/) and code snippet for Highlight.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -358,17 +569,31 @@ Refer the [`API`](../api/maps/highlightSettingsModel/) and code snippet for High
 import { world_map } from 'world-map.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Highlight, Inject } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Highlight, Inject, Legend } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps">
-            <Inject services={[Highlight]} />
+            <MapsComponent id="maps" legendSettings={{visible: true}}>
+            <Inject services={[Highlight, Legend]} />
                 <LayersDirective>
                     <LayerDirective shapeData={world_map}  highlightSettings={ {
                         enable: true,
                         fill: 'green',
                         border: { color: 'white', width: 2 }
-                    } }>
+                    } }
+                        dataSource={[
+                            { "Country": "China", "Membership": "Permanent"},
+                            { "Country": "France", "Membership": "Permanent" },
+                            { "Country": "Russia", "Membership": "Permanent"},
+                            { "Country": "Kazakhstan", "Membership": "Non-Permanent"},
+                            { "Country": "Poland", "Membership": "Non-Permanent"},
+                            { "Country": "Sweden", "Membership": "Non-Permanent"}
+                        ]} shapePropertyPath="name" shapeDataPath="Country"
+                         shapeSettings={{
+                            colorValuePath: 'Membership',
+                            colorMapping: [
+                                { value: 'Permanent', color: '#D84444' },
+                                { value: 'Non-Permanent', color: '#316DB5'}]
+                         }}>
                     </LayerDirective>
                 </LayersDirective>
             </MapsComponent>,
@@ -379,23 +604,103 @@ document.getElementById("maps") as HTMLElement
 
 {% endtab %}
 
+### Enable highlight for bubbles
+
+To enable the highlight for bubbles in Maps, set the [`highlightSettings`](../api/maps/highlightSettingsModel) property in [`bubbleSettings`](../api/maps/bubbleSettingsModel) property and set the [`enable`](../api/maps/highlightSettingsModel/#enable) property of [`highlightSettings`](../api/maps/highlightSettingsModel) property as **true**.
+
+**Note:** To use the bubble feature, the Bubble module must be injected.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, Inject } from '@syncfusion/ej2-react-maps';
+import { BubblesDirective, BubbleDirective, Bubble, Highlight } from '@syncfusion/ej2-react-maps';
+
+
+ReactDOM.render(
+            <MapsComponent id="maps">
+            <Inject services={[Bubble, Highlight]}/>
+                <LayersDirective>
+                    <LayerDirective shapeData={world_map} shapeDataPath="name" shapePropertyPath="name">
+                        <BubblesDirective>
+                            <BubbleDirective visible={true} valuePath="population"
+                                             dataSource={[
+                                                { name: 'India', population: '38332521' },
+                                                { name: 'Pakistan', population: '3090416' },
+                                                { name: 'New Zealand', population: '19651127' }
+                                             ]}
+                                             highlightSettings={{
+                                                enable: true,
+                                                fill: 'green',
+                                                border: { color: 'white', width: 2}
+                                             }} />
+                        </BubblesDirective>
+                    </LayerDirective>
+                </LayersDirective>
+            </MapsComponent>,
+            document.getElementById("maps") as HTMLElement
+);
+```
+
+{% endtab %}
+
+### Enable highlight for markers
+
+To enable the highlight for markers in Maps, set the [`highlightSettings`](../api/maps/highlightSettingsModel) property in [`markerSettings`](../api/maps/markerSettingsModel) property and set the [`enable`](../api/maps/highlightSettingsModel/#enable) property of [`highlightSettings`](../api/maps/highlightSettingsModel) property as **true**.
+
+**Note:** To use the marker feature, the Marker module must be injected.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, MarkersDirective, MarkerDirective, Highlight , Marker, Inject } from '@syncfusion/ej2-react-maps';
+
+ReactDOM.render(
+                <MapsComponent id="maps">
+                <Inject services={[Marker, Highlight]} />
+                    <LayersDirective>
+                        <LayerDirective shapeData={world_map}>
+                        <MarkersDirective>
+                            <MarkerDirective visible={true}
+                                            height={20}
+                                            width={20}
+                                            animationDuration={0}
+                                            fill="green"
+                                            shape="Balloon"
+                                            dataSource={[
+                                                { latitude: 49.95121990866204, longitude: 18.468749999999998, name:'Europe' },
+                                                { latitude: 59.88893689676585, longitude: -109.3359375, name:'North America'},
+                                                { latitude: -6.64607562172573, longitude: -55.54687499999999, name:'South America'}
+                                            ]}
+                                            highlightSettings={{
+                                                enable: true,
+                                                fill: 'blue',
+                                                border: { color: 'white', width: 2}
+                                            }}>
+                            </MarkerDirective>
+                        </MarkersDirective>
+                        </LayerDirective>
+                    </LayersDirective>
+                </MapsComponent>,
+            document.getElementById("maps") as HTMLElement
+);
+```
+
+{% endtab %}
+
 ## Tooltip
 
-Tooltip used to get more information about layer or bubble or marker on mouse over or touch end event
-performing on that. Tooltip is a separate module, So it needs module injection to work maps tooltip. Using
-`<Inject services={[MapsTooltip]} />` tag you can inject maps tooltip module into maps.
+On mouse over or touch end event, the tooltip is used to get more information about the layer, bubble, or marker. To enable tooltip in Maps, the **Tooltip** module must be injected into Maps using **Inject services={[Tooltip]}** tag. It can be enabled separately for layer or bubble or marker by using the [`visible`](../api/maps/tooltipSettingsModel/#visible) property of [`tooltipSettings`](../api/maps/tooltipSettingsModel/) as **true**. The [`valuePath`](../api/maps/tooltipSettingsModel/#valuepath) property in the tooltip takes the field name that presents in data source and displays that value as tooltip text. The [`tooltipDisplayMode`](../api/maps/mapsModel/#tooltipdisplaymode) property is used to change the display mode of the tooltip in Maps. Following display modes of tooltip are available in the Maps component. By default,  [`tooltipDisplayMode`](../api/maps/mapsModel/#tooltipdisplaymode) is set to **"MouseMove"**.
 
-Tooltip can be enabled separately for layer or bubble or marker by using `tooltipSettings.visible` as
-**true**. Tooltip `valuePath` value need to set to display dataSource which field as tooltip text.
-Below code snippet illustrate the tooltip enabled for layer to show shape data name field.
-
-Refer the [`API`](../api/maps/tooltipSettingsModel/) for Tooltip feature.
-
-**Step: 1** Import the usmap geo json data from already created worldMap.ts file and assign to `shapeData`.
-
-**Step: 2** Import MapsTooltip module from `ej2-maps` package and Inject to Maps.
-
-**Step: 3** Enable tooltip for layer using `tooltipSettings.visible` as true and bind `valuePath` value as 'name'.
+* MouseMove
+* Click
+* DoubleClick
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -419,6 +724,81 @@ ReactDOM.render(
             </MapsComponent>,
 document.getElementById("maps") as HTMLElement
 );
+
+```
+
+{% endtab %}
+
+### Customization
+
+The following properties are available in the [`tooltipSettings`](../api/maps/tooltipSettingsModel/) property to customize the tooltip of the Maps component.
+
+* [`border`](../api/maps/tooltipSettingsModel/#border) - To customize the color, width and opacity of the border of the tooltip in layers, markers, and bubbles of Maps.
+* [`fill`](../api/maps/tooltipSettingsModel/#fill) - Applies the color of the tooltip in layers, markers, and bubbles of Maps.
+* [`format`](../api/maps/tooltipSettingsModel/#format) - To customize the format of the tooltip in layers, markers, and bubbles of Maps
+* [`textStyle`](../api/maps/tooltipSettingsModel/#textstyle) - To customize the style of the text in the tooltip for layers, markers, and bubbles of Maps.
+
+{% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
+
+```tsx
+
+import { world_map } from 'world-map.ts';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject } from '@syncfusion/ej2-react-maps';
+
+class App extends React.Component {
+    render() {
+        return ( <MapsComponent id="maps" tooltipRender={this.tooltipRender.bind(this)}>
+              <Inject services={[MapsTooltip]} />
+            <LayersDirective>
+                 <LayerDirective shapeData={world_map} shapePropertyPath="name" shapeDataPath="name"
+                    tooltipSettings={ {
+                        visible: true,
+                        valuePath: 'name',
+                        format: '${name}: ${value1}',
+                        fill: '#D0D0D0',
+                        textStyle: {
+                            color: 'green',
+                            fontFamily: 'Times New Roman',
+                            fontStyle: 'Sans-serif'
+                        } } }
+                        dataSource={[
+                            { "name": "India", "value1": "3", "value2": "2", "country": "India" },
+                            { "name": "Dominican Rep.", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Cuba", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Jamaica", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Haiti", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Guyana", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Suriname", "value1": "3", "value2": "2", "country": "West Indies"},
+                            { "name": "Trinidad and Tobago", "value1": "3", "value2": "2", "country": "West Indies" },
+                            { "name": "Sri Lanka", "value1": "3", "value2": "1", "country": "Sri Lanka" },
+                            { "name": "United Kingdom", "value1": "3", "value2": "0", "country": "England" },
+                            { "name": "Pakistan", "value1": "2", "value2": "1", "country": "Pakistan" },
+                            { "name": "New Zealand", "value1": "1", "value2": "0", "country": "New Zealand" },
+                            { "name": "Australia", "value1": "7", "value2": "5", "country": "Australia" }
+                        ]}
+                        shapeSettings={{
+                            fill: '#E5E5E5',
+                            colorMapping: [
+                                { color: '#b3daff', value: '1' },
+                                { color: '#80c1ff', value: '2' },
+                                { color: '#1a90ff', value: '3' },
+                                { color: '#005cb3', value: '7' }
+                            ],
+                            colorValuePath: 'value1'
+                        }}>
+            </LayerDirective>
+        </LayersDirective>
+    </MapsComponent>);
+    }
+    public tooltipRender(args: ITooltipRenderEventArgs): void {
+        if (!args.options['data']) {
+            args.cancel = true;
+        }
+    }
+}
+export default App;
 
 ```
 
@@ -458,7 +838,6 @@ class App extends React.Component {
     }
 }
 ReactDOM.render(<App/>, document.getElementById('maps'));
-
 
 ```
 
