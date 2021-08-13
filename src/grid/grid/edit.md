@@ -505,6 +505,102 @@ export default class App extends React.Component<{}, {}> {
 
 {% endtab %}
 
+### Automatically update the column based on another column edited value in Batch mode
+
+You can update the column value based on another column edited value in Batch mode by using the Cell Edit Template feature.
+
+In the below demo, we have update the `TotalCost` column value based on the `UnitPrice` and `UnitInStock` column value while editing.
+
+{% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, EditSettingsModel, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Edit, IEditCell, Inject, Toolbar, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import { NumericTextBox } from '@syncfusion/ej2-inputs';
+import * as React from 'react';
+import { productData } from './datasource';
+
+export default class App extends React.Component<{}, {}> {
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true,mode: 'Batch'  };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Delete', 'Update', 'Cancel'];
+  public priceParams : IEditCell = {
+    create: () => {
+      this.priceElem = document.createElement('input');
+      return this.priceElem;
+    },
+    read: () => {
+      return this.priceObj.value;
+    },
+    destroy: () => {
+      this.priceObj.destroy();
+    },
+    write: args => {
+      var rowData = args.rowData;
+      var rowIndex = this.gridInstance.getRowInfo(args.row).rowIndex;
+      this.priceObj = new NumericTextBox({
+        value: args.rowData[args.column.field],
+        change: function(args) {
+            var totalCostValue = args.value * rowData['UnitsInStock'];
+            this.gridInstance.updateCell(rowIndex, 'TotalCost', totalCostValue);
+        }.bind(this)
+      });
+      this.priceObj.appendTo(this.priceElem);
+    }
+  };
+  public stockParams : object = {
+    create: () => {
+      this.stockElem = document.createElement('input');
+      return this.stockElem;
+    },
+    read: () => {
+      return this.stockObj.value;
+    },
+    destroy: () => {
+      this.stockObj.destroy();
+    },
+    write: args => {
+      var rowData = args.rowData;
+      var rowIndex = this.gridInstance.getRowInfo(args.row).rowIndex;
+      this.stockObj = new NumericTextBox({
+        value: args.rowData[args.column.field],
+        change: function(args) {
+          var totalCostValue = args.value * rowData['UnitPrice'];
+          this.gridInstance.updateCell(rowIndex, 'TotalCost', totalCostValue);
+        }.bind(this)
+      });
+      this.stockObj.appendTo(this.stockElem);
+    }
+  };
+
+  public cellEdit (args) {
+    if (args.columnName == 'TotalCost') {
+      args.cancel = true;
+    }
+  }
+
+  public priceElem: HTMLElement;
+  public priceObj: NumericTextBox;
+
+  public stockElem: HTMLElement;
+  public stockObj: NumericTextBox;
+
+  public render() {
+    return <GridComponent dataSource={productData} ref={grid => this.gridInstance = grid} editSettings={this.editOptions} cellEdit={this.cellEdit} toolbar={this.toolbarOptions} height={273}>
+        <ColumnsDirective>
+          <ColumnDirective field="ProductID" headerText="Product ID" textAlign="Right" isPrimaryKey={true} width="100"/>
+          <ColumnDirective field="ProductName" headerText="Product Name" width="120"/>
+          <ColumnDirective field="UnitPrice" headerText="Unit Price" editType="numericedit"  edit={this.priceParams} width="150" format="C2" textAlign="Right"/>
+          <ColumnDirective field="UnitsInStock" headerText="Units In Stock" editType="numericedit"  edit={this.stockParams} width="150" textAlign="Right"/>
+          <ColumnDirective field="TotalCost" headerText="Total Cost" width="150" format="C2" textAlign="Right"/>
+        </ColumnsDirective>
+        <Inject services={[Edit, Toolbar]} />
+    </GridComponent>
+  }
+};
+```
+
+{% endtab %}
+
 ## Dialog/Inline template
 
 The Dialog/Inline template editing provides an option to customize the default behavior of dialog editing. Using the dialog template, you can render your own editors by defining the [`editSettings.mode`](../api/grid/editSettings/#mode) as **Dialog/Normal** and [`editSetting.template`](../api/grid/editSettings/#template) as a React component.
