@@ -188,7 +188,6 @@ The following properties are available in legend to customize the legend shape a
 
 ```tsx
 import { world_map } from 'world-map.ts';
-import { uncountries } from 'data.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective, Inject, Legend } from '@syncfusion/ej2-react-maps';

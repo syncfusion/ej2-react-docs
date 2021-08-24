@@ -16,8 +16,6 @@ Refer to [Google maps licensing](https://developers.google.com/maps/terms#10-lic
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
-import { usa_map } from 'usa.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
@@ -44,14 +42,13 @@ Tile maps layer can be zoomed and panned. Zooming helps to get a closer look at 
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
-import { usa_map } from 'usa.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Maps, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings= {{enable: true}}>
+            <Inject services={[Zoom]}/>
                 <LayersDirective>
                     <LayerDirective layerType='OSM'
                                     urlTemplate= "http://mt1.google.com/vt/lyrs=m@129&hl=en&x=tileX&y=tileY&z=level" />
@@ -72,21 +69,21 @@ Markers can be added to the layers of tile maps by setting the corresponding loc
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
-import { usa_map } from 'usa.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom, MarkersDirective, NavigationLine, NavigationLinesDirective, NavigationLineDirective, MarkerDirective, Marker, Inject } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, MarkersDirective, NavigationLine, NavigationLinesDirective, NavigationLineDirective, MarkerDirective, Marker, Maps, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings= {{ zoomFactor: 4}}
-                                     centerPostion = {{
+                                     centerPosition = {{
                                          latitude: 29.394708,
                                          longitude: -94.954653
                                      }}>
+            <Inject services={[Zoom, NavigationLine, Marker]} />
                 <LayersDirective>
                     <LayerDirective layerType='OSM'
                                     urlTemplate= "http://mt1.google.com/vt/lyrs=m@129&hl=en&x=tileX&y=tileY&z=level">
+                        <MarkersDirective>
                         <MarkerDirective visible={true}
                                             height={25}
                                             width={15}
@@ -104,6 +101,7 @@ ReactDOM.render(
                                             ]}
                                         >
                             </MarkerDirective>
+                            </MarkersDirective>
                             <NavigationLinesDirective>
                             <NavigationLineDirective visible={true}
                                                      latitude={[34.060620, 40.724546]}
@@ -130,7 +128,6 @@ Any GeoJSON shape can be rendered as a sublayer on top of the tile maps layer fo
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";

@@ -18,7 +18,6 @@ To display data labels in the Maps, the [`labelPath`](../api/maps/dataLabelSetti
 
 ```tsx
 
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -98,7 +97,6 @@ The following properties are available in the [`dataLabelSettings`](../api/maps/
 
 ```tsx
 
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -150,7 +148,6 @@ The Maps control provides an option to handle the labels when they intersect wit
 
 ```tsx
 
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -191,7 +188,6 @@ The Maps component provides an option to handle the labels when a label intersec
 
 ```tsx
 
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -230,7 +226,6 @@ The data label can be added as a template in the Maps component. The [`template`
 
 ```tsx
 
-import { world_map } from 'world-map.ts';
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";

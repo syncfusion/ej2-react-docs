@@ -38,7 +38,7 @@ import { setCulture } from '@syncfusion/ej2-base';
 setCulture('de');
 
 ReactDOM.render(
-            <MapsComponent id="maps" format='c' useGroupingSeparator="true">
+            <MapsComponent id="maps" format='c' useGroupingSeparator={true}>
                 <Inject services={[MapsTooltip]} />
                 <LayersDirective>
                     <LayerDirective shapeData={world_map} shapeDataPath='Country' shapePropertyPath='name'         dataSource={[

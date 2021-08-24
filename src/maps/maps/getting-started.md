@@ -413,3 +413,5 @@ document.getElementById("maps") as HTMLElement
 ```
 
 {% endtab %}
+
+N>  You can refer to our [React Maps](https://www.syncfusion.com/react-ui-components/react-maps) feature tour page for its groundbreaking feature representations. You can also explore our [React Maps example](https://ej2.syncfusion.com/react/demos/#/material/maps/default) to know how to render and configure the map.

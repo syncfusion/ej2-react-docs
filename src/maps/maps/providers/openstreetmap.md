@@ -18,8 +18,6 @@ The OSM map can be rendered using by setting the [`layerType`](../api/maps/layer
 
 ```tsx
 //tslint:disable
-import { world_map } from 'world-map.ts';
-import { usa_map } from 'usa.ts'
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
@@ -51,10 +49,11 @@ The OSM maps layer can be zoomed and panned. Zooming helps to get a closer look 
 //tslint:disable
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Maps, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings = { { enable: true, toolbars: ['Zoom', 'ZoomIn', 'ZoomOut', 'Pan', 'Reset']} }>
+            <Inject services={[Zoom]} />
                 <LayersDirective>
                     <LayerDirective layerType='OSM' />
                 </LayersDirective>
@@ -76,11 +75,11 @@ Markers can be added to the layers of OSM maps by setting the corresponding loca
 //tslint:disable
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, NavigationLineDirective, LayerDirective, Zoom, MarkersDirective, NavigationLine, NavigationLinesDirective, MarkerDirective, Marker, Inject } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, NavigationLineDirective, LayerDirective, Zoom, MarkersDirective, NavigationLine, NavigationLinesDirective, MarkerDirective, Marker, Inject, Maps } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings = { { zoomFactor: 4 } } centerPosition = {{ latitude: 29.394708, longitude: -94.954653}}>
-            <Inject services={[Marker, NavigationLine]} />
+            <Inject services={[Marker, NavigationLine, Zoom]} />
                 <LayersDirective>
                     <LayerDirective layerType='OSM'>
                         <MarkersDirective>
@@ -115,7 +114,6 @@ ReactDOM.render(
             </MapsComponent>,
 document.getElementById("maps") as HTMLElement
 );
-
 ```
 
 {% endtab %}
@@ -131,7 +129,7 @@ Any GeoJSON shape can be rendered as a sublayer on top of the OSM maps layer for
 import { usa_map } from 'usa.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps">

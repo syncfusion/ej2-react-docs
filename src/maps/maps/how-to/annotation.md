@@ -18,12 +18,9 @@ const logo = require('./compass.png');
 ```tsx
 import { africa_continent } from 'africa-continent.ts';
 import * as React from 'react';
-import './App.css';
-import {
-  MapsComponent, LayersDirective, LayerDirective, Inject,
-  Annotations
-} from '@syncfusion/ej2-react-maps';
-//tslint:disable
+import { MapsComponent, LayersDirective, LayerDirective, Inject, Annotations } from '@syncfusion/ej2-react-maps';
+import * as ReactDOM from 'react-dom';
+
 const SAMPLE_CSS = `
     .control-fluid {
     padding: 0px !important;
@@ -43,79 +40,59 @@ const SAMPLE_CSS = `
         -webkit-box-shadow: 0px 2px 5px #666;
         box-shadow: 0px 2px 5px #666;
     }`;
-const logo = require('./compass.svg');
 class App extends React.Component {
   render() {
     return (
-      <div className='control-pane'>
-        <style>
-          {SAMPLE_CSS}
-        </style>
-        <div className='control-section row'>
-          <MapsComponent id="element" annotations={[
-            {
-              content: '#maps-annotation',
-              x: '0%', y: '70%'
-            }, {
-              content: '#compass-maps',
-              x: '85%', y: '5%'
-            }
-          ]} >
+      <div className="control-pane">
+        <style>{SAMPLE_CSS}</style>
+        <div className="control-section row">
+          <MapsComponent id="element"
+            annotations={[
+              {
+                content: '#maps-annotation',
+                x: '0%',
+                y: '70%'
+              }
+            ]}
+          >
             <Inject services={[Annotations]} />
             <LayersDirective>
-              <LayerDirective shapeData={africa_continent}>
-              </LayerDirective>
+              <LayerDirective shapeData={africa_continent} />
             </LayersDirective>
           </MapsComponent>
         </div>
-        <svg height="150" width="400">
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={
-                { stopColor: '#C5494B', stopOpacity: '1' }
-                } />
-              <stop offset="100%" style={
-                { stopColor: '#4C134F', stopOpacity: '1' }
-                } />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div id="maps-annotation" style={
-          { display: 'none' }
-          }>
+        <div id="maps-annotation" style={{ display: 'none' }}>
           <div id="annotation">
-            <div style={
-              { marginLeft: '10px', fontsize: '13px', fontweight: 500 }
-              }>
-              <h5 style={
-                { marginLeft: '40px' }
-                }>Facts about Africa</h5>
+            <div
+              style={{ marginLeft: '10px', fontSize: '13px', fontWeight: 500 }}
+            >
+              <h5 style={{ marginLeft: '40px' }}>Facts about Africa</h5>
             </div>
             <hr />
             <div>
-              <ul style={
-                { listStyleType: 'disc' }
-                }>
-                <li>Africa is the second largest and second most populated continent in the world.</li>
-                <li style={
-                  { paddingtop: '5px' }
-                  }>Africa has 54 sovereign states and 10 non-sovereign territories.</li>
-                <li style={
-                  { paddingtop: '5px' }
-                  }>Algeria is the largest country in Africa, where as Mayotte is the smallest.</li>
+              <ul style={{ listStyleType: 'disc' }}>
+                <li>
+                  Africa is the second largest and second most populated
+                  continent in the world.
+                </li>
+                <li style={{ paddingTop: '5px' }}>
+                  Africa has 54 sovereign states and 10 non-sovereign
+                  territories.
+                </li>
+                <li style={{ paddingTop: '5px' }}>
+                  Algeria is the largest country in Africa, where as Mayotte is
+                  the smallest.
+                </li>
               </ul>
             </div>
           </div>
         </div>
-        <div id="compass-maps" style={
-          { display: 'none' }
-          }>
-          <img src={logo} height="75px" width="75px" />
-        </div>
-      </div>);
+      </div>
+    );
   }
 }
-export default App;
+ReactDOM.render(<App />, document.getElementById('maps'));
+
 ```
 
 {% endtab %}

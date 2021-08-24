@@ -7,43 +7,32 @@ Maps control can be customized as the desired layout using the custom path map f
 ```tsx
 import { seatData } from 'seat.ts';
 import * as React from 'react';
-import './App.css';
 import {
   MapsComponent, LayersDirective, LayerDirective,
   Inject, Selection
 } from '@syncfusion/ej2-react-maps';
-//tslint:disable
-const bus_logo = require('./bus-icon.png');
-const wheel_logo = require('./wheel.png');
+import * as ReactDOM from 'react-dom';
+
 class App extends React.Component {
-  render() {
-    return (
-      <div className='control-section row'>
-        <div className='col-md-8'>
-          <div style={{ width: 200, margin: 'auto', paddingBottom: 20 }}>
-            <img src={bus_logo} style={{ width: 25, height: 25, float: 'left' }}>
-            </img>
-            <div id="sampletitle">Bus seat selection</div>
-          </div>
-          <div style={{ border: '3px solid darkgray', width: 200, display: 'block', margin: 'auto' }}>
-            <img src={wheel_logo} style={{ width: 30, height: 30, marginLeft: '18%', marginTop: 10 }}></img>
-            <MapsComponent id="element" height='400'>
-              <Inject services={[Selection]} />
-              <LayersDirective>
-                <LayerDirective shapeData={seatData} geometryType='Normal' selectionSettings={
-                  {
-                    enable: true,
-                    opacity: 1,
-                    enableMultiSelect: true
-                  }
-                } >
-                </LayerDirective>
-              </LayersDirective>
-            </MapsComponent>
-          </div></div></div>);
-  }
+    render() {
+        return (
+          <div className='control-section row'>
+            <div className='col-md-8'>
+              <div style={{ width: 200, margin: 'auto', paddingBottom: 20 }}>
+                <div id="sampletitle">Bus seat selection</div>
+              </div>
+              <div style={{ border: '3px solid darkgray', width: 200, display: 'block', margin: 'auto' }}>
+                <MapsComponent id="element" height='400'>
+                  <Inject services={[Selection]} />
+                  <LayersDirective>
+                    <LayerDirective shapeData={seat} geometryType='Normal'>
+                    </LayerDirective>
+                  </LayersDirective>
+                </MapsComponent>
+              </div></div></div>);
+      }
 }
-export default App;
+ReactDOM.render(<App/>, document.getElementById('maps'));
 ```
 
 {% endtab %}

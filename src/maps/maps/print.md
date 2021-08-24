@@ -28,10 +28,10 @@ import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { MapsComponent, LayersDirective, LayerDirective, Inject, Print, DataLabel } from '@syncfusion/ej2-react-maps';
 class App extends React.Component<{}, {}>{
-public clickHandler(){
-    this.maps.print();
-}
-private maps: MapsComponent;
+    private maps: MapsComponent;
+    public clickHandler(){
+        this.maps.print();
+    }
 render(){
         return (<div>
         <ButtonComponent value='export' onClick= { this.clickHandler.bind(this)}>print</ButtonComponent>
@@ -77,39 +77,28 @@ The rendered Maps can be exported as an image using the [`export`](../api/maps/#
 
 ```tsx
 
-import { usa_map } from 'usa.ts';
-import { election_data } from 'data.ts';
+import { world_map } from 'world-map.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject, ImageExport } from '@syncfusion/ej2-react-maps';
-import {Legend, } from '@syncfusion/ej2-react-maps';
-import { setCulture } from '@syncfusion/ej2-base';
-setCulture('de');
+import { MapsComponent, LayersDirective, LayerDirective, DataLabel, Inject, ImageExport } from '@syncfusion/ej2-react-maps';
 
 class App extends React.Component<{}, {}>{
-public clickHandler(){
-    this.maps.export('PNG', 'Maps');
-}
-private maps: MapsComponent;
+    private maps: MapsComponent;
+    public clickHandler(){
+        this.maps.export('PNG', 'Maps');
+    }
 render(){
         return (<div>
         <ButtonComponent value='export' onClick= { this.clickHandler.bind(this)}>Export</ButtonComponent>
-            <MapsComponent id="maps" allowImageExport={true} ref={g => this.maps = g} format='c' legendSettings={ { visible: true } }
-                titleSettings={ { text: 'USA Election Results - 2016' } }>
-                <Inject services={[Legend, MapsTooltip, ImageExport]} />
+            <MapsComponent id="maps" allowImageExport={true} ref={g => this.maps = g}>
+                <Inject services={[DataLabel, ImageExport]} />
                 <LayersDirective>
-                    <LayerDirective shapeData={usa_map} shapeDataPath='State' shapePropertyPath='name' dataSource={election_data}
-                        shapeSettings={ {
-                            colorValuePath: 'Candidate',
-                            colorMapping: [
-                                { value: 'Trump', color: '#D84444' },
-                                { value: 'Clinton', color: '#316DB5' }
-                            ]
-                        } }
-                        tooltipSettings={ {
+                    <LayerDirective shapeData={world_map}
+                     dataLabelSettings={ {
                             visible: true,
-                            valuePath: 'value'
+                            labelPath: 'name',
+                            smartLabelMode: 'Trim'
                         } }>
                     </LayerDirective>
                 </LayersDirective>
@@ -129,48 +118,34 @@ The image can be exported as base64 string for the JPEG and PNG formats. The ren
 
 ```tsx
 
-import { usa_map } from 'usa.ts';
-import { election_data } from 'data.ts';
+import { world_map } from 'world-map.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject, ImageExport } from '@syncfusion/ej2-react-maps';
-import {Legend, } from '@syncfusion/ej2-react-maps';
-import { setCulture } from '@syncfusion/ej2-base';
-setCulture('de');
+import { MapsComponent, LayersDirective, LayerDirective, DataLabel, Inject, ImageExport } from '@syncfusion/ej2-react-maps';
 
 class App extends React.Component<{}, {}>{
-public clickHandler(){
-    this.maps.export('PNG', 'Maps', null, false).then((data: string)=>{
-        document.writeln(data);
-    })
-}
-private maps: MapsComponent;
+    private maps: MapsComponent;
+    public clickHandler(){
+        this.maps.export('PNG', 'Maps', null, false).then((data: string)=>{
+            document.getElementById('data').innerHTML = data;
+        })
+    }
 render(){
         return (<div>
         <ButtonComponent value='export' onClick= { this.clickHandler.bind(this)}>Export</ButtonComponent>
-            <MapsComponent id="maps" allowImageExport={true} ref={g => this.maps = g} format='c' legendSettings={ { visible: true } }
-                titleSettings={ { text: 'USA Election Results - 2016' } }>
-                <Inject services={[Legend, MapsTooltip, ImageExport]} />
+            <MapsComponent id="maps" allowImageExport={true} ref={g => this.maps = g}>
+                <Inject services={[DataLabel, ImageExport]} />
                 <LayersDirective>
-                    <LayerDirective shapeData={usa_map}
-                                    shapeDataPath='State'
-                                    shapePropertyPath='name'
-                                    dataSource={election_data}
-                                    shapeSettings={ {
-                                        colorValuePath: 'Candidate',
-                                        colorMapping: [
-                                            { value: 'Trump', color: '#D84444' },
-                                            { value: 'Clinton', color: '#316DB5' }
-                                        ]
-                                    } }
-                                    tooltipSettings={ {
-                                        visible: true,
-                                        valuePath: 'value'
-                                    } }>
+                    <LayerDirective shapeData={world_map}
+                     dataLabelSettings={ {
+                            visible: true,
+                            labelPath: 'name',
+                            smartLabelMode: 'Trim'
+                        } }>
                     </LayerDirective>
                 </LayersDirective>
-            </MapsComponent></div>)
+            </MapsComponent><div id="data"></div></div>)
         }
 };
 ReactDOM.render(<App />, document.getElementById('maps'));
@@ -194,43 +169,29 @@ The rendered Maps can be exported as PDF using the [`export`](../api/maps/#expor
 
 ```tsx
 
-import { usa_map } from 'usa.ts';
-import { election_data } from 'data.ts';
+import { world_map } from 'world-map.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject, PdfExport } from '@syncfusion/ej2-react-maps';
-import {Legend, } from '@syncfusion/ej2-react-maps';
-import { setCulture } from '@syncfusion/ej2-base';
-setCulture('de');
+import { MapsComponent, LayersDirective, LayerDirective, DataLabel, Inject, PdfExport } from '@syncfusion/ej2-react-maps';
 
 class App extends React.Component<{}, {}>{
-public clickHandler(){
-  this.maps.export('PDF', 'Maps');
-}
-private maps: MapsComponent;
+    private maps: MapsComponent;
+    public clickHandler(){
+        this.maps.export('PDF', 'Maps');
+    }
 render(){
         return (<div>
         <ButtonComponent value='export' onClick= { this.clickHandler.bind(this)}>Export</ButtonComponent>
-            <MapsComponent id="maps" allowPdfExport={true} ref={g => this.maps = g} format='c' legendSettings={ { visible: true } }
-                titleSettings={ { text: 'USA Election Results - 2016' } }>
-                <Inject services={[Legend, MapsTooltip, PdfExport]} />
+            <MapsComponent id="maps" allowPdfExport={true} ref={g => this.maps = g}>
+                <Inject services={[DataLabel, PdfExport]} />
                 <LayersDirective>
-                    <LayerDirective shapeData={usa_map}
-                                    shapeDataPath='State'
-                                    shapePropertyPath='name'
-                                    dataSource={election_data}
-                                    shapeSettings={ {
-                                        colorValuePath: 'Candidate',
-                                        colorMapping: [
-                                           { value: 'Trump', color: '#D84444' },
-                                           { value: 'Clinton', color: '#316DB5' }
-                                        ]
-                                    } }
-                                    tooltipSettings={ {
-                                        visible: true,
-                                        valuePath: 'value'
-                                    } }>
+                    <LayerDirective shapeData={world_map}
+                     dataLabelSettings={ {
+                            visible: true,
+                            labelPath: 'name',
+                            smartLabelMode: 'Trim'
+                        } }>
                     </LayerDirective>
                 </LayersDirective>
             </MapsComponent></div>)
@@ -254,32 +215,23 @@ The rendered Maps with providers such as OSM, Bing and Google static Maps can be
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
 ```tsx
-import { usa_map } from 'usa.ts';
-import { election_data } from 'data.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { MapsComponent, LayersDirective, LayerDirective, MapsTooltip, Inject, ImageExport, PdfExport } from '@syncfusion/ej2-react-maps';
-import {Legend, } from '@syncfusion/ej2-react-maps';
-import { setCulture } from '@syncfusion/ej2-base';
-setCulture('de');
+import { MapsComponent, LayersDirective, LayerDirective, Inject, ImageExport } from '@syncfusion/ej2-react-maps';
 
 class App extends React.Component<{}, {}>{
- selectclickHandler() {
-        this.mapsInstance.shapeSelection(0, "continent", "Asia", true);
+    private maps: MapsComponent;
+    public clickHandler(){
+        this.maps.export('PNG', 'Maps');
     }
-    unselectclickHandler() {
-        this.mapsInstance.shapeSelection(0, "continent", "Asia", false);
-    }
-private maps: MapsComponent;
 render() {
         return (<div>
         <ButtonComponent value='export' onClick= { this.clickHandler.bind(this)}>Export</ButtonComponent>
-            <MapsComponent id="maps" allowPdfExport={true}
-                                     allowImageExport={true}
+            <MapsComponent id="maps" allowImageExport={true}
                                      ref={g => this.maps = g}
                                      titleSettings={ { text: 'OSM' } }>
-                <Inject services={[Legend, MapsTooltip, ImageExport, PdfExport]} />
+                <Inject services={[ImageExport]} />
                 <LayersDirective>
                     <LayerDirective layerType='OSM'>
                     </LayerDirective>

@@ -135,7 +135,7 @@ ReactDOM.render(
                                             animationDelay={100}
                                             opacity={0.9}
                                             shape="Balloon"
-                                            dashArray={1}
+                                            dashArray="1"
                                             border={{
                                                 color: 'green',
                                                 width: 2

@@ -15,22 +15,22 @@ Bing maps is a online map provider owned by Microsoft. As like OSM, it provides 
 The Bing Maps can be rendered by setting the [`layerType`](../api/maps/layerSettingsModel/#layertype) property as "**Bing**" and the key for the Bing Maps must be set in the [`key`](../api/maps/layerSettingsModel/#key) property. The Bing Maps key can be obtained from [here](https://www.microsoft.com/en-us/maps/create-a-bing-maps-key).
 
 ```typescript
-import { africa_continent } from 'africa_continent.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps">
                 <LayersDirective>
                     <LayerDirective layerType='Bing'
                                     bingMapType= 'AerialWithLabel'
-                                    key: '// ...bingMapKey'
+                                    key= '//bingmapkey'
                     />
                 </LayersDirective>
             </MapsComponent>,
 document.getElementById("maps") as HTMLElement
 );
+
 
 ```
 
@@ -50,22 +50,21 @@ Bing Maps provides different types of maps and it is supported in the Maps contr
 To render the light version of the road maps, set the `bingMapType` to `CanvasLight` as demonstrated in the following code sample.
 
 ```typescript
-import { africa_continent } from 'africa_continent.ts';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
-            <MapsComponent id="maps" zoomSettings= {{ zoomFactor= 4 }}
+            <MapsComponent id="maps" zoomSettings= {{ zoomFactor: 4 }}
                                     centerPosition = {{
-                                        latitude = 38.8951
-                                        longitude = -77.0364
-                                    }}
-                >
+                                        latitude : 38.8951,
+                                        longitude : -77.0364
+                                    }}>
+                <Inject services={[Zoom]} />
                 <LayersDirective>
                     <LayerDirective layerType='Bing'
                                     bingMapType= 'CanvasLight'
-                                    key: '// ...bingMapKey'
+                                    key= '// ...bingMapKey'
                     />
                 </LayersDirective>
             </MapsComponent>,
@@ -83,16 +82,16 @@ Bing maps layer can be zoomed and panned. Zooming helps to get a closer look at 
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, LayersDirective, LayerDirective, Zoom, Inject } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings= {{
-                                        enable = true
-                                        toolBars: [ "Zoom", "ZoomIn", "ZoomOut", "Pan", "Reset" ]}}
-                >
+                                        enable : true,
+                                        toolbars:[ "Zoom", "ZoomIn", "ZoomOut", "Pan", "Reset" ]}}>
+                <Inject services={[Zoom]} />
                 <LayersDirective>
                     <LayerDirective layerType='Bing'
-                                    key: '// ...bingMapKey'
+                                    key='// ...bingMapKey'
                     />
                 </LayersDirective>
             </MapsComponent>,
@@ -110,16 +109,17 @@ Markers can be added to the layers of Bing maps by setting the corresponding loc
 ```typescript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MapsComponent, MarkersDirective, NavigationLine, NavigationLinesDirective, MarkerDirective, Marker, Inject, LayersDirective, LayerDirective, Zoom } from '@syncfusion/ej2-react-maps';
+import { MapsComponent, MarkersDirective, NavigationLineDirective, NavigationLinesDirective, MarkerDirective, LayersDirective, LayerDirective, Inject, Zoom, Marker, NavigationLine } from '@syncfusion/ej2-react-maps';
 
 ReactDOM.render(
             <MapsComponent id="maps" zoomSettings= {{
-                                        zoomFactor = 4
+                                        zoomFactor : 4
                                         }}
                                         centerPosition = {{
-                                            latitude: 29.394708
+                                            latitude: 29.394708,
                                             longitude: -94.954653
                                         }}>
+            <Inject services={[Zoom, Marker, NavigationLine]} />
                 <LayersDirective>
                     <LayerDirective layerType='OSM'>
                         <MarkersDirective>
