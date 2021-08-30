@@ -223,3 +223,41 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+## Search on each key stroke
+
+You can search the Grid data on each key stroke by binding the `keyup` event for the search input element inside the [`created`](../api/grid/#created) event. Inside the `keyup` handler you can search the Grid by invoking the [`search`](../api/grid/#search) method of the Grid component.
+
+{% tab template="grid/searching", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Inject, Toolbar } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  public grid: Grid | null;
+  public created = () => {
+        document.getElementById(this.grid.element.id + "_searchbar").addEventListener('keyup', () => {
+          this.grid.search((event.target as HTMLInputElement).value)
+        });
+    }
+  public render() {
+      return (<div>
+      <GridComponent dataSource={data} height={280} toolbar= {['Search']}
+          ref={g => this.grid = g} created={this.created}>
+          <ColumnsDirective>
+              <ColumnDirective field='OrderID' headerText='Order ID' width='100' textAlign="Right"/>
+              <ColumnDirective field='CustomerID' headerText='Customer ID' width='100'/>
+              <ColumnDirective field='EmployeeID' headerText='Employee ID' width='100' textAlign="Right"/>
+              <ColumnDirective field='ShipCountry' headerText='Ship Country' width='100'/>
+          </ColumnsDirective>
+          <Inject services={[Toolbar]} />
+      </GridComponent>
+      </div>)
+  }
+};
+```
+
+{% endtab %}

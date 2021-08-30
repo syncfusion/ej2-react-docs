@@ -8,17 +8,30 @@ description: "Learn how to customize the Edit Dialog."
 
 You can customize the appearance of the edit dialog in the [`actionComplete`](../../api/grid/#actioncomplete) event based on [`requestType`](../../api/grid/dialogEditEventArgs/#requesttype) as **beginEdit** or **add**.
 
-In the below example, we have changed the dialog's header text for editing and adding records.
+In the following example, the dialog's properties like header text, showCloseIcon, height have been changed while editing and adding the records.
+
+Also the locale text for the **Save** and **Cancel** buttons has been changed by overriding the default locale strings.
+
+You can refer the Grid [`Default text`](../global-local/) list for more localization.
 
 {% tab template="grid/customizedialog", sourceFiles="app/App.tsx,app/datasource.tsx" %}
 
 ```typescript
-import { getValue } from '@syncfusion/ej2-base';
+import { L10n, getValue } from '@syncfusion/ej2-base';
 import { Dialog } from '@syncfusion/ej2-popups';
 import { ColumnDirective, ColumnsDirective, EditSettingsModel, GridComponent, Inject } from '@syncfusion/ej2-react-grids';
 import { DialogEditEventArgs, Edit, Toolbar, ToolbarItems } from '@syncfusion/ej2-react-grids';
 import * as React from 'react';
 import { data } from './datasource';
+
+L10n.load({
+    'en-US': {
+        grid: {
+            'SaveButton': 'Submit',
+            'CancelButton': 'Discard'
+        }
+    }
+});
 
 export default class App extends React.Component<{}, {}> {
   public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog' };
@@ -27,10 +40,10 @@ export default class App extends React.Component<{}, {}> {
   public actionComplete(args: DialogEditEventArgs): void {
     if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
       const dialog: Dialog = args.dialog as Dialog;
+      dialog.showCloseIcon = false;
       dialog.height = 400;
       // change the header of the dialog
-      dialog.header = args.requestType === 'beginEdit' ?
-        'Record of ' +  getValue('CustomerID', args.rowData) : 'New Customer';
+      dialog.header = args.requestType === 'beginEdit' ? 'Edit Record of ' + args.rowData['CustomerID'] : 'New Customer';
     }
   }
 
