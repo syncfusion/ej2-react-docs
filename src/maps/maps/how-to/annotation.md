@@ -2,9 +2,7 @@
 
 Annotations are used to mark the specific area of interest in the Maps with texts, shapes, or images. Any number of annotations can be added to the Maps component.
 
-Initialize the Maps control with annotation option, text content or ID of an HTML element or an HTML string can be specified to render a new element that needs to be displayed in the Maps by using the [`content`](../api/maps/annotationModel/#content) property. To specify the content position with [`x`](../api/maps/annotationModel/#x) and [`y`](../api/maps/annotationModel/#y) properties as mentioned in the following example.
-
-In annotation, import the image in the specified Map area by using require function as mentioned in the below example.
+Initialize the Maps control with annotation option, text content or ID of an HTML element or an HTML string can be specified to render a new element that needs to be displayed in the Maps by using the [`content`](../api/maps/annotationModel/#content) property. To specify the content position with [`x`](../api/maps/annotationModel/#x) and [`y`](../api/maps/annotationModel/#y) properties as mentioned in the following example. In annotation, import the image in the specified Map area by using require function as mentioned in the below example.
 
 ```sh
 const logo = require('./compass.png');

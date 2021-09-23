@@ -8,7 +8,7 @@ description: "Learn here all about Bubbles feature of Syncfusion React Maps cont
 
 # Bubbles in React Maps
 
-Bubbles in the Maps control represent the underlying data values of the Maps. It can be scattered throughout the Maps shapes that contain values in the data source. Bubbles are enabled by setting the [`visible`](../api/maps/bubbleSettingsModel/#visible) property of [`bubbleSettings`](../api/maps/bubbleSettingsModel) property to "**true**". To add bubbles to the Maps, bind the data source to the [`dataSource`](../api/maps/bubbleSettingsModel/#datasource) property of [`BubbleDirective`](../api/maps/bubbleSettingsModel) and set the field name, that contains the numerical data, in the data source to the [`valuePath`](../api/maps/bubbleSettingsModel/#valuepath) property. The following example demonstrates how to enable bubbles for the World map with the data source.
+Bubbles in the Maps control represent the underlying data values of the Maps. It can be scattered throughout the Maps shapes that contain values in the data source. Bubbles are enabled by setting the [`visible`](../api/maps/bubbleSettingsModel/#visible) property of [`bubbleSettings`](../api/maps/bubbleSettingsModel) to **true**. To add bubbles to the Maps, bind the data source to the [`dataSource`](../api/maps/bubbleSettingsModel/#datasource) property of [`BubbleDirective`](../api/maps/bubbleSettingsModel) and set the field name, that contains the numerical data, in the data source to the [`valuePath`](../api/maps/bubbleSettingsModel/#valuepath) property.
 
 ```tsx
 export let world_map = // paste the World map from World.json GeoJSON file.
@@ -50,7 +50,7 @@ The following types of shapes are available to render the bubbles in Maps.
 * Circle
 * Square
 
-By default, bubbles are rendered in the **"Circle"** type. To change the type of the bubble, set the [`bubbleType`](../api/maps/bubbleSettingsModel/#bubbletype) property of [`BubbleDirective`](../api/maps/bubbleSettingsModel) as **"Square"** to render the square shape bubbles.
+By default, bubbles are rendered in the **Circle** type. To change the type of the bubble, set the [`bubbleType`](../api/maps/bubbleSettingsModel/#bubbletype) property of [`BubbleDirective`](../api/maps/bubbleSettingsModel) as **Square** to render the square shape bubbles.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -197,7 +197,7 @@ ReactDOM.render(
 
 ## Multiple bubble groups
 
-Multiple groups of bubbles can be added to the Maps using the [`BubbleDirective`](../api/maps/bubbleSettingsModel) property in which the properties of bubbles are added as an array. The customization for the bubbles can be done with the [`BubbleDirective`](../api/maps/bubbleSettingsModel) property. In the following example, the gender-wise population ratio is demonstrated with two different bubble groups.
+Multiple groups of bubbles can be added to the Maps using the [`BubbleDirective`](../api/maps/bubbleSettingsModel) in which the properties of bubbles are added as an array. The customization for the bubbles can be done with the [`BubbleDirective`](../api/maps/bubbleSettingsModel). In the following example, the gender-wise population ratio is demonstrated with two different bubble groups.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -242,7 +242,7 @@ ReactDOM.render(
 
 ## Enable tooltip for bubble
 
-The tooltip for the bubbles can be enabled by setting the [`visible`](../api/maps/tooltipSettingsModel/#visible) property of the [`tooltipSettings`](../api/maps/tooltipSettingsModel) property as "**true**". The content for the tooltip can be set using the [`valuePath`](../api/maps/tooltipSettingsModel/#valuepath) property in the [`tooltipSettings`](../api/maps/tooltipSettingsModel) of the [`BubbleDirective`](../api/maps/bubbleSettingsModel) where the value for the [`valuePath`](../api/maps/tooltipSettingsModel/#valuepath) property is the field name from the data source of the [`BubbleDirective`](../api/maps/bubbleSettingsModel). Also added any HTML element as the template in tooltip using the [`template`](../api/maps/tooltipSettingsModel/#template) property.
+The tooltip for the bubbles can be enabled by setting the [`visible`](../api/maps/tooltipSettingsModel/#visible) property of the [`tooltipSettings`](../api/maps/tooltipSettingsModel) as **true**. The content for the tooltip can be set using the [`valuePath`](../api/maps/tooltipSettingsModel/#valuepath) property in the [`tooltipSettings`](../api/maps/tooltipSettingsModel) of the [`BubbleDirective`](../api/maps/bubbleSettingsModel) where the value for the [`valuePath`](../api/maps/tooltipSettingsModel/#valuepath) property is the field name from the data source of the [`BubbleDirective`](../api/maps/bubbleSettingsModel). Also added any HTML element as the template in tooltip using the [`template`](../api/maps/tooltipSettingsModel/#template) property.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 

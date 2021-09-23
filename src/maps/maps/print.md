@@ -10,7 +10,7 @@ description: "Learn here all about Print And Export feature of Syncfusion React 
 
 ## Print
 
-The rendered Maps can be printed directly from the browser by calling the [`print`](../api/maps/#print) method. To use the print functionality, the **Print** module must be injected into the Maps using **Inject services={[]}** tag and set the [`allowPrint`](../api/maps/#allowprint) property to "**true**". The following code snippet demonstrates injecting the Print module into the Maps component.
+The rendered Maps can be printed directly from the browser by calling the [`print`](../api/maps/#print) method. To use the print functionality, the **Print** module must be injected into the Maps using **Inject services={[]}** tag and set the [`allowPrint`](../api/maps/#allowprint) property to **true**.
 
 ```tsx
 <MapsComponent id="maps">
@@ -59,7 +59,7 @@ ReactDOM.render(<App />, document.getElementById('maps'));
 
 ### Image Export
 
-To use the image export functionality in Maps, **ImageExport** module must be injected into the Maps using **Inject services={[ImageExport]}** tag and set the [`allowImageExport`](../api/maps/#allowimageexport) property to **true**. The following code snippet demonstrates injecting the ImageExport module into the Maps component.
+To use the image export functionality in Maps, **ImageExport** module must be injected into the Maps using **Inject services={[ImageExport]}** tag and set the [`allowImageExport`](../api/maps/#allowimageexport) property to **true**.
 
 ```tsx
 <MapsComponent id="maps">
@@ -155,7 +155,7 @@ ReactDOM.render(<App />, document.getElementById('maps'));
 
 ### PDF Export
 
-To use the PDF export functionality, **PdfExport** module must be injected into the Maps using **Inject services={[PdfExport]}** method and set the [`allowPdfExport`](../api/maps/#allowpdfexport) property to **true**. The following code snippet demonstrates injecting the PdfExport module into the Maps component.
+To use the PDF export functionality, **PdfExport** module must be injected into the Maps using **Inject services={[PdfExport]}** method and set the [`allowPdfExport`](../api/maps/#allowpdfexport) property to **true**.
 
 ```tsx
 <MapsComponent id="maps">
@@ -163,7 +163,7 @@ To use the PDF export functionality, **PdfExport** module must be injected into 
 <MapsComponent>
 ```
 
-The rendered Maps can be exported as PDF using the [`export`](../api/maps/#export) method. The [`export`](../api/maps/#export) method requires three parameters: file type, file name and orientation of the PDF document. The orientation setting is optional and "0" indicates portrait and "1" indicates landscape.
+The rendered Maps can be exported as PDF using the [`export`](../api/maps/#export) method. The [`export`](../api/maps/#export) method requires three parameters: file type, file name and orientation of the PDF document. The orientation setting is optional and **0** indicates portrait and **1** indicates landscape.
 
 {% tab template="maps/default-map", compileJsx=true, sourceFiles="app/**/*.tsx" %}
 
@@ -202,7 +202,7 @@ ReactDOM.render(<App />, document.getElementById('maps'));
 
 {% endtab %}
 
-> Note: The exporting of the Maps as base64 string is not supported for the PDF export.
+>The exporting of the Maps as base64 string is not supported for the PDF export.
 
 ### Export the tile Maps
 

@@ -8,8 +8,6 @@ description: "Learn here all about Events of Syncfusion React Maps control and m
 
 # Events in React Maps
 
-This section explains the list of events that will be triggered for appropriate actions in Maps.
-
 ## animationComplete
 
 When the animation in the component is completed, the [`animationComplete`](../api/maps/#animationcomplete) event will be triggered. To know more about the arguments of this event, refer [here](../api/maps/iAnimationCompleteEventArgs/)
