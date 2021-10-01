@@ -165,3 +165,34 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+## Sticky Header
+
+You can make the Grid column headers remain fixed while scrolling by using the [`enableStickyHeader`](../api/grid/#enablestickyheader) property.
+
+In the below demo, the Grid headers will be sticky while scrolling the Grid's parent div element.
+
+{% tab template="grid/scrolling", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  public render() {
+    return (<div style='height:350px;'>
+            <GridComponent dataSource={data} enableStickyHeader={true}>
+              <ColumnsDirective>
+                <ColumnDirective field='OrderID' width='120' textAlign='Right'/>
+                <ColumnDirective field='CustomerID' width='150'/>
+                <ColumnDirective field='EmployeeID' width='120' textAlign='Right'/>
+                <ColumnDirective field='ShipCity' width='150'/>
+              </ColumnsDirective>
+           </GridComponent>
+    </div>)
+  }
+};
+```
+
+{% endtab %}
