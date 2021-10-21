@@ -287,7 +287,7 @@ export default class App extends React.Component<{}, {}> {
 
 > Normal edit mode is default mode of editing.
 
-### Automatically update the column based on another column edited value
+#### Automatically update the column based on another column edited value
 
 You can update the column value based on another column edited value by using the Cell Edit Template feature.
 
@@ -380,7 +380,7 @@ export default class App extends React.Component<{}, {}> {
 
 You can prevent the CRUD operations of the Grid by using condition in the [`actionBegin`](../api/grid/#actionbegin) event with requestType as `beginEdit` for editing, `add` for adding and `delete` for deleting actions.
 
-In the below demo, we prevent the CRUD operation based on the `Role` column value. If the Role Column is ‘employee’, we are unable to edit/delete that row.
+In the below demo, we prevent the CRUD operation based on the `Role` column value. If the Role Column is `Employee`, we are unable to edit/delete that row.
 
 {% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
 
@@ -505,7 +505,7 @@ export default class App extends React.Component<{}, {}> {
 
 {% endtab %}
 
-### Automatically update the column based on another column edited value in Batch mode
+#### Automatically update the column based on another column edited value in Batch mode
 
 You can update the column value based on another column edited value in Batch mode by using the Cell Edit Template feature.
 
@@ -595,6 +595,64 @@ export default class App extends React.Component<{}, {}> {
         </ColumnsDirective>
         <Inject services={[Edit, Toolbar]} />
     </GridComponent>
+  }
+};
+```
+
+{% endtab %}
+
+#### Cancel edit based on condition in Batch mode
+
+You can prevent the CRUD operations of the Batch edit Grid by using condition in the [`cellEdit`](../api/grid/#cellEdit), [`beforeBatchAdd`](../api/grid/#beforeBatchAdd) and [`beforeBatchDelete`](../api/grid/#beforeBatchDelete) events for Edit, Add and Delete actions respectively.
+
+In the below demo, we prevent the CRUD operation based on the `Role` column value. If the Role Column is `Employee`, we are unable to edit/delete that row.
+
+{% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Edit, EditSettingsModel, Inject, Toolbar, ToolbarItems } from '@syncfusion/ej2-react-grids';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}> {
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Batch' };
+  public toolbarOptions: ToolbarItems[] = ['Add', 'Edit', 'Delete', 'Update', 'Cancel'];
+  public isAddable: Boolean = true;
+
+  public btnClick(args) {
+    args.target.innerText == 'Grid is Addable' ? (args.target.innerText = 'Grid is Not Addable') : (args.target.innerText = 'Grid is Addable');
+    this.isAddable = !this.isAddable;
+  }
+  public cellEdit(args) {
+    if (args.rowData['Role'] == 'Employee') {
+      args.cancel = true;
+    }
+  }
+  public beforeBatchAdd(args) {
+    if (!this.isAddable) {
+      args.cancel = true;
+    }
+  }
+  public beforeBatchDelete(args) {
+    if (args.rowData['Role'] == 'Employee') {
+      args.cancel = true;
+    }
+  }
+
+  public render() {
+    return (<div>
+    <button onClick={this.btnClick.bind(this)}>Grid is Addable</button>
+    <GridComponent dataSource={data} editSettings={this.editOptions} toolbar={this.toolbarOptions} cellEdit={this.cellEdit.bind(this)} beforeBatchAdd={this.beforeBatchAdd.bind(this)} beforeBatchDelete={this.beforeBatchDelete.bind(this)} height={240}>
+      <ColumnsDirective>
+          <ColumnDirective field='OrderID' headerText='Order ID' width='100' textAlign="Right" isPrimaryKey={true}/>
+          <ColumnDirective field='Role' headerText='Role' width='120'/>
+          <ColumnDirective field='Freight' headerText='Freight' width='120' format="C2" editType= 'numericedit' textAlign="Right"/>
+          <ColumnDirective field='ShipCountry' headerText='Ship Country' editType= 'dropdownedit' width='150'/>
+      </ColumnsDirective>
+      <Inject services={[Edit, Toolbar]} />
+    </GridComponent>
+    </div>)
   }
 };
 ```

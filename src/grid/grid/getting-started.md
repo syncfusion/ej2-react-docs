@@ -63,7 +63,7 @@ The following CSS files are available in **../node_modules/@syncfusion** package
 
 ## Adding Grid component
 
-Now, you can start adding Grid component in the application. For getting started, add the Grid component in **src/App.tsx** file
+Now, you can start adding React Grid component in the application. For getting started, add the Grid component in **src/App.tsx** file
 using following code.
 
 Place the following grid code in the **src/App.tsx**.
@@ -90,7 +90,7 @@ export default class App extends React.Component<{}, {}>{
 
 ## Module Injection
 
-Grid component features are segregated into individual feature-wise modules.
+React Grid component features are segregated into individual feature-wise modules.
 In order to use a particular feature, you need to inject its feature service in the **App**.
 In the current application, we are going to use paging, sorting, filtering and grouping feature of Grid.
 Please find relevant feature service name and description as follows.
@@ -312,3 +312,5 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+> You can refer to our [React Grid](https://www.syncfusion.com/react-ui-components/react-data-grid) feature tour page for its groundbreaking feature representations. You can also explore our [React Grid Component example](https://ej2.syncfusion.com/react/demos/#/material/grid/overview) that shows how to render the Grid in React.
