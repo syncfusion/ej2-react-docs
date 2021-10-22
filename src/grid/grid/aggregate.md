@@ -210,12 +210,12 @@ export default class App extends React.Component<{}, {}>{
   public custom(props: any): any {
     return(<span>Custom: {props.Custom}</span>)
   }
-  public customAggregateFn(args: any): any{
-      const val = args.result.filter((item: any) => item.ShipCountry === 'Brazil').length;
+  public customAggregateFn(args: any, aggColumn: any): any{
+      const val = args.result.filter((item: any) => item[aggColumn.columnName] === 'Brazil').length;
       return val;
   };
   public render() {
-    return <GridComponent  dataSource={data} allowPaging={true} height={268}>
+    return <GridComponent  dataSource={data} allowPaging={true} height={240}>
               <ColumnsDirective>
                 <ColumnDirective field='OrderID' headerText='Order ID' width='120' textAlign="Right"/>
                 <ColumnDirective field='CustomerID' headerText='Customer ID' width='150'/>
