@@ -111,3 +111,60 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+## How to prevent columns from persisting
+
+When the [enablePersistence](../api/grid/#enablepersistence) property is set to true, the Grid properties such as [Grouping](../api/grid/groupSettingsModel/), [Paging](../api/grid/pageSettingsModel/), [Filtering](../api/grid/pageSettingsModel/), [Sorting](../api/grid/sortSettingsModel/), and [Columns](../api/grid/columnModel/) will persist. You can use the `addOnPersist` method to prevent these Grid properties from persisting.
+
+The following example demonstrates how to prevent Grid columns from persisting. In the [dataBound](../api/grid/#databound) event of the Grid, you can override the `addOnPersist` method and remove the columns from the key list given for persistence.
+
+>**Note:** When the [enablePersistence](../api/grid/#enablepersistence) property is set to true, the Grid properties such as column template, column formatter, header text, and value accessor will not persist.
+
+{% tab template="grid/column", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Grid, Inject, Page  } from '@syncfusion/ej2-react-grids';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  private grid: Grid | null;
+  public dataBound(){
+    let cloned =  this.grid.addOnPersist;
+    this.grid.addOnPersist = function (key: any) {
+        key = key.filter((item: string)  => item !== "columns");
+        return cloned.call(this, key);
+    };
+  }
+  public addColumn(){
+    let obj = { field: "Freight", headerText: 'Freight', width: 120 };
+    this.grid.columns.push(obj as any); //you can add the columns by using the Grid columns method
+    this.grid.refreshColumns();
+  }
+  public removeColumn(){
+    this.grid.columns.pop();
+    this.grid.refreshColumns();
+  }
+  public render() {
+      this.dataBound = this.dataBound.bind(this);
+      this.addColumn = this.addColumn.bind(this);
+      this.removeColumn = this.removeColumn.bind(this);
+      return( <div> <ButtonComponent onClick= { this.addColumn }>Add Columns</ButtonComponent>
+      <ButtonComponent onClick= { this.removeColumn }>Remove Columns</ButtonComponent><GridComponent id="Grid" dataSource={data} allowPaging={true} enablePersistence={true} dataBound={this.dataBound} height={230}
+      ref={g => this.grid = g}>
+          <ColumnsDirective>
+              <ColumnDirective field='OrderID' width='100' textAlign="Right"/>
+              <ColumnDirective field='CustomerID' width='100'/>
+              <ColumnDirective field='EmployeeID' width='100' textAlign="Right"/>
+              <ColumnDirective field='Freight' width='100' format="C2" textAlign="Right"/>
+              <ColumnDirective field='ShipCountry' width='100'/>
+          </ColumnsDirective>
+          <Inject services={[Page]} />
+      </GridComponent></div>)
+  }
+};
+```
+
+{% endtab %}
