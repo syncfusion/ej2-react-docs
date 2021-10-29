@@ -66,7 +66,7 @@ You can choose the component that you want to install.
 To install ProgressButton component, use the following command
 
 ```bash
-npm install @syncfusion/ej2-react-splitbuttons –save
+npm install @syncfusion/ej2-react-splitbuttons --save
 
 ```
 
