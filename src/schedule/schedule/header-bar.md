@@ -278,4 +278,56 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
+## Customizing header indent cells
+
+It is possible to customize the header indent cells using the `headerIndentTemplate` option and change the look and appearance in both the vertical and timeline views. In vertical views, You can customize the header indent cells at the hierarchy level and you can customize the resource header left indent cell in timeline views using the template option.
+
+**Example:** To customize the header left indent cell to display resources text, refer to the below code example.
+
+{% tab template="schedule/header-indent", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+
+import * as ReactDOM from 'react-dom';
+import * as React from 'react';
+import { Week, TimelineViews, TimelineMonth, Day, ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective,
+  ResourceDirective, Inject } from '@syncfusion/ej2-react-schedule';
+import { resourceData } from './datasource';
+
+class App extends React.Component<{}, {}>{
+    public ownerData: object[] = [
+        { OwnerText: 'Nancy', Id: 1, OwnerColor: '#ffaa00' },
+        { OwnerText: 'Steven', Id: 2, OwnerColor: '#f8a398' },
+        { OwnerText: 'Michael', Id: 3, OwnerColor: '#7499e1' }
+    ];
+
+    public headerIndentTemplate() {
+      return (
+        <div className='e-resource-text'>
+          <div className="text">Resources</div></div>
+      );
+    }
+
+  render() {
+    return <ScheduleComponent width='100%' height='550px' currentView='Week' headerIndentTemplate={this.headerIndentTemplate} selectedDate={new Date(2018, 3, 1)} eventSettings={{ dataSource: resourceData }} group={{ resources: ['Owners'] }}>
+      <ViewsDirective>
+          <ViewDirective option='Day'/>
+          <ViewDirective option='Week'/>
+          <ViewDirective option='TimelineWeek'/>
+          <ViewDirective option='TimelineMonth'/>
+      </ViewsDirective>
+      <ResourcesDirective>
+          <ResourceDirective field='OwnerId' title='Owner' name='Owners' allowMultiple={true} dataSource={this.ownerData} textField='OwnerText' idField='Id' colorField='OwnerColor'>
+          </ResourceDirective>
+      </ResourcesDirective>
+      <Inject services={[Day ,Week, TimelineViews, TimelineMonth]}/>
+  </ScheduleComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+
+```
+
+{% endtab %}
+
 > You can refer to our [React Scheduler](https://www.syncfusion.com/react-ui-components/react-scheduler) feature tour page for its groundbreaking feature representations. You can also explore our [React Scheduler example](https://ej2.syncfusion.com/react/demos/#/material/schedule/overview) to knows how to present and manipulate data.

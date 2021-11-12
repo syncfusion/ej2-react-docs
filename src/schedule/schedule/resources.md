@@ -479,65 +479,6 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 > This kind of grouping by date is not applicable on any of the timeline views.
 
-### Grouping with empty resource datasource
-
-When using grouping, it is mandatory to provide at least one resource data in dataSource collection this is the default behavior of our scheduler. If the resource does not have a dataSource, scheduler rendered like below image.
-
-![Grouping with empty resource](./images/empty-datasource.png)
-
-To handle this case you can make the default schedule by emptying the group property.
-
-{% tab template="schedule/resource", iframeHeight="588px", compileJsx=true %}
-
-```tsx
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {
-    Week, Month, Agenda, ScheduleComponent, TreeViewArgs, ResourcesDirective,
-    ResourceDirective, ViewsDirective, ViewDirective, ResourceDetails, Inject, Resize, DragAndDrop
-} from '@syncfusion/ej2-react-schedule';
-
-class App extends React.Component<{}, {}>{
- private resourceData: Object[] = [];
-     private onDataBinding(): void {
-        if ((this.scheduleObj.resourceCollection[0].dataSource).length === 0 && this.scheduleObj.group.resources.length > 0) {
-      // Render default scheduler to handle above case.
-         this.scheduleObj.group.resources = [];
-        }
-    }
-
-    render() {
-        return (
-               <ScheduleComponent cssClass='schedule-group' width='100%' height='650px' selectedDate={new Date(2018, 3, 1)}  ref={schedule => this.scheduleObj = schedule} readonly={true}
-                            eventSettings={{
-                                dataSource: [], fields: {
-                                    subject: { title: 'Travel Summary', name: 'Subject' },
-                                    location: { title: 'Source', name: 'Location' },
-                                    description: { title: 'Comments', name: 'Description' },
-                                    startTime: { title: 'Departure Time', name: 'StartTime' },
-                                    endTime: { title: 'Arrival Time', name: 'EndTime' }
-                                }
-                            }} group={{ resources: ['Airlines'] }} dataBinding={this.onDataBinding.bind(this)}>
-                            <ResourcesDirective>
-                                <ResourceDirective field='AirlineId' title='Airline Name' name='Airlines' allowMultiple={true}
-                                    dataSource={this.resourceData} textField='AirlineName' idField='AirlineId' colorField='AirlineColor'>
-                                </ResourceDirective>
-                            </ResourcesDirective>
-                            < ViewsDirective >
-                                <ViewDirective option='Week' />
-                                <ViewDirective option='Month' />
-                                <ViewDirective option='Agenda' />
-                            </ViewsDirective>
-                            <Inject services={[Week, Month, Agenda, Resize, DragAndDrop]} />
-                        </ScheduleComponent>
-        );
-    }
-};
-ReactDOM.render(<App />, document.getElementById('schedule'));
-```
-
-{% endtab %}
-
 ## Working with shared events
 
 Multiple resources can share the same events, thus allowing the CRUD action made on it to reflect on all other shared instances simultaneously. To enable such option, set `allowGroupEdit` option to `true` within the `group` property. With this property enabled, a single appointment

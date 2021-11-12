@@ -135,4 +135,57 @@ ReactDOM.render(<App />, document.getElementById('schedule'));
 
 {% endtab %}
 
+## Appointments occupying entire cell
+
+By default, with the feature `rowAutoHeight`, there will be a space in the bottom of the cell when appointment is rendered. To avoid this space, we can set true to the property `ignoreWhitespace` with in `eventSettings` whereas its default property value is false. In the following code example, the whitespace below the appointments has been ignored.
+
+{% tab template="schedule/ignore-whitespace", iframeHeight="588px", compileJsx=true %}
+
+```tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {
+  TimelineViews, TimelineMonth, ScheduleComponent, ViewsDirective, ViewDirective,
+   ResourcesDirective, ResourceDirective, Inject
+} from '@syncfusion/ej2-react-schedule';
+import { resourceData } from './datasource';
+import { extend } from '@syncfusion/ej2-base';
+
+class App extends React.Component<{}, {}>{
+    private data: Object[] = extend([], resourceData, null, true) as Object[];
+    private roomData: Object[] = [
+            { RoomText: 'ROOM 1', Id: 1, RoomColor: '#cb6bb2' },
+            { RoomText: 'ROOM 2', Id: 2, RoomColor: '#56ca85' }
+            ]
+    private ownerData: Object[] = [
+        { OwnerText: 'Nancy', Id: 1, GroupId: 1, OwnerColor: '#ffaa00' },
+        { OwnerText: 'Steven', Id: 2, GroupId: 2, OwnerColor: '#f8a398' },
+        { OwnerText: 'Michael', Id: 3, GroupId: 1, OwnerColor: '#7499e1' }
+    ];
+    render() {
+        return <ScheduleComponent width='100%' height='550px' currentView='TimelineWeek' rowAutoHeight= { true } selectedDate= {new Date(2021, 7, 4)} eventSettings={ { dataSource: this.data, ignoreWhitespace: true } } group={ { resources: ['Rooms', 'Owners'] } }>
+            <ViewsDirective>
+                <ViewDirective option='TimelineDay' />
+                <ViewDirective option='TimelineWeek' />
+                <ViewDirective option='TimelineMonth' />
+            </ViewsDirective>
+            <ResourcesDirective>
+                <ResourceDirective field='RoomId' title='Room' name='Rooms'
+                  dataSource={this.roomData} textField='RoomText' idField='Id' colorField='RoomColor'>
+                </ResourceDirective>
+                <ResourceDirective field='OwnerId' title='Owner' name='Owners' allowMultiple={true}
+                  dataSource={this.ownerData} textField='OwnerText' idField='Id' groupIDField='GroupId' colorField='OwnerColor'>
+                </ResourceDirective>
+            </ResourcesDirective>
+            <Inject services={[TimelineViews, TimelineMonth]} />
+        </ScheduleComponent>
+    }
+};
+ReactDOM.render(<App />, document.getElementById('schedule'));
+```
+
+{% endtab %}
+
+**Note**: The property `ignoreWhitespace` will be applicable only when `rowAutoHeight` feature is enabled in the Scheduler
+
 > You can refer to our [React Scheduler](https://www.syncfusion.com/react-ui-components/react-scheduler) feature tour page for its groundbreaking feature representations. You can also explore our [React Scheduler example](https://ej2.syncfusion.com/react/demos/#/material/schedule/overview) to knows how to present and manipulate data.
