@@ -1,4 +1,5 @@
 * [Getting Started](toast/getting-started.md)
+* [Getting Started using functional component](toast/getting-started-functional.md)
 * [Configuring options](toast/config.md)
 * [Positioning](toast/position.md)
 * [Action Buttons](toast/action-buttons.md)
@@ -6,6 +7,7 @@
 * [Template](toast/template.md)
 * [Style and appearance](toast/style.md)
 * [Animation](toast/animation.md)
+* [Toast Utility Services](toast/toast-services.md)
 * [Accessibility](toast/accessibility.md)
 * [Prevent displaying duplicate Toast](toast/how-to/prevent-duplicate-toast-display.md)
 * [Restrict the maximum number of Toasts to show](toast/how-to/restrict-the-maximum-toast-to-show.md)
