@@ -3,6 +3,7 @@
 * [Sizing](textbox/sizing.md)
 * [Validation](textbox/validation.md)
 * [Multiline](textbox/multiline.md)
+* [React functional component](textbox/react-functional-component.md)
 * [Set the Rounded Corner](textbox/how-to/set-the-rounded-corner.md)
 * [Set the Disabled State](textbox/how-to/set-the-disabled-state.md)
 * [Set the Read-only TextBox](textbox/how-to/set-the-read-only-textbox.md)

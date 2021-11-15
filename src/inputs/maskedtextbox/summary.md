@@ -1,6 +1,7 @@
 * [Getting Started](maskedtextbox/getting-started.md)
 * [Mask Configuration](maskedtextbox/mask-configuration.md)
 * [Accessibility](maskedtextbox/accessibility.md)
+* [React functional component](maskedtextbox/react-functional-component.md)
 * [Perform custom validation using FormValidator](maskedtextbox/how-to/perform-custom-validation-using-form-validator.md)
 * [Set cursor position while focus on the input textbox](maskedtextbox/how-to/set-cursor-position-while-focus-on-the-input-textbox.md)
 * [Display numeric keypad when focus on mobile devices](maskedtextbox/how-to/display-numeric-keypad-when-focus-on-mobile-devices.md)

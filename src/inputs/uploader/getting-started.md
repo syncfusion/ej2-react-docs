@@ -245,3 +245,5 @@ ReactDOM.render(<App />, document.getElementById('fileupload'));
 * [How to add additional data on upload](./how-to/add-additional-data-on-upload)
 * [Achieve file upload programmatically](./how-to/achieve-file-upload-programmatically)
 * [Achieve invisible upload](./how-to/achieve-invisible-upload)
+
+> You can also explore [React File Upload](https://www.syncfusion.com/react-ui-components/react-file-upload) feature tour page for its groundbreaking features. You can also explore our [React File Upload example](https://ej2.syncfusion.com/react/demos/#/material/uploader/default) that shows how to render the file upload and browse the files which you want to upload to the server.

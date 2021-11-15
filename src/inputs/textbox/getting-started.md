@@ -225,6 +225,8 @@ ReactDOM.render(<App />, document.getElementById('input-container'));
 
 {% endtab %}
 
+N> You can refer to our [React TextBox](https://www.syncfusion.com/react-ui-components/react-textbox) feature tour page for its groundbreaking feature representations. You can also explore our [React TextBox example](https://ej2.syncfusion.com/react/demos/#/material/textboxes/default) to know how to render and configure the textbox.
+
 ## See Also
 
 * [How to render TextBox programmatically](./how-to/add-textbox-programmatically)

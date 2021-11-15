@@ -2,3 +2,4 @@
 * [Error Messages](form-validator/error-messages.md)
 * [Validation Events](form-validator/validation-events.md)
 * [Localization](form-validator/localization.md)
+* [React functional component](form-validator/react-functional-component.md)
