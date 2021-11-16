@@ -33,28 +33,29 @@ The Spinner can be render globally in a page using public exported functions of 
 ```typescript
 
 import { createSpinner, showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
+import * as React from 'react';
+import * as ReactDOM from "react-dom";
 
-//createSpinner() method is used to create spinner
-
- createSpinner({
-
-  // Specify the target for the spinner to show
-
-        target: document.getElementById('container')
-
+export default class App extends React.Component<{}, {}> {
+  componentDidMount(prevProps) {
+    //createSpinner() method is used to create spinner
+    createSpinner({
+      // Specify the target for the spinner to show
+      target: document.getElementById('container'),
     });
-
-// showSpinner() will make the spinner visible
-
- showSpinner(document.getElementById('container'));
-
-setInterval(function(){
-
-  // hideSpinner() method used hide spinner
-  hideSpinner(document.getElementById('container'));
-
-}, 100000);
-
+    // showSpinner() will make the spinner visible
+    showSpinner(document.getElementById('container'));
+  }
+  render() {
+    return (
+      <div className="control-pane">
+        <div id="container"
+          className="control-section col-lg-12 spinner-target"
+        ></div>
+      </div>
+    );
+  }
+  }
 
 ```
 

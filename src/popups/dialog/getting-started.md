@@ -11,7 +11,7 @@ Dialog component with its basic usage in step by step procedure.
 
 ## Dependencies
 
-The following list of dependencies are required to use the Dialog component in your application.
+The following list of dependencies are required to use the React Dialog component in your application.
 
 ```javascript
 |-- @syncfusion/ej2-react-popups
@@ -71,7 +71,7 @@ npm install @syncfusion/ej2-react-popups –save
 
 ## Adding Dialog to the application
 
-Now, you can start adding Dialog component to the application. We have added Dialog component in `src/App.tsx`
+Now, you can start adding React Dialog component to the application. We have added Dialog component in `src/App.tsx`
 file using following code.
 
 {% tab compileJsx=true%}
@@ -263,7 +263,7 @@ export default App;
 
 ## Enable footer
 
-The Dialog provides built-in support to render the `buttons` on the footer (for ex: ‘OK’ or
+The React Dialog provides built-in support to render the `buttons` on the footer (for ex: ‘OK’ or
 ‘Cancel’ buttons). Each Dialog button allows the user to perform any action while clicking on it.
 
 The primary button will be focused automatically on open the Dialog, and add the [`click`](../api/dialog/buttonPropsModel/#click)

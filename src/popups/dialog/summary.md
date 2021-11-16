@@ -1,4 +1,5 @@
 * [Getting Started](dialog/getting-started.md)
+* [Getting Started using functional component](dialog/getting-started-functional.md)
 * [Templates](dialog/template.md)
 * [Animation](dialog/animation.md)
 * [Resizing](dialog/resize.md)
