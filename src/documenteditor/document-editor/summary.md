@@ -24,6 +24,7 @@
 * [Working with Table Formatting](document-editor/table-format.md)
 * [Working with Section Formatting](document-editor/section-format.md)
 * [Comments](document-editor/comments.md)
+* [Track Changes](document-editor/track-changes.md)
 * [Form fields](document-editor/form-fields.md)
 * [Clipboard](document-editor/clipboard.md)
 * [Undo and redo](document-editor/history.md)
@@ -43,3 +44,5 @@
 * [Change document view](document-editor/how-to/change-document-view.md)
 * [Open default document](document-editor/how-to/open-default-document.md)
 * [Open document in read only by default](document-editor/how-to/read-by-default.md)
+* [Deploy Document Editor component for Mobile](document-editor/how-to/deploy-document-editor-component-for-mobile.md)
+* [Disable Optimized Text Measuring](document-editor/how-to/disable-optimized-text-measuring.md)

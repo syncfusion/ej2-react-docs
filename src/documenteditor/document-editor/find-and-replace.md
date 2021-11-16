@@ -18,47 +18,46 @@ This provides the options to search for a portion of text in the document. After
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, BordersAndShadingDialog
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor, BordersAndShadingDialog } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, BordersAndShadingDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
         let sfdt: string = `{
-    "sections": [
-        {
-            "blocks": [
+            "sections": [
                 {
-                    "inlines": [
+                    "blocks": [
                         {
-                            "characterFormat": {
-                                "bold": true,
-                                "italic": true
-                            },
-                            "text": "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+                            "inlines": [
+                                {
+                                    "characterFormat": {
+                                        "bold": true,
+                                        "italic": true
+                                    },
+                                    "text": "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+                                }
+                            ]
                         }
                     ]
                 }
             ]
-        }
-    ]
-}`;
+        }`;
+        //Open the document in Document Editor.
         this.documenteditor.open(sfdt);
     }
 
     showHideOptionsPane(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showOptionsPane();
+        //Open options pane.
+        this.documenteditor.showOptionsPane();
     }
     render() {
         return (
             <div>
                 <button onClick={this.showHideOptionsPane.bind(this)}>OptionsPane</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSearch={true} enableOptionsPane={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSearch={true} enableOptionsPane={true} />
             </div>
         );
     }
@@ -123,35 +122,34 @@ Using the exposed APIs, you can customize the find and replace functionality in 
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, Search
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor, Search } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, Search);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
         let sfdt: string = `{
-    "sections": [
-        {
-            "blocks": [
+            "sections": [
                 {
-                    "inlines": [
+                    "blocks": [
                         {
-                            "characterFormat": {
-                                "bold": true,
-                                "italic": true
-                            },
-                            "text": "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+                            "inlines": [
+                                {
+                                    "characterFormat": {
+                                        "bold": true,
+                                        "italic": true
+                                    },
+                                    "text": "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+                                }
+                            ]
                         }
                     ]
                 }
             ]
-        }
-    ]
-}`;
+        }`;
+        //Open the document in Document Editor.
         this.documenteditor.open(sfdt);
     }
 
@@ -171,7 +169,7 @@ export class Default extends React.Component<{}, {}> {
         return (
             <div>
                 <button onClick={this.replaceAll.bind(this)}>Replace All</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSearch={true} />
+                <DocumentEditorComponent id="container" height={'590px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSearch={true} />
             </div>
         );
     }
@@ -184,5 +182,5 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ## See Also
 
-* [Options pane](../document-editor/dialog#options-pane/)
+* [Options pane](../document-editor/dialog#options-pane)
 * [Feature modules](../document-editor/feature-module/)

@@ -6,7 +6,7 @@ description: "Learn table, cell, and row formatting supported in React document 
 
 # Working with Table Formatting
 
-Document editor customizes the formatting of table, or table cells such as table width, cell margins, cell spacing, background color, and table alignment. This section describes how to customize these formatting for selected cells, rows, or table in detail.
+Document Editor customizes the formatting of table, or table cells such as table width, cell margins, cell spacing, background color, and table alignment. This section describes how to customize these formatting for selected cells, rows, or table in detail.
 
 ## Cell margins
 
@@ -81,42 +81,7 @@ Set the desired width of table cells that will be considered when the table is l
 {% tab compileJsx=true%}
 
 ```typescript
-import * as ReactDOM from 'react-dom';
-import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor
-} from '@syncfusion/ej2-react-documenteditor';
 
-DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
-export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
-
-  public componentDidMount(): void {
-    this.documenteditor.editor.insertTable(2, 2);
-    //To change the width of a cell
-    this.documenteditor.selection.cellFormat.preferredWidthType = 'Point';
-    this.documenteditor.selection.cellFormat.preferredWidth = 100;
-  }
-
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
-}
-ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ```
 
@@ -126,41 +91,37 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 You can set the desired width of a table in ‘Point ‘or ‘Percent’ type. Refer to the following sample code.
 
-```typesript
+```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.editor.insertTable(2, 2);
-    //To change the width of a table
-    this.documenteditor.selection.tableFormat.preferredWidthType = 'Point';
-    this.documenteditor.selection.tableFormat.preferredWidth = 300;
-  }
+    public componentDidMount(): void {
+        this.documenteditor.editor.insertTable(2, 2);
+        //To change the width of a table
+        this.documenteditor.selection.tableFormat.preferredWidthType = 'Point';
+        this.documenteditor.selection.tableFormat.preferredWidth = 300;
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -168,49 +129,45 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ## Apply borders
 
-Document editor exposes API to customize the borders for table cells by specifying the settings. Refer to the following sample code.
+Document Editor exposes API to customize the borders for table cells by specifying the settings. Refer to the following sample code.
 
 {% tab compileJsx=true%}
 
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor,
-  BorderSettings,
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor, BorderSettings, } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.editor.insertTable(2, 2);
-    //To apply border
-    let borderSettings: BorderSettings = {
-      type: 'AllBorders',
-      lineWidth: 12,
-    };
-    this.documenteditor.editor.applyBorders(borderSettings);
-  }
+    public componentDidMount(): void {
+        this.documenteditor.editor.insertTable(2, 2);
+        //Border settings.
+        let borderSettings: BorderSettings = {
+            type: 'AllBorders',
+            lineWidth: 12,
+        };
+        //Apply border.
+        this.documenteditor.editor.applyBorders(borderSettings);
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -220,7 +177,7 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ## Working with row formatting
 
-Document editor allows various row formatting such as height and repeat header.
+Document Editor allows various row formatting such as height and repeat header.
 
 ### Row height
 
@@ -231,38 +188,34 @@ You can customize the height of a table row as ‘Auto’, ‘AtLeast’, or ‘
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.editor.insertTable(2, 2);
-    //To change the width of a table
-    this.documenteditor.selection.rowFormat.heightType='Exactly';
-    this.documenteditor.selection.rowFormat.height=20;
-  }
+    public componentDidMount(): void {
+        //Insert table.
+        this.documenteditor.editor.insertTable(2, 2);
+        //To change the width of a table
+        this.documenteditor.selection.rowFormat.heightType = 'Exactly';
+        this.documenteditor.selection.rowFormat.height = 20;
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 ```
@@ -287,4 +240,4 @@ documenteditor.selection.rowFormat.allowRowBreakAcrossPages=false;
 
 ## See Also
 
-* [Table properties dialog](../document-editor/dialog#table-properties-dialog/)
+* [Table properties dialog](../document-editor/dialog#table-properties-dialog)

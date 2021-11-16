@@ -6,7 +6,7 @@ description: "Learn the supported image types in React document editor and how t
 
 # Images
 
-Document editor supports common raster format images like PNG, BMP, JPEG, and GIF. You can insert an image file or online image in the document using the `insertImage()` method. Refer to the following sample code.
+Document Editor supports common raster format images like PNG, BMP, JPEG, and GIF. You can insert an image file or online image in the document using the `insertImage()` method. Refer to the following sample code.
 
 {% tab compileJsx=true%}
 
@@ -15,7 +15,7 @@ Document editor supports common raster format images like PNG, BMP, JPEG, and GI
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, ImageResizer, EditorHistory
+    DocumentEditorComponent, SfdtExport, Selection, Editor, ImageResizer, EditorHistory
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -23,33 +23,37 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, ImageResizer, Edit
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
-
     insertPicture(): void {
         let pictureUpload: HTMLInputElement = document.getElementById("insertImageButton") as HTMLInputElement;
         pictureUpload.value = '';
+        //Open file picker.
         pictureUpload.click();
     }
 
     onInsertImage(args: any): void {
-        let proxy:any=this;
+        let proxy: any = this;
         if (navigator.userAgent.match('Chrome') || navigator.userAgent.match('Firefox') || navigator.userAgent.match('Edge') || navigator.userAgent.match('MSIE') || navigator.userAgent.match('.NET')) {
             if (args.target.files[0]) {
+                //Get selected file.
                 let path = args.target.files[0];
                 let reader = new FileReader();
                 reader.onload = function (frEvent: any) {
                     let base64String = frEvent.target.result;
                     let image = document.createElement('img');
                     image.addEventListener('load', function () {
+                        //Insert image in Document Editor.
                         proxy.documenteditor.editor.insertImage(base64String, this.width, this.height);
                     })
                     image.src = base64String;
                 };
+                //Convert image into base64 string.
                 reader.readAsDataURL(path);
             }
             //Safari does not Support FileReader Class
         } else {
             let image = document.createElement('img');
             image.addEventListener('load', function () {
+                //Insert image in Document Editor.
                 proxy.documenteditor.editor.insertImage(args.target.value);
             })
             image.src = args.target.value;
@@ -58,9 +62,9 @@ export class Default extends React.Component<{}, {}> {
     render() {
         return (
             <div>
-                <input type="file" id="insertImageButton" style="position:fixed; left:-110em" accept=".jpg,.jpeg,.png,.bmp" onChange={this.onInsertImage.bind(this)} />
+                <input type="file" id="insertImageButton" style={{ "position": "fixed", "left": "-110em" }} accept=".jpg,.jpeg,.png,.bmp" onChange={this.onInsertImage.bind(this)} />
                 <button onClick={this.insertPicture.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableImageResizer={true} enableEditorHistory={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableImageResizer={true} enableEditorHistory={true} />
             </div>
         );
     }
@@ -75,13 +79,13 @@ Image files will be internally converted to base64 string. Whereas, online image
 
 ## Image resizing
 
-Document editor provides built-in image resizer that can be injected into your application based on the requirements. This allows you to resize the image by dragging the resizing points using mouse or touch interactions. This resizer appears as follows.
+Document Editor provides built-in image resizer that can be injected into your application based on the requirements. This allows you to resize the image by dragging the resizing points using mouse or touch interactions. This resizer appears as follows.
 
 ![Image](images/image.png)
 
 ## Changing size
 
-Document editor expose API to get or set the size of the selected image. Refer to the following sample code.
+Document Editor expose API to get or set the size of the selected image. Refer to the following sample code.
 
 ```typescript
 documenteditor.selection.imageFormat.width = 800;

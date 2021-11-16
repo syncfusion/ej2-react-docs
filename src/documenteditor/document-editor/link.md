@@ -6,11 +6,11 @@ description: "Learn how to insert, delete, or navigate links in React document e
 
 # Hyperlink
 
-Document editor supports hyperlink field. You can link a part of the document content to Internet or file location, mail address, or any text within the document.
+Document Editor supports hyperlink field. You can link a part of the document content to Internet or file location, mail address, or any text within the document.
 
 ## Navigate a hyperlink
 
-Document editor triggers ‘requestNavigate’ event whenever user clicks Ctrl key or tap a hyperlink within the document. This event provides necessary details about link type, navigation URL, and local URL (if any) as arguments, and allows you to easily customize the hyperlink navigation functionality. Refer to the following example.
+Document Editor triggers ‘requestNavigate’ event whenever user clicks Ctrl key or tap a hyperlink within the document. This event provides necessary details about link type, navigation URL, and local URL (if any) as arguments, and allows you to easily customize the hyperlink navigation functionality. Refer to the following example.
 
 {% tab template="document-editor/link" compileJsx=true %}
 
@@ -18,7 +18,7 @@ Document editor triggers ‘requestNavigate’ event whenever user clicks Ctrl k
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, RequestNavigateEventArgs
+    DocumentEditorComponent, SfdtExport, Selection, RequestNavigateEventArgs
 } from '@syncfusion/ej2-react-documenteditor';
 
 DocumentEditorComponent.Inject(Selection, SfdtExport);
@@ -32,6 +32,7 @@ export class Default extends React.Component<{}, {}> {
             if (args.localReference.length > 0) {
                 link += '#' + args.localReference;
             }
+            //Navigate to the specified URL.
             window.open(link);
             args.isHandled = true;
         }
@@ -39,7 +40,7 @@ export class Default extends React.Component<{}, {}> {
 
     render() {
         return (
-            <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} enableSelection={true} enableSfdtExport={true} requestNavigate={this.requestNavigate.bind(this)} />
+            <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} enableSelection={true} enableSfdtExport={true} requestNavigate={this.requestNavigate.bind(this)} />
         );
     }
 }
@@ -57,7 +58,7 @@ documenteditor.selection.navigateHyperlink();
 
 ## Copy link
 
-Document editor copies link text of a hyperlink field to the clipboard if the selection is in hyperlink. Refer to the following example.
+Document Editor copies link text of a hyperlink field to the clipboard if the selection is in hyperlink. Refer to the following example.
 
 ```typescript
 documenteditor.selection.copyHyperlink();
@@ -65,7 +66,7 @@ documenteditor.selection.copyHyperlink();
 
 ## Add hyperlink
 
-To create a basic hyperlink in the document, press `ENTER` / `SPACEBAR` / `SHIFT + ENTER` / `TAB` key after typing the address, for instance `http://www.google.com`. Document editor automatically converts this address to a hyperlink field. The text can be considered as a valid URL if it starts with any of the following.
+To create a basic hyperlink in the document, press `ENTER` / `SPACEBAR` / `SHIFT + ENTER` / `TAB` key after typing the address, for instance `http://www.google.com`. Document Editor automatically converts this address to a hyperlink field. The text can be considered as a valid URL if it starts with any of the following.
 
 ><http://><br>
 ><https://><br>
@@ -81,7 +82,7 @@ Refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, RequestNavigateEventArgs
+    DocumentEditorComponent, SfdtExport, Selection, Editor, RequestNavigateEventArgs
 } from '@syncfusion/ej2-react-documenteditor';
 
 DocumentEditorComponent.Inject(Selection, SfdtExport, Editor);
@@ -95,6 +96,7 @@ export class Default extends React.Component<{}, {}> {
             if (args.localReference.length > 0) {
                 link += '#' + args.localReference;
             }
+            //Navigate to the specified URL.
             window.open(link);
             args.isHandled = true;
         }
@@ -102,7 +104,7 @@ export class Default extends React.Component<{}, {}> {
 
     render() {
         return (
-            <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true}
+            <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true}
                 requestNavigate={this.requestNavigate.bind(this)} />
         );
     }
@@ -123,7 +125,7 @@ documenteditor.editor.removeHyperlink();
 
 ## Hyperlink dialog
 
-Document editor provides dialog support to insert or edit a hyperlink. Refer to the following example.
+Document Editor provides dialog support to insert or edit a hyperlink. Refer to the following example.
 
 {% tab template="document-editor/link" compileJsx=true %}
 
@@ -131,7 +133,7 @@ Document editor provides dialog support to insert or edit a hyperlink. Refer to 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, RequestNavigateEventArgs, HyperlinkDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, HyperlinkDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 DocumentEditorComponent.Inject(Selection, SfdtExport, Editor, HyperlinkDialog);
@@ -140,6 +142,7 @@ export class Default extends React.Component<{}, {}> {
 
     //Click the hyperlink button, the hyperlink dialog will open
     showHyperlinkDialog(): void {
+        //Open hyperlink dialog.
         this.documenteditor.showDialog('Hyperlink');
     }
 
@@ -147,7 +150,7 @@ export class Default extends React.Component<{}, {}> {
         return (
             <div>
                 <button onClick={this.showHyperlinkDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true} enableHyperlinkDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true} enableHyperlinkDialog={true} />
             </div>
         );
     }
@@ -167,4 +170,4 @@ You can use the following keyboard shortcut to open the hyperlink dialog if the 
 ## See Also
 
 * [Feature modules](../document-editor/feature-module/)
-* [Hyperlink dialog](../document-editor/dialog#hyperlink-dialog/)
+* [Hyperlink dialog](../document-editor/dialog#hyperlink-dialog)

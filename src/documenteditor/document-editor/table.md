@@ -6,7 +6,7 @@ description: "Learn how to insert, select, or delete table, row(s), and column(s
 
 # Tables
 
-Tables are an efficient way to present information. Document editor can display and edit the tables. You can select and edit tables through keyboard, mouse, or touch interactions. Document editor exposes a rich set of APIs to perform these operations programmatically.
+Tables are an efficient way to present information. Document Editor can display and edit the tables. You can select and edit tables through keyboard, mouse, or touch interactions. Document Editor exposes a rich set of APIs to perform these operations programmatically.
 
 ## Create a table
 
@@ -98,7 +98,7 @@ documenteditor.selection.selectCell();
 
 ## Delete table
 
-Document editor allows you to delete the entire table. You can use the `deleteTable()` method of editor instance, if selection is in table. Refer to the following sample code.
+Document Editor allows you to delete the entire table. You can use the `deleteTable()` method of editor instance, if selection is in table. Refer to the following sample code.
 
 ```typescript
 documenteditor.editor.deleteTable();
@@ -106,7 +106,7 @@ documenteditor.editor.deleteTable();
 
 ## Delete row
 
-Document editor allows you to delete the selected number of rows. You can use the `deleteRow()` method of editor instance to delete the selected number of rows, if selection is in table. Refer to the following sample code.
+Document Editor allows you to delete the selected number of rows. You can use the `deleteRow()` method of editor instance to delete the selected number of rows, if selection is in table. Refer to the following sample code.
 
 ```typescript
 documenteditor.editor.deleteRow();
@@ -114,7 +114,7 @@ documenteditor.editor.deleteRow();
 
 ## Delete column
 
-Document editor allows you to delete the selected number of columns. You can use the `deleteColumn ()` method of editor instance to delete the selected number of columns, if selection is in table. Refer to the following sample code.
+Document Editor allows you to delete the selected number of columns. You can use the `deleteColumn ()` method of editor instance to delete the selected number of columns, if selection is in table. Refer to the following sample code.
 
 ```typescript
 documenteditor.editor.deleteColumn();
@@ -129,6 +129,10 @@ Refer to the following sample code.
 documenteditor.editor.mergeCells()
 ```
 
+## Positioning the table
+
+Document Editor preserves the position properties of the table and displays the table based on position properties. It does not support modifying the position properties. Whereas the table will be automatically moved along with text edited if it is positioned relative to the paragraph.
+
 ## How to work with tables
 
 The following sample demonstrates how to delete the table row or columns, merge cells and how to bind the API with button.
@@ -139,116 +143,102 @@ The following sample demonstrates how to delete the table row or columns, merge 
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Selection,
-  Editor,
-  EditorHistory,
-  ContextMenu,
-  TableDialog,
-} from '@syncfusion/ej2-react-documenteditor';
-import { ToolbarComponent } from '@syncfusion/ej2-react-navigations';
-
-DocumentEditorComponent.Inject(
-  Selection,
-  Editor,
-  EditorHistory,
-  ContextMenu,
-  TableDialog
-);
+import { DocumentEditorComponent, Selection, Editor, EditorHistory, ContextMenu, TableDialog, } from '@syncfusion/ej2-react-documenteditor';
+import { ToolbarComponent, ItemDirective, ItemsDirective, } from '@syncfusion/ej2-react-navigations';
+//Inject require modules.
+DocumentEditorComponent.Inject(Selection, Editor, EditorHistory, ContextMenu, TableDialog);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.editor.insertTable(2, 2);
-  }
-
-  toolbarButtonClick(arg): void {
-    switch (arg.item.id) {
-      case 'table':
-        //Insert table API to add table
-        this.documenteditor.editor.insertTable(3, 2);
-        break;
-      case 'insert_above':
-        //Insert the specified number of rows to the table above to the row at cursor position
-        this.documenteditor.editor.insertRow(true, 2);
-        break;
-      case 'insert_below':
-        //Insert the specified number of rows to the table below to the row at cursor position
-        this.documenteditor.editor.insertRow();
-        break;
-      case 'insert_left':
-        //Insert the specified number of columns to the table left to the column at cursor position
-        this.documenteditor.editor.insertColumn(true, 2);
-        break;
-      case 'insert_right':
-        //Insert the specified number of columns to the table right to the column at cursor position
-        this.documenteditor.editor.insertColumn();
-        break;
-      case 'delete_table':
-        //Delete the entire table
-        this.documenteditor.editor.deleteTable();
-        break;
-      case 'delete_row':
-        //Delete the selected number of rows
-        this.documenteditor.editor.deleteRow();
-        break;
-      case 'delete_column':
-        //Delete the selected number of columns
-        this.documenteditor.editor.deleteColumn();
-        break;
-      case 'merge_cell':
-        //Merge the selected cells into one (both vertically and horizontally)
-        this.documenteditor.editor.mergeCells();
-        break;
-      case 'table_dialog':
-        //Opens insert table dialog
-        this.documenteditor.showDialog('Table');
-        break;
+    public componentDidMount(): void {
+        this.documenteditor.editor.insertTable(2, 2);
     }
-  }
 
-  render() {
-    return (
-      <div>
-        <ToolbarComponent clicked={this.toolbarButtonClick}>
-          <ItemDirective id="table" prefixIcon="e-de-icon-Table" />
-          <ItemDirective type="Separator" />
-          <ItemDirective id="insert_above" prefixIcon="e-de-icon-InsertAbove" />
-          <ItemDirective id="insert_below" prefixIcon="e-de-icon-InsertBelow" />
-          <ItemDirective type="Separator" />
-          <ItemDirective id="insert_left" prefixIcon="e-de-icon-InsertLeft" />
-          <ItemDirective id="insert_right" prefixIcon="e-de-icon-InsertRight" />
-          <ItemDirective type="Separator" />
-          <ItemDirective id="delete_table" prefixIcon="e-de-icon-DeleteTable" />
-          <ItemDirective id="delete_rows" prefixIcon="e-de-icon-DeleteRows" />
-          <ItemDirective
-            id="delete_columns"
-            prefixIcon="e-de-icon-DeleteColumns"
-          />
-          <ItemDirective type="Separator" />
-          <ItemDirective text="Dialog" />
-        </ToolbarComponent>
+    toolbarButtonClick(arg): void {
+        switch (arg.item.id) {
+            case 'table':
+                //Insert table API to add table
+                this.documenteditor.editor.insertTable(3, 2);
+                break;
+            case 'insert_above':
+                //Insert the specified number of rows to the table above to the row at cursor position
+                this.documenteditor.editor.insertRow(true, 2);
+                break;
+            case 'insert_below':
+                //Insert the specified number of rows to the table below to the row at cursor position
+                this.documenteditor.editor.insertRow();
+                break;
+            case 'insert_left':
+                //Insert the specified number of columns to the table left to the column at cursor position
+                this.documenteditor.editor.insertColumn(true, 2);
+                break;
+            case 'insert_right':
+                //Insert the specified number of columns to the table right to the column at cursor position
+                this.documenteditor.editor.insertColumn();
+                break;
+            case 'delete_table':
+                //Delete the entire table
+                this.documenteditor.editor.deleteTable();
+                break;
+            case 'delete_row':
+                //Delete the selected number of rows
+                this.documenteditor.editor.deleteRow();
+                break;
+            case 'delete_column':
+                //Delete the selected number of columns
+                this.documenteditor.editor.deleteColumn();
+                break;
+            case 'merge_cell':
+                //Merge the selected cells into one (both vertically and horizontally)
+                this.documenteditor.editor.mergeCells();
+                break;
+            case 'table_dialog':
+                //Opens insert table dialog
+                this.documenteditor.showDialog('Table');
+                break;
+        }
+    }
 
-        <DocumentEditorComponent
-          id="container"
-          ref={scope => {
-            this.documenteditor = scope;
-          }}
-          isReadOnly={false}
-          enableSelection={true}
-          enableEditor={true}
-          enableEditorHistory={true}
-          enableContextMenu={true}
-          enableTableDialog={true}
-        />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <ToolbarComponent clicked={this.toolbarButtonClick}>
+                    <ItemsDirective>
+                        <ItemDirective id="table" prefixIcon="e-de-ctnr-table e-icons" />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective id="insert_above" prefixIcon="e-de-ctnr-insertabove e-icons" />
+                        <ItemDirective id="insert_below" prefixIcon="e-de-ctnr-insertbelow e-icons" />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective id="insert_left" prefixIcon="e-de-ctnr-insertleft e-icons" />
+                        <ItemDirective id="insert_right" prefixIcon="e-de-ctnr-insertright e-icons" />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective id="delete_table" prefixIcon="e-de-delete-table e-icons" />
+                        <ItemDirective id="delete_rows" prefixIcon="e-de-ctnr-deleterows e-icons" />
+                        <ItemDirective id="delete_columns" prefixIcon="e-de-ctnr-deletecolumns e-icons" />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective text="Dialog" />
+                    </ItemsDirective>
+
+                </ToolbarComponent>
+
+                <DocumentEditorComponent
+                    id="container"
+                    height={'330px'}
+                    ref={scope => {
+                        this.documenteditor = scope;
+                    }}
+                    isReadOnly={false}
+                    enableSelection={true}
+                    enableEditor={true}
+                    enableEditorHistory={true}
+                    enableContextMenu={true}
+                    enableTableDialog={true}
+                />
+            </div>
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
-
 ```
 
 {% endtab %}
@@ -256,4 +246,4 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 ## See Also
 
 * [Feature modules](../document-editor/feature-module/)
-* [Insert table dialog](../document-editor/dialog#table-dialog/)
+* [Insert table dialog](../document-editor/dialog#table-dialog)

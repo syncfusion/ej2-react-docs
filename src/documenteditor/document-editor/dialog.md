@@ -6,13 +6,13 @@ description: "Learn the built-in dialog support in React document editor and how
 
 # Dialog
 
-Document editor provides dialog support to major operations such as insert or edit hyperlink, formatting text, paragraph, style, list and table properties.
+Document Editor provides dialog support to major operations such as insert or edit hyperlink, formatting text, paragraph, style, list and table properties.
 
 ## Font Dialog
 
 Font dialog allows you to modify all text properties for selected contents at once such as bold, italic, underline, font size, font color, strikethrough, subscript and superscript.
 
->DocumentEditor features are segregated into individual feature-wise modules. To use font Dialog, inject ‘FontDialog’ module using the ‘DocumentEditor.Inject(Selection, SfdtExport, Editor, FontDialog)’.
+>Document Editor features are segregated into individual feature-wise modules. To use font Dialog, inject ‘FontDialog’ module using the ‘DocumentEditor.Inject(Selection, SfdtExport, Editor, FontDialog)’.
 >To enable font dialog for a document editor instance, set ‘enableFontDialog’ to true.
 
 Refer to the following example.
@@ -23,23 +23,21 @@ Refer to the following example.
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, FontDialog
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor, FontDialog } from '@syncfusion/ej2-react-documenteditor';
 
 
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, FontDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showFontDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Font');
+        //Open font dialog.
+        this.documenteditor.showDialog('Font');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showFontDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableFontDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableFontDialog={true} />
             </div>
         );
     }
@@ -61,23 +59,21 @@ To open this dialog, refer to the following example.
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, ParagraphDialog
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor, ParagraphDialog } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, ParagraphDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showParagraphDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Paragraph');
+        //Open paragraph dialog.
+        this.documenteditor.showDialog('Paragraph');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showParagraphDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableParagraphDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableParagraphDialog={true} />
             </div>
         );
     }
@@ -101,7 +97,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, TableDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, TableDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -109,14 +105,14 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, TableDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showTableDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Table');
+        //Open table dialog.
+        this.documenteditor.showDialog('Table');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showTableDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableDialog={true} />
             </div>
         );
     }
@@ -144,7 +140,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, BookmarkDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, BookmarkDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -152,14 +148,14 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, BookmarkDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showBookmarkDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Bookmark');
+        //Open bookmark dialog.
+        this.documenteditor.showDialog('Bookmark');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showBookmarkDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBookmarkDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBookmarkDialog={true} />
             </div>
         );
     }
@@ -183,7 +179,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, HyperlinkDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, HyperlinkDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -191,14 +187,14 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, HyperlinkDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showHyperlinkDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Hyperlink');
+        //Open hyperlink dialog;
+        this.documenteditor.showDialog('Hyperlink');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showHyperlinkDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableHyperlinkDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableHyperlinkDialog={true} />
             </div>
         );
     }
@@ -222,7 +218,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, TableOfContentsDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, TableOfContentsDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -230,14 +226,14 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, TableOfContentsDia
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showTableOfContentsDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('TableOfContents');
+        //Open table of contents dialog.
+        this.documenteditor.showDialog('TableOfContents');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showTableOfContentsDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableOfContentsDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableOfContentsDialog={true} />
             </div>
         );
     }
@@ -259,22 +255,22 @@ This dialog allows managing the styles in a document. It will display all the st
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, StyleDialog, StylesDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, StyleDialog, StylesDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, StyleDialog, StylesDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showStylesDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Styles');
+        //Open styles dialog.
+        this.documenteditor.showDialog('Styles');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showStylesDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableStylesDialog={true} enableStyleDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableStylesDialog={true} enableStyleDialog={true} />
             </div>
         );
     }
@@ -298,22 +294,22 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, StyleDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, StyleDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, StyleDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showStyleDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('Style');
+        //Open style dialog.
+        this.documenteditor.showDialog('Style');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showStyleDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableStyleDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableStyleDialog={true} />
             </div>
         );
     }
@@ -337,22 +333,22 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, ListDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, ListDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
-
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, ListDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showListDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('List');
+        //Open list dialog.
+        this.documenteditor.showDialog('List');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showListDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableListDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableListDialog={true} />
             </div>
         );
     }
@@ -376,7 +372,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, BordersAndShadingDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, BordersAndShadingDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -385,18 +381,19 @@ export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
-        this.documenteditor.editor.insertTable(2,2);
+        //Insert table
+        this.documenteditor.editor.insertTable(2, 2);
     }
 
     showBordersAndShadingDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('BordersAndShading');
+        //Open borders and shading dialog.
+        this.documenteditor.showDialog('BordersAndShading');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showBordersAndShadingDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBordersAndShadingDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBordersAndShadingDialog={true} />
             </div>
         );
     }
@@ -420,7 +417,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, TableOptionsDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, TableOptionsDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -428,18 +425,19 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, TableOptionsDialog
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     public componentDidMount(): void {
-        this.documenteditor.editor.insertTable(2,2);
+        //Insert table.
+        this.documenteditor.editor.insertTable(2, 2);
     }
 
     showTableOptionsDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('TableOptions');
+        //Open table options dialog.
+        this.documenteditor.showDialog('TableOptions');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showTableOptionsDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableOptionsDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableTableOptionsDialog={true} />
             </div>
         );
     }
@@ -463,27 +461,28 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, TableOptionsDialog,  TablePropertiesDialog,  BordersAndShadingDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, TableOptionsDialog, TablePropertiesDialog, BordersAndShadingDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
-DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, BordersAndShadingDialog,TableOptionsDialog, TablePropertiesDialog);
+DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, BordersAndShadingDialog, TableOptionsDialog, TablePropertiesDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
-        this.documenteditor.editor.insertTable(2,2);
+        //Insert table.
+        this.documenteditor.editor.insertTable(2, 2);
     }
 
     showTablePropertiesDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('TableProperties');
+        //Open table properties dialog.
+        this.documenteditor.showDialog('TableProperties');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showTablePropertiesDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBordersAndShadingDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enableBordersAndShadingDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} />
             </div>
         );
     }
@@ -507,7 +506,7 @@ To open this dialog, refer to the following example.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, PageSetupDialog
+    DocumentEditorComponent, SfdtExport, Selection, Editor, PageSetupDialog
 } from '@syncfusion/ej2-react-documenteditor';
 
 
@@ -515,14 +514,14 @@ DocumentEditorComponent.Inject(SfdtExport, Selection, Editor, PageSetupDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     showPageSetupDialog(): void {
-        let proxy: any = this;
-        proxy.documenteditor.showDialog('PageSetup');
+        //Open page setup dialog.
+        this.documenteditor.showDialog('PageSetup');
     }
     render() {
         return (
             <div>
                 <button onClick={this.showPageSetupDialog.bind(this)}>Dialog</button>
-                <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enablePageSetupDialog={true} />
+                <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableSfdtExport={true} enablePageSetupDialog={true} />
             </div>
         );
     }

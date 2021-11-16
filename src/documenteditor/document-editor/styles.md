@@ -77,49 +77,45 @@ The following example shows how to programmatically create a character style.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor,
-  TableOfContentsSettings,
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    let styleJson: any = {
-      type: 'Character',
-      name: 'New CharacterStyle',
-      basedOn: 'Default Paragraph Font',
-      characterFormat: {
-        fontSize: 16.0,
-        fontFamily: 'Calibri Light',
-        fontColor: '#2F5496',
-        bold: true,
-        italic: true,
-        underline: 'Single',
-      },
-    };
-    this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
-  }
+    public componentDidMount(): void {
+        let styleJson: any = {
+            type: 'Character',
+            name: 'New CharacterStyle',
+            basedOn: 'Default Paragraph Font',
+            characterFormat: {
+                fontSize: 16.0,
+                fontFamily: 'Calibri Light',
+                fontColor: '#2F5496',
+                bold: true,
+                italic: true,
+                underline: 'Single',
+            },
+        };
+        //Create style in Document Editor.
+        this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -136,60 +132,55 @@ The following example shows how to programmatically create a paragraph style.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor,
-  TableOfContentsSettings,
-} from '@syncfusion/ej2-react-documenteditor';
-
+import { DocumentEditorComponent, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    let styleJson: any = {
-      type: 'Paragraph',
-      name: 'New ParagraphStyle',
-      basedOn: 'Normal',
-      characterFormat: {
-        fontSize: 16.0,
-        fontFamily: 'Calibri Light',
-        fontColor: '#2F5496',
-        bold: true,
-        italic: true,
-        underline: 'Single',
-      },
-      paragraphFormat: {
-        leftIndent: 0.0,
-        rightIndent: 0.0,
-        firstLineIndent: 0.0,
-        beforeSpacing: 12.0,
-        afterSpacing: 0.0,
-        lineSpacing: 1.0791666507720947,
-        lineSpacingType: 'Multiple',
-        textAlignment: 'Left',
-        outlineLevel: 'Level1',
-      },
-    };
-    this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
-  }
+    public componentDidMount(): void {
+        let styleJson: any = {
+            type: 'Paragraph',
+            name: 'New ParagraphStyle',
+            basedOn: 'Normal',
+            characterFormat: {
+                fontSize: 16.0,
+                fontFamily: 'Calibri Light',
+                fontColor: '#2F5496',
+                bold: true,
+                italic: true,
+                underline: 'Single',
+            },
+            paragraphFormat: {
+                leftIndent: 0.0,
+                rightIndent: 0.0,
+                firstLineIndent: 0.0,
+                beforeSpacing: 12.0,
+                afterSpacing: 0.0,
+                lineSpacing: 1.0791666507720947,
+                lineSpacingType: 'Multiple',
+                textAlignment: 'Left',
+                outlineLevel: 'Level1',
+            },
+        };
+        //Create style in Document Editor.
+        this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -206,59 +197,53 @@ The following example shows how to programmatically create linked style.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  SfdtExport,
-  Selection,
-  Editor,
-  TableOfContentsSettings,
-} from '@syncfusion/ej2-react-documenteditor';
-
+import { DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
+//Inject require module.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    let styleJson: any = {
-      type: 'Paragraph',
-      name: 'New Linked',
-      basedOn: 'Normal',
-      next: 'Normal',
-      link: 'New Linked Char',
-      characterFormat: {
-        fontSize: 16.0,
-        fontFamily: 'Calibri Light',
-        fontColor: '#2F5496',
-      },
-      paragraphFormat: {
-        leftIndent: 0.0,
-        rightIndent: 0.0,
-        firstLineIndent: 0.0,
-        beforeSpacing: 12.0,
-        afterSpacing: 0.0,
-        lineSpacing: 1.0791666507720947,
-        lineSpacingType: 'Multiple',
-        textAlignment: 'Left',
-        outlineLevel: 'Level1',
-      },
-    };
-    this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
-  }
+    public componentDidMount(): void {
+        let styleJson: any = {
+            type: 'Paragraph',
+            name: 'New Linked',
+            basedOn: 'Normal',
+            next: 'Normal',
+            link: 'New Linked Char',
+            characterFormat: {
+                fontSize: 16.0,
+                fontFamily: 'Calibri Light',
+                fontColor: '#2F5496',
+            },
+            paragraphFormat: {
+                leftIndent: 0.0,
+                rightIndent: 0.0,
+                firstLineIndent: 0.0,
+                beforeSpacing: 12.0,
+                afterSpacing: 0.0,
+                lineSpacing: 1.0791666507720947,
+                lineSpacingType: 'Multiple',
+                textAlignment: 'Left',
+                outlineLevel: 'Level1',
+            },
+        };
+        this.documenteditor.editor.createStyle(JSON.stringify(styleJson));
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enableSelection={true}
-        enableEditor={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enableSelection={true}
+                enableEditor={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 

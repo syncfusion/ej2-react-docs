@@ -6,7 +6,7 @@ description: "Learn text formatting supported in React document editor and how t
 
 # Working with Text Formatting
 
-Document editor supports several formatting options for text like bold, italic, font color, highlight color, and more. This section describes how to modify the formatting for selected text in detail.
+Document Editor supports several formatting options for text like bold, italic, font color, highlight color, and more. This section describes how to modify the formatting for selected text in detail.
 
 ## Bold
 
@@ -150,37 +150,20 @@ Refer to the following example.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent,
-    DocumentEditor,
-    Selection,
-    Editor,
-    EditorHistory,
-    ContextMenu
-} from '@syncfusion/ej2-react-documenteditor';
-import { ToolbarComponent, ItemDirective } from '@syncfusion/ej2-react-navigations';
+import { DocumentEditorComponent, Selection, Editor, EditorHistory, ContextMenu } from '@syncfusion/ej2-react-documenteditor';
+import { ToolbarComponent, ItemDirective, ItemsDirective } from '@syncfusion/ej2-react-navigations';
 import { ComboBoxComponent } from '@syncfusion/ej2-react-dropdowns';
 import { ColorPickerComponent } from '@syncfusion/ej2-react-inputs';
 
-DocumentEditorComponent.Inject(
-    Selection,
-    Editor,
-    EditorHistory,
-    ContextMenu
-);
+DocumentEditorComponent.Inject(Selection, Editor, EditorHistory, ContextMenu);
+
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
-        this.updateContainerSize();
         this.documenteditor.selectionChange = () => {
             setTimeout(() => { this.onSelectionChange(); }, 20);
         };
-    }
-
-    updateContainerSize(): void {
-        document.getElementById('container').style.height =
-            window.innerHeight - document.getElementById('toolbar').offsetHeight + 'px';
     }
 
     toolbarButtonClick(arg): void {
@@ -268,21 +251,24 @@ export class Default extends React.Component<{}, {}> {
         return (
             <div>
                 <ToolbarComponent id='toolbar' clicked={this.toolbarButtonClick.bind(this)}>
-                    <ItemDirective id="bold" prefixIcon="e-de-icon-Bold" tooltipText="Bold" />
-                    <ItemDirective id="italic" prefixIcon="e-de-icon-Italic" tooltipText="Italic" />
-                    <ItemDirective id="underline" prefixIcon="e-de-icon-Underline" tooltipText="Underline" />
-                    <ItemDirective id="strikethrough" prefixIcon="e-de-icon-Strikethrough" tooltipText="Strikethrough" />
-                    <ItemDirective id="subscript" prefixIcon="e-de-icon-Subscript" tooltipText="Subscript" />
-                    <ItemDirective id="superscript" prefixIcon="e-de-icon-Superscript" tooltipText="Superscript" />
-                    <ItemDirective type="Separator" />
-                    <ItemDirective template={this.contentTemplate1} />
-                    <ItemDirective type="Separator" />
-                    <ItemDirective template={this.contentTemplate2} />
-                    <ItemDirective template={this.contentTemplate3} />
+                    <ItemsDirective>
+                        <ItemDirective id="bold" prefixIcon="e-de-icon-Bold" tooltipText="Bold" />
+                        <ItemDirective id="italic" prefixIcon="e-de-icon-Italic" tooltipText="Italic" />
+                        <ItemDirective id="underline" prefixIcon="e-de-icon-Underline" tooltipText="Underline" />
+                        <ItemDirective id="strikethrough" prefixIcon="e-de-icon-Strikethrough" tooltipText="Strikethrough" />
+                        <ItemDirective id="subscript" prefixIcon="e-de-icon-Subscript" tooltipText="Subscript" />
+                        <ItemDirective id="superscript" prefixIcon="e-de-icon-Superscript" tooltipText="Superscript" />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective template={this.contentTemplate1} />
+                        <ItemDirective type="Separator" />
+                        <ItemDirective template={this.contentTemplate2} />
+                        <ItemDirective template={this.contentTemplate3} />
+                    </ItemsDirective>
                 </ToolbarComponent>
 
                 <DocumentEditorComponent
                     id="container"
+                    height={'330px'}
                     ref={scope => {
                         this.documenteditor = scope;
                     }}
@@ -304,5 +290,5 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 ## See Also
 
 * [Feature modules](../document-editor/feature-module/)
-* [Font dialog](../document-editor/dialog#font-dialog/)
-* [Keyboard shortcuts](../document-editor/keyboard-shortcut#text-formatting/)
+* [Font dialog](../document-editor/dialog#font-dialog)
+* [Keyboard shortcuts](../document-editor/keyboard-shortcut#text-formatting)

@@ -15,60 +15,60 @@ Refer to the following example for showing a document and print it.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, Print } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require modules.
 DocumentEditorComponent.Inject(Print);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  onPrint(): void {
-    this.documenteditor.print();
-  }
-  public componentDidMount(): void {
-    let sfdt: string = `{
-        "sections": [
-        {
-            "blocks": [
+    onPrint(): void {
+        //Print the document content.
+        this.documenteditor.print();
+    }
+    public componentDidMount(): void {
+        let sfdt: string = `{
+            "sections": [
                 {
-                    "inlines": [
+                    "blocks": [
                         {
-                            "characterFormat": {
-                                "bold": true,
-                                "italic": true
-                            },
-                            "text": "Hello World"
+                            "inlines": [
+                                {
+                                    "characterFormat": {
+                                        "bold": true,
+                                        "italic": true
+                                    },
+                                    "text": "Hello World"
+                                }
+                            ]
                         }
-                    ]
+                    ],
+                    "headersFooters": {
+                    }
                 }
-            ],
-            "headersFooters": {
-            }
-        }
-    ]
-    }`;
-    setTimeout(()=>{
-        this.documenteditor.open(sfdt);
-    });
-  }
+            ]
+        }`;
+        setTimeout(() => {
+            //Open the document in Document Editor.
+            this.documenteditor.open(sfdt);
+        });
+    }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.onPrint.bind(this)}>Print</button>
-        <DocumentEditorComponent
-          id="container"
-          ref={scope => {
-            this.documenteditor = scope;
-          }}
-          enablePrint={true}
-        />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <button onClick={this.onPrint.bind(this)}>Print</button>
+                <DocumentEditorComponent
+                    id="container"
+                    ref={scope => {
+                        this.documenteditor = scope;
+                    }}
+                    enablePrint={true}
+                    height={'330px'}
+                />
+            </div>
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -84,34 +84,36 @@ Refer to the following example for creating a document and print it.
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print,
-  Editor, Selection, EditorHistory,SfdtExport
+    DocumentEditorComponent,
+    DocumentEditor,
+    Print,
+    Editor, Selection, EditorHistory, SfdtExport
 } from '@syncfusion/ej2-react-documenteditor';
 
-DocumentEditor.Inject(Print, Editor, Selection,SfdtExport, EditorHistory);
+DocumentEditor.Inject(Print, Editor, Selection, SfdtExport, EditorHistory);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  onPrint(): void {
-    this.documenteditor.print();
-  }
+    onPrint(): void {
+        //Print the document content.
+        this.documenteditor.print();
+    }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.onPrint.bind(this)}>Print</button>
-        <DocumentEditorComponent
-          id="container"
-          ref={scope => {
-            this.documenteditor = scope;
-          }}
-          enablePrint={true} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true} enableEditorHistory={true}
-        />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <button onClick={this.onPrint.bind(this)}>Print</button>
+                <DocumentEditorComponent
+                    id="container"
+                    height={'330px'}
+                    ref={scope => {
+                        this.documenteditor = scope;
+                    }}
+                    enablePrint={true} isReadOnly={false} enableSelection={true} enableSfdtExport={true} enableEditor={true} enableEditorHistory={true}
+                />
+            </div>
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -132,30 +134,32 @@ You can print the document in document editor by passing the window instance. Th
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print,
+    DocumentEditorComponent,
+    DocumentEditor,
+    Print,
 } from '@syncfusion/ej2-react-documenteditor';
 
 DocumentEditor.Inject(Print);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.print(window);
-  }
+    public componentDidMount(): void {
+        //Print the document content.
+        this.documenteditor.print(window);
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        enablePrint={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                enablePrint={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -177,42 +181,36 @@ However, you can customize margins, paper, and layout options by modifying the s
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print,
-  Editor,
-  Selection,
-  EditorHistory,
-  PageSetupDialog,
-  SfdtExport
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, DocumentEditor, Print, Editor, Selection, EditorHistory, PageSetupDialog, SfdtExport } from '@syncfusion/ej2-react-documenteditor';
 
-DocumentEditor.Inject(Print, Editor, Selection, EditorHistory,SfdtExport,PageSetupDialog);
+//Inject require modules.
+DocumentEditor.Inject(Print, Editor, Selection, EditorHistory, SfdtExport, PageSetupDialog);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.showPageSetupDialog();
-  }
+    public componentDidMount(): void {
+        //Open page setup dialog.
+        this.documenteditor.showPageSetupDialog();
+    }
 
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={scope => {
-          this.documenteditor = scope;
-        }}
-        enablePrint={true}
-        isReadOnly={false}
-        enableSelection={true}
-        enableSfdtExport={true}
-        enableEditor={true}
-        enableEditorHistory={true}
-        enablePageSetupDialog={true}
-      />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={scope => {
+                    this.documenteditor = scope;
+                }}
+                enablePrint={true}
+                isReadOnly={false}
+                enableSelection={true}
+                enableSfdtExport={true}
+                enableEditor={true}
+                enableEditorHistory={true}
+                enablePageSetupDialog={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -229,60 +227,58 @@ The following example shows how to customize layout options only for printing.
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print,
-  Editor,
-  Selection,
-  EditorHistory,
-  SfdtExport,
-} from '@syncfusion/ej2-react-documenteditor';
+import { DocumentEditorComponent, DocumentEditor, Print, Editor, Selection, EditorHistory, SfdtExport, } from '@syncfusion/ej2-react-documenteditor';
 
+//Inject require modules.
 DocumentEditor.Inject(Print, Editor, Selection, EditorHistory, SfdtExport);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor1: DocumentEditorComponent;
-  public documenteditor2: DocumentEditorComponent;
+    public documenteditor1: DocumentEditorComponent;
+    public documenteditor2: DocumentEditorComponent;
 
-  onPrint() {
-    let sfdtData = this.documenteditor1.serialize();
-    this.documenteditor2.open(sfdtData);
-    //Set A5 paper size
-    this.documenteditor2.selection.sectionFormat.pageWidth = 419.55;
-    this.documenteditor2.selection.sectionFormat.pageHeight = 595.3;
-    this.documenteditor2.print();
-  }
-  render() {
-    return (
-      <div>
-        <button onClick={this.onPrint.bind(this)}>Print</button>
-        <DocumentEditorComponent
-          id="DocumentEditor"
-          ref={scope => {
-            this.documenteditor1 = scope;
-          }}
-          enablePrint={true}
-          isReadOnly={false}
-          enableSelection={true}
-          enableSfdtExport={true}
-          enableEditor={true}
-          enableEditorHistory={true}
-        />
-        <DocumentEditorComponent
-          id="DocumentEditor2"
-          ref={scope => {
-            this.documenteditor2 = scope;
-          }}
-          enablePrint={true}
-          isReadOnly={false}
-          enableSelection={true}
-          enableSfdtExport={true}
-          enableEditor={true}
-          enableEditorHistory={true}
-        />
-      </div>
-    );
-  }
+    onPrint() {
+        //Serialize the document content.
+        let sfdtData = this.documenteditor1.serialize();
+        //Open the serialized content in Document Editor.
+        this.documenteditor2.open(sfdtData);
+        //Set A5 paper size
+        this.documenteditor2.selection.sectionFormat.pageWidth = 419.55;
+        this.documenteditor2.selection.sectionFormat.pageHeight = 595.3;
+        //Print the document content.
+        this.documenteditor2.print();
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={this.onPrint.bind(this)}>Print</button>
+                <DocumentEditorComponent
+                    id="DocumentEditor"
+                    height={'330px'}
+                    ref={scope => {
+                        this.documenteditor1 = scope;
+                    }}
+                    enablePrint={true}
+                    isReadOnly={false}
+                    enableSelection={true}
+                    enableSfdtExport={true}
+                    enableEditor={true}
+                    enableEditorHistory={true}
+                />
+                <DocumentEditorComponent
+                    id="DocumentEditor2"
+                    height={'330px'}
+                    ref={scope => {
+                        this.documenteditor2 = scope;
+                    }}
+                    enablePrint={true}
+                    isReadOnly={false}
+                    enableSelection={true}
+                    enableSfdtExport={true}
+                    enableEditor={true}
+                    enableEditorHistory={true}
+                />
+            </div>
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 

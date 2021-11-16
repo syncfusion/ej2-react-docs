@@ -6,7 +6,7 @@ description: "Learn scrolling and zooming can be customized in React document ed
 
 # Scrolling
 
-The Document editor renders the document as page by page. You can scroll through the pages by mouse wheel or touch interactions. You can also scroll through the page by using ‘scrollToPage()’ method of document editor instance. Refer to the following code example.
+The Document Editor renders the document as page by page. You can scroll through the pages by mouse wheel or touch interactions. You can also scroll through the page by using ‘scrollToPage()’ method of document editor instance. Refer to the following code example.
 
 {% tab template="document-editor/scrolling-zooming" compileJsx=true %}
 
@@ -15,79 +15,81 @@ The Document editor renders the document as page by page. You can scroll through
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-  DocumentEditorComponent,
-  DocumentEditor,
+    DocumentEditorComponent
+
 } from '@syncfusion/ej2-react-documenteditor';
 
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  onLoadDefault(): void {
-    let defaultDocument: object = {
-      sections: [
-        {
-          blocks: [
-            {
-              paragraphFormat: {
-                styleName: 'Normal',
-              },
-              inlines: [
+    onLoadDefault(): void {
+        let defaultDocument: object = {
+            sections: [
                 {
-                  text: 'First page',
+                    blocks: [
+                        {
+                            paragraphFormat: {
+                                styleName: 'Normal',
+                            },
+                            inlines: [
+                                {
+                                    text: 'First page',
+                                },
+                            ],
+                        },
+                    ],
+                    headersFooters: {},
                 },
-              ],
-            },
-          ],
-          headersFooters: {},
-        },
-        {
-          blocks: [
-            {
-              paragraphFormat: {
-                styleName: 'Normal',
-              },
-              inlines: [
                 {
-                  text: 'Second page',
+                    blocks: [
+                        {
+                            paragraphFormat: {
+                                styleName: 'Normal',
+                            },
+                            inlines: [
+                                {
+                                    text: 'Second page',
+                                },
+                            ],
+                        },
+                    ],
+                    headersFooters: {},
                 },
-              ],
+            ],
+            characterFormat: {},
+            paragraphFormat: {},
+            background: {
+                color: '#FFFFFFFF',
             },
-          ],
-          headersFooters: {},
-        },
-      ],
-      characterFormat: {},
-      paragraphFormat: {},
-      background: {
-        color: '#FFFFFFFF',
-      },
-      styles: [
-        {
-          type: 'Paragraph',
-          name: 'Normal',
-          next: 'Normal',
-        },
-        {
-          type: 'Character',
-          name: 'Default Paragraph Font',
-        },
-      ],
-    };
-    this.documenteditor.open(JSON.stringify(defaultDocument));
-    this.documenteditor.focusIn();
-  }
+            styles: [
+                {
+                    type: 'Paragraph',
+                    name: 'Normal',
+                    next: 'Normal',
+                },
+                {
+                    type: 'Character',
+                    name: 'Default Paragraph Font',
+                },
+            ],
+        };
+        this.documenteditor.open(JSON.stringify(defaultDocument));
+        this.documenteditor.focusIn();
+    }
 
-  public componentDidMount(): void {
-    setTimeout(()=>{
-    this.onLoadDefault();
-    this.documenteditor.scrollToPage(2);
-    });
-  }
-  render() {
-    return (
-      <DocumentEditorComponent id="DocumentEditor" ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} />
-    );
-  }
+    public componentDidMount(): void {
+        setTimeout(() => {
+            //Load default document.
+            this.onLoadDefault();
+            //Scroll to specified page.
+            this.documenteditor.scrollToPage(2);
+        });
+    }
+    render() {
+        return (
+            <DocumentEditorComponent id="DocumentEditor" height={'330px'} ref={(scope) => { this.documenteditor = scope; }} isReadOnly={false} />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -105,181 +107,129 @@ In case, if you wish to move the selection to any page in document editor and br
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Print,
-  SfdtExport,
-  WordExport,
-  TextExport,
-  Selection,
-  Search,
-  Editor,
-  ImageResizer,
-  EditorHistory,
-  ContextMenu,
-  OptionsPane,
-  HyperlinkDialog,
-  TableDialog,
-  BookmarkDialog,
-  TableOfContentsDialog,
-  PageSetupDialog,
-  StyleDialog,
-  ListDialog,
-  ParagraphDialog,
-  BulletsAndNumberingDialog,
-  FontDialog,
-  TablePropertiesDialog,
-  BordersAndShadingDialog,
-  TableOptionsDialog,
-  CellOptionsDialog,
-  StylesDialog,
+    DocumentEditorComponent, Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog,
 } from '@syncfusion/ej2-react-documenteditor';
 
-DocumentEditorComponent.Inject(
-  Print,
-  SfdtExport,
-  WordExport,
-  TextExport,
-  Selection,
-  Search,
-  Editor,
-  ImageResizer,
-  EditorHistory,
-  ContextMenu,
-  OptionsPane,
-  HyperlinkDialog,
-  TableDialog,
-  BookmarkDialog,
-  TableOfContentsDialog,
-  PageSetupDialog,
-  StyleDialog,
-  ListDialog,
-  ParagraphDialog,
-  BulletsAndNumberingDialog,
-  FontDialog,
-  TablePropertiesDialog,
-  BordersAndShadingDialog,
-  TableOptionsDialog,
-  CellOptionsDialog,
-  StylesDialog
-);
-
+//Inject require modules.
+DocumentEditorComponent.Inject(Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  onLoadDefaultDocument(): void {
-    let defaultDocument: object = {
-      sections: [
-        {
-          blocks: [
-            {
-              paragraphFormat: {
-                styleName: 'Normal',
-              },
-              inlines: [
+    onLoadDefaultDocument(): void {
+        let defaultDocument: object = {
+            sections: [
                 {
-                  text: 'First page',
+                    blocks: [
+                        {
+                            paragraphFormat: {
+                                styleName: 'Normal',
+                            },
+                            inlines: [
+                                {
+                                    text: 'First page',
+                                },
+                            ],
+                        },
+                    ],
+                    headersFooters: {},
                 },
-              ],
-            },
-          ],
-          headersFooters: {},
-        },
-        {
-          blocks: [
-            {
-              paragraphFormat: {
-                styleName: 'Normal',
-              },
-              inlines: [
                 {
-                  text: 'Second page',
+                    blocks: [
+                        {
+                            paragraphFormat: {
+                                styleName: 'Normal',
+                            },
+                            inlines: [
+                                {
+                                    text: 'Second page',
+                                },
+                            ],
+                        },
+                    ],
+                    headersFooters: {},
                 },
-              ],
-            },
-          ],
-          headersFooters: {},
-        },
-        {
-          blocks: [
-            {
-              paragraphFormat: {
-                styleName: 'Normal',
-              },
-              inlines: [
                 {
-                  text: 'Third page',
+                    blocks: [
+                        {
+                            paragraphFormat: {
+                                styleName: 'Normal',
+                            },
+                            inlines: [
+                                {
+                                    text: 'Third page',
+                                },
+                            ],
+                        },
+                    ],
+                    headersFooters: {},
                 },
-              ],
+            ],
+            characterFormat: {},
+            paragraphFormat: {},
+            background: {
+                color: '#FFFFFFFF',
             },
-          ],
-          headersFooters: {},
-        },
-      ],
-      characterFormat: {},
-      paragraphFormat: {},
-      background: {
-        color: '#FFFFFFFF',
-      },
-      styles: [
-        {
-          type: 'Paragraph',
-          name: 'Normal',
-          next: 'Normal',
-        },
-        {
-          type: 'Character',
-          name: 'Default Paragraph Font',
-        },
-      ],
-    };
-    this.documenteditor.open(JSON.stringify(defaultDocument));
-    this.documenteditor.focusIn();
-  }
+            styles: [
+                {
+                    type: 'Paragraph',
+                    name: 'Normal',
+                    next: 'Normal',
+                },
+                {
+                    type: 'Character',
+                    name: 'Default Paragraph Font',
+                },
+            ],
+        };
+        this.documenteditor.open(JSON.stringify(defaultDocument));
+        this.documenteditor.focusIn();
+    }
 
-  public componentDidMount(): void {
-    setTimeout(()=>{
-    this.onLoadDefaultDocument();
-    this.documenteditor.viewer.selection.goToPage(3);
-    });
-  }
-  render() {
-    return (
-      <DocumentEditorComponent
-        id="container"
-        ref={(scope) => {
-          this.documenteditor = scope;
-        }}
-        isReadOnly={false}
-        enablePrint={true}
-        enableSelection={true}
-        enableEditor={true}
-        enableEditorHistory={true}
-        enableContextMenu={true}
-        enableSearch={true}
-        enableOptionsPane={true}
-        enableBookmarkDialog={true}
-        enableBordersAndShadingDialog={true}
-        enableFontDialog={true}
-        enableTableDialog={true}
-        enableParagraphDialog={true}
-        enableHyperlinkDialog={true}
-        enableImageResizer={true}
-        enableListDialog={true}
-        enablePageSetupDialog={true}
-        enableSfdtExport={true}
-        enableStyleDialog={true}
-        enableTableOfContentsDialog={true}
-        enableTableOptionsDialog={true}
-        enableTablePropertiesDialog={true}
-        enableTextExport={true}
-        enableWordExport={true}
-      />
-    );
-  }
+    public componentDidMount(): void {
+        setTimeout(() => {
+            //Load default document.
+            this.onLoadDefaultDocument();
+            //Navigate to specified page.
+            this.documenteditor.viewer.selection.goToPage(3);
+        });
+    }
+    render() {
+        return (
+            <DocumentEditorComponent
+                id="container"
+                height={'330px'}
+                ref={(scope) => {
+                    this.documenteditor = scope;
+                }}
+                isReadOnly={false}
+                enablePrint={true}
+                enableSelection={true}
+                enableEditor={true}
+                enableEditorHistory={true}
+                enableContextMenu={true}
+                enableSearch={true}
+                enableOptionsPane={true}
+                enableBookmarkDialog={true}
+                enableBordersAndShadingDialog={true}
+                enableFontDialog={true}
+                enableTableDialog={true}
+                enableParagraphDialog={true}
+                enableHyperlinkDialog={true}
+                enableImageResizer={true}
+                enableListDialog={true}
+                enablePageSetupDialog={true}
+                enableSfdtExport={true}
+                enableStyleDialog={true}
+                enableTableOfContentsDialog={true}
+                enableTableOptionsDialog={true}
+                enableTablePropertiesDialog={true}
+                enableTextExport={true}
+                enableWordExport={true}
+            />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
-
 
 ```
 
@@ -292,30 +242,32 @@ You can scale the contents in document editor ranging from 10% to 500% of the ac
 {% tab compileJsx=true%}
 
 ```typescript
-
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, Print, SfdtExport, WordExport, TextExport,
+    DocumentEditorComponent, Print, SfdtExport, WordExport, TextExport,
     Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane,
     HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog,
     ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog,
     BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog,
 } from '@syncfusion/ej2-react-documenteditor';
 
-DocumentEditorComponent.Inject(Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog,  BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog);
+DocumentEditorComponent.Inject(Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog);
 
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.documenteditor.zoomFactor = 3;
-  }
-  render() {
-    return (
-        <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} style={ width: '100%', height: '100%' } isReadOnly={false} enablePrint={true} enableSelection={true} enableEditor={true} enableEditorHistory={true} enableContextMenu={true} enableSearch={true} enableOptionsPane={true} enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true} enablePageSetupDialog={true} enableSfdtExport={true} enableStyleDialog={true} enableTableOfContentsDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} enableTextExport={true}  enableWordExport={true} />
-    );
-  }
+    public componentDidMount(): void {
+        //Set zoom factor.
+        this.documenteditor.zoomFactor = 3;
+    }
+    render() {
+        return (
+            <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} height={'330px'} style={{
+                width: '100%'
+            }} isReadOnly={false} enablePrint={true} enableSelection={true} enableEditor={true} enableEditorHistory={true} enableContextMenu={true} enableSearch={true} enableOptionsPane={true} enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true} enablePageSetupDialog={true} enableSfdtExport={true} enableStyleDialog={true} enableTableOfContentsDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} enableTextExport={true} enableWordExport={true} />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 ```
@@ -324,7 +276,7 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ## Page Fit Type
 
-Apart from specifying the zoom factor as value, the Document editor provides option to specify page fit options such as fit to full page or fit to page width. You can set this option using ‘fitPage’ method of document editor instance. Refer to the following code example.
+Apart from specifying the zoom factor as value, the Document Editor provides option to specify page fit options such as fit to full page or fit to page width. You can set this option using ‘fitPage’ method of document editor instance. Refer to the following code example.
 
 {% tab compileJsx=true%}
 
@@ -345,11 +297,11 @@ export class Default extends React.Component<{}, {}> {
   public documenteditor: DocumentEditorComponent;
 
   public componentDidMount(): void {
-    this.documenteditor.fitPage('Fit page width');
+    this.documenteditor.fitPage('FitPageWidth');
   }
   render() {
     return (
-       <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} style={ width: '100%', height: '100%' } isReadOnly={false} enablePrint={true} enableSelection={true} enableEditor={true} enableEditorHistory={true} enableContextMenu={true} enableSearch={true} enableOptionsPane={true} enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true} enablePageSetupDialog={true} enableSfdtExport={true} enableStyleDialog={true} enableTableOfContentsDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} enableTextExport={true}  enableWordExport={true} />
+       <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }} height={'330px'} style={{ width: '100%' }} isReadOnly={false} enablePrint={true} enableSelection={true} enableEditor={true} enableEditorHistory={true} enableContextMenu={true} enableSearch={true} enableOptionsPane={true} enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true} enablePageSetupDialog={true} enableSfdtExport={true} enableStyleDialog={true} enableTableOfContentsDialog={true} enableTableOptionsDialog={true} enableTablePropertiesDialog={true} enableTextExport={true}  enableWordExport={true} />
     );
   }
 }
@@ -369,69 +321,11 @@ The following code example shows how to provide zoom options in document editor.
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-    DocumentEditorComponent,
-    DocumentEditor,
-    Print,
-    SfdtExport,
-    WordExport,
-    TextExport,
-    Selection,
-    Search,
-    Editor,
-    ImageResizer,
-    EditorHistory,
-    ContextMenu,
-    OptionsPane,
-    HyperlinkDialog,
-    TableDialog,
-    BookmarkDialog,
-    TableOfContentsDialog,
-    PageSetupDialog,
-    StyleDialog,
-    ListDialog,
-    ParagraphDialog,
-    BulletsAndNumberingDialog,
-    FontDialog,
-    TablePropertiesDialog,
-    BordersAndShadingDialog,
-    TableOptionsDialog,
-    CellOptionsDialog,
-    StylesDialog,
-} from '@syncfusion/ej2-react-documenteditor';
-import {
-    DropDownButtonComponent,
-    ItemModel,
-} from '@syncfusion/ej2-react-splitbuttons';
+import { DocumentEditorComponent, Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog } from '@syncfusion/ej2-react-documenteditor';
+import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
 
-DocumentEditorComponent.Inject(
-    Print,
-    SfdtExport,
-    WordExport,
-    TextExport,
-    Selection,
-    Search,
-    Editor,
-    ImageResizer,
-    EditorHistory,
-    ContextMenu,
-    OptionsPane,
-    HyperlinkDialog,
-    TableDialog,
-    BookmarkDialog,
-    TableOfContentsDialog,
-    PageSetupDialog,
-    StyleDialog,
-    ListDialog,
-    ParagraphDialog,
-    BulletsAndNumberingDialog,
-    FontDialog,
-    TablePropertiesDialog,
-    BordersAndShadingDialog,
-    TableOptionsDialog,
-    CellOptionsDialog,
-    StylesDialog
-);
+//Inject require module.
+DocumentEditorComponent.Inject(Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     public pageCount;
@@ -579,11 +473,11 @@ export class Default extends React.Component<{}, {}> {
         window.getSelection().selectAllChildren(editPageNumber);
     }
     render() {
-        let label = {};
         return (
             <div>
                 <DocumentEditorComponent
                     id="container"
+                    height={'330px'}
                     ref={(scope) => {
                         this.documenteditor = scope;
                     }}

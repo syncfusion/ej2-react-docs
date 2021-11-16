@@ -6,21 +6,22 @@ description: "Learn how to work with document editor in real time scenarios like
 
 # How to override the keyboard shortcuts in document editor
 
-Document Editor triggers the [`keyDown`](../../api/document-editor/documentEditorKeyDownEventArgs/) event every time when any key is entered and provides an instance of `DocumentEditorKeyDownEventArgs`. You can use the `isHandled` property to override the keyboard shortcut behavior.
+Document Editor triggers the [`keyDown`](../document-editor/api-documentEditorKeyDownEventArgs.html) event every time when any key is entered and provides an instance of `DocumentEditorKeyDownEventArgs`. You can use the `isHandled` property to override the keyboard shortcut behaviour.
 
 ## Preventing default keyboard shortcut
 
 The following code shows how to prevent the `CTRL + C` keyboard shortcut for copying selected content in document editor.
 
-{% tab compileJsx=true%}
-
 ```typescript
-import * as ReactDOM from 'react-dom';
-import * as React from 'react';
-import { DocumentEditorComponent, DocumentEditorKeyDownEventArgs, SfdtExport, Selection, Editor } from '@syncfusion/ej2-react-documenteditor';
 
+import * as React from 'react';
+import {
+    DocumentEditorComponent, SfdtExport, Selection, Editor, DocumentEditorKeyDownEventArgs
+} from '@syncfusion/ej2-react-documenteditor';
+
+//Inject require modules.
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
-export class Default extends React.Component<{}, {}> {
+export class App extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
@@ -50,30 +51,27 @@ export class Default extends React.Component<{}, {}> {
         );
     }
 }
-ReactDOM.render(<Default />, document.getElementById('sample'));
-```
 
-{% endtab %}
+```
 
 ## Override or define the keyboard shortcut
 
-Override or define a new keyboard shortcut behavior instead of preventing the keyboard shortcut.
+Override or define a new keyboard shortcut behaviour instead of preventing the keyboard shortcut.
 
-For example, `Ctrl + S` keyboard shortcut saves the document in SFDT format by default, and there is no behavior for `Ctrl + Alt + S`. The following code demonstrates how to override the `Ctrl + S` shortcut to save a document in DOCX format and define `Ctrl + Alt + S` to save the document in SFDT format.
-
-{% tab compileJsx=true%}
+For example, `Ctrl + S` keyboard shortcut saves the document in SFDT format by default, and there is no behaviour for `Ctrl + Alt + S`. The following code demonstrates how to override the `Ctrl + S` shortcut to save a document in DOCX format and define `Ctrl + Alt + S` to save the document in SFDT format.
 
 ```typescript
-import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import { DocumentEditorComponent, DocumentEditor, SfdtExport, Selection, Editor, DocumentEditorKeyDownEventArgs } from '@syncfusion/ej2-react-documenteditor';
+import {
+    DocumentEditorComponent, SfdtExport, Selection, Editor, DocumentEditorKeyDownEventArgs
+} from '@syncfusion/ej2-react-documenteditor';
 
 DocumentEditorComponent.Inject(SfdtExport, Selection, Editor);
-export class Default extends React.Component<{}, {}> {
-    public documentEditor: DocumentEditorComponent;
+export class App extends React.Component<{}, {}> {
+    public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
-        this.documentEditor.keyDown = (args: DocumentEditorKeyDownEventArgs) => {
+        this.documenteditor.keyDown = function (args: DocumentEditorKeyDownEventArgs) {
             let keyCode: number = args.event.which || args.event.keyCode;
 
             let isCtrlKey: boolean = (args.event.ctrlKey || args.event.metaKey) ? true : ((keyCode === 17) ? true : false);
@@ -85,11 +83,11 @@ export class Default extends React.Component<{}, {}> {
                 //To prevent default save operation, set the isHandled property to true
                 args.isHandled = true;
                 //Download the document in docx format.
-                this.documentEditor.save('sample', 'Docx');
+                this.documenteditor.save('sample', 'Docx');
                 args.event.preventDefault();
             } else if (isCtrlKey && isAltKey && keyCode === 83) {
                 //Download the document in sfdt format.
-                this.documentEditor.save('sample', 'Sfdt');
+                this.documenteditor.save('sample', 'Sfdt');
             }
         }
     }
@@ -99,7 +97,7 @@ export class Default extends React.Component<{}, {}> {
             <DocumentEditorComponent
                 id="container"
                 ref={scope => {
-                    this.documentEditor = scope;
+                    this.documenteditor = scope;
                 }}
                 isReadOnly={false}
                 enableSelection={true}
@@ -109,8 +107,4 @@ export class Default extends React.Component<{}, {}> {
         );
     }
 }
-ReactDOM.render(<Default />, document.getElementById('sample'));
-
 ```
-
-{% endtab %}

@@ -6,7 +6,7 @@ description: "Learn the how to enable (right-to-left) support. Dialogs & context
 
 # RTL
 
-Document editor provides RTL (right-to-left) support. This can be enabled using the “enableRtl” property.
+Document Editor provides RTL (right-to-left) support. This can be enabled using the “enableRtl” property.
 
 {% tab template="document-editor/rtl" compileJsx=true %}
 
@@ -15,15 +15,16 @@ Document editor provides RTL (right-to-left) support. This can be enabled using 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent, DocumentEditor, RequestNavigateEventArgs, ViewChangeEventArgs,
-    Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory,
+    DocumentEditorComponent, Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory,
     ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog,
     PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog,
     TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog
 } from '@syncfusion/ej2-react-documenteditor';
 import { L10n } from '@syncfusion/ej2-base';
 
+//Inject require modules.
 DocumentEditorComponent.Inject(Print, SfdtExport, WordExport, TextExport, Selection, Search, Editor, ImageResizer, EditorHistory, ContextMenu, OptionsPane, HyperlinkDialog, TableDialog, BookmarkDialog, TableOfContentsDialog, PageSetupDialog, StyleDialog, ListDialog, ParagraphDialog, BulletsAndNumberingDialog, FontDialog, TablePropertiesDialog, BordersAndShadingDialog, TableOptionsDialog, CellOptionsDialog, StylesDialog);
+//Load locale constant for Document Editor.
 L10n.load({
     'ar-AE': {
         'documenteditor': {
@@ -312,59 +313,60 @@ L10n.load({
     }
 });
 export class Default extends React.Component<{}, {}> {
-   public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
     public componentDidMount(): void {
         let sfdt: string = `{
-        "sections": [
-        {
-            "blocks": [
+            "sections": [
                 {
-                    "characterFormat": {
-                        "fontSize": 18.0,
-                        "fontFamily": "Calibri",
-                        "fontFamilyBidi": "Calibri"
-                    },
-                    "paragraphFormat": {
-                        "beforeSpacing": 18.0,
-                        "afterSpacing": 30.0,
-                        "styleName": "Heading 1",
-                        "bidi": true
-                    },
-                    "inlines": [
+                    "blocks": [
                         {
-                            "text": "اعمال المغامرة دورات",
                             "characterFormat": {
                                 "fontSize": 18.0,
-                                "bidi": true,
-                                "fontSizeBidi": 18.0
-                            }
+                                "fontFamily": "Calibri",
+                                "fontFamilyBidi": "Calibri"
+                            },
+                            "paragraphFormat": {
+                                "beforeSpacing": 18.0,
+                                "afterSpacing": 30.0,
+                                "styleName": "Heading 1",
+                                "bidi": true
+                            },
+                            "inlines": [
+                                {
+                                    "text": "اعمال المغامرة دورات",
+                                    "characterFormat": {
+                                        "fontSize": 18.0,
+                                        "bidi": true,
+                                        "fontSizeBidi": 18.0
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }
             ]
-        }
-        ]
         }`;
 
-    setTimeout(()=>{
-        this.documenteditor.open(sfdt);
-    });
+        setTimeout(() => {
+            //Open the document in Document Editor.
+            this.documenteditor.open(sfdt);
+        });
     }
 
-  render() {
-    return (
-        <DocumentEditorComponent id="container" ref={(scope) => { this.documenteditor = scope; }}  
-        isReadOnly={false} enablePrint={true}
-        enableSelection={true} enableEditor={true} enableEditorHistory={true}
-        enableContextMenu={true} enableSearch={true} enableOptionsPane={true}
-        enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true}
-        enablePageSetupDialog={true} enableSfdtExport={true}
-        enableStyleDialog={true} enableTableOfContentsDialog={true}
-        enableTableOptionsDialog={true} enableTablePropertiesDialog={true}
-        enableTextExport={true} enableWordExport={true} enableRtl={true} locale={'ar-AE'} />
-    );
-  }
+    render() {
+        return (
+            <DocumentEditorComponent id="container" height={'330px'} ref={(scope) => { this.documenteditor = scope; }}
+                isReadOnly={false} enablePrint={true}
+                enableSelection={true} enableEditor={true} enableEditorHistory={true}
+                enableContextMenu={true} enableSearch={true} enableOptionsPane={true}
+                enableBookmarkDialog={true} enableBordersAndShadingDialog={true} enableFontDialog={true} enableTableDialog={true} enableParagraphDialog={true} enableHyperlinkDialog={true} enableImageResizer={true} enableListDialog={true}
+                enablePageSetupDialog={true} enableSfdtExport={true}
+                enableStyleDialog={true} enableTableOfContentsDialog={true}
+                enableTableOptionsDialog={true} enableTablePropertiesDialog={true}
+                enableTextExport={true} enableWordExport={true} enableRtl={true} locale={'ar-AE'} />
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 

@@ -6,7 +6,7 @@ description: "Learn the types of lists supported in JavaScript document editor a
 
 # Working with Lists
 
-Document editor supports both the single-level and multilevel lists. Lists are used to organize data as step-by-step instructions in documents for easy understanding of key points. You can apply list to the paragraph either using supported APIs.
+Document Editor supports both the single-level and multilevel lists. Lists are used to organize data as step-by-step instructions in documents for easy understanding of key points. You can apply list to the paragraph either using supported APIs.
 
 ## Create bullet list
 
@@ -59,71 +59,44 @@ The following sample demonstrates how to create bullet and numbering lists in do
 ```typescript
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import {
-  DocumentEditorComponent,
-  DocumentEditor,
-  Selection,
-  Editor,
-  EditorHistory,
-  ContextMenu,
-  TableDialog,
-} from '@syncfusion/ej2-react-documenteditor';
-import {
-  ToolbarComponent,
-  ItemDirective,
-  ItemsDirective,
-} from '@syncfusion/ej2-react-navigations';
+import { DocumentEditorComponent, Selection, Editor, EditorHistory, ContextMenu, TableDialog } from '@syncfusion/ej2-react-documenteditor';
+import { ToolbarComponent, ItemDirective, ItemsDirective, } from '@syncfusion/ej2-react-navigations';
 
-DocumentEditorComponent.Inject(
-  Selection,
-  Editor,
-  EditorHistory,
-  ContextMenu,
-  TableDialog
-);
+DocumentEditorComponent.Inject(Selection, Editor, EditorHistory, ContextMenu, TableDialog);
 export class Default extends React.Component<{}, {}> {
-  public documenteditor: DocumentEditorComponent;
+    public documenteditor: DocumentEditorComponent;
 
-  public componentDidMount(): void {
-    this.updateContainerSize();
-  }
-
-  toolbarButtonClick(args): void {
-    switch (args.item.id) {
-      case 'Bullets':
-        //To create bullet list
-        this.documenteditor.editor.applyBullet('\uf0b7', 'Symbol');
-        break;
-      case 'Numbering':
-        //To create numbering list
-        this.documenteditor.editor.applyNumbering('%1)', 'UpRoman');
-        break;
-      case 'clearlist':
-        //To clear list
-        this.documenteditor.editor.clearList();
-        break;
+    toolbarButtonClick(args): void {
+        switch (args.item.id) {
+            case 'Bullets':
+                //To create bullet list
+                this.documenteditor.editor.applyBullet('\uf0b7', 'Symbol');
+                break;
+            case 'Numbering':
+                //To create numbering list
+                this.documenteditor.editor.applyNumbering('%1)', 'UpRoman');
+                break;
+            case 'clearlist':
+                //To clear list
+                this.documenteditor.editor.clearList();
+                break;
+        }
     }
-  }
 
-  updateContainerSize(): void {
-    document.getElementById('container').style.height = window.innerHeight - document.getElementById('toolbar').offsetHeight + 'px';
-  }
-
-  render() {
-    return (
-      <div>
-        <ToolbarComponent id="toolbar" clicked={this.toolbarButtonClick.bind(this)} >
-          <ItemsDirective>
-            <ItemDirective id="Bullets" prefixIcon="e-de-icon-Bullets" tooltipText="Bullets" />
-            <ItemDirective id="Numbering" prefixIcon="e-de-icon-Numbering" tooltipText="Numbering" />
-            <ItemDirective id="clearlist" text="Clear" tooltipText="Clear List" />
-          </ItemsDirective>
-        </ToolbarComponent>
-
-        <DocumentEditorComponent id="container" ref={scope => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableEditorHistory={true} />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <ToolbarComponent id="toolbar" clicked={this.toolbarButtonClick.bind(this)} >
+                    <ItemsDirective>
+                        <ItemDirective id="Bullets" prefixIcon="e-de-ctnr-bullets e-icons" tooltipText="Bullets" />
+                        <ItemDirective id="Numbering" prefixIcon="e-de-ctnr-numbering e-icons" tooltipText="Numbering" />
+                        <ItemDirective id="clearlist" text="Clear" tooltipText="Clear List" />
+                    </ItemsDirective>
+                </ToolbarComponent>
+                <DocumentEditorComponent id="container" height={'330px'} ref={scope => { this.documenteditor = scope; }} isReadOnly={false} enableSelection={true} enableEditor={true} enableEditorHistory={true} />
+            </div>
+        );
+    }
 }
 ReactDOM.render(<Default />, document.getElementById('sample'));
 
@@ -133,10 +106,10 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 ## Editing numbered list
 
-Document editor restarts the numbering or continue numbering for a numbered list. These options are found in the built-in context menu, if the list value is selected. Refer to the following screenshot.
+Document Editor restarts the numbering or continue numbering for a numbered list. These options are found in the built-in context menu, if the list value is selected. Refer to the following screenshot.
 
 ![Image](images/list.png)
 
 ## See Also
 
-* [List dialog](../document-editor/dialog#list-dialog/)
+* [List dialog](../document-editor/dialog#list-dialog)

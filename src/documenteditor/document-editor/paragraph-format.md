@@ -6,7 +6,7 @@ description: "Learn paragraph formatting supported in JavaScript document editor
 
 # Working with Paragraph Formatting
 
-Document editor supports various paragraph formatting options such as text alignment, indentation, paragraph spacing, and more.
+Document Editor supports various paragraph formatting options such as text alignment, indentation, paragraph spacing, and more.
 
 ## Indentation
 
@@ -73,6 +73,22 @@ documenteditor.selection.paragraphFormat.beforeSpacing= 24;
 documenteditor.selection.paragraphFormat.afterSpacing= 24;
 ```
 
+## Pagination properties
+
+You can enable or disable the following pagination properties for the paragraphs in a Word document.
+
+* Widow/Orphan control - whether the first and last lines of the paragraph are to remain on the same page as the rest of the paragraph when paginating the document.
+* Keep with next - whether the specified paragraph remains on the same page as the paragraph that follows it while paginating the document.
+* Keep lines together - whether all lines in the specified paragraphs remain on the same page while paginating the document.
+
+The following example code illustrates how to enable or disable these pagination properties for the selected paragraphs.
+
+```typescript
+documenteditor.selection.paragraphFormat.widowControl = false;
+documenteditor.selection.paragraphFormat.keepWithNext = true;
+documenteditor.selection.paragraphFormat.keepLinesTogether = true;
+```
+
 ## Toolbar with paragraph formatting options
 
 The following sample demonstrates the paragraph formatting options using a toolbar.
@@ -83,22 +99,13 @@ The following sample demonstrates the paragraph formatting options using a toolb
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import {
-    DocumentEditorComponent,
-    DocumentEditor,
-    Selection,
-    Editor,
-    EditorHistory,
-    ContextMenu
+    DocumentEditorComponent, Selection, Editor, EditorHistory, ContextMenu
 } from '@syncfusion/ej2-react-documenteditor';
 import { ToolbarComponent, ItemDirective } from '@syncfusion/ej2-react-navigations';
 import { DropDownButtonComponent, ItemModel } from '@syncfusion/ej2-react-splitbuttons';
 
-DocumentEditorComponent.Inject(
-    Selection,
-    Editor,
-    EditorHistory,
-    ContextMenu
-);
+//Inject require modules.
+DocumentEditorComponent.Inject(Selection, Editor, EditorHistory, ContextMenu);
 export class Default extends React.Component<{}, {}> {
     public documenteditor: DocumentEditorComponent;
     public items: ItemModel[] = [
@@ -120,15 +127,9 @@ export class Default extends React.Component<{}, {}> {
         return (<DropDownButtonComponent items={this.items} iconCss="e-de-icon-LineSpacing" selected={this.lineSpacingAction.bind(this)} ></DropDownButtonComponent>);
     }
     public componentDidMount(): void {
-        this.updateContainerSize();
-         this.documenteditor.selectionChange = () => {
+        this.documenteditor.selectionChange = () => {
             setTimeout(() => { this.onSelectionChange(); }, 20);
         };
-    }
-
-    updateContainerSize(): void {
-        document.getElementById('container').style.height =
-            window.innerHeight - document.getElementById('toolbar').offsetHeight + 'px';
     }
 
     toolbarButtonClick(arg): void {
@@ -188,20 +189,18 @@ export class Default extends React.Component<{}, {}> {
         if (this.documenteditor.selection) {
             var paragraphFormat = this.documenteditor.selection.paragraphFormat;
             var toggleBtnId = ['AlignLeft', 'AlignCenter', 'AlignRight', 'Justify'];
+            //Remove toggle state.
             for (var i = 0; i < toggleBtnId.length; i++) {
-                let toggleBtn: HTMLElement = document.getElementById(
-                    toggleBtnId[i]
-                );
+                let toggleBtn: HTMLElement = document.getElementById(toggleBtnId[i]);
                 toggleBtn.classList.remove('e-btn-toggle');
             }
+            //Add toggle state based on selection paragraph format.
             if (paragraphFormat.textAlignment === 'Left') {
                 document.getElementById('AlignLeft').classList.add('e-btn-toggle');
             } else if (paragraphFormat.textAlignment === 'Right') {
                 document.getElementById('AlignRight').classList.add('e-btn-toggle');
             } else if (paragraphFormat.textAlignment === 'Center') {
-                document
-                    .getElementById('AlignCenter')
-                    .classList.add('e-btn-toggle');
+                document.getElementById('AlignCenter').classList.add('e-btn-toggle');
             } else {
                 document.getElementById('Justify').classList.add('e-btn-toggle');
             }
@@ -214,16 +213,16 @@ export class Default extends React.Component<{}, {}> {
         return (
             <div>
                 <ToolbarComponent id='toolbar' clicked={this.toolbarButtonClick.bind(this)}>
-                    <ItemDirective id="AlignLeft" prefixIcon="e-de-icon-AlignLeft" tooltipText="Align Left" />
-                    <ItemDirective id="AlignCenter" prefixIcon="e-de-icon-AlignCenter" tooltipText="Align Center" />
-                    <ItemDirective id="AlignRight" prefixIcon="e-de-icon-AlignRight" tooltipText="Align Right" />
-                    <ItemDirective id="Justify" prefixIcon="e-de-icon-Justify" tooltipText="Justify" />
+                    <ItemDirective id="AlignLeft" prefixIcon="e-de-ctnr-alignleft e-icons" tooltipText="Align Left" />
+                    <ItemDirective id="AlignCenter" prefixIcon="e-de-ctnr-aligncenter e-icons" tooltipText="Align Center" />
+                    <ItemDirective id="AlignRight" prefixIcon="e-de-ctnr-alignright e-icons" tooltipText="Align Right" />
+                    <ItemDirective id="Justify" prefixIcon="e-de-ctnr-justify e-icons" tooltipText="Justify" />
                     <ItemDirective type="Separator" />
-                    <ItemDirective id="IncreaseIndent" prefixIcon="e-de-icon-IncreaseIndent" tooltipText="Increase Indent" />
-                    <ItemDirective id="DecreaseIndent" prefixIcon="e-de-icon-DecreaseIndent" tooltipText="Decrease Indent" />
+                    <ItemDirective id="IncreaseIndent" prefixIcon="e-de-ctnr-increaseindent e-icons" tooltipText="Increase Indent" />
+                    <ItemDirective id="DecreaseIndent" prefixIcon="e-de-ctnr-decreaseindent e-icons" tooltipText="Decrease Indent" />
                     <ItemDirective type="Separator" />
                     <ItemDirective template={this.contentTemplate1} />
-                    <ItemDirective id="ClearFormat" prefixIcon="e-de-icon-ClearAll" tooltipText="Clear Formatting" />
+                    <ItemDirective id="ClearFormat" prefixIcon="e-de-ctnr-clearall e-icons" tooltipText="Clear Formatting" />
                 </ToolbarComponent>
 
                 <DocumentEditorComponent
@@ -237,6 +236,7 @@ export class Default extends React.Component<{}, {}> {
                     enableEditorHistory={true}
                     enableContextMenu={true}
                     enableTableDialog={true}
+                    height={'330px'}
                 />
             </div>
         );
@@ -251,5 +251,5 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 ## See Also
 
 * [Feature modules](../document-editor/feature-module/)
-* [Paragraph dialog](../document-editor/dialog#paragraph-dialog/)
-* [Keyboard shortcuts](../document-editor/keyboard-shortcut#paragraph-formatting/)
+* [Paragraph dialog](../document-editor/dialog#paragraph-dialog)
+* [Keyboard shortcuts](../document-editor/keyboard-shortcut#paragraph-formatting)
