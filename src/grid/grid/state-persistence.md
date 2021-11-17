@@ -168,3 +168,71 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+## Persist the Grid column template, header template, and headerText
+
+By default, the Grid properties such as column template, header text, header template, column formatter, and value accessor will not persist when [enablePersistence](../api/grid/#enablepersistence) is set to true. Because the column template and header text can be customized at the application level.
+
+If you wish to restore all these column properties, then you can achieve it by cloning the grid’s columns property using JavaScript Object’s assign method and storing this along with the persist data manually. While restoring the settings, this column object must be assigned to the grid’s columns property to restore the column settings as demonstrated in the following sample.
+
+{% tab template="grid/column", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { ActionEventArgs, Filter, Grid, Inject, Page  } from '@syncfusion/ej2-react-grids';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  private grid: Grid | null;
+  public clickHandler(){
+    let savedProperties = JSON.parse(this.grid.getPersistData());
+    let gridColumnsState = Object.assign([], this.grid.getColumns());
+    savedProperties.columns.forEach((col: {
+        field: any;
+        headerText: any;
+        template: any;
+        headerTemplate: any;
+    }) => {
+        let headerText = gridColumnsState.find((colColumnsState) => colColumnsState.field === col.field)['headerText'];
+        let colTemplate = gridColumnsState.find((colColumnsState) => colColumnsState.field === col.field)['template'];
+        let headerTemplate = gridColumnsState.find((colColumnsState) => colColumnsState.field === col.field)['headerTemplate'];
+        col.headerText = 'Text Changed';
+        col.template = colTemplate;
+        col.headerTemplate = headerTemplate; //likewise you can restore required column properties as per your wants.
+    }
+  );
+    console.log(savedProperties);
+    this.grid.setProperties(savedProperties);
+  }
+  public headerTemplate: any = this.customerTemplate;
+  public customerTemplate(props: any): any {
+     return (<div>
+          <span className="e-icons e-header" ></span>Customer ID
+       </div>);
+  }
+  public columnTemplate: any = this.gridTemplate;
+  public gridTemplate(props: any): any {
+      return (<div>
+          <a rel='nofollow' href="https://en.wikipedia.org/wiki/${ShipCountry}"><span className="e-icons e-column"></span></a>
+        </div>);
+  }
+  public render() {
+      this.clickHandler = this.clickHandler.bind(this);
+      return( <div> <ButtonComponent onClick= { this.clickHandler }>Restore</ButtonComponent> <GridComponent id="Grid" dataSource={data} allowFiltering={true} allowPaging={true} enablePersistence={true} height={230}
+      ref={g => this.grid = g}>
+          <ColumnsDirective>
+              <ColumnDirective field='OrderID' width='100' textAlign="Right"/>
+              <ColumnDirective field='CustomerID' width='100'  headerTemplate={this.headerTemplate}/>
+              <ColumnDirective field='EmployeeID' width='100' textAlign="Right"/>
+              <ColumnDirective field='Freight' width='100' format="C2" textAlign="Right"/>
+              <ColumnDirective field='ShipCountry' width='100' template={this.columnTemplate} />
+          </ColumnsDirective>
+          <Inject services={[Filter, Page]} />
+      </GridComponent></div>)
+  }
+};
+```
+
+{% endtab %}
