@@ -804,3 +804,9 @@ export default class App extends React.Component<{}, {}> {
 ```
 
 > If you bind the dataSource from this way, then it acts like a local dataSource. So you cannot perform any server side crud actions.
+
+## See Also
+
+* [How to perform filtering, sorting operation using custom service in React Grid](https://www.syncfusion.com/forums/166390/how-to-perform-filtering-sorting-operation-using-custom-service-in-react-grid)
+* [Custom binding approach to bind data in React Grid](https://www.syncfusion.com/forums/159221/custom-binding-approach-to-bind-data-in-react-grid)
+* [How to customize query parameters while performing sorting and filtering in React Grid](https://www.syncfusion.com/forums/158697/how-to-customize-query-parameters-while-performing-sorting-and-filtering-in-react-grid)

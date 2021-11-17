@@ -615,3 +615,5 @@ export default class App extends React.Component<{}, {}>{
 
 * [Customizing Filter Dialog by using an additional parameter](./how-to/add-params-for-filtering)
 * [Hide sorting options on Excel filter Dialog](./how-to/hide-sorting-in-excel-filter)
+* [How to create a custom menu component to do date range filtering in React Grid](https://www.syncfusion.com/forums/162774/how-to-create-a-custom-menu-component-to-do-date-range-filtering-in-react-grid)
+* [How to show the active and outdated records in React Grid](https://www.syncfusion.com/forums/158310/how-to-show-the-active-and-outdated-records-in-react-grid)

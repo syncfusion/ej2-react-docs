@@ -432,4 +432,6 @@ return dm.RequiresCounts ? Json(new { result = groupedData == null ? DataSource 
 
 ## See Also
 
-[Exporting grouped records](./excel-exporting#exporting-grouped-records)
+* [Exporting grouped records](./excel-exporting#exporting-grouped-records)
+* [Is there a way to include the template in the Group summary in React Grid?](https://www.syncfusion.com/forums/150662/is-there-a-way-to-include-the-template-in-the-group-summary-in-react-grid)
+* [How to customize the grouping row data in React Grid](https://www.syncfusion.com/forums/151019/how-to-customize-the-grouping-row-data-in-react-grid)

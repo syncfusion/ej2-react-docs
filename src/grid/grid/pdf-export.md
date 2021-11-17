@@ -1135,3 +1135,7 @@ export default class App extends React.Component<{}, {}> {
 ```
 
 > **Note:** Refer to the GitHub sample for quick implementation and testing from [here](https://github.com/SyncfusionExamples/React-EJ2-Grid-server-side-exporting).
+
+## See Also
+
+* [How to export the Grid when using non english font in React Grid](https://www.syncfusion.com/forums/148193/how-to-export-the-grid-when-using-non-english-font-in-react-grid)

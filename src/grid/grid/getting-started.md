@@ -314,3 +314,7 @@ export default class App extends React.Component<{}, {}>{
 {% endtab %}
 
 > You can refer to our [React Grid](https://www.syncfusion.com/react-ui-components/react-data-grid) feature tour page for its groundbreaking feature representations. You can also explore our [React Grid Component example](https://ej2.syncfusion.com/react/demos/#/material/grid/overview) that shows how to render the Grid in React.
+
+## See also
+
+* [Top 5 Features of React Data Grid](https://www.syncfusion.com/blogs/post/top-5-features-react-data-grid.aspx)

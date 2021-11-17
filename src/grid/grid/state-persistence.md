@@ -276,3 +276,8 @@ export default class App extends React.Component<{}, {}>{
 ```
 
 {% endtab %}
+
+## See Also
+
+* [How to get persisted data in React Grid](https://www.syncfusion.com/forums/145524/how-to-get-persisted-data-in-react-grid)
+* [How to get the Grid settings in React Grid](https://www.syncfusion.com/forums/155698/how-to-get-the-grid-settings-in-react-grid)

@@ -123,3 +123,7 @@ export default class App extends React.Component<{}, {}> {
 
 > You can hide or show an item in context menu for specific area inside of grid by defining the
 [`target`](../api/grid/contextMenuItemModel/#target) property.
+
+## See also
+
+* [How can I dynamically enable/disable a ContextMenu item inside a React Grid](https://www.syncfusion.com/forums/159508/how-can-i-dynamically-enable-disable-a-contextmenu-item-inside-a-react-grid)

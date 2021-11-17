@@ -305,3 +305,4 @@ public pageOptions : PageSettingsModel = { pageSize: 7 };
 
 * [Internationalization](../../base/internationalization.html)
 * [Localization](../../base/localization.html)
+* [How to change left and right arrow traversing in React Grid](https://www.syncfusion.com/forums/162295/how-to-change-left-and-right-arrow-traversing-in-react-grid)

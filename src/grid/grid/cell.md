@@ -258,3 +258,7 @@ export default class App extends React.Component<{}, {}>{
 {% endtab %}
 
 >By default, [`columns.clipMode`](../api/grid/column/#clipmode) value is **Ellipsis**.
+
+## See Also
+
+* [How could I disable default behavior for all cells and for special cells in React Grid](https://www.syncfusion.com/forums/164559/how-could-i-disable-default-behavior-for-all-cells-and-for-special-cells-in-react-grid)

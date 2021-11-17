@@ -1427,3 +1427,7 @@ If `primaryKey` is not defined in the grid, then edit or delete action take plac
 * [Wizard Like Editing](./how-to/use-wizard-like-dialog-editing)
 * [Tab Inside the Dialog Template](./how-to/using-tab-inside-the-dialog-editing)
 * [Restrict to type decimal points in a NumericTextBox while editing the numeric column](./how-to/restrict-decimal-points-while-grid-editing)
+* [How to perform CRUD operations using redux](https://www.syncfusion.com/blogs/post/how-to-perform-crud-operations-in-a-react-data-grid-using-redux-a-complete-guide.aspx)
+* [How to prevent enter key event on command column input of Grid component inside Dialog component in React Grid](https://www.syncfusion.com/forums/156066/how-to-prevent-enter-key-event-on-command-column-input-of-grid-component-inside-dialog)
+* [Toggle option in React Grid](https://www.syncfusion.com/forums/153345/toggle-option-in-react-grid)
+* [How to hide some column while adding a record in React Grid](https://www.syncfusion.com/forums/164395/how-to-hide-some-column-while-adding-a-record-in-react-grid)
