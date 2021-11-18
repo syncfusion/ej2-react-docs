@@ -54,7 +54,7 @@ export default class App extends React.Component<{}, {}> {
     public componentWillMount() {
         L10n.load({
             'fr-BE': {
-                'dropdowns': {
+                'multi-select': {
                     'actionFailureTemplate': "Modèle d'échec d'action",
                     'noRecordsTemplate': "Aucun enregistrement trouvé"
                 }

@@ -6,7 +6,7 @@ description: "This section explains how to acheive autofill functionality in aut
 
 # Autofill supported with AutoComplete
 
-The AutoComplete supports the autofill behavior with the help of
+The React AutoComplete supports the autofill behavior with the help of
 [`autofill`](../../api/auto-complete/#autofill) property. Whenever you change the
 input value and press the down key, the AutoComplete will autocomplete your data by matching the typed
 character. Suppose, if no matches found then, AutoComplete doesn't suggest any item.

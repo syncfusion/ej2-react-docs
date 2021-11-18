@@ -262,6 +262,8 @@ ReactDOM.render(<App />, document.getElementById('sample'));
 
 {% endtab %}
 
+> You can also explore our [React DropDownList Filtering example]( https://ej2.syncfusion.com/react/demos/#/material/drop-down-list/filtering) that shows how to render the DropDownList Filter in React.
+
 ## See Also
 
 * [How to limit the search result while filtering](./how-to/search-on-filtering/)
