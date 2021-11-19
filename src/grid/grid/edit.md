@@ -437,6 +437,78 @@ export default class App extends React.Component<{}, {}> {
 
 {% endtab %}
 
+#### Perform CRUD action programmatically
+
+Grid methods can be used to perform CRUD operations programmatically. The [addRecord](../api/grid/#addrecord), [deleteRecord](../api/grid/#deleterecord), and [startEdit](../api/grid/#startedit) methods are used to perform CRUD operations in the following demo.
+
+* To add a new record to the Grid, use the [addRecord](../api/grid/#addrecord) method. In this method, you can pass the data parameter to add a new record to the Grid, and the index parameter to add a record at a specific index. If you call this method with no parameters, it will create an empty row in the Grid.
+
+* To change the selected row to the edit state, use the [startEdit](../api/grid/#startedit) method.
+
+* If you need to update the row data in the Grid’s datasource, you can use the [updateRow](../api/grid/#updaterow) method. In this method, you need to pass the index value of the row to be updated along with the updated data.
+
+* If you need to update the particular cell in the row, you can use the [setCellValue](../api/grid/#setcellvalue) method. In this method, you need to pass the primary key value of the data source, field name, and new value for the particular cell.
+
+* To remove a selected row from the Grid, use the [deleteRecord](../api/grid/#deleterecord) method. For both edit and delete operations, you must select a row first.
+
+> **Note:** In both normal and dialog editing modes, these methods can be used.
+
+{% tab template="grid/editing", sourceFiles="app/App.tsx,app/datasource.tsx" %}
+
+```typescript
+import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import { Edit, Grid, Inject} from '@syncfusion/ej2-react-grids';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+import * as React from 'react';
+import { data } from './datasource';
+
+export default class App extends React.Component<{}, {}>{
+  private grid: Grid | null;
+  public clickEdit(){
+     this.grid.startEdit();
+  }
+  public clickAdd(){
+      this.grid.addRecord({ "OrderID": "10248", "CustomerID": "RTER", "EmployeeID": "6", "Freight": "90.7", "ShipCountry": "America"  });
+  }
+  public clickDelete(){
+     this.grid.deleteRecord();
+  }
+  public clickUpdateRow(){
+    this.grid.updateRow(0, { OrderID: 10248, CustomerID: 'RTER', EmployeeID: '9', Freight: '98.4', ShipCountry: 'America'});
+  }
+  public clickUpdateCell(){
+     this.grid.setCellValue((this.grid.currentViewData[0] as any).OrderID,'CustomerID','Value Changed');
+  }
+  public editOptions: EditSettingsModel = { allowEditing: true, allowAdding: true,
+                                            allowDeleting: true};
+  public render() {
+      this.clickEdit = this.clickEdit.bind(this);
+      this.clickAdd = this.clickAdd.bind(this);
+      this.clickDelete = this.clickDelete.bind(this);
+      this.clickUpdateRow = this.clickUpdateRow.bind(this);
+      this.clickUpdateCell = this.clickUpdateCell.bind(this);
+      return( <div> <ButtonComponent onClick= { this.clickEdit }>Edit</ButtonComponent>
+       <ButtonComponent onClick= { this.clickAdd }>Add</ButtonComponent>
+        <ButtonComponent onClick= { this.clickDelete }>Delete</ButtonComponent>
+         <ButtonComponent onClick= { this.clickUpdateRow }>Update Row</ButtonComponent>
+          <ButtonComponent onClick= { this.clickUpdateCell }>Update Cell</ButtonComponent>
+          <GridComponent id="Grid" dataSource={data} editSettings={this.editOptions} height={230}
+      ref={g => this.grid = g}>
+          <ColumnsDirective>
+              <ColumnDirective field='OrderID' width='100' textAlign="Right" isPrimaryKey={true}/>
+              <ColumnDirective field='CustomerID' width='100'/>
+              <ColumnDirective field='EmployeeID' width='100' textAlign="Right"/>
+              <ColumnDirective field='Freight' width='100' format="C2" textAlign="Right"/>
+              <ColumnDirective field='ShipCountry' width='100'/>
+          </ColumnsDirective>
+          <Inject services={[Edit]} />
+      </GridComponent></div>)
+  }
+};
+```
+
+{% endtab %}
+
 ### Dialog
 
 In Dialog edit mode, when you start editing the currently selected row data will be shown on a dialog.
