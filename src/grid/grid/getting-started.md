@@ -318,3 +318,4 @@ export default class App extends React.Component<{}, {}>{
 ## See also
 
 * [Top 5 Features of React Data Grid](https://www.syncfusion.com/blogs/post/top-5-features-react-data-grid.aspx)
+* [How to render React Grid with bootstrap theme](https://www.syncfusion.com/kb/11328/how-to-render-react-grid-with-bootstrap-theme)
