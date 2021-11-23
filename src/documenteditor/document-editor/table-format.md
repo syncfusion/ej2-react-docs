@@ -175,6 +175,10 @@ ReactDOM.render(<Default />, document.getElementById('sample'));
 
 {% endtab %}
 
+Please check below gif which illustrates how to apply border for selected cells through properties pane options - border color, line size and no border:
+
+![ApplyBorderToSelectedCell_viaPropertiesPane](images/ApplyBorderToSelectedCell_viaPropertiesPane.gif)
+
 ## Working with row formatting
 
 Document Editor allows various row formatting such as height and repeat header.
