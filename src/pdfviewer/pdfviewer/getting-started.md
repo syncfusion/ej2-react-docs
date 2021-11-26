@@ -10,7 +10,7 @@ This section explains the steps required to create a simple Essential JS 2 PDF V
 
 ## Dependencies
 
-The following are the list of minimum dependencies required to use the PDF Viewer: -
+The following are the list of minimum dependencies required to use the PDF Viewer.
 
 ```javascript
 |-- @syncfusion/ej2-react-pdfviewer
@@ -165,3 +165,5 @@ ReactDOM.render(<App />, document.getElementById('sample'));
 ```
 
 {% endtab %}
+
+> You can refer to our [React PDF Viewer](https://www.syncfusion.com/react-ui-components/react-pdf-viewer) feature tour page for its groundbreaking feature representations. You can also explore our [React PDF Viewer example](https://ej2.syncfusion.com/react/demos/#/material/pdfviewer/default) to understand how to explains core features of PDF Viewer.
