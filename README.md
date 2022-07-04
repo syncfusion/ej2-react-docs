@@ -1,6 +1,6 @@
 # Syncfusion React Documentation
 
-This is the GitHub repository for the technical product documentation for [Syncfusion React UI Components](https://ej2.syncfusion.com/home/react.html).This documentation is published to https://ej2.syncfusion.com/react/documentation/
+This is the GitHub repository for the technical product documentation for [Syncfusion React UI Components](https://ej2.syncfusion.com/home/react.html). This documentation is published to https://ej2.syncfusion.com/react/documentation/
 
 ## Contributions Welcome!
 
