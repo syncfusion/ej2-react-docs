@@ -8,13 +8,11 @@ description: "we can able to select the particular range data by dragging thumbs
 
 # Selecting Range
 
-The left and right thumb of RangeNavigator are used to indicate the selected range in the large collection of data. Following are the ways you can select a range.
+The Range Selector's left and right thumbs are used to indicate the selected range in the large collection of data. A range can be selected in the following ways:
 
 * By dragging the thumbs.
 * By tapping on the labels.
-* By setting the start and end through value properties.
-
-Following code example shows how to configure the selected range using value  property of RangeNavigator.
+* By setting the start and the end through the [`value`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#value) property.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

@@ -8,7 +8,7 @@ description: "Bullet Chart can be rendered by using different types of data sour
 
 # Data Label
 
-Data label can be added to a bullet-chart feature bars by enabling the `enable` option in the dataLabel. By default,the labels will arrange smartly without overlapping.
+Data Labels are used to identify the value of actual bar in the Bullet Chart component. The Data Labels will be shown by specifying the [`dataLabel`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#datalabel) setting's [`enable`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/bulletDataLabelModel/#enable) property to **true**.
 
 {% tab template="bullet-chart/working-with-data/local-data", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -51,9 +51,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-## Customization
+## Data Label Customization
 
-By using `labelStyle` property in data label, you can customize the `color`, `size` and `font`.
+Data Labels color, opacity, font size, font family, font weight, and font style can be customized using the [`labelStyle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/bulletDataLabelModel/#labelstyle).
 
 {% tab template="bullet-chart/working-with-data/local-data", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

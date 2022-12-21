@@ -455,3 +455,5 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 ```
 
 {% endtab %}
+
+> You can refer to our [React Stock Chart](https://www.syncfusion.com/react-ui-components/react-stock-chart) feature tour page for its groundbreaking feature representations. You can also explore our [React Stock Chart example](https://ej2.syncfusion.com/react/demos/#/material/stock-chart) that shows you how to present and manipulate data.

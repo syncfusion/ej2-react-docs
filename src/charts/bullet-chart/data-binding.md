@@ -8,13 +8,7 @@ description: "Bullet Chart can be rendered by using different types of data sour
 
 # Working with Data
 
-Bullet Chart can visualise data bound from local or remote data.
-
-## Local Data
-
-You can bind a simple JSON data to the chart using
-[`dataSource`](../api/bullet-chart/) direct property of the bullet-chart. Now map the fields in
-JSON to [`valueField`](../api/bullet-chart/#valueField-string) and [`targetField`](../api/bullet-chart/#targetField-string) properties.
+The [`dataSource`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#datasource) property accepts a collection of values as input that helps to display measures, and compares them to a target bar. To display the actual and target bar, specify the property from the datasource into the [`valueField`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#valuefield) and [`targetField`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#targetfield) respectively.
 
 {% tab template="bullet-chart/working-with-data/local-data", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

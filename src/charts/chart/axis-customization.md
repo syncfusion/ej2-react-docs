@@ -11,9 +11,7 @@ description: "Chart axis contains different customization and types like axis cr
 ## Axis Crossing
 
 An axis can be positioned in the chart area using `crossesAt` and `crossesInAxis` properties.
-The `crossesAt` property specifies the values (datetime, numeric, or logarithmic) at which the
-axis line has to be intersected with the vertical axis or vice-versa, and the `crossesInAxis` property
-specifies the axis name with which the axis line has to be crossed.
+The `crossesAt` property specifies the values (datetime, numeric, or logarithmic) at which the axis line has to be intersected with the vertical axis or vice-versa, and the `crossesInAxis` property specifies the axis name with which the axis line has to be crossed.
 
 {% tab template="chart/axis/multiple", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

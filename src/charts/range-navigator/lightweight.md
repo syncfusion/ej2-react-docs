@@ -8,8 +8,7 @@ description: "Lightweight rangenavigator is getting intialized when the datasour
 
 # Lightweight range navigator
 
-By default, when the dataSource for series property in RangeNavigator is empty, a light weight Range navigator will get
-initialized without chart. The following code example shows the basic lightweight range navigator.
+By default, when the [`dataSource`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#datasource) for [`series`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#series) is empty, a lightweight Range Selector will be shown without Chart.
 
 {% tab template="rangenavigator/lightweight", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

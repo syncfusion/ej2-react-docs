@@ -8,7 +8,7 @@ description: "The range navigator provides RTL (right-to-left) support. Axis lab
 
 # RTL
 
-The range navigator provides RTL (right-to-left) support. This can be enabled using the “enableRtl” property.
+The Range Selector supports right-to-left (RTL), which can be enabled with the [`enableRtl`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#enablertl) property.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

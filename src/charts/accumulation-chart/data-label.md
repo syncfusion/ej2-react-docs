@@ -6,7 +6,7 @@ component: "Accumulation Chart"
 description: "Data labels are names of the data points that are displayed on the x-axis of a chart and also used to highlight important data points"
 ---
 
-# Data Label
+# Data label
 
 Data label can be added to a chart series by enabling the [`visible`](../api/accumulation-chart/accumulationDataLabelSettings/#visible)
 option in the dataLabel property.
@@ -77,7 +77,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-## DataLabel Rotation
+## DataLabel rotation
 
 Using `angle` property, you can rotate the data label by its given angle.
 
@@ -112,7 +112,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 >Note: By default, when the `enableRotation` is true, the datalabel is rotated along the slice.
 
-## Smart Labels
+## Smart labels
 
 Datalabels will be arranged smartly without overlapping with each other. You can enable or disable this feature using
 the [`enableSmartLabels`](../api/accumulation-chart/#enablesmartlabels) property.
@@ -301,6 +301,87 @@ class App extends React.Component<{}, {}> {
 
   render() {
     return <AccumulationChartComponent id='charts' enableSmartLabels='true' textRender={this.textRender}>
+      <Inject services={[AccumulationDataLabel]} />
+      <AccumulationSeriesCollectionDirective>
+        <AccumulationSeriesDirective dataSource={accData} xName='x' yName='y' dataLabel={this.datalabel}>
+        </AccumulationSeriesDirective>
+      </AccumulationSeriesCollectionDirective>
+    </AccumulationChartComponent>
+  }
+
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+## Show percentages in data labels of pie chart
+
+You can show the percentages in data labels of pie chart using `textRender` event and `template` option.
+
+### Using textRender event
+
+You can customize the data label of pie chart using [textRender](../api/accumulation-chart#textrender) event as follows to show percentage.
+
+{% tab template="chart/series/smartlabel", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective,AccumulationDataLabelSettingsModel,
+ IAccTextRenderEventArgs, AccumulationSeriesDirective, Inject, AccumulationDataLabel}
+from'@syncfusion/ej2-react-charts';
+import { accData } from 'datasource.ts';
+
+class App extends React.Component<{}, {}> {
+
+  public textRender = (args: IAccTextRenderEventArgs): void => {
+     args.text = args.point.percentage + "%";
+  };
+  public datalabel: AccumulationDataLabelSettingsModel = { visible: true };
+
+  render() {
+    return <AccumulationChartComponent id='charts' enableSmartLabels='true' textRender={this.textRender}>
+      <Inject services={[AccumulationDataLabel]} />
+      <AccumulationSeriesCollectionDirective>
+        <AccumulationSeriesDirective dataSource={accData} xName='x' yName='y' dataLabel={this.datalabel}>
+        </AccumulationSeriesDirective>
+      </AccumulationSeriesCollectionDirective>
+    </AccumulationChartComponent>
+  }
+
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+### Using template
+
+You can display the percentage values in data label of pie chart using `template` option.
+
+{% tab template="chart/series/smartlabel", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective,
+Inject, AccumulationDataLabel,AccumulationDataLabelSettingsModel}
+from'@syncfusion/ej2-react-charts';
+import { accData } from 'datasource.ts';
+
+class App extends React.Component<{}, {}> {
+
+  public template:any =this.chartTemplate;
+  public datalabel: AccumulationDataLabelSettingsModel = { visible: true, template: this.template };
+  public chartTemplate(args:any){
+      return (<div id="templateWrap">
+          <div>{args.point.percentage}%</div>
+        </div>);
+  }
+
+  render() {
+    return <AccumulationChartComponent id='charts'>
       <Inject services={[AccumulationDataLabel]} />
       <AccumulationSeriesCollectionDirective>
         <AccumulationSeriesDirective dataSource={accData} xName='x' yName='y' dataLabel={this.datalabel}>

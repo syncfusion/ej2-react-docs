@@ -448,3 +448,5 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 ```
 
 {% endtab %}
+
+> You can refer to our [React Charts](https://www.syncfusion.com/react-ui-components/react-charts) feature tour page for its groundbreaking feature representations. You can also explore our [React Charts example](https://ej2.syncfusion.com/react/demos/#/material/chart/line) that shows various chart types and how to represent time-dependent data, showing trends in data at equal intervals.

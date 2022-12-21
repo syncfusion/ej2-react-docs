@@ -10,7 +10,11 @@ description: "The rendered rangenavigator can be printed or exported directly fr
 
 ## Export
 
-The rendered range navigator can be exported to JPEG, PNG, SVG, or PDF format using the export method in the range navigator. The input parameters for this method are Export Type for format and fileName for result.
+The rendered Range Selector can be exported to **JPEG**, **PNG**, **SVG**, or **PDF** format by using the [`export`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#export) method in the Range Selector. This method contains the following parameters:
+
+* **Type** - To specify the export type. The component can be exported to **JPEG**, **PNG**, **SVG**, or **PDF** format.
+* **File name** - To specify the file name to export.
+* **Orientation** - To specify the orientation type. This is applicable only for PDF export type.
 
 {% tab template="rangenavigator/export", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -56,7 +60,7 @@ ReactDOM.render(<App />, document.getElementById('charts'));
 
 ## Print
 
-The rendered range navigator can be printed directly from the browser by calling the public method print. The ID of the range navigator div element must be passed as argument to that method.
+The rendered Range Selector can be printed directly from the browser by calling the public method [`print`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#print).
 
 {% tab template="rangenavigator/print", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

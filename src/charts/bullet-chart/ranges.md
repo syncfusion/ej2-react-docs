@@ -8,11 +8,11 @@ description: "Bullet Chart scale can be rendered by using different types of end
 
 # Ranges
 
-`Ranges` are represents the quality of a specific range in bullet-chart scale like good, bad and satisfactory. The `end` property specifies the ending point of the qualitative range. `Minimum` value of quantitative scale is considered as the starting point of first range and previous end points are considered as starting point for other ranges.
+Ranges represent the quality of a specific range such as **Good**, **Bad** and **Satisfactory** in the Bullet Chart scale. The ending point of a qualitative range is specified in the [`end`](https://ej2.syncfusion.com/angular/documentation/api/bullet-chart/rangeModel/#end) property in [`ranges`](https://ej2.syncfusion.com/angular/documentation/api/bullet-chart/#ranges). The [`minimum`](https://ej2.syncfusion.com/angular/documentation/api/bullet-chart/#minimum) value of a quantitative scale is considered the starting point of the first range or the previous range end point.
 
 ## Color Customization
 
-Color for each qualitative range is customized using `color` property based on end values. Also you can customize the opacity of the each range color.
+Enhance the readability of ranges with color and opacity. It can be applied using the [`color`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/rangeModel/#color) and [`opacity`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/rangeModel/#opacity) properties in [`ranges`](https://ej2.syncfusion.com/angular/documentation/api/bullet-chart/#ranges).
 
 {% tab template="bullet-chart/working-with-data/local-data", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

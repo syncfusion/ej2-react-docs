@@ -8,7 +8,7 @@ description: "Essential JS 2 Range navigator supports 3 types of series, to rend
 
 # Series Types
 
-Essential JS 2 Range navigator supports 3 types of series, to render the data.
+To render the data, the Range Selector supports three types of series.
 
 <!-- markdownlint-disable MD036 -->
 
@@ -16,8 +16,7 @@ Essential JS 2 Range navigator supports 3 types of series, to render the data.
 
 <!-- markdownlint-disable MD036 -->
 
-To render a line series, set the series[`type`](../api/range-navigator/rangeNavigatorSeries/#type) to `Line`, and
-inject the `LineSeries` module using the `RangeNavigator.Inject(LineSeries)` method.
+To render a line series, use series [`type`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/rangeNavigatorSeriesModel/#type) as **Line**  and inject the `LineSeries` module using `RangeNavigator.Inject(LineSeries)` method. By default, the line series is rendered in the Range Selector.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -56,8 +55,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Area
 
-To render a step line series, use series [`type`](../api/range-navigator/rangeNavigatorSeries/#type) as `Area` and
-inject `AreaSeries` module using `RangeNavigator.Inject(AreaSeries)` method.
+To render an area series, use series [`type`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/rangeNavigatorSeriesModel/#type) as **Area** and inject `AreaSeries` module using `RangeNavigator.Inject(AreaSeries)` method.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -96,8 +94,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## StepLine
 
-To render a step line series, use series [`type`](../api/range-navigator/rangeNavigatorSeries/#type) as `StepLine` and
-inject `StepLineSeries` module using `RangeNavigator.Inject(StepLineSeries)` method.
+To render a Step line series, use series [`type`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/rangeNavigatorSeriesModel/#type) as **Step Line** and inject `StepLineSeries` module using `RangeNavigator.Inject(StepLineSeries)` method.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

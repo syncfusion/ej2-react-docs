@@ -290,7 +290,7 @@ class App extends React.Component<{}, {}> {
   public primaryxAxis: AxisModel = { valueType: 'Category' };
   public marker = {
     dataLabel: {
-      visible: true, bborder: { width: 2, color: 'red' },
+      visible: true, font: { color: "blue", fontWeight: "500" }, border: { width: 2, color: 'red' },
       rx: 10, ry: 10
     }
   };
@@ -359,6 +359,65 @@ class App extends React.Component<{}, {}> {
 
 };
 ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+## Show percentage based on each series points
+
+You can calculate the percentage value based on the sum for each series using the `seriesRender` and `textRender` events in the chart. In `seriesRender` calculate the sum of each series y values and In `textRender` calculate percentage value based on the sum value and modify the text.
+
+{% tab template="chart/data-marker/datalabel", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import { render } from 'react-dom';
+import * as React from "react";
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, Tooltip, ColumnSeries, DataLabel } from '@syncfusion/ej2-react-charts';
+import { Browser } from '@syncfusion/ej2-base';
+
+export let data1 = [{ x: 'USA', y: 46 }, { x: 'GBR', y: 27 }, { x: 'CHN', y: 26 }];
+export let data2 = [{ x: 'USA', y: 37 }, { x: 'GBR', y: 23 }, { x: 'CHN', y: 18 }];
+export let data3 = [{ x: 'USA', y: 38 }, { x: 'GBR', y: 17 }, { x: 'CHN', y: 26 }];
+
+let total = [];
+
+export class App extends React.Component {
+    render() {
+        return (<div className='control-pane'>
+
+            <div className='control-section'>
+                <ChartComponent id='charts' style={{ textAlign: "center" }} textRender={this.onTextRender.bind(this)} primaryXAxis={{ valueType: 'Category', interval: 1, majorGridLines: { width: 0 } }} primaryYAxis={{
+                    majorGridLines: { width: 0 },
+                    majorTickLines: { width: 0 }, lineStyle: { width: 0 }, labelStyle: { color: 'transparent' }
+                }} chartArea={{ border: { width: 0 } }} tooltip={{ enable: true }} width={Browser.isDevice ? '100%' : '60%'} title='Olympic Medal Counts - RIO' seriesRender={this.onSeriesRender.bind(this)}>
+                    <Inject services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]} />
+                    <SeriesCollectionDirective>
+                        <SeriesDirective dataSource={data1} xName='x' yName='y' name='Gold' type='Column' marker={{ dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } }}>
+                        </SeriesDirective>
+                        <SeriesDirective dataSource={data2} xName='x' yName='y' name='Silver' type='Column' marker={{ dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } }}>
+                        </SeriesDirective>
+                        <SeriesDirective dataSource={data3} xName='x' yName='y' name='Bronze' type='Column' marker={{ dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#ffffff' } } }}>
+                        </SeriesDirective>
+                    </SeriesCollectionDirective>
+                </ChartComponent>
+            </div>
+        </div>);
+    }
+    onSeriesRender(args) {
+        for (var i = 0; i < args.data.length; i++) {
+            if (!total[args.data[i].x]) total[args.data[i].x] = 0;
+            total[args.data[i].x] += parseInt(args.data[i].y);
+          }
+    }
+    ;
+    onTextRender(args) {
+        var percentage = (parseInt(args.text) / total[args.point.x]) * 100;
+        percentage = percentage % 1 === 0 ? percentage : percentage.toFixed(2);
+        args.text = percentage + '%';
+    };
+}
+
+render(<App />, document.getElementById('charts'));
 ```
 
 {% endtab %}

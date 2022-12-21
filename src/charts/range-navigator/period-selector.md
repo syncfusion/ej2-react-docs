@@ -12,7 +12,7 @@ The period selector allows to select a range with specified periods.
 
 ## Periods
 
-Periods is an array of objects that allows users to specify the range of periods. The “interval” property specifies the count value of the button, and the “text” property specifies the text to be displayed on button. The “intervalType” property allows users to customize the intervals of the buttons. The “intervalType” property supports the following interval types:
+An array of objects that allows the users to specify pre-defined time intervals. The [`interval`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#interval) property specifies the count value of the button, and the `text` property specifies the text to be displayed on the button. The [`intervaltype`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#intervaltype) property allows the users to customize the interval type, and it supports the following types:
 
 * Auto
 * Years
@@ -70,12 +70,11 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
->Note: To use the period selector feature, inject the PeriodSelector module using the RangeNavigator.Inject(PeriodSelector)
-method.
+>To use the period selector feature, inject the `PeriodSelector` module using the `RangeNavigator.Inject(PeriodSelector)` method.
 
 ## Positioning period selector
 
-The “position” property allows users to position the period selector either at the “top” or “bottom”.
+The [`position`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/periodSelectorSettingsModel/#position) property allows the users to position the period selector at the **Top** or **Bottom**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -125,7 +124,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Height
 
-The “height” property allows users to specify the height for period selector. The default value of the height property is 43.
+The [`height`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/periodSelectorSettingsModel/#height) property allows the users to specify the height of the period selector. The default value of the height property is **43px**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -176,7 +175,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Visibility of range navigator
 
-The “disableRangeSelector” property allows users to render the period selector without range navigator.
+The [`disableRangeSelector`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#disablerangeselector) property allows the users to display only the period selector and not the Range Selector.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

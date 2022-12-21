@@ -82,6 +82,82 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
+## Legend Reverse
+
+You can reverse the order of the legend items by using the [`reverse`](../api/accumulation-chart/legendSettings/#reverse) property. By default, legend for the first series in the collection will be placed first.
+
+{% tab template="chart/series/legend-reverse", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  AccumulationChartComponent,
+  AccumulationSeriesCollectionDirective,
+  AccumulationSeriesDirective,
+  AccumulationLegend,
+  PieSeries,
+  AccumulationDataLabel,
+  AccumulationTooltip,
+  Inject }
+from'@syncfusion/ej2-react-charts';
+
+class App extends React.Component<{}, {}> {
+
+  public data: any = [
+    { x: 'Argentina', y: 505370, r: '50%' },
+    { x: 'Belgium', y: 551500, r: '70%' },
+    { x: 'Cuba', y: 312685, r: '84%' },
+    { x: 'Dominican Republic', y: 350000, r: '97%' },
+    { x: 'Egypt', y: 301000, r: '84%' },
+    { x: 'Kazakhstan', y: 300000, r: '70%' },
+    { x: 'Somalia', y: 357022, r: '90%' },
+  ];
+  render() {
+    return (
+      <AccumulationChartComponent
+        id="charts"
+        ref={(pie) => (this.pie = pie)}
+        legendSettings={{
+          visible: true,
+          reverse: true,
+        }}
+        useGroupingSeparator={true}
+        enableSmartLabels={true}
+        enableAnimation={true}
+        tooltip={{ enable: true }}
+      >
+        <Inject
+          services={[
+            AccumulationLegend,
+            PieSeries,
+            AccumulationDataLabel,
+            AccumulationTooltip,
+          ]}
+        />
+        <AccumulationSeriesCollectionDirective>
+          <AccumulationSeriesDirective
+            dataSource={this.data1
+            xName="x"
+            yName="y"
+            innerRadius="20%"
+            dataLabel={{
+              visible: true,
+              position: 'Outside',
+              name: 'x',
+            }}
+            radius="r"
+          ></AccumulationSeriesDirective>
+        </AccumulationSeriesCollectionDirective>
+      </AccumulationChartComponent>
+    );
+  }
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
 ## Legend Shape
 
 To change the legend icon shape, use the `legendShape` property in the `series`. By default, legend icon shape
@@ -205,6 +281,38 @@ class App extends React.Component<{}, {}> {
       <Inject services={[AccumulationLegend]} />
       <AccumulationSeriesCollectionDirective>
         <AccumulationSeriesDirective dataSource={accData} xName='x' yName='y' legendShape='Circle'></AccumulationSeriesDirective>
+      </AccumulationSeriesCollectionDirective>
+    </AccumulationChartComponent>
+  }
+
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+## Legend Text Wrap
+
+When the legend text exceeds the container, the text can be wrapped by using `textWrap` Property. End user can also wrap the legend text based on the `maximumLabelWidth` property.
+
+{% tab template="chart/series/legend", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, Inject, AccumulationLegend,LegendSettingsModel}
+from'@syncfusion/ej2-react-charts';
+import { piechart } from 'datasource.ts';
+
+class App extends React.Component<{}, {}> {
+
+  public legendSettings: LegendSettingsModel = { visible:true, position:'Right',         textWrap:'Wrap',maximumLabelWidth:60, height:'44%', width:'64%' };
+
+  render() {
+    return <AccumulationChartComponent id='charts' legendSettings={this.legendSettings}>
+      <Inject services={[AccumulationLegend]} />
+      <AccumulationSeriesCollectionDirective>
+        <AccumulationSeriesDirective dataSource={piechart} xName='x' yName='y'></AccumulationSeriesDirective>
       </AccumulationSeriesCollectionDirective>
     </AccumulationChartComponent>
   }

@@ -886,8 +886,8 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 <!-- markdownlint-disable MD013 -->
 `fill` and `border` of all column type series can be
-customized using [`fill`](../api/chart/series/#fill) and [`border`](../api/chart/series/#border)
-properties.
+customized using [`fill`](../api/chart/series/#fill) and [`border`](../api/chart/series/#border) properties.
+Width of the column and space between each column can be customized using [`columnWidth`](../api/chart/series/#columnwidth) and [`columnSpacing`](../api/chart/series/#columnspacing) properties respectively. The [`columnWidthInPixel`](../api/chart/series/#columnwidthinpixel) property allows to specify the column width in pixel unit.
 For customizing a specify point, please refer the
 [`pointRender`](../api/chart/chartModel/#pointrender).
 
@@ -915,7 +915,7 @@ class App extends React.Component<{}, {}> {
       <Inject services={[ColumnSeries, Legend, Tooltip, DataLabel, Category]} />
       <SeriesCollectionDirective>
         <SeriesDirective dataSource={columnData} xName='country' yName='gold' name='Gold' type='Column'
-          fill='red' border={this.border}>
+          fill='red' border={this.border} columnWidth={0.5} columnSpacing={0.7}>
         </SeriesDirective>
       </SeriesCollectionDirective>
     </ChartComponent>
@@ -973,6 +973,194 @@ class App extends React.Component<{}, {}> {
     </ChartComponent>
   }
 
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+**Grouped Column**
+
+You can use the [`groupName`](../api/chart/series/#groupname) property to group the data points in the column type charts. Data points with same group name are grouped together.
+
+{% tab template="chart/series/group-column", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  ChartComponent,
+  SeriesCollectionDirective,
+  SeriesDirective,
+  Inject,
+  Legend,
+  Category,
+  Tooltip,
+  ColumnSeries,
+  DataLabel }
+from'@syncfusion/ej2-react-charts';
+
+export let data1 = [
+  { x: '2012', y: 104 },
+  { x: '2016', y: 121 },
+  { x: '2020', y: 113 },
+];
+export let data2 = [
+  { x: '2012', y: 46 },
+  { x: '2016', y: 46 },
+  { x: '2020', y: 39 },
+];
+export let data3 = [
+  { x: '2012', y: 65 },
+  { x: '2016', y: 67 },
+  { x: '2020', y: 65 },
+];
+export let data4 = [
+  { x: '2012', y: 29 },
+  { x: '2016', y: 27 },
+  { x: '2020', y: 22 },
+];
+export let data5 = [
+  { x: '2012', y: 91 },
+  { x: '2016', y: 70 },
+  { x: '2020', y: 88 },
+];
+export let data6 = [
+  { x: '2012', y: 38 },
+  { x: '2016', y: 26 },
+  { x: '2020', y: 38 },
+];
+class App extends React.Component<{}, {}> {
+  render() {
+    return (
+      <ChartComponent
+        id="charts"
+        style={{ textAlign: 'center' }}
+        primaryXAxis={{
+          valueType: 'Category',
+          interval: 1,
+          majorGridLines: { width: 0 },
+        }}
+        primaryYAxis={{
+          majorGridLines: { width: 0 },
+          majorTickLines: { width: 0 },
+          lineStyle: { width: 0 },
+          labelStyle: { color: 'transparent' },
+        }}
+        chartArea={{ border: { width: 0 } }}
+        tooltip={{ enable: true }}
+        title="Olympics Medal Tally"
+      >
+        <Inject
+          services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]}
+        />
+        <SeriesCollectionDirective>
+          <SeriesDirective
+            dataSource={data1}
+            xName="x"
+            yName="y"
+            name="USA Total"
+            type="Column"
+            groupName="USA"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data2}
+            xName="x"
+            yName="y"
+            name="USA Gold"
+            type="Column"
+            groupName="USA"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data3}
+            xName="x"
+            yName="y"
+            name="UK Total"
+            type="Column"
+            groupName="UK"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data4}
+            xName="x"
+            yName="y"
+            name="UK Gold"
+            type="Column"
+            groupName="UK"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data5}
+            xName="x"
+            yName="y"
+            name="China Total"
+            type="Column"
+            groupName="China"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data6}
+            xName="x"
+            yName="y"
+            name="China Gold"
+            type="Column"
+            groupName="China"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+        </SeriesCollectionDirective>
+      </ChartComponent>
+    );
+  }
 };
 ReactDOM.render(<App />, document.getElementById("charts"));
 ```
@@ -1116,6 +1304,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 `fill` and `border` of all bar type series can be
 customized using [`fill`](../api/chart/series/#fill) and [`border`](../api/chart/series/#border).
+Width of the bar and space between each bar can be customized using [`columnWidth`](../api/chart/series/#columnwidth) and [`columnSpacing`](../api/chart/series/#columnspacing) properties respectively. The [`columnWidthInPixel`](../api/chart/series/#columnwidthinpixel) property allows to specify the bar width in pixel unit.
 For customizing a specify point, please refer the
 [`pointRender`](../api/chart/chartModel/#pointrender).
 
@@ -1146,7 +1335,8 @@ class App extends React.Component<{}, {}> {
       <Inject services={[BarSeries, Legend, Tooltip, DataLabel, Category]} />
       <SeriesCollectionDirective>
         <SeriesDirective dataSource={customData} xName='x' yName='y' name='India' type='Bar'
-          fill='red' border={this.border}>
+          columnWidth={0.5}
+            columnSpacing={0.7} fill='red' border={this.border}>
         </SeriesDirective>
       </SeriesCollectionDirective>
     </ChartComponent>
@@ -1201,6 +1391,194 @@ class App extends React.Component<{}, {}> {
     </ChartComponent>
   }
 
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+**Grouped Bar**
+
+You can use the [`groupName`](../api/chart/series/#groupname) property to group the data points in the Bar type charts. Data points with same group name are grouped together.
+
+{% tab template="chart/series/group-bar", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  ChartComponent,
+  SeriesCollectionDirective,
+  SeriesDirective,
+  Inject,
+  Legend,
+  Category,
+  Tooltip,
+  BarSeries,
+  DataLabel }
+from'@syncfusion/ej2-react-charts';
+
+export let data1 = [
+  { x: '2012', y: 104 },
+  { x: '2016', y: 121 },
+  { x: '2020', y: 113 },
+];
+export let data2 = [
+  { x: '2012', y: 46 },
+  { x: '2016', y: 46 },
+  { x: '2020', y: 39 },
+];
+export let data3 = [
+  { x: '2012', y: 65 },
+  { x: '2016', y: 67 },
+  { x: '2020', y: 65 },
+];
+export let data4 = [
+  { x: '2012', y: 29 },
+  { x: '2016', y: 27 },
+  { x: '2020', y: 22 },
+];
+export let data5 = [
+  { x: '2012', y: 91 },
+  { x: '2016', y: 70 },
+  { x: '2020', y: 88 },
+];
+export let data6 = [
+  { x: '2012', y: 38 },
+  { x: '2016', y: 26 },
+  { x: '2020', y: 38 },
+];
+class App extends React.Component<{}, {}> {
+  render() {
+    return (
+      <ChartComponent
+        id="charts"
+        style={{ textAlign: 'center' }}
+        primaryXAxis={{
+          valueType: 'Category',
+          interval: 1,
+          majorGridLines: { width: 0 },
+        }}
+        primaryYAxis={{
+          majorGridLines: { width: 0 },
+          majorTickLines: { width: 0 },
+          lineStyle: { width: 0 },
+          labelStyle: { color: 'transparent' },
+        }}
+        chartArea={{ border: { width: 0 } }}
+        tooltip={{ enable: true }}
+        title="Olympics Medal Tally"
+      >
+        <Inject
+          services={[BarSeries, Legend, Tooltip, Category, DataLabel]}
+        />
+        <SeriesCollectionDirective>
+          <SeriesDirective
+            dataSource={data1}
+            xName="x"
+            yName="y"
+            name="USA Total"
+            type="Bar"
+            groupName="USA"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data2}
+            xName="x"
+            yName="y"
+            name="USA Gold"
+            type="Bar"
+            groupName="USA"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data3}
+            xName="x"
+            yName="y"
+            name="UK Total"
+            type="Bar"
+            groupName="UK"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data4}
+            xName="x"
+            yName="y"
+            name="UK Gold"
+            type="Bar"
+            groupName="UK"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data5}
+            xName="x"
+            yName="y"
+            name="China Total"
+            type="Bar"
+            groupName="China"
+            columnWidth={0.7}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={data6}
+            xName="x"
+            yName="y"
+            name="China Gold"
+            type="Bar"
+            groupName="China"
+            columnWidth={0.5}
+            columnSpacing={0.1}
+            marker={{
+              dataLabel: {
+                visible: true,
+                position: 'Top',
+                font: { fontWeight: '600', color: '#ffffff' },
+              },
+            }}
+          ></SeriesDirective>
+        </SeriesCollectionDirective>
+      </ChartComponent>
+    );
+  }
 };
 ReactDOM.render(<App />, document.getElementById("charts"));
 ```

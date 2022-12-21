@@ -10,11 +10,11 @@ description: "Getting started file explains how to configure and install chart p
 
 # Getting Started
 
-This section explains you the steps required to create a simple bullet chart and demonstrate the basic usage of the bullet chart control.
+This section explains you the steps required to create a simple Bullet Chart and demonstrate the basic usage of the Bullet Chart control.
 
 ## Dependencies
 
-Below is the list of minimum dependencies required to use the bullet chart component.
+Below is the list of minimum dependencies required to use the Bullet Chart component.
 
 ```javascript
 
@@ -153,7 +153,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Bullet Chart With Data
 
-This section explains how to plot local data to the bullet chart.
+This section explains how to plot local data to the Bullet Chart.
 
 {% tab compileJsx=true%}
 
@@ -169,7 +169,7 @@ let data: any[] = [
 
 {% endtab %}
 
-Now assign the local data to `dataSource` property. `value` and `target` values should be mapped with `valueField` and `targetField` respectively.
+Now assign the local data to `dataSource` property. **value** and **target** values should be mapped with `valueField` and `targetField` respectively.
 
 {% tab template="bullet-chart/getting-started/datasource", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -209,8 +209,8 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Add Bullet Chart Title
 
-You can add a title using `title` property to the bullet chart to provide quick
-information to the user about the data plotted in the bullet chart.
+You can add a title using `title` property to the Bullet Chart to provide quick
+information to the user about the data plotted in the Bullet Chart.
 
 {% tab template="bullet-chart/getting-started/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -241,7 +241,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Ranges
 
-You can add a range using `BulletRangeCollectionDirective` and `BulletRangeDirective` directives of the bullet chart.
+You can add a range using `BulletRangeCollectionDirective` and `BulletRangeDirective` directives of the Bullet Chart.
 
 {% tab template="bullet-chart/getting-started/ranges", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -279,7 +279,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Tooltip
 
-You can use tooltip for the bullet chart by setting the `enable` property to true in `tooltip` object and by injecting the `BulletTooltip` module into the services.
+You can use tooltip for the Bullet Chart by setting the `enable` property to true in `tooltip` object and by injecting the `BulletTooltip` module into the services.
 
 {% tab template="bullet-chart/getting-started/tooltip", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

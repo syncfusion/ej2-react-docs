@@ -228,10 +228,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-**Chart Area Background**
+**Chart Area Customization**
 
-The chart area background can be customized by using the [`background`](../api/chart/chartModel/#background)
-property in the [`chartArea`](../api/chart/chartAreaModel/).
+Using [`background`](../api/chart/chartAreaModel/#background) and [`border`](../api/chart/chartAreaModel/border/) properties, you can change the background color and border of the chart area. Width for the chart area can be customized using [`width`](../api/chart/chartAreaModel/width/) property.
 
 {% tab template="chart/series/column", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -257,7 +256,7 @@ class App extends React.Component<{}, {}> {
   public primaryxAxis: AxisModel = { valueType: 'Category', title: 'Countries' };
   public primaryyAxis: AxisModel = { minimum: 0, maximum: 80, interval: 20, title: 'Medals' };
   public border: BorderModel = { width: 2, color: '#FF0000' };
-  public chartarea: ChartAreaModel = { background: 'skyblue' };
+  public chartarea: ChartAreaModel = { background: 'skyblue', width: '90%' };
 
   render() {
     return <ChartComponent id='charts'

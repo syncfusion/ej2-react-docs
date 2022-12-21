@@ -11,7 +11,7 @@ description: "Range navigator supports double, datetime and logarithmic data val
 
 ## Numeric
 
-Numeric scale is used to represent the numeric values of data in a chart. By default, the valueType of a range navigator is Double.
+The numeric scale is used to represent the numeric values of data in a Range Selector. By default, the [`valueType`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#valuetype) of a Range Selector is **Double**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -52,7 +52,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Range
 
-Minimum and maximum of the Range navigator will be calculated automatically based on the provided data. You can also customize the range using the minimum, maximum, and interval properties.
+The minimum and the maximum of the scale will be calculated automatically based on the provided data. It can be customized by using the [`minimum`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#minimum), [`maximum`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#maximum), and [`interval`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#interval) properties.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -93,9 +93,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Label Format
 
-Numeric labels can be formatted using the labelFormat property.
-
-Numeric labels support all globalized formats.
+The numeric labels can be formatted using the [`labelFormat`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelformat) property and it supports all the globalized formats.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -197,8 +195,7 @@ The following table describes the result of applying some commonly used label fo
 
 ### Custom Label Format
 
-The range navigator also supports custom label formats using placeholders such as {value}$, in which, the value
-represent the axis label, e.g. 20$.
+The Range Selector also supports the Custom Label formats using the placeholders such as **{value}$**, in which the value represents the axis label, e.g. 20$.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -240,8 +237,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 <!-- markdownlint-disable MD033 -->
 
-Logarithmic supports logarithmic scale, and it is used to visualize data when the Range navigator has numerical values
-in both lower (e.g.: 10-6) and higher (e.g.: 106) orders of magnitude.
+The Logarithmic supports the logarithmic scale, and it is used to visualize the data when the Range Selector has numerical values in both the lower (e.g.: 10-6) and the higher (e.g.: 106) orders of the magnitude.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -292,12 +288,12 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
->Note: To use logarithmic scale,  inject the Logarithmic module using the RangeNavigator.Inject(Logarithmic)
-method, and then set the valueType to Logarithmic.
+>To use logarithmic scale, inject the `Logarithmic` module using the `RangeNavigator.Inject(Logarithmic)`
+method, and then set the `valueType` to `Logarithmic`.
 
-**Range**
+### Range
 
-Minimum and maximum of the Range navigator will be calculated automatically based on the provided data. You can also customize the range using the minimum, maximum, and interval properties.
+The minimum and the maximum of the Range Selector will be calculated automatically based on the provided data. It can be customized by using the [`minimum`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#minimum), [`maximum`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#maximum), and [`interval`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#interval) properties.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -350,7 +346,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Logarithmic Base
 
-Logarithmic base can be customized using the logBase property. The default value of the logBase property is 10.
+The Logarithmic Base can be customized using the [`logBase`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#logbase) property. The default value of this property is **10**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -403,7 +399,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Date-time
 
-Date-time Range navigator supports date-time scale and displays date-time values as a labels in the specified format.
+The Range Selector supports the DateTime scale and displays the DateTime values as labels in the specified format.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -440,13 +436,13 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
->Note: Date-time Range navigator supports date-time scale and displays date-time values as a labels in the specified format.
+>Date-time Range navigator supports date-time scale and displays date-time values as a labels in the specified format.
 
 ### Interval Customization
 
-Date-time intervals can be customized using the interval and intervalType properties of the range navigator.
-For example, when you set interval as 2 and intervalType as years, the interval is considered as 2 years.
-Date-time supports the following interval types:
+The DateTime intervals can be customized using the [`interval`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#interval) and the [`intervalType`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#intervaltype) properties of the Range Selector. For example, if the [`interval`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#interval) is set to 2 and the [`intervalType`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#intervaltype) is set to years, the interval will be considered to be 2 years.
+
+DateTime supports the following interval types:
 * Auto
 * Years
 * Quarter
@@ -491,9 +487,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-**Label Format**
+### Label Format
 
-You can format and parse the date to all globalize format using [`labelFormat`](../api/range-navigator/rangeNavigatorModel/#labelformat) property in an axis.
+The [`labelFormat`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelformat) property is used to format and parse the date to all globalize format.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -530,7 +526,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-The following table describes the result of applying some common date time formats to the `labelFormat` property
+The following table shows the results of applying some common DateTime formats to the [`labelFormat`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelformat) property.
 
 <!-- markdownlint-disable MD033 -->
 <table>

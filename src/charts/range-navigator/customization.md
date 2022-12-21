@@ -10,9 +10,7 @@ description: "Range navigator can be customized using the navigatorBorder, navig
 
 ## Navigator appearance
 
-The navigator can be customized using the “navigatorStyleSettings” property. The “selectedRegionColor” property is used
-to specify the color for selected region whereas the “unSelectedRegionColor” property is used to specify the color for
-unselected region.
+The Range Selector can be customized by using the [`navigatorStyleSettings`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#navigatorstylesettings). The [`selectedRegionColor`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/styleSettingsModel/#selectedregioncolor) property is used to specify the color for the selected region, whereas the [`unselectedRegionColor`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/styleSettingsModel/#unselectedregioncolor) property is used to specify the color for the unselected region.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -56,7 +54,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Thumb
 
-The thumb property provides options to customize the border, fill, size, and type of thumb. The types of thumb can be “Circle” and “Rectangle”.
+The thumb property allows to customize the border, fill color, size, and type of thumb. Thumbs can be of two shapes: **Circle** and **Rectangle**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -103,7 +101,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Border customization
 
-Using the “navigatorBorder” property, you can customize the “width” and “color” of the range navigator.
+Using the [`navigatorBorder`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/thumbSettingsModel/#border), the [`width`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/borderModel/#width) and [`color`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/borderModel/#color) of the Range Selector border can be customized.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -143,9 +141,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Deferred update
 
-If the “enableDeferredUpdate” property is set to true, then the changed event will be fired after dragging the slider.
-If the “enableDeferredUpdate” is false, then the changed event will be fired when dragging the slider. By default,
-the “enableDeferredUpdate” is set to false.
+If the [`enableDeferredUpdate`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#enabledeferredupdate) property is set to **true**, then the changed event will be triggered after dragging the slider. If the [`enableDeferredUpdate`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#enabledeferredupdate) is **false**, then the changed event will be triggered when dragging the slider. By default, the [`enableDeferredUpdate`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#enabledeferredupdate) is set to **false**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -184,7 +180,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Allow snapping
 
-The “allowSnapping” property toggles the placement of the slider exactly to the left or on the nearest interval.
+The [`allowSnapping`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#allowsnapping) property toggles the placement of the slider exactly to the left or on the nearest interval.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -223,7 +219,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Animation
 
-The speed of the animation can be controlled using the “animationDuration” property. The default value of the “animationDuration” property is 500 milliseconds.
+The speed of the animation can be controlled using the [`animationDuration`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#animationduration) property. The default value of the [`animationDuration`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#animationduration) property is **500** milliseconds.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

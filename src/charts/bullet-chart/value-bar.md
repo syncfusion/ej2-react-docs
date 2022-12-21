@@ -6,9 +6,9 @@ component: "Bullet Chart"
 description: "The main data value is encoded by a length of the main bar in the middle of the chart, known as the Feature Measure. "
 ---
 
-# Feature Bar
+# Actual Bar
 
-The main data value is encoded by a length of the main bar in the middle of the chart, known as the `Feature Measure`. This is also called as `value Bar`. Also, if you want to display the target bar you should map the `valueField` name from the dataSource.
+To display the primary data or the current value of the data being measured known as the **Feature Measure** that should be encoded as a bar. This is called as the **Actual Bar** or the **Feature Bar** in the Bullet Chart, and to display the actual bar the [`valueField`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#valuefield) should be mapped to the appropriate field from the data source.
 
 {% tab template="bullet-chart/value-bar", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -42,9 +42,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-## Feature Bar Types
+## Types of Actual Bar
 
-You can customize the shape of the feature bar or value bar using the `type` property of the bullet chart. Feature bar contains `Rect` and `Dot` shapes. The default type of feature bar is `Rect`.
+The shape of the actual bar can be customized using the [`type`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#type) property of the Bullet Chart. The actual bar contains `Rect` and `Dot` shapes. By default, the actual bar shape is Rect.
 
 {% tab template="bullet-chart/value-bar", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -79,11 +79,11 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-## Customization
+## Actual Bar Customization
 
 ### Border Customization
 
-Using the `valueBorder` property of the bullet chart, you can customize the border `color` and `width` of the feature bar.
+Using the [`valueBorder`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#valueborder) property of the bullet chart, you can customize the border `color` and `width` of the actual bar.
 
 {% tab template="bullet-chart/value-bar", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -120,7 +120,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Fill color and height Customization
 
-You can customize the fill color and height of the feature bar using the `valueFill` and `valueHeight` properties of the bullet chart.
+Customize the fill color and height of the actual bar using the [`valueFill`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#valuefill) and [`valueHeight`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#valueheight) properties of the bullet chart.
 
 {% tab template="bullet-chart/value-bar", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

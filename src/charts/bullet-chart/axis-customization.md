@@ -10,9 +10,12 @@ description: "Bullet Chart axis includes different customizations such as majort
 
 ## MajorTickLines and MinorTickLines Customization
 
-You can customize the `width`, `color`, and `size` of minor and major tick lines using the
-[`majorTickLines`](../api/bullet-chart/majorTickLinesSettingsModel/) and
-[`minorTickLines`](../api/bullet-chart/minorTickLinesSettingsModel/) properties of the bullet-chart.
+The following properties can be used to customize [`majorTicklines`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#majorticklines) and [`minorTicklines`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#minorticklines).
+
+* **width** - Specifies the width of ticklines.
+* **height** - Specifies the height of ticklines.
+* **color** - Specifies the color of ticklines.
+* **useRangeColor** - Specifies the color of ticklines and represents the color from corresponding range colors.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -51,7 +54,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Tick Placement
 
-You can place major and minor ticks `inside` or `outside` the ranges using the [`tickPosition`](../api/bullet-chart/bulletChartModel/#tickposition) property of bullet-chart.
+The major and the minor ticks can be placed **inside** or **outside** the ranges using the [`tickPosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#tickposition) property.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -89,9 +92,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Label Format
 
-***Axis Label Format***
-
-Axis numeric labels can be formatted by using the [`labelFormat`](../api/bullet-chart/bulletChartModel/#labelformat)property. Axis labels support all globalize formats. The following table describes the result of applying some commonly used label formats on numeric axis values.
+Axis numeric labels can be formatted by using the [`labelFormat`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#labelformat) property. Axis labels support all globalize formats.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -127,7 +128,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-The following 'Table' describes the result of applying some commonly used 'Label' formats on Numeric axis values.
+The following table describes the result of applying some commonly used formats to numeric axis labels.
 
 <!-- markdownlint-disable MD033 -->
 <table>
@@ -189,7 +190,7 @@ The following 'Table' describes the result of applying some commonly used 'Label
 
 ## GroupingSeparator
 
-To separate groups of thousands, use the [`enableGroupSeparator`](../api/bullet-chart/bulletChartModel/#enablegroupseparator) property of bullet-chart.
+To separate the groups of thousands, set the [`enableGroupSeparator`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#enablegroupseparator) property to **true**
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -227,7 +228,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Custom Label Format
 
-You can also customize the axis label format using a placeholder like ${value}K, in which the value represents the axis label, e.g. $20K.
+Using the [`labelFormat`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#labelformat) property, axis labels can be specified with a custom defined format in addition to the axis value. The label format uses a placeholder such as **${value}K**, which represents the axis label.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -265,7 +266,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Label Placement
 
-You can customize the axis labels `inside` or `outside` the bullet-chart using the [`labelPosition`](../api/bullet-chart/bulletChartModel/#labelposition) property.
+Label can be placed **Inside** or **Outside** of the ranges using the [`labelPosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#labelposition) property.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -303,8 +304,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Opposed Position
 
-To place an axis opposite to its original position,
-set the [`opposedPosition`](../api/bullet-chart/bulletChartModel/#opposedposition) property to true.
+To place an axis opposite to its original position, set the [`opposedPosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#opposedposition) property to **true**.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -344,7 +344,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Category Label
 
-You can display the x axis label by mapping the `categoryField` from dataSource of a bullet-chart. It is a more efficient way to understand data.
+The Bullet Chart supports X-axis label by specifying the property from the data source to the [`categoryField`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#categoryfield). It helps to understand the input data in a more efficient way.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -382,7 +382,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Category Label Customization
 
-You can customize the category label by using the `categoryLabelStyle` property of the bullet-chart.
+The label color, opacity, font size, font family, font weight, and font style can be customized by using the [`categoryLabelStyle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#categorylabelstyle) setting for category and the [`labelStyle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#labelstyle) setting for axis label. The [`useRangeColor`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/bulletLabelStyleModel/#userangecolor) property specifies the color of the axis label and represents the color from the corresponding range colors.
 
 {% tab template="bullet-chart/axis-customization/axis", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

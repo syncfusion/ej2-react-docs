@@ -271,7 +271,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Customize the Appearance of Tooltip
 
-The [`fill`](../api/chart/tooltipSettingsModel/#fill) and [`border`](../api/chart/tooltipSettingsModel/#border) properties are used to customize the background color and border of the tooltip respectively. The [`textStyle`](../api/chart/tooltipSettingsModel/#textstyle) property in the tooltip is used to customize the font of the tooltip text.
+The [`fill`](../api/chart/tooltipSettingsModel/#fill) and [`border`](../api/chart/tooltipSettingsModel/#border) properties are used to customize the background color and border of the tooltip respectively. The [`textStyle`](../api/chart/tooltipSettingsModel/#textstyle) property in the tooltip is used to customize the font of the tooltip text. The [`highlightColor`](../api/chart/#highlightcolor) property is used to customize the point color while hovering for tooltip.
 
 {% tab template="chart/user-interaction/tooltip", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -304,6 +304,7 @@ class App extends React.Component<{}, {}> {
       primaryXAxis={this.primaryxAxis}
       tooltip={this.tooltip}
       title='Unemployment Rates 1975-2010'
+      highlightColor='red'
       titleStyle={this.titlestyle}>
       <Inject services={[StepLineSeries, Legend, Tooltip, DataLabel, DateTime]} />
       <SeriesCollectionDirective>

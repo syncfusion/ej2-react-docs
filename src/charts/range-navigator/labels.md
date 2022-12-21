@@ -10,8 +10,7 @@ description: "RangeNavigator supports Multilevel label and enable grouping prope
 
 ## Multilevel labels
 
-The second level labels for the range navigator can be enabled by setting the “enableGrouping” property to true.
-This is restricted to date-time axis alone.
+The multi-level labels for the Range Selector can be enabled by setting the [`enableGrouping`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#enablegrouping) property to **true**. This is restricted to the DateTime axis alone.
 
 {% tab template="rangenavigator/lightweight", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -57,7 +56,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Grouping
 
-The second level axis labels can be grouped using “groupBy” property with the following interval types:
+The multi-level labels can be grouped using the [`groupBy`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#groupby) property with the following interval types:
 
 * Auto
 * Years
@@ -115,9 +114,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Smart labels
 
-The “labelIntersectAction” property is used to avoid overlapping of labels.
-
-The following code sample shows setting the labelIntersectAction property to Hide.
+The [`labelIntersectAction`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelintersectaction) property is used to avoid overlapping of labels. The following code sample shows the setting of [`labelIntersectAction`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelintersectaction) property to **Hide**.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -156,8 +153,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Label positioning
 
-By default, the labels can be placed at outside of the range navigator. You can place the labels inside the range navigator
-using the labelPosition property.
+By default, the labels can be placed outside the Range Selector. It can also be placed inside the Range Selector using the [`labelPosition`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelposition) property.
 
 {% tab template="rangenavigator/getting-started", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -196,7 +192,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Labels customization
 
-The font size, color, family, etc. can be customized using the “labelStyle” property.
+The font size, color, family, etc. can be customized using the [`labelStyle`](https://ej2.syncfusion.com/react/documentation/api/range-navigator/#labelstyle) setting.
 
 {% tab template="rangenavigator/lightweight", sourceFiles="app/**/*.tsx", compileJsx=true %}
 

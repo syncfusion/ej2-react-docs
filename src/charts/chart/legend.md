@@ -122,6 +122,95 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
+## Legend Reverse
+
+You can reverse the order of the legend items by using the [`reverse`](../api/chart/legendSettings/#reverse) property. By default, legend for the first series in the collection will be placed first.
+
+{% tab template="chart/axis/legend-reverse", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  ChartComponent,
+  SeriesCollectionDirective,
+  SeriesDirective,
+  Inject,
+  Legend,
+  Category,
+  Tooltip,
+  ColumnSeries,
+  DataLabel }
+from'@syncfusion/ej2-react-charts';
+
+class App extends React.Component<{}, {}> {
+
+  public data: any[] = [
+    { country: 'USA', gold: 50, silver: 70, bronze: 45 },
+    { country: 'China', gold: 40, silver: 60, bronze: 55 },
+    { country: 'Japan', gold: 70, silver: 60, bronze: 50 },
+    { country: 'Australia', gold: 60, silver: 56, bronze: 40 },
+    { country: 'France', gold: 50, silver: 45, bronze: 35 },
+    { country: 'Germany', gold: 40, silver: 30, bronze: 22 },
+    { country: 'Italy', gold: 40, silver: 35, bronze: 37 },
+    { country: 'Sweden', gold: 30, silver: 25, bronze: 27 },
+  ];
+  render() {
+    return (
+      <ChartComponent
+        id="charts"
+        primaryXAxis={{
+          valueType: 'Category',
+          interval: 1,
+          majorGridLines: { width: 0 },
+        }}
+        primaryYAxis={{
+          majorGridLines: { width: 0 },
+          majorTickLines: { width: 0 },
+          lineStyle: { width: 0 },
+          labelStyle: { color: 'transparent' },
+        }}
+        title="Olympic Medals"
+        legendSettings={{
+            visible: true,
+            reverse: true
+        }}
+      >
+        <Inject
+          services={[ColumnSeries, Legend, Tooltip, DataLabel, Category]}
+        />
+        <SeriesCollectionDirective>
+          <SeriesDirective
+            dataSource={this.data}
+            xName="country"
+            yName="gold"
+            name="Gold"
+            type="Column"
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={this.data}
+            xName="country"
+            yName="silver"
+            name="Silver"
+            type="Column"
+          ></SeriesDirective>
+          <SeriesDirective
+            dataSource={this.data}
+            xName="country"
+            yName="bronze"
+            name="Bronze"
+            type="Column"
+          ></SeriesDirective>
+        </SeriesCollectionDirective>
+      </ChartComponent>
+    );
+  }
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
 <!-- markdownlint-disable MD036 -->
 
 **Legend Alignment**
@@ -237,7 +326,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-**Legend Size**
+### Legend Size
 
 By default, legend takes 20% - 25% of the chart's height horizontally, when it is placed on top or bottom position and 20% - 25% of the
 chart's width vertically, when placed on left or right position of the chart. You can change this default legend size by using the
@@ -295,7 +384,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-**Legend Item Size**
+### Legend Item Size
 
 You can customize the size of the legend items by using the [`shapeHeight`](../api/chart/legendSettings/#shapeheight)
 and [`shapeWidth`](../api/chart/legendSettings/#shapewidth) property.
@@ -352,7 +441,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-**Paging for Legend**
+### Paging for Legend
 
 Paging will be enabled by default, when the legend items exceeds the legend bounds. You can view each legend
 items by navigating between the pages using navigation buttons.
@@ -418,6 +507,125 @@ class App extends React.Component<{}, {}> {
         </SeriesDirective>
       </SeriesCollectionDirective>
     </ChartComponent>
+  }
+
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+### Legend Text Wrap
+
+When the legend text exceeds the container, the text can be wrapped by using  [`textWrap`](../api/chart/legendSettings/#textwrap) Property. End user can also wrap the legend text based on the [`maximumLabelWidth`](../api/chart/legendSettings/#maximumlabelwidth) property.
+
+{% tab template="chart/axis/category", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AxisModel, ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject,LegendSettingsModel,
+         Legend, Category, Tooltip, DataLabel, ColumnSeries}
+from'@syncfusion/ej2-react-charts';
+
+class App extends React.Component<{}, {}> {
+
+  public data: any[] = [
+    { country: "USA", gold: 50, silver: 70, bronze: 45 },
+    { country: "China", gold: 40, silver: 60, bronze: 55 },
+    { country: "Japan", gold: 70, silver: 60, bronze: 50 },
+    { country: "Australia", gold: 60, silver: 56, bronze: 40 },
+    { country: "France", gold: 50, silver: 45, bronze: 35 },
+    { country: "Germany", gold: 40, silver: 30, bronze: 22 },
+    { country: "Italy", gold: 40, silver: 35, bronze: 37 },
+    { country: "Sweden", gold: 30, silver: 25, bronze: 27 }
+  ];
+  public primaryxAxis: AxisModel = { valueType: 'Category', title: 'Countries' };
+  public primaryyAxis: AxisModel = { minimum: 0, maximum: 80, interval: 20, title: 'Medals' };
+  public legendSettings: LegendSettingsModel = { visible: true, position: 'Right', textWrap:'Wrap', maximumLabelWidth:50, };
+
+  render() {
+    return <ChartComponent id='charts'
+      primaryXAxis={this.primaryxAxis}
+      primaryYAxis={this.primaryyAxis}
+      legendSettings={this.legendSettings}
+      title='Olympic Medals'>
+      <Inject services={[ColumnSeries, Legend, Tooltip, DataLabel, Category]} />
+      <SeriesCollectionDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='gold' name='Gold Medals' type='Column'>
+        </SeriesDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='silver' name='Silver Medals' type='Column'>
+        </SeriesDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='bronze' name='Bronze Medals' type='Column'>
+        </SeriesDirective>
+      </SeriesCollectionDirective>
+    </ChartComponent>
+  }
+
+};
+ReactDOM.render(<App />, document.getElementById("charts"));
+```
+
+{% endtab %}
+
+### Set the label color based on series color
+
+You can set the legend label color based on series color by using chart's [loaded](../api/chart/#loaded) event.
+
+{% tab template="chart/axis/category", sourceFiles="app/**/*.tsx", compileJsx=true %}
+
+```tsx
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { AxisModel, ChartComponent, Chart, SeriesCollectionDirective, SeriesDirective, Inject,LegendSettingsModel,
+         Legend, Category, Tooltip, DataLabel, ColumnSeries, ILoadedEventArgs}
+from'@syncfusion/ej2-react-charts';
+
+// declare the series colors
+let colors: string[] = ['#00BDAE', '#404041', '#357CD2'];
+
+class App extends React.Component<{}, {}> {
+
+  public data: any[] = [
+    { country: "USA", gold: 50, silver: 70, bronze: 45 },
+    { country: "China", gold: 40, silver: 60, bronze: 55 },
+    { country: "Japan", gold: 70, silver: 60, bronze: 50 },
+    { country: "Australia", gold: 60, silver: 56, bronze: 40 },
+    { country: "France", gold: 50, silver: 45, bronze: 35 },
+    { country: "Germany", gold: 40, silver: 30, bronze: 22 },
+    { country: "Italy", gold: 40, silver: 35, bronze: 37 },
+    { country: "Sweden", gold: 30, silver: 25, bronze: 27 }
+  ];
+  public primaryxAxis: AxisModel = { valueType: 'Category', title: 'Countries' };
+  public primaryyAxis: AxisModel = { minimum: 0, maximum: 80, interval: 20, title: 'Medals' };
+  public legendSettings: LegendSettingsModel = { visible: true, position: 'Top' };
+
+  render() {
+    return <ChartComponent id='charts'
+      primaryXAxis={this.primaryxAxis}
+      primaryYAxis={this.primaryyAxis}
+      legendSettings={this.legendSettings}
+      loaded={this.onChartLoaded.bind(this)}
+      title='Olympic Medals'>
+      <Inject services={[ColumnSeries, Legend, Tooltip, DataLabel, Category]} />
+      <SeriesCollectionDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='gold' name='Gold' type='Column'>
+        </SeriesDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='silver' name='Silver' type='Column'>
+        </SeriesDirective>
+        <SeriesDirective dataSource={this.data} xName='country' yName='bronze' name='Bronze' type='Column'>
+        </SeriesDirective>
+      </SeriesCollectionDirective>
+    </ChartComponent>
+  }
+
+  onChartLoaded(args: ILoadedEventArgs) {
+    let chart: Chart = document.getElementById('charts');
+    let legendTextCol: HTMLElement = chart.querySelectorAll('[id*="chart_legend_text_"]');
+    for (let i = 0; i < legendTextCol.length; i++) {
+        //set the color to legend label
+        legendTextCol[i].setAttribute('fill', colors[i]);
+    }
   }
 
 };

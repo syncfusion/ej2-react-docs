@@ -10,7 +10,7 @@ description: "We can set bullet-chart size manually by using width and height pr
 
 ## Size for Container
 
-The bullet chart can be rendered to its container’s size. You can set the size using inline or CSS as shown below.
+The size of the Bullet Chart is determined by the container size, and it can be changed inline or via CSS as following.
 
 ```html
  <div id="charts" style="width:650px; height:350px"></div>
@@ -53,7 +53,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Size for Bullet Chart
 
-You can also set the size for bullet chart directly using the [`width`](../api/bullet-chart/bulletChartModel/#width) and [`height`](../api/bullet-chart/bulletChartModel/#height) properties.
+The [`width`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#width) and [`height`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#height) properties are used to adjust the size of the Bullet Chart.
 
 {% tab template="bullet-chart/bullet-chart-dimensions/container", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -89,9 +89,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-### In Pixel
+### Pixel
 
-You can set the size of a chart in pixels as shown below.
+Can set the size of the Bullet Chart in pixels as shown below.
 
 {% tab template="bullet-chart/bullet-chart-dimensions/container", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -128,9 +128,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-### In Percentage
+### Percentage
 
-By setting a value in percentage, the bullet chart gets its dimension with respect to its container. For example, when the height is ‘50%’, the bullet chart renders to half of the container’s height.
+By setting a value in percentage, the Bullet Chart gets its dimension with respect to its container. For example, when the height is **50%**, the Bullet Chart renders to half of the container’s height.
 
 {% tab template="bullet-chart/bullet-chart-dimensions/container", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -167,4 +167,4 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
->Note: When you do not specify the size, it takes `126px` as its height and window size as its width.
+>If the size is not specified, the Bullet Chart will be rendered with a height of **126px** and a width of the window.

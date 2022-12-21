@@ -6,9 +6,11 @@ component: "Bullet Chart"
 description: "The title and sub-title is very useful to understand the bullet chart in efficient way. It describes what kind of data which represtend by the bullet-chart. "
 ---
 
-# Title
+# Title and Subtitle
 
-A title can be given to a bullet chart using the `title` property to show information about the data plotted.
+## Title
+
+The title of the Bullet Chart displays the information about the data plotted by specifying it in the [`title`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#title) property.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -42,9 +44,9 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 {% endtab %}
 
-## SubTitle
+## Subtitle
 
-A subtitle can also be given to a bullet chart using the `subtitle` property to show additional information about the data plotted.
+To show additional information about the data plotted, the Bullet Chart can also be given a subtitle using the [`subtitle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#subtitle) property.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -81,11 +83,11 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Title and SubTitle Position
 
-You can place the title and subtitle in different positions. By using the `titlePosition` property of the bullet chart, you can place the title and subtitles in different positions like `left`, `right`, `top`, and `bottom`.
+The title and the subtitle positions can be customized using the [`titlePosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titleposition) property. Possible positions are **Left**, **Right**, **Top**, and **Bottom**.
 
 ### Position as Left
 
-By setting the `titlePosition` to `Left`, you can display the title and subtitle at the left side of the chart.
+By setting the [`titlePosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titleposition) to **Left**, you can display the title and subtitle at the left side of the Bullet Chart.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -124,7 +126,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Position as Right
 
-By setting the `titlePosition` to `Right`, you can display the title and subtitle at the right side of the chart.
+By setting the [`titlePosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titleposition) to **Right**, you can display the title and subtitle at the right side of the Bullet Chart.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -163,7 +165,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Position as Top
 
-By setting the `titlePosition` to `Top`, you can display the title and subtitle at the top of the chart. The default title and subtitle positions of the bullet chart is `Top`.
+By setting the [`titlePosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titleposition) to **Top**, you can display the title and subtitle at the top of the Bullet Chart. The default title and subtitle positions of the Bullet Chart is **Top**.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -202,7 +204,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ### Position as Bottom
 
-By setting the `titlePosition` to `Bottom`, you can display the title and subtitle at the bottom of the chart.
+By setting the [`titlePosition`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titleposition) to **Bottom**, you can display the title and subtitle at the bottom of the Bullet Chart.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -241,7 +243,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## Title Customization
 
-You can customize the bullet chart title’s `fontStyle`, `size`, `color`, `fontWeight`, and `fontFamily` using the `titleStyle` property.
+The title color, opacity, font size, font family, font weight, and font style can be customized using the [`titleStyle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#titlestyle) property.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
@@ -280,7 +282,7 @@ ReactDOM.render(<App />, document.getElementById("charts"));
 
 ## SubTitle Customization
 
-You can customize the bullet chart subtitle’s `fontStyle`, `size`, `color`, `fontWeight`, and `fontFamily` using the `subtitleStyle` property.
+The sub-title color, opacity, font size, font family, font weight, and font style can be customized using the [`subtitleStyle`](https://ej2.syncfusion.com/react/documentation/api/bullet-chart/#subtitlestyle) property.
 
 {% tab template="bullet-chart/title", sourceFiles="app/**/*.tsx", compileJsx=true %}
 
